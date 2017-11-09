@@ -1,0 +1,32 @@
+{% extends "v_layout.html.twig" %}
+{% block contenu %}
+<div class="row">
+    {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
+        <a href="{{ path('typePlat.add') }}"> Ajouter un type </a>
+    {% endif %}
+    <table>
+    <caption>Recapitulatifs des types</caption>
+    <thead>
+        <tbody>
+    <tr><th>id</th><th>libelle</th>
+    {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
+        <th>Opérations</th>
+    {% endif %}
+    </tr>
+    </thead>
+    {% for typePlat in data if data is not empty %}
+        <tr>
+            <td>{{typePlat.idTypePlat}}</td><td>{{typePlat.libelle}}</td>
+            {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
+            <td>
+                <a href="{{ path('typePlat.edit', {id: typePlat.idTypePlat}) }}">modifier</a>
+                -
+                <a href="{{ path('typePlat.delete', {id: typePlat.idTypePlat}) }}">supprimer</a>
+            </td>
+            {% endif %}
+        </tr>
+
+    {% endfor %}
+        <tbody>
+    </table>
+{% endblock %}

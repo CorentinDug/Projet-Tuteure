@@ -1,0 +1,60 @@
+{% extends "v_layout.html.twig" %}
+{% block contenu %}
+    <form method="post" action="{{ path("plats.validFormAdd") }} ">
+        <div class="row">
+            <fieldset>
+                <legend>Creer un plats (twig)</legend>
+                <label>Nom :
+                    <input name="nom"  type="text"  size="18" value="{{donnees.nom|default("")}}" />
+                    {% if erreurs.nom is defined %}
+                        <small class="error">{{erreurs.nom}}</small>
+                    {% endif %}
+                </label>
+
+                <label>Type :
+                    <select name="idTypePlat">
+                        {% if typePlat.idTypePlat is not defined or donnees.typePlat_id is empty   %}
+                            <option value="">Veuillez sélectionner un produit</option>
+                        {% endif %}
+                        {% for typePlat in typePlat %}
+                            <option value="{{ typePlat.idTypePlat }}"
+                            {% if donnees.typePlat is defined and typePlat.idTypePlat == donnees.typePlat    %}selected{% endif %}>
+                                {{ typePlat.libelle }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                    {% if erreurs.idTypePlat is defined %}
+                        <small class="error">{{erreurs.idTypePlat}}</small>
+                    {% endif %}
+                </label>
+
+                <label>Prix
+                    <input name="prix"  type="text"  size="18"  value="{{donnees.prix|default("")}}"/>
+                    {% if erreurs.prix is defined %}
+                        <small class="error">{{erreurs.prix}}</small>
+                    {% endif %}
+                </label>
+                <label>dureePreparation
+                    <input name="dureePreparation"  type="text"  size="18" value="{{donnees.dureePreparation|default("")}}"/>
+                    {% if erreurs.dureePreparation is defined %}
+                        <small class="error">{{erreurs.dureePreparation}}</small>
+                    {% endif %}
+                </label>
+                <label>Date creation
+                    <input name="dateCreation"  type="text"  size="18" value="{% if donnees.dateCreation is defined %}{{ changeDate(donnees.dateCreation)}}{% endif %}"/>
+                    {% if erreurs.dateCreation is defined %}
+                        <small class="error">{{erreurs.dateCreation}}</small>
+                    {% endif %}
+                </label>
+                <label>description
+                    <input name="description"  type="text"  size="18" value="{{donnees.description|default("")}}"/>
+                    {% if erreurs.description is defined %}
+                        <small class="error">{{erreurs.description}}</small>
+                    {% endif %}
+                </label>
+                <input type="hidden"   name="_csrf_token"   value="{{ csrf_token('token_add_plat') }}">
+                <input type="submit" name="creerPlat" value="créer" />
+            </fieldset>
+        </div>
+    </form>
+{% endblock %}

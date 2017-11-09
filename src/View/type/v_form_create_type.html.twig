@@ -1,0 +1,18 @@
+{% extends "v_layout.html.twig" %}
+{% block contenu %}
+    <form method="post" action="{{ path("typePlat.validFormAddTypePlat") }} ">
+        <div class="row">
+            <fieldset>
+                <legend>Creer un type (twig)</legend>
+                <label>Libelle :
+                    <input name="libelle"  type="text"  size="18" value="{{donnees.libelle|default("")}}" />
+                    {% if erreurs.libelle is defined %}
+                        <small class="error">{{erreurs.libelle}}</small>
+                    {% endif %}
+                </label>
+                <input type="hidden"   name="_csrf_token"   value="{{ csrf_token('token_add_type') }}">
+                <input type="submit" name="creerTypePlat" value="créer" />
+            </fieldset>
+        </div>
+    </form>
+{% endblock %}
