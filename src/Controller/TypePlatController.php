@@ -31,7 +31,7 @@ class TypePlatController implements ControllerProviderInterface{
         return $app["twig"]->render('type/v_table_type.html.twig',['data'=>$type]);
     }
     public function home(Application $app){
-        return $app["twig"]->render('type/v_home.html.twig');
+        return $app["twig"]->render('type/v_admin.html.twig');
     }
 
     public function addTypePlat(Application $app) {

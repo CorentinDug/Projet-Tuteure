@@ -1,8 +1,48 @@
-.top-bar{
-    background-color: #1cc7ff;
-    box-shadow: 0 0 1em blue;
+.button {
+    background-color:white;
+    border: 2px solid black;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    left:40%;
+    top:35%;
+    font-size: 16px;
 }
-.dropdown{
-    background-color: #1cc7ff;
+.button1{
+    background-color:white;
+    border: 2px solid black;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    left:40%;
+    top:35%;
+    font-size: 16px;
+}
+.button:hover{
+    background-color:white;
+    border:2px solid #7FFFD4;
+    color: black;
 }
 
+.top-bar a{
+    background-color: #1cc7ff !important;
+}
+
+.top-bar{
+    top: 10%;
+    background-color: #1cc7ff !important;
+    box-shadow: 0 0 2em #0910ff;
+}
+
+.contenuPrincipal{
+    position: relative;
+    top:20%;
+}
+.name{
+    background-color: #1cc7ff !important;
+    color: white !important;
+}

@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 
+use App\Model\UserModel;
 use Silex\Application;
 use Silex\Api\ControllerProviderInterface;   // version 2.0 avant sans Api
 
@@ -9,7 +10,11 @@ class IndexController implements ControllerProviderInterface
 {
     public function index(Application $app)
     {
-        return $app["twig"]->render("v_home.html.twig");
+
+        if(isset($app['session']) and $app['session']->get('roles') == 'ROLE_ADMIN' ){
+            return $app["twig"]->render("v_admin.html.twig");
+        }
+        return $app["twig"]->render("v_invite.html.twig");
     }
 
     public function info()
@@ -20,7 +25,7 @@ class IndexController implements ControllerProviderInterface
     public function validMonForm(Application $app)
     {
         $data=$_POST['test'];
-        return $app["twig"]->render("v_home.html.twig",["data"=>$data]);
+        return $app["twig"]->render("v_admin.html.twig",["data"=>$data]);
     }
     public function errorDroit(Application $app){
         return $app["twig"]->render("v_errorDroit.html.twig");

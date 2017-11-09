@@ -33,7 +33,7 @@ class platController implements ControllerProviderInterface{
         return $app["twig"]->render('plats/v_table_plats.html.twig',['data'=>$plats]);
     }
     public function home(Application $app){
-        return $app["twig"]->render('plats/v_home.html.twig');
+        return $app["twig"]->render('plats/v_admin.html.twig');
     }
 
     public function addPlat(Application $app) {

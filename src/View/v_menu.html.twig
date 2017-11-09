@@ -9,25 +9,23 @@
     </li>
   </ul>
   <section class="top-bar-section">
+  {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
     <ul class="left">
-      <li class="divider"></li>
       <li class="has-dropdown"><a href="#">plats</a>
         <ul class="dropdown">
-          <li><a href="{{ path('plats.show') }}">afficher/editer/supprimer les plats</a></li>
-            {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
+          <li><a href="{{ path('plats.show') }}" class="truc">afficher/editer/supprimer les plats</a></li>
               <li><a href="{{ path('plats.add') }}"> créer un plat </a></li>
-            {% endif %}
+
         </ul>
       </li>
       <li class="has-dropdown"><a href="#">types</a>
         <ul class="dropdown">
           <li><a href="{{ path('typePlat.show') }}">afficher/editer/supprimer les types</a></li>
-            {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
               <li><a href="{{ path('typePlat.add') }}"> créer un type </a></li>
-            {% endif %}
         </ul>
       </li>
     </ul>
+    {% endif %}
     <ul class="right">
         {% if   app.session.get('logged') is defined and  app.session.get('logged') == 1 %}
           <li class="name" style="color: #d58512">Connecté en tant que : {{ app.session.get('username') }}</li>

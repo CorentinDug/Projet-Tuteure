@@ -1,0 +1,7 @@
+{% extends "v_layout.html.twig" %}
+{% block contenu %}
+{% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
+    Page Admin
+{% endif %}
+
+{% endblock %}

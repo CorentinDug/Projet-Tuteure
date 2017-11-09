@@ -9,10 +9,15 @@
     <script src="{{ asset("assets/js/vendor/modernizr.js") }}"></script>
 </head>
 <body>
+<div class="small-2">
+
+</div>
 {% include "v_menu.html.twig" %}
+<div class="contenuPrincipal">
 {% block contenu %}
-    block par défaut
+
 {% endblock %}
+</div>
 <script src="{{ asset("assets/js/vendor/jquery.js") }}"></script>
 <script src="{{ asset("assets/js/foundation.min.js") }}"></script>
 <script>
