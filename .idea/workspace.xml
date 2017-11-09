@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bc013022-7f25-4ede-af16-7f075b69fe8e" name="Default" comment="Commit" />
+    <list default="true" id="bc013022-7f25-4ede-af16-7f075b69fe8e" name="Default" comment="Commit">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/Projet-Tuteure.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -207,7 +212,7 @@
       <updated>1510172662344</updated>
       <workItem from="1510172665374" duration="1151000" />
       <workItem from="1510243240468" duration="721000" />
-      <workItem from="1510244047236" duration="10000" />
+      <workItem from="1510244047236" duration="97000" />
     </task>
     <task id="LOCAL-00001" summary="First test commit">
       <created>1510173073191</created>
@@ -227,7 +232,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1882000" />
+    <option name="totallyTimeSpent" value="1969000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1932" height="1092" extended-state="0" />
