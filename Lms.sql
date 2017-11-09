@@ -181,6 +181,33 @@ CREATE TABLE sert(
         PRIMARY KEY (id_reservation ,id_etu )
 )ENGINE=InnoDB;
 
+DROP TABLE IF EXISTS users;
+
+# <http://silex.sensiolabs.org/doc/2.0/providers/security.html#defining-a-custom-user-provider>
+# Contenu de la table `utilisateur`
+
+CREATE TABLE users (
+        id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+        username VARCHAR(100) NOT NULL DEFAULT '',
+        password VARCHAR(255) NOT NULL DEFAULT '',
+        motdepasse VARCHAR(255) NOT NULL DEFAULT '',
+        roles VARCHAR(255) NOT NULL DEFAULT '',
+        email  VARCHAR(255) NOT NULL DEFAULT '',
+        isEnabled TINYINT(1) NOT NULL DEFAULT 1,
+        PRIMARY KEY (`id`),
+        UNIQUE KEY `unique_username` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+# mot de passe crypté avec security.encoder.bcrypt
+
+INSERT INTO users (id,username,password,motdepasse,email,roles) VALUES
+        (1, 'admin', '$2y$13$mJK5hyDNAY9rcDuEBofjJ.h3d7xBwlApfMoknBDO0AvXLr1AaJM02', 'admin', 'admin@gmail.com','ROLE_ADMIN'),
+        (2, 'invite', '$2y$13$j5rdj5QL3fd.IZlA5JNbc.kTRaa1YbJK/G7h2mB51ySzaDdgEbo8W', 'invite', 'admin@gmail.com','ROLE_INVITE'),
+        (3, 'vendeur', '$2y$13$/gwC0Iv6ssewrr9JeUDDuOcRTWD.uIEjJpH1HUWPAxe.5EwY98OEO','vendeur', 'vendeur@gmail.com','ROLE_VENDEUR'),
+        (4, 'client', '$2y$13$bhuMlUWdfc5mAhVumuKUG.etahlJ399DEwuQPhbdXjiCdKIeX2nii', 'client', 'client@gmail.com','ROLE_CLIENT'),
+        (5, 'client2', '$2y$13$SYEM3Tk/5G.C85pIAm0cSOd8BFrFTEnLHBSWsW96Q3k9gCdFXRmvm','client2', 'client2@gmail.com','ROLE_CLIENT');
+
 ALTER TABLE RESERVATION ADD CONSTRAINT FK_RESERVATION_id_client FOREIGN KEY (id_client) REFERENCES CLIENT(id_client);
 ALTER TABLE RESERVATION ADD CONSTRAINT FK_RESERVATION_ FOREIGN KEY (id_menu) REFERENCES MENU(id_menu);
 ALTER TABLE MENU ADD CONSTRAINT FK_MENU_id_type FOREIGN KEY (id_type) REFERENCES TYPE(id_type) ;

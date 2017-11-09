@@ -11,17 +11,9 @@
   <section class="top-bar-section">
   {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
     <ul class="left">
-      <li class="has-dropdown"><a href="#">plats</a>
+      <li class="has-dropdown"><a href="#">menus</a>
         <ul class="dropdown">
-          <li><a href="{{ path('plats.show') }}" class="truc">afficher/editer/supprimer les plats</a></li>
-              <li><a href="{{ path('plats.add') }}"> créer un plat </a></li>
-
-        </ul>
-      </li>
-      <li class="has-dropdown"><a href="#">types</a>
-        <ul class="dropdown">
-          <li><a href="{{ path('typePlat.show') }}">afficher/editer/supprimer les types</a></li>
-              <li><a href="{{ path('typePlat.add') }}"> créer un type </a></li>
+          <li><a href="{{ path('menu.show') }}" class="truc">afficher/editer/supprimer les menus</a></li>
         </ul>
       </li>
     </ul>

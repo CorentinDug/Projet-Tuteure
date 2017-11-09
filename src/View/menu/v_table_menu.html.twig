@@ -1,0 +1,31 @@
+{% extends "v_layout.html.twig" %}
+{% block contenu %}
+  <div class="row">
+    {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
+      <a href=""> Ajouter un menu </a>
+    {% endif %}
+  <table>
+    <caption>Recapitulatifs des menu</caption>
+    <thead>
+    <tbody>
+    <tr><th>Nom Menu</th><th>nb Dispo</th><th>prix</th><th>Date Menu</th><th>Presence Boisson</th><th>type</th>
+        <th>aperitif</th><th>entree</th><th>plat</th><th>fromage</th><th>dessert</th><th>supplement</th>
+        <th>boisson</th>
+        {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
+          <th>operation</th>
+        {% endif %}
+    </tr>
+    </thead>
+      {% for menu in data if data is not empty %}
+        <tr>
+          <td>{{menu.libelle_menu}}</td><td>{{menu.nbDispo}}</td><td>{{ menu.prix|number_format(2, ',', '')}}€</td><td>{{ changeDate(menu.date_menu) }}</td><td>{{menu.pres_boisson}}</td>
+            <td>{{menu.libelle_type}}</td><td>{{menu.libelle_aperitif}}</td><td>{{menu.libelle_entree}}</td><td>{{menu.libelle_plat}}</td>
+            <td>{{menu.libelle_fromage}}</td><td>{{menu.libelle_dessert}}</td><td>{{menu.type_supplement}}</td><td>{{menu.type_boisson}}</td><td>
+            {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
+
+            {% endif %}
+        </tr>
+      {% endfor %}
+    <tbody>
+  </table>
+{% endblock %}

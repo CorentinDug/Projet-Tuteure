@@ -95,11 +95,7 @@ Request::enableHttpMethodParameterOverride();
 
 //***************************************
 // Montage des contrôleurs sur le routeur
-$app->mount("/", new App\Controller\IndexController($app));
-
-$app->mount("/plats", new App\Controller\PlatController($app));
-$app->mount("/typePlat", new App\Controller\TypePlatController($app));
-$app->mount("/user", new App\Controller\UserController($app));
+include('routeur.php');
 
 
 //On lance l'application

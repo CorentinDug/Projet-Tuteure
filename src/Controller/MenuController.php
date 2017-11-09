@@ -21,7 +21,7 @@ class menuController implements ControllerProviderInterface{
     {
         $this->menuModel = new MenuModel($app);
         $menu = $this->menuModel->getAllMenu();
-        return $app["twig"]->render("menu/v_table_menu.html.twig");
+        return $app["twig"]->render("menu/v_table_menu.html.twig",['data'=>$menu]);
     }
 
     /**
@@ -33,6 +33,13 @@ class menuController implements ControllerProviderInterface{
      */
     public function connect(Application $app)
     {
+        $controllers = $app['controllers_factory'];
+
+        $controllers->get('/', 'App\Controller\MenuController::index')->bind('menu.index');
+        $controllers->get('/show', 'App\Controller\MenuController::showMenu')->bind('menu.show');
+
+        return $controllers;
+
         // TODO: Implement connect() method.
     }
 }
