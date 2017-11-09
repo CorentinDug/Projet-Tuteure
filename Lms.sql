@@ -52,12 +52,11 @@ CREATE TABLE RESERVATION(
 #------------------------------------------------------------
 
 CREATE TABLE MENU(
-        id_menu       int (11) Auto_increment  NOT NULL ,
+        id_menu       int (11) Auto_increment,
         libelle_menu  Text ,
         nbDispo       Int ,
         prix          Int ,
         date_menu     DATE ,
-        pres_boisson boolean ,
         id_type       Int ,
         id_aperitif   Int ,
         id_entree     Int ,
@@ -328,10 +327,10 @@ insert into TYPE values(2,"Diner");
         INSERTION MENU
 
 */
-INSERT INTO MENU values (null,'Menu1',6,5,"2017-10-01",1,1,1,1,1,1,1,1,1);
-INSERT INTO MENU values (null,'Menu2',5,4,"2017-10-02",1,2,2,2,2,2,2,2,2);
-INSERT INTO MENU values (null,'Menu3',4,3,"2017-10-03",0,1,3,3,3,3,3,3,3);
-INSERT INTO MENU values (null,'Menu4',3,2,"2017-10-04",1,2,4,4,4,4,4,4,4);
+INSERT INTO MENU values (null,'Menu1',6,5,'2017-10-01',1,1,1,1,1,1,1,1);
+INSERT INTO MENU values (null,'Menu2',5,4,'2017-10-02',2,2,2,2,2,2,2,2);
+INSERT INTO MENU values (null,'Menu3',4,3,'2017-10-03',1,3,3,3,3,3,3,3);
+INSERT INTO MENU values (null,'Menu4',3,2,'2017-10-04',2,4,4,4,4,4,4,4);
 
 /*
 

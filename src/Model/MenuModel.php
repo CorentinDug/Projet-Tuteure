@@ -14,7 +14,7 @@ class menuModel{
     public function getAllMenu(){
         $queryBuilder = new QueryBuilder($this->db);
         $queryBuilder
-            ->select('m.id_menu','m.libelle_menu','m.nbDispo','m.prix','m.date_menu','m.pres_boisson','a.libelle_aperitif'
+            ->select('m.id_menu','m.libelle_menu','m.nbDispo','m.prix','m.date_menu','a.libelle_aperitif'
             ,'b.type_boisson','d.libelle_dessert','e.libelle_entree','f.libelle_fromage','p.libelle_plat','s.type_supplement','t.libelle_type')
             ->from('menu', 'm')
             ->innerJoin('m', 'aperitif', 'a', 'a.id_aperitif=m.id_aperitif')
@@ -27,5 +27,37 @@ class menuModel{
             ->innerJoin('m', 'type', 't', 't.id_type=m.id_type')
             ->addOrderBy('m.libelle_menu', 'ASC');
         return $queryBuilder->execute()->fetchAll();
+    }
+
+    public function insertMenu($donnees)
+    {
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->insert('menu')
+            ->values(['libelle_menu' => '?',
+                'nbDispo' => '?',
+                'prix' => '?',
+                'date_menu' => '?',
+                'id_type' => '?',
+                'id_aperitif' => '?',
+                'id_entree' => '?',
+                'id_plat' => '?',
+                'id_fromage' => '?',
+                'id_dessert' => '?',
+                'id_boisson' => '?',
+                'id_supplement' => '?'
+                ])
+            ->setParameter(0,$donnees['libelle_menu'])
+            ->setParameter(1,$donnees['nbDispo'])
+            ->setParameter(2,$donnees['prix'])
+            ->setParameter(3,$donnees['date_menu'])
+            ->setParameter(4,$donnees['id_type'])
+            ->setParameter(5,$donnees['id_aperitif'])
+            ->setParameter(6,$donnees['id_entree'])
+            ->setParameter(7,$donnees['id_plat'])
+            ->setParameter(8,$donnees['id_fromage'])
+            ->setParameter(9,$donnees['id_dessert'])
+            ->setParameter(10,$donnees['id_boisson'])
+            ->setParameter(11,$donnees['id_supplement']);
+        return $queryBuilder->execute();
     }
 }
