@@ -3,6 +3,9 @@
 #------------------------------------------------------------
 
 
+#pour creer la meme base de données que moi :
+#create database if not exists projet_tut;
+
 drop table if exists sert;
 drop table if exists RESERVATION;
 drop table if exists MENU;
@@ -54,6 +57,7 @@ CREATE TABLE MENU(
         nbDispo       Int ,
         prix          Int ,
         date_menu     DATE ,
+        pres_boisson boolean ,
         id_type       Int ,
         id_aperitif   Int ,
         id_entree     Int ,
@@ -151,7 +155,6 @@ CREATE TABLE APERITIF(
 
 CREATE TABLE BOISSON(
         id_boisson   int (11) Auto_increment  NOT NULL ,
-        pres_boisson Bool ,
         type_boisson Text ,
         PRIMARY KEY (id_boisson )
 )ENGINE=InnoDB;
@@ -267,10 +270,10 @@ insert into DESSERT values(null,"dessert4");
 
 */
 
-insert into DESSERT values(null,"boisson1");
-insert into DESSERT values(null,"boisson2");
-insert into DESSERT values(null,"boisson3");
-insert into DESSERT values(null,"boisson4");
+insert into BOISSON values(null,"boisson1");
+insert into BOISSON values(null,"boisson2");
+insert into BOISSON values(null,"boisson3");
+insert into BOISSON values(null,"boisson4");
 
 
 
@@ -280,19 +283,28 @@ insert into DESSERT values(null,"boisson4");
 
 */
 
-insert into DESSERT values(null,"supplement1");
-insert into DESSERT values(null,"supplement2");
-insert into DESSERT values(null,"supplement3");
-insert into DESSERT values(null,"supplement4");
+insert into SUPPLEMENT values(null,"supplement1");
+insert into SUPPLEMENT values(null,"supplement2");
+insert into SUPPLEMENT values(null,"supplement3");
+insert into SUPPLEMENT values(null,"supplement4");
+/*
+
+        INSERTION TYPE
+
+*/
+
+insert into TYPE values(1,"Dejeuner");
+insert into TYPE values(2,"Diner");
+
 /*
 
         INSERTION MENU
 
 */
-INSERT INTO MENU values (null,'Menu1',6,5,"2017-10-01",1,1,1,1,1,1,1,1);
-INSERT INTO MENU values (null,'Menu2',5,4,"2017-10-02",2,2,2,2,2,2,2,2);
-INSERT INTO MENU values (null,'Menu3',4,3,"2017-10-03",1,3,3,3,3,3,3,3);
-INSERT INTO MENU values (null,'Menu4',3,2,"2017-10-04",2,4,4,4,4,4,4,4);
+INSERT INTO MENU values (null,'Menu1',6,5,"2017-10-01",1,1,1,1,1,1,1,1,1);
+INSERT INTO MENU values (null,'Menu2',5,4,"2017-10-02",1,2,2,2,2,2,2,2,2);
+INSERT INTO MENU values (null,'Menu3',4,3,"2017-10-03",0,1,3,3,3,3,3,3,3);
+INSERT INTO MENU values (null,'Menu4',3,2,"2017-10-04",1,2,4,4,4,4,4,4,4);
 
 /*
 
@@ -304,14 +316,6 @@ insert into  RESERVATION values (null,2,1,1);
 insert into  RESERVATION values (null,4,2,2);
 
 
-/*
-
-        INSERTION TYPE
-
-*/
-
-insert into TYPE values(1,"Dejeuner");
-insert into TYPE values(2,"Diner");
 
 /*
 

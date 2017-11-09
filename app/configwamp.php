@@ -1,5 +1,5 @@
 <?php
 define("hostname","localhost"); // ou serveurmysql
-define("database","bdd");
+define("database","projet_tut");
 define("username","root");
 define("password","");
