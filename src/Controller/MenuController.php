@@ -12,6 +12,14 @@ use Symfony\Component\Security\Csrf\CsrfToken;
 class menuController implements ControllerProviderInterface{
 
     private $menuModel;
+    private $aperitifModel;
+    private $boissonModel;
+    private $dessertModel;
+    private $entreeModel;
+    private $fromageModel;
+    private $platModel;
+    private $typeModel;
+    private $supplementModel;
 
     public function index(Application $app) {
         return $this->showMenu($app);       // appel de la méthode show
@@ -23,6 +31,14 @@ class menuController implements ControllerProviderInterface{
         $menu = $this->menuModel->getAllMenu();
         return $app["twig"]->render("menu/v_table_menu.html.twig",['data'=>$menu]);
     }
+
+    public function addMenu(Application $app){
+        $this->typeModel = new TypeModel($app);
+        $type = $this->typeModel->getAllType();
+        $aperitif = $this->aperitifModel->getAllAperitif();
+        return $app["twig"]->render('plats/v_form_create_menu.html.twig');
+    }
+
 
     /**
      * Returns routes to connect to the given application.

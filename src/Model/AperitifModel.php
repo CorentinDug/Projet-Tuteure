@@ -9,7 +9,7 @@ namespace App\Model;
 use Doctrine\DBAL\Query\QueryBuilder;
 use Silex\Application;
 
-class PlatModel
+class AperitifModel
 {
     private $db;
 
@@ -18,12 +18,12 @@ class PlatModel
         $this->db = $app['db'];
     }
 
-    public function getAllPlat(){
+    public function getAllAperitif(){
         $queryBuilder = new QueryBuilder($this->db);
         $queryBuilder
-            ->select('id_plat','libelle_plat')
-            ->from('plat')
-            ->orderBy('id_plat');
+            ->select('id_aperitif','libelle_aperitif')
+            ->from('aperitif')
+            ->orderBy('id_aperitif');
         return $queryBuilder->execute()->fetchAll();
     }
 }
