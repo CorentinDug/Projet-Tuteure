@@ -296,10 +296,12 @@ insert into DESSERT values(null,"dessert4");
 
 */
 
+insert into BOISSON values(null,"sans boisson");
 insert into BOISSON values(null,"boisson1");
 insert into BOISSON values(null,"boisson2");
 insert into BOISSON values(null,"boisson3");
 insert into BOISSON values(null,"boisson4");
+
 
 
 
@@ -308,7 +310,7 @@ insert into BOISSON values(null,"boisson4");
         INSERTION SUPPLEMENT
 
 */
-
+insert into SUPPLEMENT values(null,"sans supplement");
 insert into SUPPLEMENT values(null,"supplement1");
 insert into SUPPLEMENT values(null,"supplement2");
 insert into SUPPLEMENT values(null,"supplement3");

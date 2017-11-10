@@ -100,6 +100,14 @@ class menuController implements ControllerProviderInterface{
             if((!is_numeric($donnees['prix'])))$erreurs['prix']='saisir une valeur numérique';
             if((!is_numeric($donnees['nbDispo'])))$erreurs['nbDispo']='saisir une valeur numérique';
             if(!$this->helperDate->verifDate($donnees['date_menu'])) $erreurs['date_menu']='Saisir date au format JJ-MM-AAAA';
+            if ($donnees['id_type'] == "") $erreurs['type']='chosir un type';
+            if ($donnees['id_aperitif'] == "") $erreurs['aperitif']='chosir un aperitif';
+            if ($donnees['id_entree'] == "") $erreurs['entree']='chosir une entree';
+            if ($donnees['id_plat'] == "") $erreurs['plat']='chosir un plat';
+            if ($donnees['id_fromage'] == "") $erreurs['fromage']='chosir un fromage';
+            if ($donnees['id_dessert'] == "") $erreurs['dessert']='chosir un dessert';
+            if ($donnees['id_boisson'] == "") $erreurs['boisson']='chosir une boisson';
+            if ($donnees['id_supplement'] == "") $erreurs['supplement']='chosir une supplement';
             $donnees['date_menu'] = $this->helperDate->changeFormat($donnees['date_menu']);
             if(! empty($erreurs))
             {

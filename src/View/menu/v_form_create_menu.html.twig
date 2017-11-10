@@ -55,7 +55,7 @@
                         {% endif %}
                         {% for aperitif in aperitif %}
                             <option value="{{ aperitif.id_aperitif }}"
-                                    {% if donnees.id_aperitif is defined and type.id_aperitif == donnees.id_aperitif    %}selected{% endif %}>
+                                    {% if donnees.id_aperitif is defined and aperitif.id_aperitif == donnees.id_aperitif    %}selected{% endif %}>
                                 {{ aperitif.libelle_aperitif }}
                             </option>
                         {% endfor %}
@@ -72,7 +72,7 @@
                         {% endif %}
                         {% for entree in entree %}
                             <option value="{{ entree.id_entree }}"
-                                    {% if donnees.id_entree is defined and type.id_entree == donnees.id_entree    %}selected{% endif %}>
+                                    {% if donnees.id_entree is defined and entree.id_entree == donnees.id_entree    %}selected{% endif %}>
                                 {{ entree.libelle_entree }}
                             </option>
                         {% endfor %}
@@ -89,7 +89,7 @@
                         {% endif %}
                         {% for plat in plat %}
                             <option value="{{ plat.id_plat }}"
-                                    {% if donnees.id_plat is defined and type.id_plat == donnees.id_plat    %}selected{% endif %}>
+                                    {% if donnees.id_plat is defined and plat.id_plat == donnees.id_plat    %}selected{% endif %}>
                                 {{ plat.libelle_plat }}
                             </option>
                         {% endfor %}
@@ -106,7 +106,7 @@
                         {% endif %}
                         {% for fromage in fromage %}
                             <option value="{{ fromage.id_fromage }}"
-                                    {% if donnees.id_fromage is defined and type.id_fromage == donnees.id_fromage    %}selected{% endif %}>
+                                    {% if donnees.id_fromage is defined and fromage.id_fromage == donnees.id_fromage    %}selected{% endif %}>
                                 {{ fromage.libelle_fromage }}
                             </option>
                         {% endfor %}
@@ -123,7 +123,7 @@
                         {% endif %}
                         {% for dessert in dessert %}
                             <option value="{{ dessert.id_dessert }}"
-                                    {% if donnees.id_dessert is defined and type.id_dessert == donnees.id_dessert    %}selected{% endif %}>
+                                    {% if donnees.id_dessert is defined and dessert.id_dessert == donnees.id_dessert    %}selected{% endif %}>
                                 {{ dessert.libelle_dessert }}
                             </option>
                         {% endfor %}
@@ -135,12 +135,9 @@
 
                 <label>Boisson :
                     <select name="id_boisson">
-                        {% if boisson.id_boisson is not defined or donnees.id_boisson is empty   %}
-                            <option value="">Veuillez sélectionner un boisson</option>
-                        {% endif %}
                         {% for boisson in boisson %}
                             <option value="{{ boisson.id_boisson }}"
-                                    {% if donnees.id_boisson is defined and type.id_boisson == donnees.id_boisson    %}selected{% endif %}>
+                                    {% if donnees.id_boisson is defined and boisson.id_boisson == donnees.id_boisson    %}selected{% endif %}>
                                 {{ boisson.type_boisson }}
                             </option>
                         {% endfor %}
@@ -152,12 +149,9 @@
 
                 <label>Supplement :
                     <select name="id_supplement">
-                        {% if supplement.id_supplement is not defined or donnees.id_supplement is empty   %}
-                            <option value="">Veuillez sélectionner un supplement</option>
-                        {% endif %}
                         {% for supplement in supplement %}
                             <option value="{{ supplement.id_supplement }}"
-                                    {% if donnees.id_supplement is defined and type.id_supplement == donnees.id_supplement    %}selected{% endif %}>
+                                    {% if donnees.id_supplement is defined and supplement.id_supplement == donnees.id_supplement    %}selected{% endif %}>
                                 {{ supplement.type_supplement }}
                             </option>
                         {% endfor %}
@@ -166,7 +160,6 @@
                         <small class="error">{{erreurs.supplement}}</small>
                     {% endif %}
                 </label>
-
                 <input type="hidden"   name="_csrf_token"   value="{{ csrf_token('token_add_menu') }}">
                 <input type="submit" name="creerPlat" value="créer" />
             </fieldset>
