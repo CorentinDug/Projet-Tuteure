@@ -26,4 +26,5 @@ class PlatModel
             ->orderBy('id_plat');
         return $queryBuilder->execute()->fetchAll();
     }
+
 }

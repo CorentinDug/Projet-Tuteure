@@ -16,14 +16,15 @@
           <th>operation</th>
         {% endif %}
     </tr>
-    </thead>
       {% for menu in data if data is not empty %}
         <tr>
           <td>{{menu.libelle_menu}}</td><td>{{menu.nbDispo}}</td><td>{{ menu.prix|number_format(2, ',', '')}}€</td><td>{{ changeDate(menu.date_menu) }}</td>
             <td>{{menu.libelle_type}}</td><td>{{menu.libelle_aperitif}}</td><td>{{menu.libelle_entree}}</td><td>{{menu.libelle_plat}}</td>
             <td>{{menu.libelle_fromage}}</td><td>{{menu.libelle_dessert}}</td><td>{{menu.type_boisson}}</td><td>{{menu.type_supplement}}</td><td>
             {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
-
+                <a href="{{ path('menu.update', {id: menu.id_menu}) }}">Modifier</a>
+                -
+                <a href="{{ path('menu.delete',{id: menu.id_menu}) }}">Supprimer</a>
             {% endif %}
         </tr>
       {% endfor %}

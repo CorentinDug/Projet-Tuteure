@@ -60,4 +60,48 @@ class menuModel{
             ->setParameter(11,$donnees['id_supplement']);
         return $queryBuilder->execute();
     }
+
+    public function getMenu($id){
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder
+            ->select('id_menu', 'libelle_menu','nbDispo','prix','date_menu','id_type','id_aperitif','id_entree'
+            ,'id_plat','id_plat','id_fromage','id_dessert','id_boisson','id_supplement')
+            ->from('menu')
+            ->where('id_menu='.$id);
+        return $queryBuilder->execute()->fetch();
+
+    }
+
+    public function updateMenu($donnees)
+    {
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->update('menu')
+            ->set('libelle_menu' , '?')
+            ->set('nbDispo' , '?')
+            ->set('prix' , '?')
+            ->set('date_menu' , '?')
+            ->set('id_type' , '?')
+            ->set('id_aperitif' , '?')
+            ->set('id_entree' , '?')
+            ->set('id_plat' , '?')
+            ->set('id_fromage' , '?')
+            ->set('id_dessert' , '?')
+            ->set('id_boisson' , '?')
+            ->set('id_supplement' , '?')
+            ->where("id_menu = ".$donnees['id_menu'])
+            ->setParameter(0, $donnees['libelle_menu'])
+            ->setParameter(1, $donnees['nbDispo'])
+            ->setParameter(2, $donnees['prix'])
+            ->setParameter(3, $donnees['date_menu'])
+            ->setParameter(4, $donnees['id_type'])
+            ->setParameter(5, $donnees['id_aperitif'])
+            ->setParameter(6, $donnees['id_entree'])
+            ->setParameter(7, $donnees['id_plat'])
+            ->setParameter(8, $donnees['id_fromage'])
+            ->setParameter(9, $donnees['id_dessert'])
+            ->setParameter(10, $donnees['id_boisson'])
+            ->setParameter(11, $donnees['id_supplement'])
+        ;
+        return $queryBuilder->execute();
+    }
 }
