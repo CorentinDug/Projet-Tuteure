@@ -8,3 +8,19 @@ Création de la database :
 use projet_tut
 
 puis copier le reste
+
+proposition autre ou l'on tape manuellement le plat si il n'est pas dans la liste
+
+plat décomposé en viande et accompagnement
+
+barre de recherche dans la liste déroulante pour les plats ou autres
+
+système de tri dans la tableau de menu
+
+rappel pour benjamin pas de paiement en ligne
+
+boisson non défini juste mettre si compris ou non dans le menu
+
+Pour les évaluations, le menu n'est pas décrit
+
+et envoyer un mail récap pour le semaine prochaine et rdv avec la prof le 24 novembre
