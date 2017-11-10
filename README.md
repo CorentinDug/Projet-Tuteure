@@ -9,6 +9,8 @@ use projet_tut
 
 puis copier le reste
 
+-------------
+
 proposition autre ou l'on tape manuellement le plat si il n'est pas dans la liste
 
 plat décomposé en viande et accompagnement
