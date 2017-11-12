@@ -247,6 +247,24 @@ class menuController implements ControllerProviderInterface{
         }
     }
 
+    public function deleteMenu(Application $app, $id){
+
+        $this->menuModel = new MenuModel($app);
+        $donnees = $this->menuModel->getMenu($id);
+        return $app["twig"]->render('menu/v_form_delete_menu.html.twig',['donnees'=>$donnees]);
+    }
+
+    public function validFormDelete(Application $app, Request $req) {
+        $id=$app->escape($req->get('id'));
+        if (is_numeric($id)) {
+            $this->menuModel = new MenuModel($app);
+            $this->menuModel->deleteMenu($id);
+            return $app->redirect($app["url_generator"]->generate("menu.index"));
+        }
+        else
+            return $app->abort(404, 'error Pb id form Delete');
+    }
+
     /**
      * Returns routes to connect to the given application.
      *

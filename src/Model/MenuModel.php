@@ -104,4 +104,14 @@ class menuModel{
         ;
         return $queryBuilder->execute();
     }
+
+    public function deleteMenu($id) {
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder
+            ->delete('menu')
+            ->where('id_menu = :id')
+            ->setParameter('id',(int)$id)
+        ;
+        return $queryBuilder->execute();
+    }
 }
