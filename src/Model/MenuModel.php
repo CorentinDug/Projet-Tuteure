@@ -111,4 +111,13 @@ class menuModel{
             ->where('id_menu='.$donnees['id_menu']);
         return $queryBuilder->execute();
     }
+
+    public function autoComplet(){
+        $term = $_GET['term'];
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->select('libelle_menu')
+            ->from('menu')
+            ->where('libelle_menu like'.$term);
+        $queryBuilder->execute(array('term'=>'$'.$term.'$'));
+    }
 }

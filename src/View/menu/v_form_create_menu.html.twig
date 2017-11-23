@@ -32,20 +32,7 @@
                 </label>
 
                 <label>Type :
-                    <select name="id_type">
-                        {% if type.id_type is not defined or donnees.id_type is empty   %}
-                            <option value="">Veuillez sélectionner un type</option>
-                        {% endif %}
-                        {% for type in type %}
-                            <option value="{{ type.id_type }}"
-                            {% if donnees.id_type is defined and type.id_type == donnees.id_type    %}selected{% endif %}>
-                                {{ type.libelle_type }}
-                            </option>
-                        {% endfor %}
-                    </select>
-                    {% if erreurs.type is defined %}
-                        <small class="error">{{erreurs.type}}</small>
-                    {% endif %}
+                    <input type="text" id="recherche">
                 </label>
 
                 <label>Aperitif :
