@@ -104,4 +104,11 @@ class menuModel{
         ;
         return $queryBuilder->execute();
     }
+    public function deleteTypeMenu($donnees){
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder
+            ->delete('menu')
+            ->where('id_menu='.$donnees['id_menu']);
+        return $queryBuilder->execute();
+    }
 }

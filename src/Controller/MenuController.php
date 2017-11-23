@@ -247,6 +247,38 @@ class menuController implements ControllerProviderInterface{
         }
     }
 
+    public function deletePlat(Application $app, $id){
+        $this->menuModel = new MenuModel($app);
+
+        $menu = $this->menuModel->getMenu($id);
+        return $app["twig"]->render('type/v_form_delete_menu.html.twig',['donnees'=>$menu]);
+    }
+
+    public function validFormDeleteTypePlat(Application $app,Request $req)
+    {
+        //var_dump($app['request']->attributes);
+        if (isset($_POST['_csrf_token'])) {
+            $token = $_POST['_csrf_token'];
+            $csrf_token = new CsrfToken('token_delete_type', $token);
+            $csrf_token_ok = $app['csrf.token_manager']->isTokenValid($csrf_token);
+            if(!$csrf_token_ok)
+            {
+                $erreurs["csrf"] = "Erreur : token : ".$token ;
+                return $app["twig"]->render("v_error_csrf.html.twig",['erreurs' => $erreurs]);
+            }
+        }
+        else
+            return $app->redirect($app["url_generator"]->generate("index.errorCsrf"));
+
+        $donnees = [
+            'idTypePlat' => $app->escape($req->get('id')),
+        ];
+
+        $this->typePlatModel = new TypePlatModel($app);
+        $this->typePlatModel->deleteTypePlat($donnees);
+        return $app->redirect($app["url_generator"]->generate("typePlat.index"));
+    }
+
     /**
      * Returns routes to connect to the given application.
      *

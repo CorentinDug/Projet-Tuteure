@@ -1,13 +1,13 @@
 {% extends "v_layout.html.twig" %}
 {% block contenu %}
-    <form method="post" action="{{path('plats.validFormDelete')}}">
+    <form method="post" action="{{path('menu.validFormDelete')}}">
         <div class="row">
             <fieldset>
                     <input type="hidden" name="_method" id="_method" value="delete"/>
-                <legend>Voulez-vous suprimer ce produit ? (twig)</legend>
-                <h3 id="blue">{{ donnees.nom }}</h3>
-                <input name="id"  type="hidden" value="{{donnees.id_plat}}" />
-                <input type="hidden"   name="_csrf_token"   value="{{ csrf_token('token_delete_plat') }}">
+                <legend>Voulez-vous suprimer ce menu ? (twig)</legend>
+                <h3 id="blue">{{ donnees.libelle_meny }}</h3>
+                <input name="id"  type="hidden" value="{{donnees.id_menu}}" />
+                <input type="hidden"   name="_csrf_token"   value="{{ csrf_token('token_delete_menu') }}">
                 <input type="submit" name="suprimerProduit" value="Suprimer" />
             </fieldset>
         </div>
