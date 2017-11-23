@@ -1,5 +1,11 @@
 {% extends "v_layout.html.twig" %}
 {% block contenu %}
+    <script>
+
+        $('#recherche').autocomplete({
+            source : 'test.php'
+        });
+    </script>
     <form method="post" action="{{ path("menu.validFormAdd") }} ">
         <div class="row">
             <fieldset>
@@ -32,7 +38,7 @@
                 </label>
 
                 <label>Type :
-                    <input type="text" id="recherche">
+                    <input type="text" id="recherche"/>
                 </label>
 
                 <label>Aperitif :

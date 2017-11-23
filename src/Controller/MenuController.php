@@ -265,6 +265,14 @@ class menuController implements ControllerProviderInterface{
             return $app->abort(404, 'error Pb id form Delete');
     }
 
+    public function autoComplete(Application $app){
+        $term = $_GET['term'];
+        $this->menuModel = new MenuModel($app);
+        $this->menuModel->autoComplete($term);
+        return $app->redirect($app["url_generator"]->generate("menu.add"));
+
+    }
+
     /**
      * Returns routes to connect to the given application.
      *
@@ -288,6 +296,7 @@ class menuController implements ControllerProviderInterface{
         $controllers->get('/edit{id}', 'App\Controller\MenuController::deleteMenu')->bind('menu.delete');
         $controllers->delete('/edit', 'App\Controller\MenuController::validFormDelete')->bind('menu.validFormDelete');
 
+        $controllers->get('/auto','App\Controller\MenuController::autoComplete')->bind('menu.autoComplete');
         return $controllers;
 
         // TODO: Implement connect() method.
