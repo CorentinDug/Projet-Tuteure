@@ -26,3 +26,14 @@ boisson non défini juste mettre si compris ou non dans le menu
 Pour les évaluations, le menu n'est pas décrit
 
 et envoyer un mail récap pour le semaine prochaine et rdv avec la prof le 24 novembre
+
+-------------
+note du dernier rdv avec la prof:
+
+Afficher le nombre de place restant pour les MENUS (afficher au dessus des menus et rajouter la couleur en fonction du nbr de place restant)
+
+Suppression de réservation
+
+faire deux calendrier (un pour le midi, un pour le soir)
+
+diapo a rendre pour le 22 décembre au max (voir sur moodle pour plus de détails)
