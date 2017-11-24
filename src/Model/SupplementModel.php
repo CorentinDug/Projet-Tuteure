@@ -55,7 +55,7 @@ class SupplementModel
         ;
         return $queryBuilder->execute();
     }
-    public function deleteDessert($donnees){
+    public function deleteSupplement($donnees){
         $queryBuilder = new QueryBuilder($this->db);
         $queryBuilder
             ->delete('supplement')
