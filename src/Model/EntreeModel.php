@@ -26,4 +26,43 @@ class EntreeModel
             ->orderBy('id_entree');
         return $queryBuilder->execute()->fetchAll();
     }
+
+    public function getEntree($id){
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder
+            ->select('e.id_entree', 'e.libelle_entree')
+            ->from('entree', 'e')
+            ->where('e.id_entree='.$id);
+        return $queryBuilder->execute()->fetch();
+
+    }
+
+    public function insertEntree($donnees){
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->insert('entree')
+            ->values(['libelle_entree' => '?'])
+            ->setParameter(0,$donnees['libelle_entree']);
+        return $queryBuilder->execute();
+    }
+
+    public function updateEntree($donnees)
+    {
+        var_dump($donnees);
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->update('entree')
+            ->set('libelle_entree' , '?')
+            ->where("id_entree = ".$donnees['id_entree'])
+            ->setParameter(0, $donnees['id_entree'])
+
+        ;
+        return $queryBuilder->execute();
+    }
+
+    public function deleteEntree($donnees){
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder
+            ->delete('entree')
+            ->where('id_entree='.$donnees['id_entree']);
+        return $queryBuilder->execute();
+    }
 }

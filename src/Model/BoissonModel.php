@@ -26,4 +26,40 @@ class BoissonModel
             ->orderBy('id_boisson');
         return $queryBuilder->execute()->fetchAll();
     }
+
+    public function getBoisson($id){
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder
+            ->select('b.id_boisson', 'b.type_boisson')
+            ->from('boisson', 'b')
+            ->where('b.id_boisson='.$id);
+        return $queryBuilder->execute()->fetch();
+
+    }
+    public function insertDessert($donnees){
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->insert('boisson')
+            ->values(['type_boisson' => '?'])
+            ->setParameter(0,$donnees['type_boisson']);
+        return $queryBuilder->execute();
+    }
+    public function updateDessert($donnees)
+    {
+        var_dump($donnees);
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->update('boisson')
+            ->set('type_boisson' , '?')
+            ->where("id_boisson = ".$donnees['id_boisson'])
+            ->setParameter(0, $donnees['id_boisson'])
+
+        ;
+        return $queryBuilder->execute();
+    }
+    public function deleteDessert($donnees){
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder
+            ->delete('boisson')
+            ->where('id_boisson='.$donnees['id_boisson']);
+        return $queryBuilder->execute();
+    }
 }

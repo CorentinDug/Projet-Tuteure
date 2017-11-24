@@ -26,4 +26,40 @@ class DessertModel
             ->orderBy('id_dessert');
         return $queryBuilder->execute()->fetchAll();
     }
+
+    public function getDessert($id){
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder
+            ->select('d.id_dessert', 'd.libelle_dessert')
+            ->from('DESSERT', 'd')
+            ->where('d.id_dessert='.$id);
+        return $queryBuilder->execute()->fetch();
+
+    }
+    public function insertDessert($donnees){
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->insert('DESSERT')
+            ->values(['libelle_dessert' => '?'])
+            ->setParameter(0,$donnees['libelle_dessert']);
+        return $queryBuilder->execute();
+    }
+    public function updateDessert($donnees)
+    {
+        var_dump($donnees);
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->update('DESSERT')
+            ->set('libelle_dessert' , '?')
+            ->where("id_dessert = ".$donnees['id_dessert'])
+            ->setParameter(0, $donnees['id_dessert'])
+
+        ;
+        return $queryBuilder->execute();
+    }
+    public function deleteDessert($donnees){
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder
+            ->delete('DESSERT')
+            ->where('id_dessert='.$donnees['id_dessert']);
+        return $queryBuilder->execute();
+    }
 }
