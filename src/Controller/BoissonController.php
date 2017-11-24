@@ -17,27 +17,27 @@ class BoissonController implements ControllerProviderInterface
 
     public function index(Application $app)
     {
-        return $this->showType($app);       // appel de la méthode show
+        return $this->showboisson($app);       // appel de la méthode show
     }
 
-    public function showType(Application $app)
+    public function showboisson(Application $app)
     {
         $this->BoissonModel = new BoissonModel($app);
-        $type = $this->BoissonModel->getAllBoisson();
-        return $app["twig"]->render('type/v_table_type.html.twig', ['data' => $type]);
+        $boisson = $this->BoissonModel->getAllBoisson();
+        return $app["twig"]->render('boisson/v_table_boisson.html.twig', ['data' => $boisson]);
     }
 
     public function home(Application $app)
     {
-        return $app["twig"]->render('type/v_admin.html.twig');
+        return $app["twig"]->render('boisson/v_admin.html.twig');
     }
 
     public function addBoisson(Application $app)
     {
 
         $this->BoissonModel = new BoissonModel($app);
-        $typeType = $this->BoissonModel->getAllBoisson();
-        return $app["twig"]->render('type/v_form_create_type.html.twig', ['typeType' => $typeType]);
+        $boisson = $this->BoissonModel->getAllBoisson();
+        return $app["twig"]->render('boisson/v_form_create_boisson.html.twig', ['boisson' => $boisson]);
     }
 
     public function deleteBoisson(Application $app, $id)
@@ -45,7 +45,7 @@ class BoissonController implements ControllerProviderInterface
         $this->BoissonModel = new BoissonModel($app);
 
         $BoissonModel = $this->BoissonModel->getBoisson($id);
-        return $app["twig"]->render('type/v_form_delete_type.html.twig', ['donnees' => $BoissonModel]);
+        return $app["twig"]->render('boisson/v_form_delete_boisson.html.twig', ['donnees' => $BoissonModel]);
     }
 
     public function editBoisson(Application $app, $id)
@@ -54,7 +54,7 @@ class BoissonController implements ControllerProviderInterface
         $donnees = $this->BoissonModel->getBoisson($id);
         //var_dump($donnees);
 
-        return $app["twig"]->render('type/v_form_update_type.html.twig', ['donnees' => $donnees]);
+        return $app["twig"]->render('boisson/v_form_update_boisson.html.twig', ['donnees' => $donnees]);
     }
 
     public function validFormAddBoisson(Application $app)
@@ -62,7 +62,7 @@ class BoissonController implements ControllerProviderInterface
         //var_dump($app['request']->attributes);
         if (isset($_POST['_csrf_token'])) {
             $token = $_POST['_csrf_token'];
-            $csrf_token = new CsrfToken('token_add_type', $token);
+            $csrf_token = new CsrfToken('token_add_boisson', $token);
             $csrf_token_ok = $app['csrf.token_manager']->isTokenValid($csrf_token);
             if (!$csrf_token_ok) {
                 $erreurs["csrf"] = "Erreur : token : " . $token;
@@ -73,7 +73,7 @@ class BoissonController implements ControllerProviderInterface
 
         if (1 == 1) {
             $donnees = [
-                'libelle' => htmlspecialchars($_POST['libelle']),                    // echapper les entrées
+                'libelle_boisson' => htmlspecialchars($_POST['libelle_boisson']),                    // echapper les entrées
 
             ];
 
@@ -82,10 +82,10 @@ class BoissonController implements ControllerProviderInterface
             if (!empty($erreurs)) {
                 $this->BoissonModel = new BoissonModel($app);
                 $Boisson = $this->BoissonModel->getAllBoisson();
-                return $app["twig"]->render('type/v_form_create_type.html.twig', ['donnees' => $donnees, 'erreurs' => $erreurs, 'Boisson' => $Boisson]);
+                return $app["twig"]->render('boisson/v_form_create_boisson.html.twig', ['donnees' => $donnees, 'erreurs' => $erreurs, 'Boisson' => $Boisson]);
             } else {
                 $this->BoissonModel = new BoissonModel($app);
-                $this->BoissonModel->insertType($donnees);
+                $this->BoissonModel->insertboisson($donnees);
                 return $app->redirect($app["url_generator"]->generate("Boisson.index"));
             }
         } else {
@@ -98,7 +98,7 @@ class BoissonController implements ControllerProviderInterface
         //var_dump($app['request']->attributes);
         if (isset($_POST['_csrf_token'])) {
             $token = $_POST['_csrf_token'];
-            $csrf_token = new CsrfToken('token_delete_type', $token);
+            $csrf_token = new CsrfToken('token_delete_boisson', $token);
             $csrf_token_ok = $app['csrf.token_manager']->isTokenValid($csrf_token);
             if (!$csrf_token_ok) {
                 $erreurs["csrf"] = "Erreur : token : " . $token;
@@ -121,7 +121,7 @@ class BoissonController implements ControllerProviderInterface
         $this->helperDate = new HelperDate();
         if (isset($_POST['_csrf_token'])) {
             $token = $_POST['_csrf_token'];
-            $csrf_token = new CsrfToken('token_edit_type', $token);
+            $csrf_token = new CsrfToken('token_edit_boisson', $token);
             $csrf_token_ok = $app['csrf.token_manager']->isTokenValid($csrf_token);
             if (!$csrf_token_ok) {
                 $erreurs["csrf"] = "Erreur : token : " . $token;
@@ -140,7 +140,7 @@ class BoissonController implements ControllerProviderInterface
         if (!empty($erreurs)) {
             $this->BoissonModel = new BoissonModel($app);
             $Boisson = $this->BoissonModel->getAllBoisson();
-            return $app["twig"]->render('type/v_form_update_boisson.html.twig', ['donnees' => $donnees, 'erreurs' => $erreurs, 'Boisson' => $Boisson]);
+            return $app["twig"]->render('boisson/v_form_update_boisson.html.twig', ['donnees' => $donnees, 'erreurs' => $erreurs, 'Boisson' => $Boisson]);
         } else {
             $this->BoissonModel = new BoissonModel($app);
             $this->BoissonModel->updateBoisson($donnees);
@@ -160,7 +160,7 @@ class BoissonController implements ControllerProviderInterface
         $controllers = $app['controllers_factory'];
 
         $controllers->get('/', 'App\Controller\BoissonController::index')->bind('Boisson.index');
-        $controllers->get('/show', 'App\Controller\BoissonController::showType')->bind('Boisson.show');
+        $controllers->get('/show', 'App\Controller\BoissonController::showBoisson')->bind('Boisson.show');
 
         $controllers->get('/home', 'App\Controller\BoissonController::home')->bind('Boisson.home');
 
