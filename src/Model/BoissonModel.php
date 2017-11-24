@@ -36,14 +36,14 @@ class BoissonModel
         return $queryBuilder->execute()->fetch();
 
     }
-    public function insertDessert($donnees){
+    public function insertBoisson($donnees){
         $queryBuilder = new QueryBuilder($this->db);
         $queryBuilder->insert('boisson')
             ->values(['type_boisson' => '?'])
             ->setParameter(0,$donnees['type_boisson']);
         return $queryBuilder->execute();
     }
-    public function updateDessert($donnees)
+    public function updateBoisson($donnees)
     {
         var_dump($donnees);
         $queryBuilder = new QueryBuilder($this->db);
@@ -55,7 +55,7 @@ class BoissonModel
         ;
         return $queryBuilder->execute();
     }
-    public function deleteDessert($donnees){
+    public function deleteBoisson($donnees){
         $queryBuilder = new QueryBuilder($this->db);
         $queryBuilder
             ->delete('boisson')
