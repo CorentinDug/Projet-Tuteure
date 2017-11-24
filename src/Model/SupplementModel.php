@@ -26,4 +26,40 @@ class SupplementModel
             ->orderBy('id_supplement');
         return $queryBuilder->execute()->fetchAll();
     }
+
+    public function getSupplement($id){
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder
+            ->select('s.id_supplement', 's.type_supplement')
+            ->from('supplement', 's')
+            ->where('s.id_supplement='.$id);
+        return $queryBuilder->execute()->fetch();
+
+    }
+    public function insertSupplement($donnees){
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->insert('supplement')
+            ->values(['type_supplement' => '?'])
+            ->setParameter(0,$donnees['type_supplement']);
+        return $queryBuilder->execute();
+    }
+    public function updateSupplement($donnees)
+    {
+        var_dump($donnees);
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->update('supplement')
+            ->set('type_supplement' , '?')
+            ->where("id_supplement = ".$donnees['id_supplement'])
+            ->setParameter(0, $donnees['id_supplement'])
+
+        ;
+        return $queryBuilder->execute();
+    }
+    public function deleteDessert($donnees){
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder
+            ->delete('supplement')
+            ->where('id_supplement='.$donnees['id_supplement']);
+        return $queryBuilder->execute();
+    }
 }

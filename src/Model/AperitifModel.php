@@ -26,4 +26,40 @@ class AperitifModel
             ->orderBy('id_aperitif');
         return $queryBuilder->execute()->fetchAll();
     }
+
+    public function getAperitif($id){
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder
+            ->select('a.id_aperitif', 'a.libelle_aperitif')
+            ->from('aperitif', 'a')
+            ->where('a.id_aperitif='.$id);
+        return $queryBuilder->execute()->fetch();
+
+    }
+    public function insertAperitif($donnees){
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->insert('aperitif')
+            ->values(['libelle_aperitif' => '?'])
+            ->setParameter(0,$donnees['libelle_aperitif']);
+        return $queryBuilder->execute();
+    }
+    public function updateAperitif($donnees)
+    {
+        var_dump($donnees);
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->update('aperitif')
+            ->set('libelle_aperitif' , '?')
+            ->where("id_aperitif = ".$donnees['id_aperitif'])
+            ->setParameter(0, $donnees['id_aperitif'])
+
+        ;
+        return $queryBuilder->execute();
+    }
+    public function deleteAperitif($donnees){
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder
+            ->delete('aperitif')
+            ->where('id_aperitif='.$donnees['id_aperitif']);
+        return $queryBuilder->execute();
+    }
 }
