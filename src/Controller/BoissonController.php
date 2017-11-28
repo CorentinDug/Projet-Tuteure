@@ -20,11 +20,11 @@ class BoissonController implements ControllerProviderInterface
         return $this->showboisson($app);       // appel de la méthode show
     }
 
-    public function showboisson(Application $app)
+    public function showBoisson(Application $app)
     {
         $this->BoissonModel = new BoissonModel($app);
         $boisson = $this->BoissonModel->getAllBoisson();
-        return $app["twig"]->render('boisson/v_table_boisson.html.twig', ['data' => $boisson]);
+        return $app["twig"]->render('boisson/v_table_boisson_menu.html.twig', ['boisson' => $boisson]);
     }
 
     public function home(Application $app)
@@ -159,19 +159,19 @@ class BoissonController implements ControllerProviderInterface
     {
         $controllers = $app['controllers_factory'];
 
-        $controllers->get('/', 'App\Controller\BoissonController::index')->bind('Boisson.index');
-        $controllers->get('/show', 'App\Controller\BoissonController::showBoisson')->bind('Boisson.show');
+        $controllers->get('/', 'App\Controller\BoissonController::index')->bind('boisson.index');
+        $controllers->get('/show', 'App\Controller\BoissonController::showBoisson')->bind('boisson.show');
 
-        $controllers->get('/home', 'App\Controller\BoissonController::home')->bind('Boisson.home');
+        $controllers->get('/home', 'App\Controller\BoissonController::home')->bind('boisson.home');
 
-        $controllers->get('/add', 'App\Controller\BoissonController::addBoisson')->bind('Boisson.add');
-        $controllers->post('/add', 'App\Controller\BoissonController::validFormAddBoisson')->bind('Boisson.validFormAddBoisson');
+        $controllers->get('/add', 'App\Controller\BoissonController::addBoisson')->bind('boisson.add');
+        $controllers->post('/add', 'App\Controller\BoissonController::validFormAddBoisson')->bind('boisson.validFormAddBoisson');
 
-        $controllers->get('/delete{id}', 'App\Controller\BoissonController::deleteBoisson')->bind('Boisson.delete');
-        $controllers->delete('/delete', 'App\Controller\BoissonController::validFormDeleteBoisson')->bind('Boisson.validFormDeleteBoisson');
+        $controllers->get('/delete{id}', 'App\Controller\BoissonController::deleteBoisson')->bind('boisson.delete');
+        $controllers->delete('/delete', 'App\Controller\BoissonController::validFormDeleteBoisson')->bind('boisson.validFormDeleteBoisson');
 
-        $controllers->get('/edit{id}', 'App\Controller\BoissonController::editBoisson')->bind('Boisson.edit');
-        $controllers->put('/edit', 'App\Controller\BoissonController::validFormEditBoisson')->bind('Boisson.validFormEditBoisson');
+        $controllers->get('/edit{id}', 'App\Controller\BoissonController::editBoisson')->bind('boisson.edit');
+        $controllers->put('/edit', 'App\Controller\BoissonController::validFormEditBoisson')->bind('boisson.validFormEditBoisson');
 
         return $controllers;
     }
