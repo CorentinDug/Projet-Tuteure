@@ -83,6 +83,13 @@ $app->before(function (\Symfony\Component\HttpFoundation\Request $request) use (
 
 });
 
+$app->before(function (\Symfony\Component\HttpFoundation\Request $request) {
+    if (0 === strpos($request->headers->get('Content-Type'), 'application/json')) {
+        $data = json_decode($request->getContent(), true);
+        $request->request->replace(is_array($data) ? $data : array());
+    }
+});
+
 use Silex\Provider\CsrfServiceProvider;
 $app->register(new CsrfServiceProvider());
 

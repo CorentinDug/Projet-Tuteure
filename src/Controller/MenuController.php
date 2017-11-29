@@ -266,10 +266,10 @@ class menuController implements ControllerProviderInterface{
     }
 
     public function autoComplete(Application $app){
-        $term = $_GET['term'];
         $this->menuModel = new MenuModel($app);
-        $this->menuModel->autoComplete($term);
-        return $app->redirect($app["url_generator"]->generate("menu.add"));
+        $arr = $this->menuModel->autoComplete();
+        return json_encode($arr);
+
 
     }
 
