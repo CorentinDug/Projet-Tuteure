@@ -44,8 +44,8 @@ class BoissonController implements ControllerProviderInterface
     {
         $this->BoissonModel = new BoissonModel($app);
 
-        $BoissonModel = $this->BoissonModel->getBoisson($id);
-        return $app["twig"]->render('boisson/v_form_delete_boisson.html.twig', ['donnees' => $BoissonModel]);
+        $boissonModel = $this->BoissonModel->getBoisson($id);
+        return $app["twig"]->render('boisson/v_form_delete_boisson.html.twig', ['donnees' => $boissonModel]);
     }
 
     public function editBoisson(Application $app, $id)
@@ -148,6 +148,12 @@ class BoissonController implements ControllerProviderInterface
         }
     }
 
+    public function autoCompleteBoisson(Application $app){
+        $this->BoissonModel = new BoissonModel($app);
+        $arr = $this->BoissonModel->autoCompleteBoisson();
+        return json_encode($arr);
+    }
+
     /**
      * Returns routes to connect to the given application.
      *
@@ -173,6 +179,7 @@ class BoissonController implements ControllerProviderInterface
         $controllers->get('/edit{id}', 'App\Controller\BoissonController::editBoisson')->bind('boisson.edit');
         $controllers->put('/edit', 'App\Controller\BoissonController::validFormEditBoisson')->bind('boisson.validFormEditBoisson');
 
+        $controllers->get('/autoBoisson', 'App\Controller\BoissonController::autoCompleteBoisson')->bind('boisson.autoComplete');
         return $controllers;
     }
 

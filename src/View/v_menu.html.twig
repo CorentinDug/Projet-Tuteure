@@ -12,7 +12,7 @@
   {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
     <ul class="left">
       <li class="has-dropdown"><a href="#">menus</a>
-        <ul class="dropdown">
+        <ul class="dropdown" >
           <li><a href="{{ path('menu.show') }}" class="truc">afficher/editer/supprimer les menus</a></li>
         </ul>
       </li>

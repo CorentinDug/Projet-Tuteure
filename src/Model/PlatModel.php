@@ -27,4 +27,12 @@ class PlatModel
         return $queryBuilder->execute()->fetchAll();
     }
 
+    public function autoCompletePlat(){
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->select('libelle_plat')
+            ->from('plat');
+        $result = $queryBuilder->execute()->fetchAll();
+        $tab = array_map('current', $result);
+        return $tab;
+    }
 }

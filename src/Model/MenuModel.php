@@ -112,10 +112,5 @@ class menuModel{
         return $queryBuilder->execute();
     }
 
-    public function autoComplete(){
-        $queryBuilder = new QueryBuilder($this->db);
-        $queryBuilder->select('libelle_type')
-            ->from('type');
-        return $queryBuilder->execute()->fetchAll();
-    }
+
 }

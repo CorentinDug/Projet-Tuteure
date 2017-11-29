@@ -62,4 +62,17 @@ class DessertModel
             ->where('id_dessert='.$donnees['id_dessert']);
         return $queryBuilder->execute();
     }
+
+    public function autoCompleteDessert()
+    {
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->select('libelle_dessert')
+            ->from('dessert');
+        $result = $queryBuilder->execute()->fetchAll();
+        $tab = array_map('current', $result);
+        return $tab;
+    }
+
+
+
 }

@@ -50,17 +50,7 @@ $app->register(new Silex\Provider\AssetServiceProvider(), array(
     ),
 ));
 
-//  namespace App\Helper;  // ne pas oublier le namespace ; le nom de la classe = le nom du fichier
-$app->extend('twig', function($twig, $app) {
 
-    $function = new Twig_SimpleFunction('viewTVA', function ($prix) {
-        return App\Helper\HelperViewPrix::viewTVA($prix);
-    });
-    $twig->addFunction($function);
-
-
-    return $twig;
-});
 $app->extend('twig', function($twig, $app) {
     $function = new Twig_SimpleFunction('changeDate', function ($date) {
         return App\Helper\HelperDate::changeDate($date);

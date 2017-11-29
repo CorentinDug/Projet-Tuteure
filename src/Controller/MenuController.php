@@ -269,8 +269,6 @@ class menuController implements ControllerProviderInterface{
         $this->menuModel = new MenuModel($app);
         $arr = $this->menuModel->autoComplete();
         return json_encode($arr);
-
-
     }
 
     /**

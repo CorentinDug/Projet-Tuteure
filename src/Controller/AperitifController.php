@@ -11,8 +11,9 @@ use Symfony\Component\Security\Csrf\CsrfToken;
 class AperitifController implements ControllerProviderInterface
 {
 
-    private $AperitifModel;
+    private $aperitifModel;
     private $helperDate;
+
 
 
     public function index(Application $app)
@@ -28,23 +29,23 @@ class AperitifController implements ControllerProviderInterface
     public function addaperitif(Application $app)
     {
 
-        $this->AperitifModel = new AperitifModel($app);
-        $aperitif = $this->AperitifModel->getAllAperitif();
+        $this->aperitifModel = new AperitifModel($app);
+        $aperitif = $this->aperitifModel->getAllAperitif();
         return $app["twig"]->render('aperitif/v_form_create_aperitif.html.twig', ['aperitif' => $aperitif]);
     }
 
     public function deleteAperitif(Application $app, $id)
     {
-        $this->AperitifModel = new AperitifModel($app);
+        $this->aperitifModel = new AperitifModel($app);
 
-        $aperitifModel = $this->AperitifModel->getAperitif($id);
+        $aperitifModel = $this->aperitifModel->getAperitif($id);
         return $app["twig"]->render('aperitif/v_form_delete_aperitif.html.twig', ['donnees' => $aperitifModel]);
     }
 
     public function editAperitif(Application $app, $id)
     {
-        $this->AperitifModel = new AperitifModel($app);
-        $donnees = $this->AperitifModel->getAperitif($id);
+        $this->aperitifModel = new AperitifModel($app);
+        $donnees = $this->aperitifModel->getAperitif($id);
         //var_dump($donnees);
 
         return $app["twig"]->render('aperitif/v_form_update_aperitif.html.twig', ['donnees' => $donnees]);
@@ -73,12 +74,12 @@ class AperitifController implements ControllerProviderInterface
 
             if ((!preg_match("/^[A-Za-z ]{2,}/", $donnees['libelle']))) $erreurs['libelle'] = 'libelle composé de 2 lettres minimum';
             if (!empty($erreurs)) {
-                $this->AperitifModel = new AperitifModel($app);
-                $aperitif = $this->AperitifModel->getAllaperitif();
+                $this->aperitifModel = new AperitifModel($app);
+                $aperitif = $this->aperitifModel->getAllaperitif();
                 return $app["twig"]->render('aperitif/v_form_create_aperitif.html.twig', ['donnees' => $donnees, 'erreurs' => $erreurs, 'aperitif' => $aperitif]);
             } else {
-                $this->AperitifModel = new AperitifModel($app);
-                $this->AperitifModel->insertAperitif($donnees);
+                $this->aperitifModel = new AperitifModel($app);
+                $this->aperitifModel->insertAperitif($donnees);
                 return $app->redirect($app["url_generator"]->generate("aperitif.index"));
             }
         } else {
@@ -104,8 +105,8 @@ class AperitifController implements ControllerProviderInterface
             'idAperitif' => $app->escape($req->get('id')),
         ];
 
-        $this->AperitifModel = new AperitifModel($app);
-        $this->AperitifModel->deleteaperitif($donnees);
+        $this->aperitifModel = new AperitifModel($app);
+        $this->aperitifModel->deleteaperitif($donnees);
         return $app->redirect($app["url_generator"]->generate("aperitif.index"));
     }
 
@@ -131,14 +132,22 @@ class AperitifController implements ControllerProviderInterface
 
         if ((!preg_match("/^[A-Za-z ]{2,}/", $donnees['libelle']))) $erreurs['libelle'] = 'libelle composé de 2 lettres minimum';
         if (!empty($erreurs)) {
-            $this->AperitifModel = new AperitifModel($app);
-            $aperitif = $this->AperitifModel->getAllaperitif();
+            $this->aperitifModel = new AperitifModel($app);
+            $aperitif = $this->aperitifModel->getAllaperitif();
             return $app["twig"]->render('aperitif/v_form_update_aperitif.html.twig', ['donnees' => $donnees, 'erreurs' => $erreurs, 'aperitif' => $aperitif]);
         } else {
-            $this->AperitifModel = new AperitifModel($app);
-            $this->AperitifModel->updateAperitif($donnees);
+            $this->aperitifModel = new AperitifModel($app);
+            $this->aperitifModel->updateAperitif($donnees);
             return $app->redirect($app["url_generator"]->generate("aperitif.index"));
         }
+
+
+    }
+
+    public function autoCompleteAperitif(Application $app){
+        $this->aperitifModel = new AperitifModel($app);
+        $arr = $this->aperitifModel->autoCompleteAperitif();
+        return json_encode($arr);
     }
 
     /**
@@ -165,6 +174,8 @@ class AperitifController implements ControllerProviderInterface
 
         $controllers->get('/edit{id}', 'App\Controller\AperitifController::editAperitif')->bind('aperitif.edit');
         $controllers->put('/edit', 'App\Controller\AperitifController::validFormEditAperitif')->bind('aperitif.validFormEditAperitif');
+
+        $controllers->get('/autoAperitif', 'App\Controller\AperitifController::autoCompleteAperitif')->bind('aperitif.autoComplete');
 
         return $controllers;
     }

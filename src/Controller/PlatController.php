@@ -184,6 +184,11 @@ class platController implements ControllerProviderInterface{
             return $app->redirect($app["url_generator"]->generate("plats.index"));
         }
     }
+    public function autoCompletePlat(Application $app){
+        $this->platModel = new PlatModel($app);
+        $arr = $this->platModel->autoCompletePlat();
+        return json_encode($arr);
+    }
 
     /**
      * Returns routes to connect to the given application.
@@ -209,6 +214,9 @@ class platController implements ControllerProviderInterface{
 
         $controllers->get('/edit{id}', 'App\Controller\PlatController::editPlat')->bind('plats.edit');
         $controllers->put('/edit', 'App\Controller\PlatController::validFormEditPlat')->bind('plats.validFormEdit');
+
+        $controllers->get('/autoPlat','App\Controller\PlatController::autoCompletePlat')->bind('plat.autoComplete');
+
 
         return $controllers;
     }

@@ -1,29 +1,7 @@
 {% extends "v_layout.html.twig" %}
 {% block contenu %}
-<script type='text/javascript'>
-    var tab = [];
-    $(document).ready(function(){
-
-        /* Appelle le php qui contient le tableau php encodée en json */
-
-        $.getJSON('{{ path('menu.autoComplete') }}', function(data) {
-            /* [XMLmind] contiendra le tableau php en tant qu’objet javascript */
-
-            $.each(data, function(key, val) {
-
-                tab[key] = val;
-                console.log(tab[key])
-
-            });
-
-        });
-        $( "#type" ).autocomplete({
-            source: tab
-        });
-    });
-
-</script>
 <body>
+{% include "script.html.twig" %}
 <form method="post" action="{{ path("menu.validFormAdd") }} ">
     <div class="row">
         <fieldset>
@@ -55,122 +33,51 @@
                 {% endif %}
             </label>
 
-            <label for="type">Type :
-                <input type="text" id="type"/>
-            </label>
-
-            <label>Aperitif :
-                <select name="id_aperitif">
-                    {% if aperitif.id_aperitif is not defined or donnees.id_aperitif is empty   %}
-                        <option value="">Veuillez sélectionner un aperitif</option>
+            <label>Type :
+                <select name="id_type">
+                    {% if type.id_type is not defined or donnees.id_type is empty   %}
+                        <option value="">Veuillez sélectionner un type</option>
                     {% endif %}
-                    {% for aperitif in aperitif %}
-                        <option value="{{ aperitif.id_aperitif }}"
-                                {% if donnees.id_aperitif is defined and aperitif.id_aperitif == donnees.id_aperitif    %}selected{% endif %}>
-                            {{ aperitif.libelle_aperitif }}
+                    {% for type in type %}
+                        <option value="{{ type.id_type }}"
+                                {% if donnees.id_type is defined and type.id_type == donnees.id_type    %}selected{% endif %}>
+                            {{ type.libelle_type }}
                         </option>
                     {% endfor %}
                 </select>
-                {% if erreurs.aperitif is defined %}
-                    <small class="error">{{erreurs.aperitif}}</small>
+                {% if erreurs.type is defined %}
+                    <small class="error">{{erreurs.type}}</small>
                 {% endif %}
             </label>
 
-            <label>Entree :
-                <select name="id_entree">
-                    {% if entree.id_entree is not defined or donnees.id_entree is empty   %}
-                        <option value="">Veuillez sélectionner un entree</option>
-                    {% endif %}
-                    {% for entree in entree %}
-                        <option value="{{ entree.id_entree }}"
-                                {% if donnees.id_entree is defined and entree.id_entree == donnees.id_entree    %}selected{% endif %}>
-                            {{ entree.libelle_entree }}
-                        </option>
-                    {% endfor %}
-                </select>
-                {% if erreurs.entree is defined %}
-                    <small class="error">{{erreurs.entree}}</small>
-                {% endif %}
+            <label for="aperitif">Aperitif :
+                <input type="text" id="aperitif">
             </label>
 
-            <label>Plat :
-                <select name="id_plat">
-                    {% if plat.id_plat is not defined or donnees.id_plat is empty   %}
-                        <option value="">Veuillez sélectionner un plat</option>
-                    {% endif %}
-                    {% for plat in plat %}
-                        <option value="{{ plat.id_plat }}"
-                                {% if donnees.id_plat is defined and plat.id_plat == donnees.id_plat    %}selected{% endif %}>
-                            {{ plat.libelle_plat }}
-                        </option>
-                    {% endfor %}
-                </select>
-                {% if erreurs.plat is defined %}
-                    <small class="error">{{erreurs.plat}}</small>
-                {% endif %}
+            <label for="entree">Entree :
+                <input type="text" id="entree">
             </label>
 
-            <label>Fromage :
-                <select name="id_fromage">
-                    {% if fromage.id_fromage is not defined or donnees.id_fromage is empty   %}
-                        <option value="">Veuillez sélectionner un fromage</option>
-                    {% endif %}
-                    {% for fromage in fromage %}
-                        <option value="{{ fromage.id_fromage }}"
-                                {% if donnees.id_fromage is defined and fromage.id_fromage == donnees.id_fromage    %}selected{% endif %}>
-                            {{ fromage.libelle_fromage }}
-                        </option>
-                    {% endfor %}
-                </select>
-                {% if erreurs.fromage is defined %}
-                    <small class="error">{{erreurs.fromage}}</small>
-                {% endif %}
+            <label for="plat">Plat :
+                <input type="text" id="plat">
             </label>
 
-            <label>Dessert :
-                <select name="id_dessert">
-                    {% if dessert.id_dessert is not defined or donnees.id_dessert is empty   %}
-                        <option value="">Veuillez sélectionner un dessert</option>
-                    {% endif %}
-                    {% for dessert in dessert %}
-                        <option value="{{ dessert.id_dessert }}"
-                                {% if donnees.id_dessert is defined and dessert.id_dessert == donnees.id_dessert    %}selected{% endif %}>
-                            {{ dessert.libelle_dessert }}
-                        </option>
-                    {% endfor %}
-                </select>
-                {% if erreurs.dessert is defined %}
-                    <small class="error">{{erreurs.dessert}}</small>
-                {% endif %}
+            <label for="fromage">Fromage :
+                <input type="text" id="fromage">
             </label>
 
-            <label>Boisson :
-                <select name="id_boisson">
-                    {% for boisson in boisson %}
-                        <option value="{{ boisson.id_boisson }}"
-                                {% if donnees.id_boisson is defined and boisson.id_boisson == donnees.id_boisson    %}selected{% endif %}>
-                            {{ boisson.type_boisson }}
-                        </option>
-                    {% endfor %}
-                </select>
-                {% if erreurs.boisson is defined %}
-                    <small class="error">{{erreurs.boisson}}</small>
-                {% endif %}
+            <label for="dessert">Dessert :
+                <input type="text" id="dessert">
             </label>
 
-            <label>Supplement :
-                <select name="id_supplement">
-                    {% for supplement in supplement %}
-                        <option value="{{ supplement.id_supplement }}"
-                                {% if donnees.id_supplement is defined and supplement.id_supplement == donnees.id_supplement    %}selected{% endif %}>
-                            {{ supplement.type_supplement }}
-                        </option>
-                    {% endfor %}
-                </select>
-                {% if erreurs.supplement is defined %}
-                    <small class="error">{{erreurs.supplement}}</small>
-                {% endif %}
+            <label for="boisson">Boisson :
+                <input type="text" id="boisson">
             </label>
+
+            <label for="supplement">Supplement :
+                <input type="text" id="supplement">
+            </label>
+
             <input type="hidden"   name="_csrf_token"   value="{{ csrf_token('token_add_menu') }}">
             <input type="submit" name="creerPlat" value="créer" />
         </fieldset>

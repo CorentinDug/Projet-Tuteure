@@ -65,4 +65,14 @@ class FromageModel
             ->where('id_fromage='.$donnees['id_fromage']);
         return $queryBuilder->execute();
     }
+
+    public function autoCompleteFromage()
+    {
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->select('libelle_fromage')
+            ->from('fromage');
+        $result = $queryBuilder->execute()->fetchAll();
+        $tab = array_map('current', $result);
+        return $tab;
+    }
 }

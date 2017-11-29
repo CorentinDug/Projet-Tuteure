@@ -62,4 +62,14 @@ class BoissonModel
             ->where('id_boisson='.$donnees['id_boisson']);
         return $queryBuilder->execute();
     }
+
+    public function autoCompleteBoisson()
+    {
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->select('type_boisson')
+            ->from('boisson');
+        $result = $queryBuilder->execute()->fetchAll();
+        $tab = array_map('current', $result);
+        return $tab;
+    }
 }
