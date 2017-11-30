@@ -52,7 +52,7 @@ class FromageModel
         $queryBuilder->update('fromage')
             ->set('libelle_fromage' , '?')
             ->where("id_fromage = ".$donnees['id_fromage'])
-            ->setParameter(0, $donnees['id_fromage'])
+            ->setParameter(0, $donnees['libelle_fromage'])
 
         ;
         return $queryBuilder->execute();

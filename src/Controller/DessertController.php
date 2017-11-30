@@ -5,6 +5,8 @@ use App\Model\DessertModel;
 use Silex\Application;
 use Silex\Api\ControllerProviderInterface;
 use Silex\ControllerCollection;
+use Symfony\Component\HttpFoundation\Request;
+
 class DessertController implements ControllerProviderInterface
 {
 
@@ -37,7 +39,7 @@ class DessertController implements ControllerProviderInterface
     {
         $this->DessertModel = new DessertModel($app);
         $dessert = $this->DessertModel->getAllDessert();
-        return $app["twig"]->render('backOff/dessert/v_form_create_dessert.html.twig', ['dessert' => $dessert]);
+        return $app["twig"]->render('backOff/composant/dessert/v_form_create_dessert.html.twig', ['dessert' => $dessert]);
     }
 
     public function deleteDessert(Application $app, $id)
@@ -45,7 +47,7 @@ class DessertController implements ControllerProviderInterface
         $this->DessertModel = new DessertModel($app);
 
         $DessertModel = $this->DessertModel->getDessert($id);
-        return $app["twig"]->render('backOff/dessert/v_form_delete_dessert.html.twig', ['donnees' => $DessertModel]);
+        return $app["twig"]->render('backOff/composant/dessert/v_form_delete_dessert.html.twig', ['donnees' => $DessertModel]);
     }
 
     public function editDessert(Application $app, $id)
@@ -54,7 +56,7 @@ class DessertController implements ControllerProviderInterface
         $donnees = $this->DessertModel->getDessert($id);
         //var_dump($donnees);
 
-        return $app["twig"]->render('backOff/dessert/v_form_update_dessert.html.twig', ['donnees' => $donnees]);
+        return $app["twig"]->render('backOff/composant/dessert/v_form_update_dessert.html.twig', ['donnees' => $donnees]);
     }
 
     public function validFormAddDessert(Application $app)
@@ -68,15 +70,15 @@ class DessertController implements ControllerProviderInterface
             ];
 
 
-            if ((!preg_match("/^[A-Za-z ]{2,}/", $donnees['libelle']))) $erreurs['libelle'] = 'libelle composé de 2 lettres minimum';
+            if ((!preg_match("/^[A-Za-z ]{2,}/", $donnees['libelle_dessert']))) $erreurs['libelle_dessert'] = 'libelle composé de 2 lettres minimum';
             if (!empty($erreurs)) {
                 $this->DessertModel = new DessertModel($app);
                 $dessert = $this->DessertModel->getAlldessert();
-                return $app["twig"]->render('backOff/dessert/v_form_create_dessert.html.twig', ['donnees' => $donnees, 'erreurs' => $erreurs, 'dessert' => $dessert]);
+                return $app["twig"]->render('backOff/composant/dessert/v_form_create_dessert.html.twig', ['donnees' => $donnees, 'erreurs' => $erreurs, 'dessert' => $dessert]);
             } else {
                 $this->DessertModel = new DessertModel($app);
                 $this->DessertModel->insertdessert($donnees);
-                return $app->redirect($app["url_generator"]->generate("dessert.index"));
+                return $app->redirect($app["url_generator"]->generate("composant.index"));
             }
         } else {
             return "probleme";
@@ -87,34 +89,31 @@ class DessertController implements ControllerProviderInterface
     {
         //var_dump($app['request']->attributes);
 
-        $donnees = [
-            'idDessert' => $app->escape($req->get('id')),
-        ];
+        $id = $app->escape($req->get('id'));
 
         $this->DessertModel = new DessertModel($app);
-        $this->DessertModel->deletedessert($donnees);
-        return $app->redirect($app["url_generator"]->generate("dessert.index"));
+        $this->DessertModel->deleteDessert($id);
+        return $app->redirect($app["url_generator"]->generate("composant.index"));
     }
 
-    public function validFormEditDessert(Application $app, Request $req)
+    public function validFormEditDessert(Application $app)
     {
-        $this->helperDate = new HelperDate();
 
         $donnees = [
-            'idDessert' => htmlspecialchars($_POST['id']),
-            'libelle_dessert' => htmlspecialchars($_POST['libelle']),                    // echapper les entrées
+            'id_dessert' => htmlspecialchars($_POST['id_dessert']),
+            'libelle_dessert' => htmlspecialchars($_POST['libelle_dessert']),                    // echapper les entrées
 
         ];
 
-        if ((!preg_match("/^[A-Za-z ]{2,}/", $donnees['libelle']))) $erreurs['libelle'] = 'libelle composé de 2 lettres minimum';
+        if ((!preg_match("/^[A-Za-z ]{2,}/", $donnees['libelle_dessert']))) $erreurs['libelle_dessert'] = 'libelle composé de 2 lettres minimum';
         if (!empty($erreurs)) {
             $this->DessertModel = new DessertModel($app);
             $dessert = $this->DessertModel->getAlldessert();
-            return $app["twig"]->render('backOff/dessert/v_form_update_dessert.html.twig', ['donnees' => $donnees, 'erreurs' => $erreurs, 'dessert' => $dessert]);
+            return $app["twig"]->render('backOff/composant/dessert/v_form_update_dessert.html.twig', ['donnees' => $donnees, 'erreurs' => $erreurs, 'dessert' => $dessert]);
         } else {
             $this->DessertModel = new DessertModel($app);
             $this->DessertModel->updatedessert($donnees);
-            return $app->redirect($app["url_generator"]->generate("dessert.index"));
+            return $app->redirect($app["url_generator"]->generate("composant.index"));
         }
     }
 

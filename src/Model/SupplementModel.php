@@ -50,7 +50,7 @@ class SupplementModel
         $queryBuilder->update('supplement')
             ->set('type_supplement' , '?')
             ->where("id_supplement = ".$donnees['id_supplement'])
-            ->setParameter(0, $donnees['id_supplement'])
+            ->setParameter(0, $donnees['type_supplement'])
 
         ;
         return $queryBuilder->execute();

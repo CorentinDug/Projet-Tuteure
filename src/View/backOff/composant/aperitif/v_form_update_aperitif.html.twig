@@ -1,0 +1,19 @@
+{% extends "v_layout.html.twig" %}
+{% block contenu %}
+    <form method="post" action="{{ path("aperitif.validFormEditAperitif") }} ">
+        <div class="row">
+            Modification de l'aperitif: {{ donnees.libelle_aperitif }}
+            <fieldset>
+                <input type="hidden" name="_method" id="_method" value="put"/>
+                <input type="hidden" name="id_aperitif" value="{{ donnees.id_aperitif }}"/>
+                <label>Nom du dessert
+                    <input name="libelle_aperitif"  type="text"  size="18" value="{{ donnees.libelle_aperitif | default('') }}"/>
+                    {% if erreurs.libelle_aperitif is defined %}
+                        <small class="error">{{erreurs.libelle_aperitif}}</small>
+                    {% endif %}
+                </label>
+                <input type="submit" name="modifierAperitif" value="modifier" >
+            </fieldset>
+        </div>
+    </form>
+{% endblock %}

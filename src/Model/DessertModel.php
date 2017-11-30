@@ -50,7 +50,7 @@ class DessertModel
         $queryBuilder->update('DESSERT')
             ->set('libelle_dessert' , '?')
             ->where("id_dessert = ".$donnees['id_dessert'])
-            ->setParameter(0, $donnees['id_dessert'])
+            ->setParameter(0, $donnees['libelle_dessert'])
 
         ;
         return $queryBuilder->execute();

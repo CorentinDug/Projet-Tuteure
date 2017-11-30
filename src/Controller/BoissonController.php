@@ -59,26 +59,15 @@ class BoissonController implements ControllerProviderInterface
 
     public function validFormAddBoisson(Application $app)
     {
-        //var_dump($app['request']->attributes);
-        if (isset($_POST['_csrf_token'])) {
-            $token = $_POST['_csrf_token'];
-            $csrf_token = new CsrfToken('token_add_boisson', $token);
-            $csrf_token_ok = $app['csrf.token_manager']->isTokenValid($csrf_token);
-            if (!$csrf_token_ok) {
-                $erreurs["csrf"] = "Erreur : token : " . $token;
-                return $app["twig"]->render("v_error_csrf.html.twig", ['erreurs' => $erreurs]);
-            }
-        } else
-            return $app->redirect($app["url_generator"]->generate("index.errorCsrf"));
 
         if (1 == 1) {
             $donnees = [
-                'libelle_boisson' => htmlspecialchars($_POST['libelle_boisson']),                    // echapper les entrées
+                'type_boisson' => htmlspecialchars($_POST['type_boisson']),                    // echapper les entrées
 
             ];
 
 
-            if ((!preg_match("/^[A-Za-z ]{2,}/", $donnees['libelle']))) $erreurs['libelle'] = 'libelle composé de 2 lettres minimum';
+            if ((!preg_match("/^[A-Za-z ]{2,}/", $donnees['type_boisson']))) $erreurs['type_boisson'] = 'libelle composé de 2 lettres minimum';
             if (!empty($erreurs)) {
                 $this->BoissonModel = new BoissonModel($app);
                 $Boisson = $this->BoissonModel->getAllBoisson();
@@ -86,7 +75,7 @@ class BoissonController implements ControllerProviderInterface
             } else {
                 $this->BoissonModel = new BoissonModel($app);
                 $this->BoissonModel->insertboisson($donnees);
-                return $app->redirect($app["url_generator"]->generate("Boisson.index"));
+                return $app->redirect($app["url_generator"]->generate("composant.index"));
             }
         } else {
             return "probleme";
@@ -95,48 +84,25 @@ class BoissonController implements ControllerProviderInterface
 
     public function validFormDeleteBoisson(Application $app, Request $req)
     {
-        //var_dump($app['request']->attributes);
-        if (isset($_POST['_csrf_token'])) {
-            $token = $_POST['_csrf_token'];
-            $csrf_token = new CsrfToken('token_delete_boisson', $token);
-            $csrf_token_ok = $app['csrf.token_manager']->isTokenValid($csrf_token);
-            if (!$csrf_token_ok) {
-                $erreurs["csrf"] = "Erreur : token : " . $token;
-                return $app["twig"]->render("v_error_csrf.html.twig", ['erreurs' => $erreurs]);
-            }
-        } else
-            return $app->redirect($app["url_generator"]->generate("index.errorCsrf"));
-
         $donnees = [
-            'idBoisson' => $app->escape($req->get('id')),
+            'id_boisson' => $app->escape($req->get('id')),
         ];
 
         $this->BoissonModel = new BoissonModel($app);
         $this->BoissonModel->deleteBoisson($donnees);
-        return $app->redirect($app["url_generator"]->generate("Boisson.index"));
+        return $app->redirect($app["url_generator"]->generate("composant.index"));
     }
 
     public function validFormEditBoisson(Application $app, Request $req)
     {
-        $this->helperDate = new HelperDate();
-        if (isset($_POST['_csrf_token'])) {
-            $token = $_POST['_csrf_token'];
-            $csrf_token = new CsrfToken('token_edit_boisson', $token);
-            $csrf_token_ok = $app['csrf.token_manager']->isTokenValid($csrf_token);
-            if (!$csrf_token_ok) {
-                $erreurs["csrf"] = "Erreur : token : " . $token;
-                return $app["twig"]->render("v_error_csrf.html.twig", ['erreurs' => $erreurs]);
-            }
-        } else
-            return $app->redirect($app["url_generator"]->generate("index.errorCsrf"));
 
         $donnees = [
-            'idBoisson' => htmlspecialchars($_POST['id']),
-            'libelle' => htmlspecialchars($_POST['libelle']),                    // echapper les entrées
+            'id_boisson' => htmlspecialchars($_POST['id_boisson']),
+            'type_boisson' => htmlspecialchars($_POST['type_boisson']),                    // echapper les entrées
 
         ];
 
-        if ((!preg_match("/^[A-Za-z ]{2,}/", $donnees['libelle']))) $erreurs['libelle'] = 'libelle composé de 2 lettres minimum';
+        if ((!preg_match("/^[A-Za-z ]{2,}/", $donnees['type_boisson']))) $erreurs['type_boisson'] = 'libelle composé de 2 lettres minimum';
         if (!empty($erreurs)) {
             $this->BoissonModel = new BoissonModel($app);
             $Boisson = $this->BoissonModel->getAllBoisson();
@@ -144,7 +110,7 @@ class BoissonController implements ControllerProviderInterface
         } else {
             $this->BoissonModel = new BoissonModel($app);
             $this->BoissonModel->updateBoisson($donnees);
-            return $app->redirect($app["url_generator"]->generate("Boisson.index"));
+            return $app->redirect($app["url_generator"]->generate("composant.index"));
         }
     }
 

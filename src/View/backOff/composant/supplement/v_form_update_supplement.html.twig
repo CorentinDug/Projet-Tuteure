@@ -1,0 +1,19 @@
+{% extends "v_layout.html.twig" %}
+{% block contenu %}
+    <form method="post" action="{{ path("supplement.validFormEditSupplement") }} ">
+        <div class="row">
+            Modification du supplement: {{ donnees.type_supplement }}
+            <fieldset>
+                <input type="hidden" name="_method" id="_method" value="put"/>
+                <input type="hidden" name="id_supplement" value="{{ donnees.id_supplement }}"/>
+                <label>Nom du supplement
+                    <input name="type_supplement"  type="text"  size="18" value="{{ donnees.type_supplement | default('') }}"/>
+                    {% if erreurs.type_supplement is defined %}
+                        <small class="error">{{erreurs.type_supplement}}</small>
+                    {% endif %}
+                </label>
+                <input type="submit" name="modifierSupplement" value="modifier" >
+            </fieldset>
+        </div>
+    </form>
+{% endblock %}

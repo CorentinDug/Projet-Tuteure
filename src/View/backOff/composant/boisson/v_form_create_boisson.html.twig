@@ -1,0 +1,17 @@
+{% extends "v_layout.html.twig" %}
+{% block contenu %}
+    <form method="post" action="{{ path("boisson.validFormAddBoisson") }} ">
+        <div class="row">
+            Ajout d'un boisson
+            <fieldset>
+                <label>Nom du boisson
+                    <input name="type_boisson"  type="text"  size="18" value="{{ donnees.type_boisson | default('') }}"/>
+                    {% if erreurs.type_boisson is defined %}
+                        <small class="error">{{erreurs.type_boisson}}</small>
+                    {% endif %}
+                </label>
+                <input type="submit" name="creerBoisson" value="creer" >
+            </fieldset>
+        </div>
+    </form>
+{% endblock %}

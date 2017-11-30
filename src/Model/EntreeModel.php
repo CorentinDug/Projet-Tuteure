@@ -52,7 +52,7 @@ class EntreeModel
         $queryBuilder->update('entree')
             ->set('libelle_entree' , '?')
             ->where("id_entree = ".$donnees['id_entree'])
-            ->setParameter(0, $donnees['id_entree'])
+            ->setParameter(0, $donnees['libelle_entree'])
 
         ;
         return $queryBuilder->execute();

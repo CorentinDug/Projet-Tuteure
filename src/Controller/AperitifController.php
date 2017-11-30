@@ -12,21 +12,13 @@ class AperitifController implements ControllerProviderInterface
 {
 
     private $aperitifModel;
-    private $helperDate;
-
-
-
-    public function index(Application $app)
-    {
-        return $this->showAperitif($app);       // appel de la méthode show
-    }
 
     public function home(Application $app)
     {
         return $app["twig"]->render('aperitif/v_admin.html.twig');
     }
 
-    public function addaperitif(Application $app)
+    public function addAperitif(Application $app)
     {
 
         $this->aperitifModel = new AperitifModel($app);
@@ -53,17 +45,6 @@ class AperitifController implements ControllerProviderInterface
 
     public function validFormAddAperitif(Application $app)
     {
-        //var_dump($app['request']->attributes);
-        if (isset($_POST['_csrf_token'])) {
-            $token = $_POST['_csrf_token'];
-            $csrf_token = new CsrfToken('token_add_aperitif', $token);
-            $csrf_token_ok = $app['csrf.token_manager']->isTokenValid($csrf_token);
-            if (!$csrf_token_ok) {
-                $erreurs["csrf"] = "Erreur : token : " . $token;
-                return $app["twig"]->render("v_error_csrf.html.twig", ['erreurs' => $erreurs]);
-            }
-        } else
-            return $app->redirect($app["url_generator"]->generate("index.errorCsrf"));
 
         if (1 == 1) {
             $donnees = [
@@ -72,7 +53,7 @@ class AperitifController implements ControllerProviderInterface
             ];
 
 
-            if ((!preg_match("/^[A-Za-z ]{2,}/", $donnees['libelle']))) $erreurs['libelle'] = 'libelle composé de 2 lettres minimum';
+            if ((!preg_match("/^[A-Za-z ]{2,}/", $donnees['libelle_aperitif']))) $erreurs['libelle_aperitif'] = 'libelle composé de 2 lettres minimum';
             if (!empty($erreurs)) {
                 $this->aperitifModel = new AperitifModel($app);
                 $aperitif = $this->aperitifModel->getAllaperitif();
@@ -80,7 +61,7 @@ class AperitifController implements ControllerProviderInterface
             } else {
                 $this->aperitifModel = new AperitifModel($app);
                 $this->aperitifModel->insertAperitif($donnees);
-                return $app->redirect($app["url_generator"]->generate("aperitif.index"));
+                return $app->redirect($app["url_generator"]->generate("composant.index"));
             }
         } else {
             return "probleme";
@@ -89,48 +70,26 @@ class AperitifController implements ControllerProviderInterface
 
     public function validFormDeleteAperitif(Application $app, Request $req)
     {
-        //var_dump($app['request']->attributes);
-        if (isset($_POST['_csrf_token'])) {
-            $token = $_POST['_csrf_token'];
-            $csrf_token = new CsrfToken('token_delete_aperitif', $token);
-            $csrf_token_ok = $app['csrf.token_manager']->isTokenValid($csrf_token);
-            if (!$csrf_token_ok) {
-                $erreurs["csrf"] = "Erreur : token : " . $token;
-                return $app["twig"]->render("v_error_csrf.html.twig", ['erreurs' => $erreurs]);
-            }
-        } else
-            return $app->redirect($app["url_generator"]->generate("index.errorCsrf"));
 
         $donnees = [
-            'idAperitif' => $app->escape($req->get('id')),
+            'id_aperitif' => $app->escape($req->get('id')),
         ];
 
         $this->aperitifModel = new AperitifModel($app);
         $this->aperitifModel->deleteaperitif($donnees);
-        return $app->redirect($app["url_generator"]->generate("aperitif.index"));
+        return $app->redirect($app["url_generator"]->generate("composant.index"));
     }
 
     public function validFormEditaperitif(Application $app, Request $req)
     {
-        $this->helperDate = new HelperDate();
-        if (isset($_POST['_csrf_token'])) {
-            $token = $_POST['_csrf_token'];
-            $csrf_token = new CsrfToken('token_edit_aperitif', $token);
-            $csrf_token_ok = $app['csrf.token_manager']->isTokenValid($csrf_token);
-            if (!$csrf_token_ok) {
-                $erreurs["csrf"] = "Erreur : token : " . $token;
-                return $app["twig"]->render("v_error_csrf.html.twig", ['erreurs' => $erreurs]);
-            }
-        } else
-            return $app->redirect($app["url_generator"]->generate("index.errorCsrf"));
 
         $donnees = [
-            'idAperitif' => htmlspecialchars($_POST['id']),
-            'libelle_aperitif' => htmlspecialchars($_POST['libelle']),                    // echapper les entrées
+            'id_aperitif' => htmlspecialchars($_POST['id_aperitif']),
+            'libelle_aperitif' => htmlspecialchars($_POST['libelle_aperitif']),                    // echapper les entrées
 
         ];
 
-        if ((!preg_match("/^[A-Za-z ]{2,}/", $donnees['libelle']))) $erreurs['libelle'] = 'libelle composé de 2 lettres minimum';
+        if ((!preg_match("/^[A-Za-z ]{2,}/", $donnees['libelle_aperitif']))) $erreurs['libelle_aperitif'] = 'libelle composé de 2 lettres minimum';
         if (!empty($erreurs)) {
             $this->aperitifModel = new AperitifModel($app);
             $aperitif = $this->aperitifModel->getAllaperitif();
@@ -138,7 +97,7 @@ class AperitifController implements ControllerProviderInterface
         } else {
             $this->aperitifModel = new AperitifModel($app);
             $this->aperitifModel->updateAperitif($donnees);
-            return $app->redirect($app["url_generator"]->generate("aperitif.index"));
+            return $app->redirect($app["url_generator"]->generate("composant.index"));
         }
 
 
@@ -166,7 +125,6 @@ class AperitifController implements ControllerProviderInterface
     {
         $controllers = $app['controllers_factory'];
 
-        $controllers->get('/', 'App\Controller\AperitifController::index')->bind('aperitif.index');
         $controllers->get('/show', 'App\Controller\AperitifController::showAperitif')->bind('aperitif.show');
 
         $controllers->get('/home', 'App\Controller\AperitifController::home')->bind('aperitif.home');

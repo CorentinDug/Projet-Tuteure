@@ -112,5 +112,4 @@ class menuModel{
         return $queryBuilder->execute();
     }
 
-
 }

@@ -50,7 +50,7 @@ class BoissonModel
         $queryBuilder->update('boisson')
             ->set('type_boisson' , '?')
             ->where("id_boisson = ".$donnees['id_boisson'])
-            ->setParameter(0, $donnees['id_boisson'])
+            ->setParameter(0, $donnees['type_boisson'])
 
         ;
         return $queryBuilder->execute();

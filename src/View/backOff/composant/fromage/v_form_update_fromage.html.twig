@@ -1,0 +1,19 @@
+{% extends "v_layout.html.twig" %}
+{% block contenu %}
+    <form method="post" action="{{ path("fromage.validFormEditFromage") }} ">
+        <div class="row">
+            Modification du fromage: {{ donnees.libelle_fromage }}
+            <fieldset>
+                <input type="hidden" name="_method" id="_method" value="put"/>
+                <input type="hidden" name="id_fromage" value="{{ donnees.id_fromage }}"/>
+                <label>Nom du fromage
+                    <input name="libelle_fromage"  type="text"  size="18" value="{{ donnees.libelle_fromage | default('') }}"/>
+                    {% if erreurs.libelle_fromage is defined %}
+                        <small class="error">{{erreurs.libelle_fromage}}</small>
+                    {% endif %}
+                </label>
+                <input type="submit" name="modifierFromage" value="modifier" >
+            </fieldset>
+        </div>
+    </form>
+{% endblock %}

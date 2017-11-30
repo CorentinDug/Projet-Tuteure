@@ -1,0 +1,17 @@
+{% extends "v_layout.html.twig" %}
+{% block contenu %}
+    <form method="post" action="{{ path("entree.validFormAddEntree") }} ">
+        <div class="row">
+            Ajout d'une entrée
+            <fieldset>
+                <label>Nom de l'entrée
+                    <input name="libelle_entree"  type="text"  size="18" value="{{ donnees.libelle_entree | default('') }}"/>
+                    {% if erreurs.libelle_entree is defined %}
+                        <small class="error">{{erreurs.libelle_entree}}</small>
+                    {% endif %}
+                </label>
+                <input type="submit" name="creerEntree" value="creer" >
+            </fieldset>
+        </div>
+    </form>
+{% endblock %}

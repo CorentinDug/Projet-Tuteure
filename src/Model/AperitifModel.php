@@ -50,7 +50,7 @@ class AperitifModel
         $queryBuilder->update('aperitif')
             ->set('libelle_aperitif' , '?')
             ->where("id_aperitif = ".$donnees['id_aperitif'])
-            ->setParameter(0, $donnees['id_aperitif'])
+            ->setParameter(0, $donnees['libelle_aperitif'])
 
         ;
         return $queryBuilder->execute();

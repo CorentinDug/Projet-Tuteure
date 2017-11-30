@@ -1,0 +1,17 @@
+{% extends "v_layout.html.twig" %}
+{% block contenu %}
+    <form method="post" action="{{ path("fromage.validFormAddFromage") }} ">
+        <div class="row">
+            Ajout d'un fromage
+            <fieldset>
+                <label>Nom du fromage
+                    <input name="libelle_fromage"  type="text"  size="18" value="{{ donnees.libelle_fromage | default('') }}"/>
+                    {% if erreurs.libelle_fromage is defined %}
+                        <small class="error">{{erreurs.libelle_fromage}}</small>
+                    {% endif %}
+                </label>
+                <input type="submit" name="creerFromage" value="creer" >
+            </fieldset>
+        </div>
+    </form>
+{% endblock %}
