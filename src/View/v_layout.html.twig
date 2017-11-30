@@ -6,16 +6,18 @@
     <title>exemple MVC php</title>
     <link rel="stylesheet" href="{{ asset("assets/css/foundation.css") }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset("assets/css/style.css") }}">
+    <link rel="stylesheet" href="{{asset("assets/css/jquery-ui.css")}}">
     <script src="{{ asset("assets/js/vendor/modernizr.js") }}"></script>
+    <script type='text/javascript' src='{{asset("assets/js/jquery.min.js")}}'></script>
 </head>
 <body>
 <div class="small-2">
-
 </div>
+
+
 {% include "v_menu.html.twig" %}
 <div class="contenuPrincipal">
 {% block contenu %}
-
 {% endblock %}
 </div>
 <script src="{{ asset("assets/js/vendor/jquery.js") }}"></script>
@@ -23,7 +25,6 @@
 <script src="{{ asset("assets/js/jquery-ui.min.js") }}"></script>
 <script>
     $(document).foundation();
-    $(document).jquery();
 </script>
 </body>
 </html>

@@ -50,17 +50,7 @@ $app->register(new Silex\Provider\AssetServiceProvider(), array(
     ),
 ));
 
-//  namespace App\Helper;  // ne pas oublier le namespace ; le nom de la classe = le nom du fichier
-$app->extend('twig', function($twig, $app) {
 
-    $function = new Twig_SimpleFunction('viewTVA', function ($prix) {
-        return App\Helper\HelperViewPrix::viewTVA($prix);
-    });
-    $twig->addFunction($function);
-
-
-    return $twig;
-});
 $app->extend('twig', function($twig, $app) {
     $function = new Twig_SimpleFunction('changeDate', function ($date) {
         return App\Helper\HelperDate::changeDate($date);
@@ -81,6 +71,13 @@ $app->before(function (\Symfony\Component\HttpFoundation\Request $request) use (
         }
     }
 
+});
+
+$app->before(function (\Symfony\Component\HttpFoundation\Request $request) {
+    if (0 === strpos($request->headers->get('Content-Type'), 'application/json')) {
+        $data = json_decode($request->getContent(), true);
+        $request->request->replace(is_array($data) ? $data : array());
+    }
 });
 
 use Silex\Provider\CsrfServiceProvider;

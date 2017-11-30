@@ -1,0 +1,168 @@
+<script>
+
+    //AutoComplete Plat
+    var tabPlat = [];
+    $(document).ready(function(){
+
+        /* Appelle le php qui contient le tableau php encodée en json */
+
+        $.getJSON('{{ path('plat.autoComplete') }}', function(data) {
+            /* [XMLmind] contiendra le tableau php en tant qu’objet javascript */
+
+            $.each(data, function(key, val) {
+
+                tabPlat[key] = val;
+                console.log(tabPlat[key])
+
+            });
+
+        });
+        $( "#plat" ).autocomplete({
+            source: tabPlat
+        });
+    });
+
+    //AutoComplete Aperitif
+    var tabAperitif = [];
+    $(document).ready(function(){
+
+        /* Appelle le php qui contient le tableau php encodée en json */
+
+        $.getJSON('{{ path('aperitif.autoComplete') }}', function(data) {
+            /* [XMLmind] contiendra le tableau php en tant qu’objet javascript */
+
+            $.each(data, function(key, val) {
+
+                tabAperitif[key] = val;
+                console.log(tabAperitif[key])
+
+            });
+
+        });
+        $( "#aperitif" ).autocomplete({
+            source: tabAperitif
+        });
+    });
+
+    //AutoComplete Entree
+    var tabEntree = [];
+    $(document).ready(function(){
+
+        /* Appelle le php qui contient le tableau php encodée en json */
+
+        $.getJSON('{{ path('entree.autoComplete') }}', function(data) {
+            /* [XMLmind] contiendra le tableau php en tant qu’objet javascript */
+
+            $.each(data, function(key, val) {
+
+                tabEntree[key] = val;
+                console.log(tabEntree[key])
+
+            });
+
+        });
+        $( "#entree" ).autocomplete({
+            source: tabEntree
+        });
+    });
+
+    //AutoComplete Fromage
+    var tabFromage = [];
+    $(document).ready(function(){
+
+        /* Appelle le php qui contient le tableau php encodée en json */
+
+        $.getJSON('{{ path('fromage.autoComplete') }}', function(data) {
+            /* [XMLmind] contiendra le tableau php en tant qu’objet javascript */
+
+            $.each(data, function(key, val) {
+
+                tabFromage[key] = val;
+                console.log(tabFromage[key])
+
+            });
+
+        });
+        $( "#fromage" ).autocomplete({
+            source: tabFromage
+        });
+    });
+
+    //AutoComplete Dessert
+    var tabDessert = [];
+    $(document).ready(function(){
+
+        /* Appelle le php qui contient le tableau php encodée en json */
+
+        $.getJSON('{{ path('dessert.autoComplete') }}', function(data) {
+            /* [XMLmind] contiendra le tableau php en tant qu’objet javascript */
+
+            $.each(data, function(key, val) {
+
+                tabDessert[key] = val;
+                console.log(tabDessert[key])
+
+            });
+
+        });
+        $( "#dessert" ).autocomplete({
+            source: tabDessert
+        });
+    });
+
+    //AutoComplete Boisson
+    var tabBoisson = [];
+    $(document).ready(function(){
+
+        /* Appelle le php qui contient le tableau php encodée en json */
+
+        $.getJSON('{{ path('boisson.autoComplete') }}', function(data) {
+            /* [XMLmind] contiendra le tableau php en tant qu’objet javascript */
+
+            $.each(data, function(key, val) {
+
+                tabBoisson[key] = val;
+                console.log(tabBoisson[key])
+
+            });
+
+        });
+        $( "#boisson" ).autocomplete({
+            source: tabBoisson
+        });
+    });
+
+    //AutoComplete Supplement
+    var tabSupplement = [];
+    $(document).ready(function(){
+
+        /* Appelle le php qui contient le tableau php encodée en json */
+
+        $.getJSON('{{ path('supplement.autoComplete') }}', function(data) {
+            /* [XMLmind] contiendra le tableau php en tant qu’objet javascript */
+
+            $.each(data, function(key, val) {
+
+                tabSupplement[key] = val;
+                console.log(tabSupplement[key])
+
+            });
+
+        });
+        $( "#supplement" ).autocomplete({
+            source: tabSupplement
+        });
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

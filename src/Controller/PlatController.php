@@ -30,7 +30,7 @@ class platController implements ControllerProviderInterface{
     public function showPlat(Application $app) {
         $this->platModel = new PlatModel($app);
         $plats = $this->platModel->getAllPlat();
-        return $app["twig"]->render('plats/v_table_menu.html.twig',['data'=>$plats]);
+        return $app["twig"]->render('backOff/composant/plats/v_table_menu.html.twig',['data'=>$plats]);
     }
     public function home(Application $app){
         return $app["twig"]->render('plats/v_admin.html.twig');
@@ -40,14 +40,14 @@ class platController implements ControllerProviderInterface{
 
         $this->typePlatModel = new TypePlatModel($app);
         $typePlat = $this->typePlatModel->getAllTypePlat();
-        return $app["twig"]->render('plats/v_form_create_menu.html.twig',['typePlat'=>$typePlat]);
+        return $app["twig"]->render('backOff/composant/plats/v_form_create_plats.html.twig',['typePlat'=>$typePlat]);
     }
 
     public function deletePlat(Application $app, $id) {
         $this->platModel = new PlatModel($app);
 
         $platModel = $this->platModel->getPlat($id);
-        return $app["twig"]->render('plats/v_form_delete_menu.html.twig',['donnees'=>$platModel]);
+        return $app["twig"]->render('backOff/composant/plats/v_form_delete_menu.html.twig',['donnees'=>$platModel]);
     }
 
     public function editPlat(Application $app,$id) {
@@ -59,7 +59,7 @@ class platController implements ControllerProviderInterface{
         $typePlat = $this->typePlatModel->getAllTypePlat();
         //var_dump($typePlat);
 
-        return $app["twig"]->render('plats/v_form_update_menu.html.twig',['donnees'=>$donnees, 'typePlat'=>$typePlat]);
+        return $app["twig"]->render('backOff/composant/plats/v_form_update_menu.html.twig',['donnees'=>$donnees, 'typePlat'=>$typePlat]);
     }
 
     public function validFormAddPlat(Application $app ) {
@@ -175,7 +175,7 @@ class platController implements ControllerProviderInterface{
         {
             $this->typePlatModel = new TypePlatModel($app);
             $typePlat = $this->typePlatModel->getAllTypePlat();
-            return $app["twig"]->render('plats/v_form_update_menu.html.twig',['donnees'=>$donnees,'erreurs'=>$erreurs,'typePlat'=>$typePlat]);
+            return $app["twig"]->render('backOff/composant/plats/v_form_update_menu.html.twig',['donnees'=>$donnees,'erreurs'=>$erreurs,'typePlat'=>$typePlat]);
         }
         else
         {
@@ -184,7 +184,18 @@ class platController implements ControllerProviderInterface{
             return $app->redirect($app["url_generator"]->generate("plats.index"));
         }
     }
+    public function autoCompletePlat(Application $app){
+        $this->platModel = new PlatModel($app);
+        $arr = $this->platModel->autoCompletePlat();
+        return json_encode($arr);
+    }
 
+    public function getId(Application $app){
+
+        $this->platModel = new PlatModel($app);
+        return $this->platModel->getId($_POST['plat']);
+
+    }
     /**
      * Returns routes to connect to the given application.
      *
@@ -209,6 +220,10 @@ class platController implements ControllerProviderInterface{
 
         $controllers->get('/edit{id}', 'App\Controller\PlatController::editPlat')->bind('plats.edit');
         $controllers->put('/edit', 'App\Controller\PlatController::validFormEditPlat')->bind('plats.validFormEdit');
+
+        $controllers->get('/autoPlat','App\Controller\PlatController::autoCompletePlat')->bind('plat.autoComplete');
+        $controllers->get('/getId','App\Controller\PlatController::getId')->bind('plat.getId');
+
 
         return $controllers;
     }

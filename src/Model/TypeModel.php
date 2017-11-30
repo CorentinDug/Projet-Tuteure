@@ -26,4 +26,6 @@ class TypeModel
             ->orderBy('id_type');
         return $queryBuilder->execute()->fetchAll();
     }
+
+
 }

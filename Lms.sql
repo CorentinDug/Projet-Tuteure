@@ -250,10 +250,15 @@ insert into FROMAGE values(null,"fromage4");
 
 */
 
-insert into APERITIF values(null,"curly1");
-insert into APERITIF values(null,"curly2");
-insert into APERITIF values(null,"curly3");
-insert into APERITIF values(null,"curly4");
+insert into APERITIF values(null,"curly");
+insert into APERITIF values(null,"sangria espagnol");
+insert into APERITIF values(null,"cake au reblochon");
+insert into APERITIF values(null,"creme au thon");
+insert into APERITIF values(null,"cake salé");
+insert into APERITIF values(null,"assortiment de toast");
+insert into APERITIF values(null,"Tarte soleil au pesto");
+insert into APERITIF values(null,"brick au chevre frais");
+insert into APERITIF values(null,"roulé feuilleté au jambon");
 
 /*
 

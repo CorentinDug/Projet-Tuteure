@@ -12,7 +12,7 @@
   {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
     <ul class="left">
       <li class="has-dropdown"><a href="#">menus</a>
-        <ul class="dropdown">
+        <ul class="dropdown" >
           <li><a href="{{ path('menu.show') }}" class="truc">afficher/editer/supprimer les menus</a></li>
         </ul>
       </li>
@@ -23,6 +23,15 @@
       </li>
     </ul>
     {% endif %}
+      {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_CLIENT' %}
+        <ul class="left">
+          <li class="has-dropdown"><a href="#">menus</a>
+            <ul class="dropdown" >
+              <li><a href="{{ path('menu.show') }}" class="truc">Afficher</a></li>
+            </ul>
+          </li>
+        </ul>
+      {% endif %}
     <ul class="right">
         {% if   app.session.get('logged') is defined and  app.session.get('logged') == 1 %}
           <li class="name" style="color: #d58512">Connecté en tant que : {{ app.session.get('username') }}</li>

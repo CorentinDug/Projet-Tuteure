@@ -62,4 +62,24 @@ class SupplementModel
             ->where('id_supplement='.$donnees['id_supplement']);
         return $queryBuilder->execute();
     }
+
+    public function autoCompleteSupplement()
+    {
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->select('type_supplement')
+            ->from('supplement');
+        $result = $queryBuilder->execute()->fetchAll();
+        $tab = array_map('current', $result);
+        return $tab;
+    }
+
+    public function getId($supplement)
+    {
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->select('id_supplement')
+            ->from('supplement')
+            ->where('type_supplement= ? ')
+            ->setParameter(0,$supplement);
+        return $queryBuilder->execute()->fetch();
+    }
 }

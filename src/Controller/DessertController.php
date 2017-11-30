@@ -1,19 +1,27 @@
 <?php
 namespace App\Controller;
 
+use App\Model\DessertModel;
 use Silex\Application;
 use Silex\Api\ControllerProviderInterface;
-use App\Model\DessertModel;
-use App\Helper\HelperDate;
 use Silex\ControllerCollection;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Csrf\CsrfToken;
 class DessertController implements ControllerProviderInterface
 {
 
-    private $DessertModel;
-    private $helperDate;
+    private $dessertModel;
 
+    public function autoCompleteDessert(Application $app){
+        $this->dessertModel = new DessertModel($app);
+        $arr = $this->dessertModel->autoCompleteDessert();
+        return json_encode($arr);
+    }
+
+    public function getId(Application $app)
+    {
+
+        $this->dessertModel = new DessertModel($app);
+        return $this->dessertModel->getId($_POST['dessert']);
+    }
 
     public function index(Application $app)
     {
@@ -151,6 +159,8 @@ class DessertController implements ControllerProviderInterface
     {
         $controllers = $app['controllers_factory'];
 
+        $controllers->get('/autoDessert', 'App\Controller\DessertController::autoCompleteDessert')->bind('dessert.autoComplete');
+        $controllers->get('/getId', 'App\Controller\DessertController::getId')->bind('dessert.getId');
         $controllers->get('/', 'App\Controller\DessertController::index')->bind('dessert.index');
         $controllers->get('/show', 'App\Controller\DessertController::showDessert')->bind('dessert.show');
 

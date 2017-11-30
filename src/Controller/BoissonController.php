@@ -24,7 +24,7 @@ class BoissonController implements ControllerProviderInterface
     {
         $this->BoissonModel = new BoissonModel($app);
         $boisson = $this->BoissonModel->getAllBoisson();
-        return $app["twig"]->render('boisson/v_table_boisson_menu.html.twig', ['boisson' => $boisson]);
+        return $app["twig"]->render('backOff/composant/boisson/v_table_boisson_menu.html.twig', ['boisson' => $boisson]);
     }
 
     public function home(Application $app)
@@ -37,15 +37,15 @@ class BoissonController implements ControllerProviderInterface
 
         $this->BoissonModel = new BoissonModel($app);
         $boisson = $this->BoissonModel->getAllBoisson();
-        return $app["twig"]->render('boisson/v_form_create_boisson.html.twig', ['boisson' => $boisson]);
+        return $app["twig"]->render('backOff/composant/boisson/v_form_create_boisson.html.twig', ['boisson' => $boisson]);
     }
 
     public function deleteBoisson(Application $app, $id)
     {
         $this->BoissonModel = new BoissonModel($app);
 
-        $BoissonModel = $this->BoissonModel->getBoisson($id);
-        return $app["twig"]->render('boisson/v_form_delete_boisson.html.twig', ['donnees' => $BoissonModel]);
+        $boissonModel = $this->BoissonModel->getBoisson($id);
+        return $app["twig"]->render('backOff/composant/boisson/v_form_delete_boisson.html.twig', ['donnees' => $boissonModel]);
     }
 
     public function editBoisson(Application $app, $id)
@@ -54,7 +54,7 @@ class BoissonController implements ControllerProviderInterface
         $donnees = $this->BoissonModel->getBoisson($id);
         //var_dump($donnees);
 
-        return $app["twig"]->render('boisson/v_form_update_boisson.html.twig', ['donnees' => $donnees]);
+        return $app["twig"]->render('backOff/composant/boisson/v_form_update_boisson.html.twig', ['donnees' => $donnees]);
     }
 
     public function validFormAddBoisson(Application $app)
@@ -82,7 +82,7 @@ class BoissonController implements ControllerProviderInterface
             if (!empty($erreurs)) {
                 $this->BoissonModel = new BoissonModel($app);
                 $Boisson = $this->BoissonModel->getAllBoisson();
-                return $app["twig"]->render('boisson/v_form_create_boisson.html.twig', ['donnees' => $donnees, 'erreurs' => $erreurs, 'Boisson' => $Boisson]);
+                return $app["twig"]->render('backOff/composant/boisson/v_form_create_boisson.html.twig', ['donnees' => $donnees, 'erreurs' => $erreurs, 'Boisson' => $Boisson]);
             } else {
                 $this->BoissonModel = new BoissonModel($app);
                 $this->BoissonModel->insertboisson($donnees);
@@ -140,12 +140,23 @@ class BoissonController implements ControllerProviderInterface
         if (!empty($erreurs)) {
             $this->BoissonModel = new BoissonModel($app);
             $Boisson = $this->BoissonModel->getAllBoisson();
-            return $app["twig"]->render('boisson/v_form_update_boisson.html.twig', ['donnees' => $donnees, 'erreurs' => $erreurs, 'Boisson' => $Boisson]);
+            return $app["twig"]->render('backOff/composant/boisson/v_form_update_boisson.html.twig', ['donnees' => $donnees, 'erreurs' => $erreurs, 'Boisson' => $Boisson]);
         } else {
             $this->BoissonModel = new BoissonModel($app);
             $this->BoissonModel->updateBoisson($donnees);
             return $app->redirect($app["url_generator"]->generate("Boisson.index"));
         }
+    }
+
+    public function autoCompleteBoisson(Application $app){
+        $this->BoissonModel = new BoissonModel($app);
+        $arr = $this->BoissonModel->autoCompleteBoisson();
+        return json_encode($arr);
+    }
+
+    public function getId(Application $app){
+        $this->BoissonModel = new BoissonModel($app);
+        return $this->BoissonModel->getId($_POST['boisson']);
     }
 
     /**
@@ -173,6 +184,8 @@ class BoissonController implements ControllerProviderInterface
         $controllers->get('/edit{id}', 'App\Controller\BoissonController::editBoisson')->bind('boisson.edit');
         $controllers->put('/edit', 'App\Controller\BoissonController::validFormEditBoisson')->bind('boisson.validFormEditBoisson');
 
+        $controllers->get('/autoBoisson', 'App\Controller\BoissonController::autoCompleteBoisson')->bind('boisson.autoComplete');
+        $controllers->get('/getId', 'App\Controller\BoissonController::getId')->bind('boisson.getId');
         return $controllers;
     }
 

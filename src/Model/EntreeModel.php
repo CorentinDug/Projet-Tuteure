@@ -65,4 +65,24 @@ class EntreeModel
             ->where('id_entree='.$donnees['id_entree']);
         return $queryBuilder->execute();
     }
+
+    public function autoCompleteEntree()
+    {
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->select('libelle_entree')
+            ->from('entree');
+        $result = $queryBuilder->execute()->fetchAll();
+        $tab = array_map('current', $result);
+        return $tab;
+    }
+
+    public function getId($entree)
+    {
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->select('id_entree')
+            ->from('entree')
+            ->where('libelle_entree= ?')
+            ->setParameter(0,$entree);
+        return $queryBuilder->execute()->fetch();
+    }
 }

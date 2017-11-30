@@ -62,4 +62,24 @@ class AperitifModel
             ->where('id_aperitif='.$donnees['id_aperitif']);
         return $queryBuilder->execute();
     }
+
+    public function autoCompleteAperitif()
+    {
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->select('libelle_aperitif')
+            ->from('aperitif');
+        $result = $queryBuilder->execute()->fetchAll();
+        $tab = array_map('current', $result);
+        return $tab;
+    }
+
+    public function getId($aperitif)
+    {
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->select('id_aperitif')
+            ->from('aperitif')
+            ->where('libelle_aperitif = ?')
+            ->setParameter(0,$aperitif);
+        return $queryBuilder->execute()->fetch();
+    }
 }
