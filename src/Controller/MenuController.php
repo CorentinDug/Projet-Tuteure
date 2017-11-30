@@ -38,7 +38,11 @@ class menuController implements ControllerProviderInterface{
     {
         $this->menuModel = new MenuModel($app);
         $menu = $this->menuModel->getAllMenu();
-        return $app["twig"]->render("menu/v_table_menu.html.twig",['data'=>$menu]);
+        if ($app['session']->get('roles') == 'ROLE_ADMIN'){
+            return $app["twig"]->render("backOff/menu/v_table_menu.html.twig",['data'=>$menu]);
+        }else if ($app['session']->get('roles') == 'ROLE_CLIENT') {
+            return $app["twig"]->render("frontOff/menu/v_table_menu.html.twig",['data'=>$menu]);
+        }
     }
 
     public function addMenu(Application $app){

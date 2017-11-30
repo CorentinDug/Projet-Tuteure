@@ -24,7 +24,7 @@ class BoissonController implements ControllerProviderInterface
     {
         $this->BoissonModel = new BoissonModel($app);
         $boisson = $this->BoissonModel->getAllBoisson();
-        return $app["twig"]->render('boisson/v_table_boisson_menu.html.twig', ['boisson' => $boisson]);
+        return $app["twig"]->render('backOff/composant/boisson/v_table_boisson_menu.html.twig', ['boisson' => $boisson]);
     }
 
     public function home(Application $app)
@@ -37,7 +37,7 @@ class BoissonController implements ControllerProviderInterface
 
         $this->BoissonModel = new BoissonModel($app);
         $boisson = $this->BoissonModel->getAllBoisson();
-        return $app["twig"]->render('boisson/v_form_create_boisson.html.twig', ['boisson' => $boisson]);
+        return $app["twig"]->render('backOff/composant/boisson/v_form_create_boisson.html.twig', ['boisson' => $boisson]);
     }
 
     public function deleteBoisson(Application $app, $id)
@@ -45,7 +45,7 @@ class BoissonController implements ControllerProviderInterface
         $this->BoissonModel = new BoissonModel($app);
 
         $boissonModel = $this->BoissonModel->getBoisson($id);
-        return $app["twig"]->render('boisson/v_form_delete_boisson.html.twig', ['donnees' => $boissonModel]);
+        return $app["twig"]->render('backOff/composant/boisson/v_form_delete_boisson.html.twig', ['donnees' => $boissonModel]);
     }
 
     public function editBoisson(Application $app, $id)
@@ -54,7 +54,7 @@ class BoissonController implements ControllerProviderInterface
         $donnees = $this->BoissonModel->getBoisson($id);
         //var_dump($donnees);
 
-        return $app["twig"]->render('boisson/v_form_update_boisson.html.twig', ['donnees' => $donnees]);
+        return $app["twig"]->render('backOff/composant/boisson/v_form_update_boisson.html.twig', ['donnees' => $donnees]);
     }
 
     public function validFormAddBoisson(Application $app)
@@ -82,7 +82,7 @@ class BoissonController implements ControllerProviderInterface
             if (!empty($erreurs)) {
                 $this->BoissonModel = new BoissonModel($app);
                 $Boisson = $this->BoissonModel->getAllBoisson();
-                return $app["twig"]->render('boisson/v_form_create_boisson.html.twig', ['donnees' => $donnees, 'erreurs' => $erreurs, 'Boisson' => $Boisson]);
+                return $app["twig"]->render('backOff/composant/boisson/v_form_create_boisson.html.twig', ['donnees' => $donnees, 'erreurs' => $erreurs, 'Boisson' => $Boisson]);
             } else {
                 $this->BoissonModel = new BoissonModel($app);
                 $this->BoissonModel->insertboisson($donnees);
@@ -140,7 +140,7 @@ class BoissonController implements ControllerProviderInterface
         if (!empty($erreurs)) {
             $this->BoissonModel = new BoissonModel($app);
             $Boisson = $this->BoissonModel->getAllBoisson();
-            return $app["twig"]->render('boisson/v_form_update_boisson.html.twig', ['donnees' => $donnees, 'erreurs' => $erreurs, 'Boisson' => $Boisson]);
+            return $app["twig"]->render('backOff/composant/boisson/v_form_update_boisson.html.twig', ['donnees' => $donnees, 'erreurs' => $erreurs, 'Boisson' => $Boisson]);
         } else {
             $this->BoissonModel = new BoissonModel($app);
             $this->BoissonModel->updateBoisson($donnees);

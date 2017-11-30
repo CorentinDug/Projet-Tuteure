@@ -30,7 +30,7 @@ class platController implements ControllerProviderInterface{
     public function showPlat(Application $app) {
         $this->platModel = new PlatModel($app);
         $plats = $this->platModel->getAllPlat();
-        return $app["twig"]->render('plats/v_table_menu.html.twig',['data'=>$plats]);
+        return $app["twig"]->render('backOff/composant/plats/v_table_menu.html.twig',['data'=>$plats]);
     }
     public function home(Application $app){
         return $app["twig"]->render('plats/v_admin.html.twig');
@@ -40,14 +40,14 @@ class platController implements ControllerProviderInterface{
 
         $this->typePlatModel = new TypePlatModel($app);
         $typePlat = $this->typePlatModel->getAllTypePlat();
-        return $app["twig"]->render('plats/v_form_create_menu.html.twig',['typePlat'=>$typePlat]);
+        return $app["twig"]->render('backOff/composant/plats/v_form_create_plats.html.twig',['typePlat'=>$typePlat]);
     }
 
     public function deletePlat(Application $app, $id) {
         $this->platModel = new PlatModel($app);
 
         $platModel = $this->platModel->getPlat($id);
-        return $app["twig"]->render('plats/v_form_delete_menu.html.twig',['donnees'=>$platModel]);
+        return $app["twig"]->render('backOff/composant/plats/v_form_delete_menu.html.twig',['donnees'=>$platModel]);
     }
 
     public function editPlat(Application $app,$id) {
@@ -59,7 +59,7 @@ class platController implements ControllerProviderInterface{
         $typePlat = $this->typePlatModel->getAllTypePlat();
         //var_dump($typePlat);
 
-        return $app["twig"]->render('plats/v_form_update_menu.html.twig',['donnees'=>$donnees, 'typePlat'=>$typePlat]);
+        return $app["twig"]->render('backOff/composant/plats/v_form_update_menu.html.twig',['donnees'=>$donnees, 'typePlat'=>$typePlat]);
     }
 
     public function validFormAddPlat(Application $app ) {
@@ -175,7 +175,7 @@ class platController implements ControllerProviderInterface{
         {
             $this->typePlatModel = new TypePlatModel($app);
             $typePlat = $this->typePlatModel->getAllTypePlat();
-            return $app["twig"]->render('plats/v_form_update_menu.html.twig',['donnees'=>$donnees,'erreurs'=>$erreurs,'typePlat'=>$typePlat]);
+            return $app["twig"]->render('backOff/composant/plats/v_form_update_menu.html.twig',['donnees'=>$donnees,'erreurs'=>$erreurs,'typePlat'=>$typePlat]);
         }
         else
         {

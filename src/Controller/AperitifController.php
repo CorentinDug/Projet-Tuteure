@@ -31,7 +31,7 @@ class AperitifController implements ControllerProviderInterface
 
         $this->aperitifModel = new AperitifModel($app);
         $aperitif = $this->aperitifModel->getAllAperitif();
-        return $app["twig"]->render('aperitif/v_form_create_aperitif.html.twig', ['aperitif' => $aperitif]);
+        return $app["twig"]->render('backOff/composant/aperitif/v_form_create_aperitif.html.twig', ['aperitif' => $aperitif]);
     }
 
     public function deleteAperitif(Application $app, $id)
@@ -39,7 +39,7 @@ class AperitifController implements ControllerProviderInterface
         $this->aperitifModel = new AperitifModel($app);
 
         $aperitifModel = $this->aperitifModel->getAperitif($id);
-        return $app["twig"]->render('aperitif/v_form_delete_aperitif.html.twig', ['donnees' => $aperitifModel]);
+        return $app["twig"]->render('backOff/composant/aperitif/v_form_delete_aperitif.html.twig', ['donnees' => $aperitifModel]);
     }
 
     public function editAperitif(Application $app, $id)
@@ -48,7 +48,7 @@ class AperitifController implements ControllerProviderInterface
         $donnees = $this->aperitifModel->getAperitif($id);
         //var_dump($donnees);
 
-        return $app["twig"]->render('aperitif/v_form_update_aperitif.html.twig', ['donnees' => $donnees]);
+        return $app["twig"]->render('backOff/composant/aperitif/v_form_update_aperitif.html.twig', ['donnees' => $donnees]);
     }
 
     public function validFormAddAperitif(Application $app)
@@ -76,7 +76,7 @@ class AperitifController implements ControllerProviderInterface
             if (!empty($erreurs)) {
                 $this->aperitifModel = new AperitifModel($app);
                 $aperitif = $this->aperitifModel->getAllaperitif();
-                return $app["twig"]->render('aperitif/v_form_create_aperitif.html.twig', ['donnees' => $donnees, 'erreurs' => $erreurs, 'aperitif' => $aperitif]);
+                return $app["twig"]->render('backOff/composant/aperitif/v_form_create_aperitif.html.twig', ['donnees' => $donnees, 'erreurs' => $erreurs, 'aperitif' => $aperitif]);
             } else {
                 $this->aperitifModel = new AperitifModel($app);
                 $this->aperitifModel->insertAperitif($donnees);
@@ -134,7 +134,7 @@ class AperitifController implements ControllerProviderInterface
         if (!empty($erreurs)) {
             $this->aperitifModel = new AperitifModel($app);
             $aperitif = $this->aperitifModel->getAllaperitif();
-            return $app["twig"]->render('aperitif/v_form_update_aperitif.html.twig', ['donnees' => $donnees, 'erreurs' => $erreurs, 'aperitif' => $aperitif]);
+            return $app["twig"]->render('backOff/composant/aperitif/v_form_update_aperitif.html.twig', ['donnees' => $donnees, 'erreurs' => $erreurs, 'aperitif' => $aperitif]);
         } else {
             $this->aperitifModel = new AperitifModel($app);
             $this->aperitifModel->updateAperitif($donnees);

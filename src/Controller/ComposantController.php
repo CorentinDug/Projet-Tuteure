@@ -48,7 +48,7 @@ class ComposantController implements ControllerProviderInterface
         $entree = $this->EntreeModel->getAllEntree();
         $plat = $this->PlatModel->getAllPlat();
         $boisson = $this->BoissonModel->getAllBoisson();
-        return $app["twig"]->render('composant/v_table_composant_menu.html.twig', ['boisson' => $boisson, 'aperitif' => $aperitif, 'dessert' => $dessert, 'fromage' => $fromage, 'plat' => $plat, 'entree' => $entree, 'supplement' => $supplement]);
+        return $app["twig"]->render('backOff/composant/v_table_composant_menu.html.twig', ['boisson' => $boisson, 'aperitif' => $aperitif, 'dessert' => $dessert, 'fromage' => $fromage, 'plat' => $plat, 'entree' => $entree, 'supplement' => $supplement]);
     }
 
     public function connect(Application $app)
