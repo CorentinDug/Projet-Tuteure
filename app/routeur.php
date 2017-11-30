@@ -8,3 +8,4 @@ $app->mount("/menu", new App\Controller\MenuController($app));
 $app->mount("/user", new App\Controller\UserController($app));
 $app->mount("/boisson", new App\Controller\BoissonController($app));
 $app->mount("/aperitif", new App\Controller\AperitifController($app));
+$app->mount("/dessert", new App\Controller\DessertController($app));

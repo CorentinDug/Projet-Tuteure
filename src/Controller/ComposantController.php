@@ -10,10 +10,6 @@ use App\Model\DessertModel;
 use App\Model\FromageModel;
 use App\Model\PlatModel;
 use App\Model\SupplementModel;
-use App\Helper\HelperDate;
-use Silex\ControllerCollection;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Csrf\CsrfToken;
 class ComposantController implements ControllerProviderInterface
 {
 
@@ -24,7 +20,6 @@ class ComposantController implements ControllerProviderInterface
     private $FromageModel;
     private $PlatModel;
     private $SupplementModel;
-    private $helperDate;
 
 
     public function index(Application $app)
