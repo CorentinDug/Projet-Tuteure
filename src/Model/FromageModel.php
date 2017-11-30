@@ -75,4 +75,14 @@ class FromageModel
         $tab = array_map('current', $result);
         return $tab;
     }
+
+    public function getId($fromage)
+    {
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->select('id_fromage')
+            ->from('fromage')
+            ->where('libelle_fromage=?')
+            ->setParameter(0,$fromage);
+        return $queryBuilder->execute()->fetch();
+    }
 }

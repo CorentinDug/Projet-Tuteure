@@ -20,6 +20,11 @@ class FromageController implements ControllerProviderInterface
         return json_encode($arr);
     }
 
+    public function getId(Application $app){
+        $this->fromageModel = new FromageModel($app);
+        return $this->fromageModel->getId($_POST['fromage']);
+
+    }
     /**
      * Returns routes to connect to the given application.
      *
@@ -32,6 +37,7 @@ class FromageController implements ControllerProviderInterface
         $controllers = $app['controllers_factory'];
 
         $controllers->get('/autoFromage', 'App\Controller\FromageController::autoCompleteFromage')->bind('fromage.autoComplete');
+        $controllers->get('/getId', 'App\Controller\FromageController::getId')->bind('fromage.getId');
 
         return $controllers;
     }

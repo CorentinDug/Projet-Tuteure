@@ -154,6 +154,11 @@ class BoissonController implements ControllerProviderInterface
         return json_encode($arr);
     }
 
+    public function getId(Application $app){
+        $this->BoissonModel = new BoissonModel($app);
+        return $this->BoissonModel->getId($_POST['boisson']);
+    }
+
     /**
      * Returns routes to connect to the given application.
      *
@@ -180,6 +185,7 @@ class BoissonController implements ControllerProviderInterface
         $controllers->put('/edit', 'App\Controller\BoissonController::validFormEditBoisson')->bind('boisson.validFormEditBoisson');
 
         $controllers->get('/autoBoisson', 'App\Controller\BoissonController::autoCompleteBoisson')->bind('boisson.autoComplete');
+        $controllers->get('/getId', 'App\Controller\BoissonController::getId')->bind('boisson.getId');
         return $controllers;
     }
 

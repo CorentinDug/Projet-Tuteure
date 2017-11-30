@@ -73,6 +73,15 @@ class DessertModel
         return $tab;
     }
 
+    public function getId($dessert)
+    {
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->select('id_dessert')
+            ->from('dessert')
+            ->where('libelle_dessert= ?')
+            ->setParameter(0,$dessert);
+        return $queryBuilder->execute()->fetch();
+    }
 
 
 }

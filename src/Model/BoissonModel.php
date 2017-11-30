@@ -72,4 +72,14 @@ class BoissonModel
         $tab = array_map('current', $result);
         return $tab;
     }
+
+    public function getId($boisson)
+    {
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->select('id_boisson')
+            ->from('boisson')
+            ->where('type_boisson = ?')
+            ->setParameter('0',$boisson);
+        return $queryBuilder->execute()->fetch();
+    }
 }

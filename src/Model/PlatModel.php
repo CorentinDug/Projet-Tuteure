@@ -35,4 +35,14 @@ class PlatModel
         $tab = array_map('current', $result);
         return $tab;
     }
+
+    public function getId($plat)
+    {
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->select('id_plat')
+            ->from('plat')
+            ->where('libelle_plat= ?')
+            ->setParameter(0,$plat);
+        return $queryBuilder->execute()->fetch();
+    }
 }

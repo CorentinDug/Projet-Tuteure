@@ -51,6 +51,7 @@ class ComposantController implements ControllerProviderInterface
         return $app["twig"]->render('backOff/composant/v_table_composant_menu.html.twig', ['boisson' => $boisson, 'aperitif' => $aperitif, 'dessert' => $dessert, 'fromage' => $fromage, 'plat' => $plat, 'entree' => $entree, 'supplement' => $supplement]);
     }
 
+
     public function connect(Application $app)
     {
         $controllers = $app['controllers_factory'];

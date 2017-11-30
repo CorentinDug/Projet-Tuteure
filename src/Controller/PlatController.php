@@ -190,6 +190,12 @@ class platController implements ControllerProviderInterface{
         return json_encode($arr);
     }
 
+    public function getId(Application $app){
+
+        $this->platModel = new PlatModel($app);
+        return $this->platModel->getId($_POST['plat']);
+
+    }
     /**
      * Returns routes to connect to the given application.
      *
@@ -216,6 +222,7 @@ class platController implements ControllerProviderInterface{
         $controllers->put('/edit', 'App\Controller\PlatController::validFormEditPlat')->bind('plats.validFormEdit');
 
         $controllers->get('/autoPlat','App\Controller\PlatController::autoCompletePlat')->bind('plat.autoComplete');
+        $controllers->get('/getId','App\Controller\PlatController::getId')->bind('plat.getId');
 
 
         return $controllers;

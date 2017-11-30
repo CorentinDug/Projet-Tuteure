@@ -16,6 +16,12 @@ class DessertController implements ControllerProviderInterface
         return json_encode($arr);
     }
 
+    public function getId(Application $app){
+
+        $this->dessertModel = new DessertModel($app);
+        return $this->dessertModel->getId($_POST['dessert']);
+    }
+
     /**
      * Returns routes to connect to the given application.
      *
@@ -28,6 +34,7 @@ class DessertController implements ControllerProviderInterface
         $controllers = $app['controllers_factory'];
 
         $controllers->get('/autoDessert', 'App\Controller\DessertController::autoCompleteDessert')->bind('dessert.autoComplete');
+        $controllers->get('/getId', 'App\Controller\DessertController::getId')->bind('dessert.getId');
 
         return $controllers;
     }

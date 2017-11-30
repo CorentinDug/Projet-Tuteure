@@ -17,6 +17,13 @@ class SupplementController implements ControllerProviderInterface
         return json_encode($arr);
     }
 
+    public function getId(Application $app){
+
+
+        $this->supplementModel = new SupplementModel($app);
+        return $this->supplementModel->getId($_POST['supplement']);
+
+    }
     /**
      * Returns routes to connect to the given application.
      *
@@ -29,6 +36,7 @@ class SupplementController implements ControllerProviderInterface
         $controllers = $app['controllers_factory'];
 
         $controllers->get('/autoSupplement', 'App\Controller\SupplementController::autoCompleteSupplement')->bind('supplement.autoComplete');
+        $controllers->get('/getId', 'App\Controller\SupplementController::getId')->bind('supplement.getId');
 
         return $controllers;
     }

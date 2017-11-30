@@ -75,4 +75,14 @@ class EntreeModel
         $tab = array_map('current', $result);
         return $tab;
     }
+
+    public function getId($entree)
+    {
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->select('id_entree')
+            ->from('entree')
+            ->where('libelle_entree= ?')
+            ->setParameter(0,$entree);
+        return $queryBuilder->execute()->fetch();
+    }
 }

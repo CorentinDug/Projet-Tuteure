@@ -72,4 +72,14 @@ class AperitifModel
         $tab = array_map('current', $result);
         return $tab;
     }
+
+    public function getId($aperitif)
+    {
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->select('id_aperitif')
+            ->from('aperitif')
+            ->where('libelle_aperitif = ?')
+            ->setParameter(0,$aperitif);
+        return $queryBuilder->execute()->fetch();
+    }
 }

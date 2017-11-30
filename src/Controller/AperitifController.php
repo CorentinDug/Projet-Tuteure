@@ -150,6 +150,11 @@ class AperitifController implements ControllerProviderInterface
         return json_encode($arr);
     }
 
+    public function getId(Application $app){
+        $this->aperitifModel = new AperitifModel($app);
+        return $this->aperitifModel->getId($_POST['aperitif']);
+    }
+
     /**
      * Returns routes to connect to the given application.
      *
@@ -176,6 +181,7 @@ class AperitifController implements ControllerProviderInterface
         $controllers->put('/edit', 'App\Controller\AperitifController::validFormEditAperitif')->bind('aperitif.validFormEditAperitif');
 
         $controllers->get('/autoAperitif', 'App\Controller\AperitifController::autoCompleteAperitif')->bind('aperitif.autoComplete');
+        $controllers->get('/getId', 'App\Controller\AperitifController::getId')->bind('aperitif.getId');
 
         return $controllers;
     }

@@ -72,4 +72,14 @@ class SupplementModel
         $tab = array_map('current', $result);
         return $tab;
     }
+
+    public function getId($supplement)
+    {
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->select('id_supplement')
+            ->from('supplement')
+            ->where('type_supplement= ? ')
+            ->setParameter(0,$supplement);
+        return $queryBuilder->execute()->fetch();
+    }
 }

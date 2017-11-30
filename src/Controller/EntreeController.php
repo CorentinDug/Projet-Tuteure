@@ -19,6 +19,11 @@ class EntreeController implements ControllerProviderInterface{
         $arr = $this->entreeModel->autoCompleteEntree();
         return json_encode($arr);
     }
+
+    public function getId(Application $app){
+        $this->entreeModel = new EntreeModel($app);
+        return $this->entreeModel->getId($_POST['entree']);
+    }
     /**
      * Returns routes to connect to the given application.
      *
@@ -31,6 +36,7 @@ class EntreeController implements ControllerProviderInterface{
         $controllers = $app['controllers_factory'];
 
         $controllers->get('/autoEntree','App\Controller\EntreeController::autoCompleteEntree')->bind('entree.autoComplete');
+        $controllers->get('/getId','App\Controller\EntreeController::getId')->bind('entree.getId');
 
         return $controllers;
 
