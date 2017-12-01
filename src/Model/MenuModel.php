@@ -64,9 +64,16 @@ class menuModel{
     public function getMenu($id){
         $queryBuilder = new QueryBuilder($this->db);
         $queryBuilder
-            ->select('id_menu', 'libelle_menu','nbDispo','prix','date_menu','id_type','id_aperitif','id_entree'
-            ,'id_plat','id_plat','id_fromage','id_dessert','id_boisson','id_supplement')
-            ->from('menu')
+            ->select('m.id_menu', 'm.libelle_menu','m.nbDispo','m.prix','m.date_menu','m.id_type','a.libelle_aperitif','e.libelle_entree'
+            ,'p.libelle_plat','f.libelle_fromage','d.libelle_dessert','b.type_boisson','s.type_supplement')
+            ->from('menu','m')
+            ->innerJoin('m','aperitif','a','a.id_aperitif = m.id_aperitif')
+            ->innerJoin('m','entree','e','e.id_entree = m.id_entree')
+            ->innerJoin('m','plat','p','p.id_plat = m.id_plat')
+            ->innerJoin('m','fromage','f','f.id_fromage = m.id_fromage')
+            ->innerJoin('m','dessert','d','d.id_dessert = m.id_dessert')
+            ->innerJoin('m','boisson','b','b.id_boisson = m.id_boisson')
+            ->innerJoin('m','supplement','s','s.id_supplement = m.id_supplement')
             ->where('id_menu='.$id);
         return $queryBuilder->execute()->fetch();
 

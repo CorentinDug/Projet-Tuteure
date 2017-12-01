@@ -27,7 +27,7 @@
             </label>
 
             <label>Date menu :
-                <input type="text" name="date_menu" size="18" value="{{ donnees.date_menu|default("")}}">
+                <input type="text" name="date_menu" size="18" value="{{ changeDate(donnees.date_menu|default(""))}}">
                 {% if erreurs.date_menu is defined %}
                     <small class="error">{{erreurs.date_menu}}</small>
                 {% endif %}

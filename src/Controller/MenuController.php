@@ -91,7 +91,11 @@ class menuController implements ControllerProviderInterface{
             'id_plat' => $id_plat['id_plat'],
             'id_supplement' => $id_supplement['id_supplement'],
         ];
-        return $this->validFormAdd($app,$donnees);
+        if (isset ($_POST['creerPlat'])){
+            return $this->validFormAdd($app,$donnees);
+        }else if (isset($_POST['updatePlat'])){
+            return $this->validFormUpdate($app,$donnees);
+        }
     }
 
     public function validFormAdd(Application $app , $donnees){
@@ -163,59 +167,33 @@ class menuController implements ControllerProviderInterface{
 
         $this->typeModel = new TypeModel($app);
         $type = $this->typeModel->getAllType();
-        $this->aperitifModel = new AperitifModel($app);
-        $aperitif = $this->aperitifModel->getAllAperitif();
-        $this->boissonModel = new BoissonModel($app);
-        $boisson = $this->boissonModel->getAllBoisson();
-        $this->dessertModel = new DessertModel($app);
-        $dessert = $this->dessertModel->getAllDessert();
-        $this->entreeModel = new EntreeModel($app);
-        $entree = $this->entreeModel->getAllEntree();
-        $this->fromageModel = new FromageModel($app);
-        $fromage = $this->fromageModel->getAllFromage();
-        $this->platModel = new PlatModel($app);
-        $plat = $this->platModel->getAllPlat();
-        $this->supplementModel = new SupplementModel($app);
-        $supplement = $this->supplementModel->getAllSupplement();
 
-        return $app["twig"]->render('backoff/menu/v_form_update_menu.html.twig',['donnees'=>$donnees, 'plat'=>$plat,'type'=>$type
-        ,'aperitif'=>$aperitif,'boisson'=>$boisson,'dessert'=>$dessert,'entree'=>$entree,'fromage'=>$fromage,'supplement'=>$supplement]);
+
+        return $app["twig"]->render('backoff/menu/v_form_update_menu.html.twig',['donnees'=>$donnees ,'type' => $type]);
 
     }
 
-    public function validFormUpdate(Application $app){
+    public function validFormUpdate(Application $app , $donnees){
 
         $this->helperDate = new HelperDate();
-        if (isset($_POST['_csrf_token'])) {
-            $token = $_POST['_csrf_token'];
-            $csrf_token = new CsrfToken('token_update_menu', $token);
-            $csrf_token_ok = $app['csrf.token_manager']->isTokenValid($csrf_token);
-            if(!$csrf_token_ok)
-            {
-                $erreurs["csrf"] = "Erreur : token : ".$token ;
-                return $app["twig"]->render("v_error_csrf.html.twig",['erreurs' => $erreurs]);
-            }
-        }
-        else
-            return $app->redirect($app["url_generator"]->generate("index.errorCsrf"));
 
-        $donnees = [
-            'id_menu' => htmlspecialchars($_POST['id_menu']),
+        $donnees += [
             'libelle_menu' => htmlspecialchars($_POST['libelle_menu']),                    // echapper les entrées
             'nbDispo' => htmlspecialchars($_POST['nbDispo']),
             'prix' => htmlspecialchars($_POST['prix']),
             'date_menu' => htmlspecialchars($_POST['date_menu']),
             'id_type' => htmlspecialchars($_POST['id_type']),
-            'id_aperitif' => htmlspecialchars($_POST['id_aperitif']),
-            'id_entree' => htmlspecialchars($_POST['id_entree']),
-            'id_plat' => htmlspecialchars($_POST['id_plat']),
-            'id_fromage' => htmlspecialchars($_POST['id_fromage']),
-            'id_dessert' => htmlspecialchars($_POST['id_dessert']),
-            'id_boisson' => htmlspecialchars($_POST['id_boisson']),
-            'id_supplement' => htmlspecialchars($_POST['id_supplement']),
+            'libelle_aperitif' => htmlspecialchars($_POST['aperitif']),
+            'type_boisson' => htmlspecialchars($_POST['boisson']),
+            'libelle_entree' => htmlspecialchars($_POST['entree']),
+            'libelle_dessert' => htmlspecialchars($_POST['dessert']),
+            'libelle_plat' => htmlspecialchars($_POST['plat']),
+            'libelle_fromage' => htmlspecialchars($_POST['fromage']),
+            'type_supplement' => htmlspecialchars($_POST['supplement']),
+            'id_menu' => htmlspecialchars($_POST['id_menu']),
 
         ];
-
+        var_dump($donnees);
         if ((! preg_match("/^[A-Za-z ]{2,}/",$donnees['libelle_menu']))) $erreurs['libelle_menu']='libelle composé de 2 lettres minimum';
         if((!is_numeric($donnees['prix'])))$erreurs['prix']='saisir une valeur numérique';
         if((!is_numeric($donnees['nbDispo'])))$erreurs['nbDispo']='saisir une valeur numérique';
@@ -248,7 +226,7 @@ class menuController implements ControllerProviderInterface{
             $plat = $this->platModel->getAllPlat();
             $this->supplementModel = new SupplementModel($app);
             $supplement = $this->supplementModel->getAllSupplement();
-            return $app["twig"]->render('menu/v_form_update_menu.html.twig',
+            return $app["twig"]->render('backOff/menu/v_form_update_menu.html.twig',
                 ['donnees'=>$donnees,'erreurs'=>$erreurs,'type'=>$type,'aperitif'=>$aperitif,'boisson'=>$boisson,'dessert'=>$dessert,
                     'entree'=>$entree,'fromage'=>$fromage,'plat'=>$plat,'supplement'=>$supplement]);
         }
