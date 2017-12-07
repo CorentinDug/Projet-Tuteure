@@ -63,6 +63,16 @@ class SupplementModel
         return $queryBuilder->execute();
     }
 
+    public function getLibelle($id){
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder
+            ->select('m.libelle_menu')
+            ->from('menu','m')
+            ->innerJoin('m','supplement','s','s.id_supplement = m.id_supplement')
+            ->where('d.id_supplement='.$id);
+        return $queryBuilder->execute()->fetchAll();
+    }
+
     public function autoCompleteSupplement()
     {
         $queryBuilder = new QueryBuilder($this->db);

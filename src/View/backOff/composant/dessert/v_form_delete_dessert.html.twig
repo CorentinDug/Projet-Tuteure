@@ -6,6 +6,9 @@
                 <input type="hidden" name="_method" id="_method" value="delete"/>
                 <legend>Voulez-vous suprimer ce dessert ? (twig)</legend>
                 <h3 id="blue">{{ donnees.libelle_dessert }}</h3>
+                {%  for libelle in libelle %}
+                    <h4>Le {{ libelle.libelle_menu }} sera également supprimer</h4>
+                {% endfor %}
                 <input name="id"  type="hidden" value="{{donnees.id_dessert}}" />
                 <input type="hidden"   name="_csrf_token"   value="{{ csrf_token('token_delete_dessert') }}">
                 <input type="submit" name="suprimerDessert" value="Suprimer" />

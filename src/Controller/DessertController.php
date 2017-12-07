@@ -45,9 +45,10 @@ class DessertController implements ControllerProviderInterface
     public function deleteDessert(Application $app, $id)
     {
         $this->DessertModel = new DessertModel($app);
-
-        $DessertModel = $this->DessertModel->getDessert($id);
-        return $app["twig"]->render('backOff/composant/dessert/v_form_delete_dessert.html.twig', ['donnees' => $DessertModel]);
+        $donnees = $this->DessertModel->getDessert($id);
+        $libelle = $this->DessertModel->getLibelle($id);
+        var_dump($libelle);
+        return $app["twig"]->render('backOff/composant/dessert/v_form_delete_dessert.html.twig', ['donnees' => $donnees, 'libelle' => $libelle]);
     }
 
     public function editDessert(Application $app, $id)

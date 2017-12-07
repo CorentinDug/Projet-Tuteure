@@ -66,6 +66,16 @@ class EntreeModel
         return $queryBuilder->execute();
     }
 
+    public function getLibelle($id){
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder
+            ->select('m.libelle_menu')
+            ->from('menu','m')
+            ->innerJoin('m','entree','e','e.id_entree = m.id_entree')
+            ->where('d.id_entree='.$id);
+        return $queryBuilder->execute()->fetchAll();
+    }
+
     public function autoCompleteEntree()
     {
         $queryBuilder = new QueryBuilder($this->db);

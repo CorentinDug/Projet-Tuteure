@@ -31,6 +31,7 @@ class AperitifController implements ControllerProviderInterface
         $this->aperitifModel = new AperitifModel($app);
 
         $aperitifModel = $this->aperitifModel->getAperitif($id);
+
         return $app["twig"]->render('backOff/composant/aperitif/v_form_delete_aperitif.html.twig', ['donnees' => $aperitifModel]);
     }
 

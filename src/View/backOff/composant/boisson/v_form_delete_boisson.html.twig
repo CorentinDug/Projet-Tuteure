@@ -7,6 +7,9 @@
                 <legend>Voulez-vous suprimer ce boisson ? (twig)</legend>
                 <h3 id="blue">{{ donnees.type_boisson }}</h3>
                 <input name="id"  type="hidden" value="{{donnees.id_boisson}}" />
+                {%  for libelle in libelle %}
+                    <h4>Le {{ libelle.libelle_menu }} sera également supprimer</h4>
+                {% endfor %}
                 <input type="hidden"   name="_csrf_token"   value="{{ csrf_token('token_delete_boisson') }}">
                 <input type="submit" name="suprimerBoisson" value="Suprimer" />
             </fieldset>

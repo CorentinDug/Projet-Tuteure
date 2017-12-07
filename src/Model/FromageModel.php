@@ -66,6 +66,16 @@ class FromageModel
         return $queryBuilder->execute();
     }
 
+    public function getLibelle($id){
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder
+            ->select('m.libelle_menu')
+            ->from('menu','m')
+            ->innerJoin('m','fromage','f','f.id_fromage = m.id_fromage')
+            ->where('d.id_fromage='.$id);
+        return $queryBuilder->execute()->fetchAll();
+    }
+
     public function autoCompleteFromage()
     {
         $queryBuilder = new QueryBuilder($this->db);

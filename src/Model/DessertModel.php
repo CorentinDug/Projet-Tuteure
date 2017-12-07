@@ -36,6 +36,16 @@ class DessertModel
         return $queryBuilder->execute()->fetch();
 
     }
+
+    public function getLibelle($id){
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder
+            ->select('m.libelle_menu')
+            ->from('menu','m')
+            ->innerJoin('m','dessert','d','d.id_dessert = m.id_dessert')
+            ->where('d.id_dessert='.$id);
+        return $queryBuilder->execute()->fetchAll();
+    }
     public function insertDessert($donnees){
         $queryBuilder = new QueryBuilder($this->db);
         $queryBuilder->insert('DESSERT')

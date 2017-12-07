@@ -63,6 +63,16 @@ class AperitifModel
         return $queryBuilder->execute();
     }
 
+    public function getLibelle($id){
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder
+            ->select('m.libelle_menu')
+            ->from('menu','m')
+            ->innerJoin('m','aperitif','a','a.id_aperitif = m.id_aperitif')
+            ->where('d.id_aperitif='.$id);
+        return $queryBuilder->execute()->fetchAll();
+    }
+
     public function autoCompleteAperitif()
     {
         $queryBuilder = new QueryBuilder($this->db);

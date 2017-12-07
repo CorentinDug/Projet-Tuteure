@@ -36,6 +36,16 @@ class PlatModel
         return $tab;
     }
 
+    public function getLibelle($id){
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder
+            ->select('m.libelle_menu')
+            ->from('menu','m')
+            ->innerJoin('m','plat','p','p.id_plat = m.id_plat')
+            ->where('d.id_plat='.$id);
+        return $queryBuilder->execute()->fetchAll();
+    }
+
     public function getId($plat)
     {
         $queryBuilder = new QueryBuilder($this->db);
