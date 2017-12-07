@@ -4,7 +4,7 @@
 {% include "script.html.twig" %}
 
 <form method="post" action="{{ path("menu.getIds") }} ">
-    <div class="row">
+    <div class="row" >
         <fieldset>
             <legend>Creer un menu</legend>
             <label>Nom menu :
@@ -70,6 +70,7 @@
                 {% if erreurs.plat is defined %}
                     <small class="error">{{erreurs.plat}}</small>
                 {% endif %}
+                <p id="sansPlat"></p>
             </label>
 
             <label for="fromage">Fromage :

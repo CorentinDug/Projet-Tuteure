@@ -1,33 +1,38 @@
 {% extends "v_layout.html.twig" %}
 {% block contenu %}
-<div class="row">
-        <div id="accordion">
+<div id="test">
+
+</div>
+
+    <div class="row">
         {% for menu in data if data is not empty %}
             <h3>{{menu.libelle_menu}} {{menu.nbDispo}} {{ menu.prix|number_format(2, ',', '')}}€ {{ changeDate(menu.date_menu) }}</h3>
-            {#<button type="button" onclick="toggle_text();">Texte du bouton</button>
-                <div id="{{ menu.id_menu }}" style="display:none;"> #}
-            <div>    Type: {{menu.libelle_type}}
-                    Apéritif: {{menu.libelle_aperitif}}
-                    Entrée {{menu.libelle_entree}}
-                    Plat principal {{menu.libelle_plat}}
-                    Fromage: {{menu.libelle_fromage}}
-                    Dessert: {{menu.libelle_dessert}}
-                    Boisson: {{menu.type_boisson}}
-                    Supplément: {{menu.type_supplement}} ..
+            <button type="button" onclick="toggle_text({{ menu.id_menu }});">Texte du bouton</button>
+                <div id="{{ menu.id_menu }}" style="display:none;">
+                    <div>   Type: {{menu.libelle_type}}
+                            Apéritif: {{menu.libelle_aperitif}}
+                            Entrée {{menu.libelle_entree}}
+                            Plat principal {{menu.libelle_plat}}
+                            Fromage: {{menu.libelle_fromage}}
+                            Dessert: {{menu.libelle_dessert}}
+                            Boisson: {{menu.type_boisson}}
+                            Supplément: {{menu.type_supplement}} ..
+                        </div>
                 </div>
 
-            {#<script>
-                function toggle_text() {
-                    var span = document.getElementById("{{ menu.id_menu }}");
+            <script>
+                function toggle_text(id) {
+                    var span = document.getElementById(id);
                     if(span.style.display == "none") {
                         span.style.display = "inline";
                     } else {
                         span.style.display = "none";
                     }
                 }
-            </script>#}
+            </script>
         {% endfor %}
-        </div>
 </div>
+
+
 
 {% endblock %}

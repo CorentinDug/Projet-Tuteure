@@ -38,9 +38,12 @@ class platController implements ControllerProviderInterface{
 
     public function addPlat(Application $app) {
 
-        $this->typePlatModel = new TypePlatModel($app);
-        $typePlat = $this->typePlatModel->getAllTypePlat();
-        return $app["twig"]->render('backOff/composant/plats/v_form_create_plats.html.twig',['typePlat'=>$typePlat]);
+        return $app["twig"]->render('backOff/composant/plats/v_form_create_plats.html.twig');
+    }
+
+    public function addPlatNom(Application $app) {
+        $donnees['nom'] = $_GET['nom'];
+        return $app["twig"]->render('backOff/composant/plats/v_form_create_plats.html.twig',['donnees'=>$donnees]);
     }
 
     public function deletePlat(Application $app, $id) {
@@ -223,6 +226,9 @@ class platController implements ControllerProviderInterface{
 
         $controllers->get('/autoPlat','App\Controller\PlatController::autoCompletePlat')->bind('plat.autoComplete');
         $controllers->get('/getId','App\Controller\PlatController::getId')->bind('plat.getId');
+
+        $controllers->get('/addPlatNom', 'App\Controller\PlatController::addPlatNom')->bind('plat.addPlatNom');
+
 
 
         return $controllers;
