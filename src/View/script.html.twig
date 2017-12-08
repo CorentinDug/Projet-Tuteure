@@ -2,6 +2,8 @@
 
     //AutoComplete Plat
     var tabPlat = [];
+    var test;
+    var nomPlat;
     $(document).ready(function(){
 
         /* Appelle le php qui contient le tableau php encodée en json */
@@ -18,9 +20,27 @@
 
         });
         $( "#plat" ).autocomplete({
-            source: tabPlat
+            source: tabPlat,
+            response: function(event, ui) {
+                if (ui.content.length === 0) {
+                    $("#sansPlat").html('<a name="plat" onclick="nomFonctionJS()" ">ajouter plat</a>');
+                } else {
+                    $("#sansPlat").empty();
+                }
+            }
         });
     });
+
+    {#function nomFonctionJS(){
+
+        var inputValeur = $("#plat").val();
+
+        if(inputValeur != ""){     // tester aussi si le champ contient des caractères spéciaux et si oui faire quelque chose pour ça
+
+            window.location = "http://localhost/projet/Projet-Tuteure/web/app_dev.php/plat/addPlatNom/?nom = " + inputValeur;
+        }
+    }#}
+
 
     //AutoComplete Aperitif
     var tabAperitif = [];
