@@ -1,16 +1,21 @@
-
+{#
 <nav class="top-bar" data-topbar role="navigation">
-  <ul class="title-area">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="menu-text">      <h1> <a href="{{ path('index.index') }}">Accueil</a></h1>
+      </li>
+ {# <ul class="title-area">
     <li class="name">
       <h1> <a href="{{ path('index.index') }}">Accueil</a></h1>
     </li>
-    <li class="toggle-topbar menu-icon">
+#}   {#<li class="toggle-topbar menu-icon">
       <a href="#"><span>Menu</span></a>
     </li>
   </ul>
+
   <section class="top-bar-section">
   {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
-    <ul class="left">
+    <ul class="left menu">
       <li class="has-dropdown"><a href="#">menus</a>
         <ul class="dropdown" >
           <li><a href="{{ path('menu.show') }}" class="truc">afficher/editer/supprimer les menus</a></li>
@@ -32,7 +37,7 @@
           </li>
         </ul>
       {% endif %}
-    <ul class="right">
+    <ul class="right menu">
         {% if   app.session.get('logged') is defined and  app.session.get('logged') == 1 %}
           <li class="name" style="color: #d58512">Connecté en tant que : {{ app.session.get('username') }}</li>
           <li><a href="{{ path('user.logout')  }}">Se déconnecter</a></li>
@@ -41,4 +46,44 @@
         {% endif %}
     </ul>
   </section>
-</nav>
+</nav> #}
+
+<div class="top-bar">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="menu-text"> <a href="{{ path('index.index') }}">Accueil</a></li>
+        {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
+      <li>
+        <a href="#">Menus</a>
+        <ul class="menu vertical">
+          <li><a href="{{ path('menu.show') }}" class="truc">afficher/editer/supprimer les menus</a></li>
+
+        </ul>
+      </li>
+      <li><a href="#">composant des menus</a></li>
+          <ul class="menu vertical">
+            <li><a href="{{ path('composant.show') }}" class="truc">afficher/editer/supprimer les composants des menus</a></li>
+          </ul>
+        {% endif %}
+        {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_CLIENT' %}
+      <li>
+        <a href="#">Menus</a>
+        <ul class="menu vertical">
+          <li><a href="{{ path('menu.show') }}" class="truc">Afficher</a></li>
+        </ul>
+      </li>
+        {% endif %}
+    </ul>
+
+  </div>
+  <div class="top-bar-right">
+    <ul class="menu">
+        {% if   app.session.get('logged') is defined and  app.session.get('logged') == 1 %}
+          <li class="name" style="color: #d58512">Connecté en tant que : {{ app.session.get('username') }}</li>
+          <li><a href="{{ path('user.logout')  }}">Se déconnecter</a></li>
+        {% else %}
+          <li><a href="{{ path('user.login')  }}">Se connecter</a></li>
+        {% endif %}
+    </ul>
+  </div>
+</div>
