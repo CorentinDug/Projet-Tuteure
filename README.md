@@ -37,3 +37,8 @@ Suppression de réservation
 faire deux calendrier (un pour le midi, un pour le soir)
 
 diapo a rendre pour le 22 décembre au max (voir sur moodle pour plus de détails)
+
+--------------
+
+mail de confirmation: php mailer ?
+
