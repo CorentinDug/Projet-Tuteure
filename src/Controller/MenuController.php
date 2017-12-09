@@ -262,6 +262,13 @@ class menuController implements ControllerProviderInterface{
         return json_encode($arr);
     }
 
+    public function rechercheDateMenu(Application $app){
+        $this->menuModel = new MenuModel($app);
+        $menu = $this->menuModel->rechercheMenuDate($_POST['dateMenu']);
+        return $app["twig"]->render("frontOff/menu/v_table_menuDate.html.twig",['data'=>$menu]);
+
+    }
+
     /**
      * Returns routes to connect to the given application.
      *
@@ -287,6 +294,8 @@ class menuController implements ControllerProviderInterface{
 
         $controllers->get('/auto','App\Controller\MenuController::autoComplete')->bind('menu.autoComplete');
         $controllers->post('/getIds','App\Controller\MenuController::getIds')->bind('menu.getIds');
+
+        $controllers->post('/rechercheDateMenu','App\Controller\MenuController::rechercheDateMenu')->bind('menu.rechercheDateMenu');
         return $controllers;
 
         // TODO: Implement connect() method.

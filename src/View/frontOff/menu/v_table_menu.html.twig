@@ -24,6 +24,13 @@
         {% endfor %}
 </div>
 
+    <form method="post" action="{{ path("menu.rechercheDateMenu")}}">
+        <label for="dateMenu">Date menu </label>
+        <input type="text" id="datepicker1" name="dateMenu"/>
+        <input type="submit" name="Search" value="Search" />
+    </form>
+
+
 <script>
     document.querySelectorAll('.menu-info').forEach((menu) => {
         const toggle = menu.querySelector('.menu-toggle'),
