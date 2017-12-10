@@ -15,6 +15,7 @@
         "symfony/form": "^3.2",
         "symfony/config": "^3.2",
         "symfony/translation": "^3.2",
-        "friendsofsymfony/jsrouting-bundle": "^2.0"
+        "friendsofsymfony/jsrouting-bundle": "^2.0",
+        "phpmailer/phpmailer": "^6.0"
     }
 }
