@@ -1,0 +1,46 @@
+{% extends "v_layout.html.twig" %}
+{% block contenu %}
+
+    <form method="post" action="{{ path('user.signup') }}" >
+        <div class="row">
+            <fieldset>
+                <input type="hidden"   name="_csrf_token"   value="{{ csrf_token('token_add_client') }}">
+                <legend>Ajouter un client</legend>
+                <label>Username/Login :
+                    <input name="username"  type="text"  size="18" value="{{donnees.username|default('')}}" />
+                    {% if erreurs.username is defined %}
+                        <small class="error">{{erreurs.username}}</small>
+                    {% endif %}
+                </label>
+                <label>Mot de passe :
+                    <input name="motdepasse"  type="password"  size="18" value="" />
+                    {% if erreurs.motdepasse is defined %}
+                        <small class="error">{{erreurs.motdepasse}}</small>
+                    {% endif %}
+                </label>
+                <label>Vérifier votre mot de passe :
+                    <input name="verificationmotdepasse"  type="password"  size="18" value="" />
+                    {% if erreurs.verificationmotdepasse is defined %}
+                        <small class="error">{{erreurs.verificationmotdepasse}}</small>
+                    {% endif %}
+                </label>
+                <label>E-Mail du client :
+                    <input name="email"  type="text"  size="18" 	value="{{donnees.email|default('')}}"/>
+                    {% if erreurs.email is defined %}
+                        <small class="error">{{erreurs.email}}</small>
+                    {% endif %}
+                </label>
+
+                <img src="{{ image }}" name="image" value="" /><br>
+
+                <label>Saisir captcha :
+                    <input type="text" name="maPhrase">
+                    {% if erreurs.phrase is defined %}
+                        <small class="error">{{erreurs.phrase}}</small>
+                    {% endif %}
+                </label>
+                <input type="submit" name="ajouterClient" value="Ajouter un client" />
+            </fieldset>
+        </div>
+    </form>
+{% endblock %}
