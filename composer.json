@@ -16,6 +16,7 @@
         "symfony/config": "^3.2",
         "symfony/translation": "^3.2",
         "friendsofsymfony/jsrouting-bundle": "^2.0",
-        "phpmailer/phpmailer": "^6.0"
+        "phpmailer/phpmailer": "^6.0",
+        "Gregwar/Captcha": "^1.1"
     }
 }
