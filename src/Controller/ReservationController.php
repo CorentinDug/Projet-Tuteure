@@ -37,15 +37,25 @@ class ReservationController implements ControllerProviderInterface
         ];
         if (!preg_match("/[A-Za-z0-9]{2,}.(@).[A-Za-z0-9]{2,}.(fr|com|de)/", $donnees['email'])) $erreurs['email'] = 'mail faux (exemple.exemple@exemple.fr ou com)';
         if (empty($erreurs)){
+            var_dump($donnees['nbDispo']);
             $this->helperMail = new HelperMail();
             $this->reservationModel = new ReservationModel($app);
             $this->reservationModel->createReservation($donnees);
-            $this->helperMail->sendMail();
+            $this->reservationModel->mnbPlaces($donnees);
+            $this->helperMail->sendMail($_POST['email']);
 
             return $app->redirect($app["url_generator"]->generate('menu.index'));
         }else{
             return $app['twig']->render('reservation.html.twig',['donnees'=>$donnees,'erreurs'=>$erreurs]);
         }
+    }
+
+    public function gestionReservation(Application $app){
+        $this->reservationModel = new ReservationModel($app);
+        $reservation = $this->reservationModel->getAllReserv();
+        return $app['twig']->render('backOff/gestion.html.twig',['reserv' => $reservation]);
+
+
     }
 
 
@@ -68,7 +78,7 @@ class ReservationController implements ControllerProviderInterface
         $controllers = $app['controllers_factory'];
         $controllers->get('/reserver', 'App\Controller\ReservationController::reserver')->bind('reservation.reserver');
         $controllers->post('/reserver', 'App\Controller\ReservationController::validFormReserv')->bind('reservation.validFormReserv');
-
+        $controllers->get('/gestion', 'App\Controller\ReservatioNController::gestionReservation')->bind('reservation.gestion');
         return $controllers;
 
     }

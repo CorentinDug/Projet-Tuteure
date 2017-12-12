@@ -2,10 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc013022-7f25-4ede-af16-7f075b69fe8e" name="Default" comment="Test pour l'accordéon qui fonctionne mais pas ce q'on veut finalement">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/View/v_layout.html.twig" afterPath="$PROJECT_DIR$/src/View/v_layout.html.twig" />
-      <change beforePath="$PROJECT_DIR$/src/View/v_menu.html.twig" afterPath="$PROJECT_DIR$/src/View/v_menu.html.twig" />
-      <change beforePath="$PROJECT_DIR$/web/assets/css/style.css" afterPath="$PROJECT_DIR$/web/assets/css/style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/View/backOff/gestion.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Projet-Tuteure.iml" afterPath="$PROJECT_DIR$/.idea/Projet-Tuteure.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Lms.sql" afterPath="$PROJECT_DIR$/Lms.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/ReservationController.php" afterPath="$PROJECT_DIR$/src/Controller/ReservationController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Helper/HelperMail.php" afterPath="$PROJECT_DIR$/src/Helper/HelperMail.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/ReservationModel.php" afterPath="$PROJECT_DIR$/src/Model/ReservationModel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/v_menu.html.twig" afterPath="$PROJECT_DIR$/src/View/v_menu.html.twig" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,25 +27,86 @@
     <option name="SHOW_TABLE_DETAILS" value="true" />
     <option name="SHOW_EMPTY_GROUPS" value="false" />
     <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <expand>
-      <path>
-        <item name="" type="eadb38e5:DatabaseStructure$Root" />
-        <item name="projet_tut@localhost" type="e3449647:DbNodeDescriptor" />
-      </path>
-      <path>
-        <item name="" type="eadb38e5:DatabaseStructure$Root" />
-        <item name="projet_tut@localhost" type="e3449647:DbNodeDescriptor" />
-        <item name="projet_tut" type="e3449647:DbNodeDescriptor" />
-      </path>
-      <path>
-        <item name="" type="eadb38e5:DatabaseStructure$Root" />
-        <item name="projet_tut@localhost" type="e3449647:DbNodeDescriptor" />
-        <item name="projet_tut" type="e3449647:DbNodeDescriptor" />
-        <item name="menu" type="e3449647:DbNodeDescriptor" />
-      </path>
-    </expand>
-    <select />
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="projet_tut@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="projet_tut@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="projet_tut" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="users" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="projet_tut@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="projet_tut" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="projet_tut@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="projet_tut" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="reservation" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="projet_tut@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="projet_tut" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="menu" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileColors">
     <fileColor scope="Non-Project Files (Material Default)" color="2E3C43" />
     <fileColor scope="Non-Project Files (Material Darker)" color="323232" />
@@ -49,101 +115,106 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="v_layout.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/v_layout.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="7" column="86" lean-forward="true" selection-start-line="7" selection-start-column="86" selection-end-line="7" selection-end-column="86" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="v_menu.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View/v_menu.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="53" column="10" lean-forward="false" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="10" />
+            <state relative-caret-position="1139">
+              <caret line="67" column="52" lean-forward="false" selection-start-line="67" selection-start-column="52" selection-end-line="67" selection-end-column="52" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="foundation.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/assets/css/foundation.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-14430">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/assets/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="56" column="0" lean-forward="true" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="normalize.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/assets/css/normalize.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4212">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/test.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
+      <file leaf-file-name="projet_tut.reservation" pinned="false" current-in-tab="false">
+        <entry file="dbDummy://dbtable:/4b6442f6/109e65da-2b72-4b19-a0dc-ee2c9f4cc2c4/projet_tut.reservation">
+          <provider editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="27" selection-end-column="6" />
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReservationController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/ReservationController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="39" column="42" lean-forward="false" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="script.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/script.html.twig">
+      <file leaf-file-name="gestion.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/View/backOff/gestion.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="624">
-              <caret line="24" column="41" lean-forward="false" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+            <state relative-caret-position="255">
+              <caret line="15" column="14" lean-forward="false" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MenuController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/MenuController.php">
+      <file leaf-file-name="v_table_menu.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/View/backOff/menu/v_table_menu.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6552">
-              <caret line="266" column="45" lean-forward="false" selection-start-line="266" selection-start-column="45" selection-end-line="266" selection-end-column="45" />
+            <state relative-caret-position="306">
+              <caret line="18" column="12" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="31" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="v_table_menuDate.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/frontOff/menu/v_table_menuDate.html.twig">
+      <file leaf-file-name="v_table_menu.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/View/frontOff/menu/v_table_menu.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="728">
-              <caret line="28" column="25" lean-forward="false" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="25" />
+            <state relative-caret-position="323">
+              <caret line="19" column="35" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HelperDate.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Helper/HelperDate.php">
+      <file leaf-file-name="v_table_type.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/View/backOff/type/v_table_type.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="526">
-              <caret line="69" column="1" lean-forward="false" selection-start-line="69" selection-start-column="1" selection-end-line="69" selection-end-column="1" />
+            <state relative-caret-position="272">
+              <caret line="16" column="40" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="31" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReservationModel.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/ReservationModel.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="742">
+              <caret line="55" column="5" lean-forward="false" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Lms.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Lms.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="25" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="379" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="console.sql" pinned="false" current-in-tab="true">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/109e65da-2b72-4b19-a0dc-ee2c9f4cc2c4/console.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="263">
+              <caret line="263" column="0" lean-forward="true" selection-start-line="263" selection-start-column="0" selection-end-line="263" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -199,13 +270,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/cda206c1-8547-441f-a5c0-aff20f421010/console.sql" />
-        <option value="$PROJECT_DIR$/src/View/backOff/dessert/v_form_create_dessert.html.twig" />
-        <option value="$PROJECT_DIR$/src/View/backOff/dessert/v_form_update_dessert.html.twig" />
-        <option value="$PROJECT_DIR$/src/Model/DessertModel.php" />
-        <option value="$PROJECT_DIR$/src/Model/AperitifModel.php" />
-        <option value="$PROJECT_DIR$/src/Model/BoissonModel.php" />
-        <option value="$PROJECT_DIR$/src/Model/EntreeModel.php" />
         <option value="$PROJECT_DIR$/src/Model/FromageModel.php" />
         <option value="$PROJECT_DIR$/src/Model/SupplementModel.php" />
         <option value="$PROJECT_DIR$/src/View/backOff/aperitif/v_form_create_aperitif.html.twig" />
@@ -247,9 +311,16 @@
         <option value="$PROJECT_DIR$/src/Controller/MenuController.php" />
         <option value="$PROJECT_DIR$/src/Helper/HelperDate.php" />
         <option value="$PROJECT_DIR$/src/View/test.html.twig" />
-        <option value="$PROJECT_DIR$/src/View/v_menu.html.twig" />
         <option value="$PROJECT_DIR$/src/View/v_layout.html.twig" />
         <option value="$PROJECT_DIR$/web/assets/css/style.css" />
+        <option value="$PROJECT_DIR$/Lms.sql" />
+        <option value="$PROJECT_DIR$/src/Helper/HelperMail.php" />
+        <option value="$PROJECT_DIR$/src/View/backOff/menu/v_table_menu.html.twig" />
+        <option value="$PROJECT_DIR$/src/View/v_menu.html.twig" />
+        <option value="$PROJECT_DIR$/src/View/backOff/gestion.html.twig" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/109e65da-2b72-4b19-a0dc-ee2c9f4cc2c4/console.sql" />
+        <option value="$PROJECT_DIR$/src/Controller/ReservationController.php" />
+        <option value="$PROJECT_DIR$/src/Model/ReservationModel.php" />
       </list>
     </option>
   </component>
@@ -266,10 +337,11 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="88" />
-    <option name="width" value="1600" />
-    <option name="height" value="769" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1096" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -312,90 +384,204 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Projet-Tuteure" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projet-Tuteure" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Projet-Tuteure" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projet-Tuteure" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Projet-Tuteure" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projet-Tuteure" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Projet-Tuteure" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projet-Tuteure" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Helper" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Projet-Tuteure" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projet-Tuteure" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="View" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Projet-Tuteure" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projet-Tuteure" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="View" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="backOff" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Projet-Tuteure" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projet-Tuteure" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="View" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="backOff" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="menu" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Projet-Tuteure" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projet-Tuteure" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="View" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="frontOff" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Projet-Tuteure" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projet-Tuteure" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="View" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="frontOff" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="menu" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Projet-Tuteure" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projet-Tuteure" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Projet-Tuteure" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projet-Tuteure" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Projet-Tuteure" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projet-Tuteure" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Projet-Tuteure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Projet-Tuteure" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Projet-Tuteure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Projet-Tuteure" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Projet-Tuteure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Projet-Tuteure" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Projet-Tuteure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Projet-Tuteure" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontOff" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="menu" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Projet-Tuteure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Projet-Tuteure" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backOff" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Projet-Tuteure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Projet-Tuteure" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backOff" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="type" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Projet-Tuteure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Projet-Tuteure" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backOff" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="menu" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Projet-Tuteure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Projet-Tuteure" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Projet-Tuteure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Projet-Tuteure" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Helper" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Projet-Tuteure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Projet-Tuteure" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -472,6 +658,15 @@
       <PhpTestRunnerSettings />
       <method />
     </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
       <command value="run" />
       <scripts />
@@ -491,14 +686,6 @@
       <test-directory />
       <recursive>false</recursive>
       <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <envs />
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
@@ -542,6 +729,8 @@
       <workItem from="1513078047388" duration="2320000" />
       <workItem from="1513089625807" duration="11000" />
       <workItem from="1513099895563" duration="1288000" />
+      <workItem from="1513103178212" duration="4415000" />
+      <workItem from="1513109823475" duration="93000" />
     </task>
     <task id="LOCAL-00001" summary="First test commit">
       <created>1510173073191</created>
@@ -680,7 +869,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110265000" />
+    <option name="totallyTimeSpent" value="114773000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -692,33 +881,33 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20676692" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32302773" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21108742" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32888415" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21841794" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21776815" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22077923" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.219935" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32459018" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="processedProjectFiles" value="true" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -743,62 +932,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Model/FromageModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="54" column="47" lean-forward="false" selection-start-line="54" selection-start-column="47" selection-end-line="54" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/backOff/composant/dessert/v_form_update_dessert.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="18" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/backOff/composant/dessert/v_form_create_dessert.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="9" column="48" lean-forward="false" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/backOff/composant/fromage/v_form_create_fromage.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="62" lean-forward="false" selection-start-line="2" selection-start-column="62" selection-end-line="2" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/EntreeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="126" column="8" lean-forward="true" selection-start-line="126" selection-start-column="8" selection-end-line="133" selection-end-column="127" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/FromageController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="131" column="84" lean-forward="false" selection-start-line="131" selection-start-column="84" selection-end-line="131" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/SupplementModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="52" column="44" lean-forward="false" selection-start-line="52" selection-start-column="44" selection-end-line="52" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/backOff/composant/boisson/v_form_create_boisson.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="25" lean-forward="true" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/View/backOff/composant/supplement/v_form_create_supplement.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="328">
@@ -880,13 +1013,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Lms.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6630">
-          <caret line="255" column="33" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="379" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -982,23 +1108,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
           <caret line="5" column="59" lean-forward="false" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/backOff/menu/v_table_menu.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="650">
-          <caret line="25" column="84" lean-forward="false" selection-start-line="25" selection-start-column="84" selection-end-line="25" selection-end-column="84" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/frontOff/menu/v_table_menu.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="676">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1012,80 +1121,159 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/MenuController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6552">
+        <state relative-caret-position="4284">
           <caret line="266" column="45" lean-forward="false" selection-start-line="266" selection-start-column="45" selection-end-line="266" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/frontOff/menu/v_table_menuDate.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="728">
-          <caret line="28" column="25" lean-forward="false" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/script.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
+        <state relative-caret-position="408">
           <caret line="24" column="41" lean-forward="false" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Helper/HelperDate.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
+        <state relative-caret-position="1088">
           <caret line="69" column="1" lean-forward="false" selection-start-line="69" selection-start-column="1" selection-end-line="69" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/test.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="27" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/test.html.twig" />
     <entry file="file://$PROJECT_DIR$/web/assets/css/foundation.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-14430">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/assets/css/normalize.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4212">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/v_layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="86" lean-forward="false" selection-start-line="7" selection-start-column="86" selection-end-line="7" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/assets/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="526">
+          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Helper/HelperMail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="14" column="27" lean-forward="false" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/frontOff/menu/reservation.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="24" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="30" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/frontOff/menu/v_table_menuDate.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="25" lean-forward="false" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/backOff/menu/v_table_menu.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="12" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="31" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/frontOff/menu/v_table_menu.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="35" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/v_menu.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="53" column="10" lean-forward="false" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="10" />
+        <state relative-caret-position="1139">
+          <caret line="67" column="52" lean-forward="false" selection-start-line="67" selection-start-column="52" selection-end-line="67" selection-end-column="52" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/v_layout.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/View/backOff/gestion.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="7" column="86" lean-forward="true" selection-start-line="7" selection-start-column="86" selection-end-line="7" selection-end-column="86" />
+        <state relative-caret-position="255">
+          <caret line="15" column="14" lean-forward="false" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/css/style.css">
+    <entry file="file://$PROJECT_DIR$/src/Controller/ReservationController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="56" column="0" lean-forward="true" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+        <state relative-caret-position="425">
+          <caret line="39" column="42" lean-forward="false" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/ReservationModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="742">
+          <caret line="55" column="5" lean-forward="false" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/backOff/type/v_table_type.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="40" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="31" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/4b6442f6/109e65da-2b72-4b19-a0dc-ee2c9f4cc2c4/projet_tut.reservation">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Lms.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="379" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/109e65da-2b72-4b19-a0dc-ee2c9f4cc2c4/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="263" column="0" lean-forward="true" selection-start-line="263" selection-start-column="0" selection-end-line="263" selection-end-column="0" />
           <folding />
         </state>
       </provider>

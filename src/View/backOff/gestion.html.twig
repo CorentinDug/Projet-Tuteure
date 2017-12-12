@@ -1,0 +1,16 @@
+{% extends "v_layout.html.twig" %}
+{% block contenu %}
+    <div class="row">
+    <table>
+        <caption>Recapitulatifs des reservations</caption>
+        <tbody>
+        <tr><th>Id reservation</th><th>nb places</th><th>id client</th><th>id menu</th>
+        </tr>
+        {% for reservation in reserv if reserv is not empty %}
+            <tr>
+                <td>{{reservation.id_reservation}}</td><td>{{reservation.nbplaces}}</td><td>{{reservation.id_client}}</td><td>{{reservation.libelle_menu}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

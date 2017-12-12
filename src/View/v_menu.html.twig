@@ -64,6 +64,9 @@
           <ul class="menu vertical">
             <li><a href="{{ path('composant.show') }}" >afficher/editer/supprimer les composants des menus</a></li>
           </ul>
+            <li>
+                <a href="{{path('reservation.gestion') }}">Gestion</a>
+            </li>
         {% endif %}
         {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_CLIENT' %}
       <li>
@@ -74,6 +77,8 @@
       </li>
         {% endif %}
     </ul>
+
+
 
   </div>
   <div class="top-bar-right">
