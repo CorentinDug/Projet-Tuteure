@@ -119,7 +119,7 @@ class menuModel{
         return $queryBuilder->execute();
     }
 
-    public function rechercheMenuDate($date){
+public function rechercheMenuDate($date){
         $queryBuilder = new QueryBuilder($this->db);
         $queryBuilder
             ->select('m.id_menu','m.libelle_menu','m.nbDispo','m.prix','m.date_menu','a.libelle_aperitif'
@@ -133,9 +133,19 @@ class menuModel{
             ->innerJoin('m', 'plat', 'p', 'p.id_plat=m.id_plat')
             ->innerJoin('m', 'supplement', 's', 's.id_supplement=m.id_supplement')
             ->innerJoin('m', 'type', 't', 't.id_type=m.id_type')
-            ->where('date_menu='.$date)
+            ->where("m.date_menu like '$date'")
             ->addOrderBy('m.libelle_menu', 'ASC');
         return $queryBuilder->execute()->fetchAll();
     }
+
+   /* public function rechercheMenuDate($date){
+        var_dump($date);
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder
+            ->select('*')
+            ->from('menu', 'm');
+        var_dump($queryBuilder);
+        return $queryBuilder->execute()->fetchAll();
+    }*/
 
 }
