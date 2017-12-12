@@ -264,7 +264,8 @@ class menuController implements ControllerProviderInterface{
 
     public function rechercheDateMenu(Application $app){
         $this->menuModel = new MenuModel($app);
-        $menu = $this->menuModel->rechercheMenuDate($_POST['dateMenu']);
+        $date = $this->helperDate->convertFRtoUS($_POST['dateMenu']);
+        $menu = $this->menuModel->rechercheMenuDate($date);
         return $app["twig"]->render("frontOff/menu/v_table_menuDate.html.twig",['data'=>$menu]);
 
     }
