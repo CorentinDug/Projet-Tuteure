@@ -42,3 +42,9 @@ diapo a rendre pour le 22 décembre au max (voir sur moodle pour plus de détail
 
 mail de confirmation: php mailer ?
 
+
+# Configuration wamp :
+
+Remplacer le php.ini dans wamp/bin/php5.6.25
+
+Mettre le dossier sendmail dans la racine de wamp
