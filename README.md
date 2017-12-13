@@ -48,3 +48,20 @@ mail de confirmation: php mailer ?
 Remplacer le php.ini dans wamp/bin/php5.6.25
 
 Mettre le dossier sendmail dans la racine de wamp
+
+---------------
+
+note prise au rdv
+
+mets à la place de composant
+
+Pour présentation:
+- faire d'abord la présentation du côté admin:
+	- création d'un menu avec ajout d'un dessert inexistant
+	- visualisation des réservations et des clients
+- ensuite côté client:
+	- visualisation des menus
+	- Inscription d'un client
+	- réservation
+  
+  
