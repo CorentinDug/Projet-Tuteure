@@ -1,8 +1,11 @@
 {% extends "v_layout.html.twig" %}
 {% block contenu %}
+    <div class="grid-container">
+
     <form method="post" action="{{ path('reservation.validFormReserv') }}">
-        <div class="row">
             <fieldset>
+                <div class="grid-x grid-margin-x">
+                <div class="shrink cell">
                 <legend>Reserver</legend>
                 <label>Combien de places ? :
                     <select name="nbDispo">
@@ -17,6 +20,8 @@
                         <small class="error">{{erreurs.type}}</small>
                     {% endif %}
                 </label>
+                </div>
+        </div>
                 <label>Email :
                     <input name="email"  type="text"  size="18" value="{{donnees.email|default("")}}" />
                     {% if erreurs.email is defined %}
@@ -26,6 +31,7 @@
                 <input type="hidden" name="id_menu" value="{{ menu.id_menu }}">
                 <input type="submit" name="reserver" value="Reserver" />
             </fieldset>
-        </div>
-    </form>
+        </form>
+
+    </div>
 {% endblock %}

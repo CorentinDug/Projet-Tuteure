@@ -34,19 +34,10 @@ class HelperMail{
 
 
         if (!preg_match("#^[a-z0-9._-]+@(hotmail|live|msn).[a-z]{2,4}$#", $mail)) // On filtre les serveurs qui rencontrent des bogues.
-
         {
-
             $passage_ligne = "\r\n";
-
-        }
-
-        else
-
-        {
-
+        } else {
             $passage_ligne = "\n";
-
         }
 
         //=====Déclaration des messages au format texte et au format HTML.

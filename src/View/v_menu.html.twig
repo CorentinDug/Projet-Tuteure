@@ -1,78 +1,25 @@
-{#
-<nav class="top-bar" data-topbar role="navigation">
-  <div class="top-bar-left">
-    <ul class="dropdown menu" data-dropdown-menu>
-      <li class="menu-text">      <h1> <a href="{{ path('index.index') }}">Accueil</a></h1>
-      </li>
- {# <ul class="title-area">
-    <li class="name">
-      <h1> <a href="{{ path('index.index') }}">Accueil</a></h1>
-    </li>
-#}   {#<li class="toggle-topbar menu-icon">
-      <a href="#"><span>Menu</span></a>
-    </li>
-  </ul>
 
-  <section class="top-bar-section">
-  {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
-    <ul class="left menu">
-      <li class="has-dropdown"><a href="#">menus</a>
-        <ul class="dropdown" >
-          <li><a href="{{ path('menu.show') }}" class="truc">afficher/editer/supprimer les menus</a></li>
-        </ul>
-      </li>
-      <li class="has-dropdown"><a href="#">composant des menus</a>
-        <ul class="dropdown">
-          <li><a href="{{ path('composant.show') }}" class="truc">afficher/editer/supprimer les composants des menus</a></li>
-        </ul>
-      </li>
-    </ul>
-    {% endif %}
-      {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_CLIENT' %}
-        <ul class="left">
-          <li class="has-dropdown"><a href="#">menus</a>
-            <ul class="dropdown" >
-              <li><a href="{{ path('menu.show') }}" class="truc">Afficher</a></li>
-            </ul>
-          </li>
-        </ul>
-      {% endif %}
-    <ul class="right menu">
-        {% if   app.session.get('logged') is defined and  app.session.get('logged') == 1 %}
-          <li class="name" style="color: #d58512">Connecté en tant que : {{ app.session.get('username') }}</li>
-          <li><a href="{{ path('user.logout')  }}">Se déconnecter</a></li>
-        {% else %}
-          <li><a href="{{ path('user.login')  }}">Se connecter</a></li>
-        {% endif %}
-    </ul>
-  </section>
-</nav> #}
-
-<div class="top-bar">
-  <div class="top-bar-left">
-    <ul class="dropdown menu" data-dropdown-menu>
-      <li > <a href="{{ path('index.index') }}">Accueil</a></li>
+<div class="top-bar degrade" >
+  <div class="top-bar-left" style="background: transparent;" >
+    <ul class="dropdown menu" data-dropdown-menu style="background: transparent;">
+      <li > <a href="{{ path('index.index') }}" class = "aMenu">Accueil</a></li>
         {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
       <li>
-        <a href="#">Menus</a>
-        <ul class="menu vertical">
-          <li><a href="{{ path('menu.show') }}" >afficher/editer/supprimer les menus</a></li>
-
+        <a href="#" class = "aMenu">Menus</a>
+        <ul class="menu vertical" >
+          <li class="degrade" ><a href="{{ path('menu.show') }}" class = "aMenu" >Gestion des menus</a></li>
         </ul>
       </li>
-      <li><a href="#">composant des menus</a></li>
-          <ul class="menu vertical">
-            <li><a href="{{ path('composant.show') }}" >afficher/editer/supprimer les composants des menus</a></li>
-          </ul>
+        <a href="{{ path('composant.show') }}" class = "aMenu">Gestion des mets</a>
             <li>
-                <a href="{{path('reservation.gestion') }}">Gestion</a>
+                <a href="{{path('reservation.gestion') }}" class = "aMenu">Gestion</a>
             </li>
         {% endif %}
         {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_CLIENT' %}
-      <li>
-        <a href="#">Menus</a>
+      <li >
+        <a href="#" class = "aMenu">Menus</a>
         <ul class="menu vertical">
-          <li><a href="{{ path('menu.show') }}" class="truc">Afficher</a></li>
+          <li class="degrade"><a href="{{ path('menu.show') }}" class = "aMenu">Afficher</a></li>
         </ul>
       </li>
         {% endif %}
@@ -81,16 +28,15 @@
 
 
   </div>
-  <div class="top-bar-right">
-    <ul class="menu">
+  <div class="top-bar-right" style="background: transparent;" >
+    <ul  class="menu " style="background: transparent;">
         {% if   app.session.get('logged') is defined and  app.session.get('logged') == 1 %}
-          <li >Connecté en tant que : {{ app.session.get('username') }}</li>
-          <li><a href="{{ path('user.logout')  }}">Se déconnecter</a></li>
+          <li class = "aMenu">Connecté en tant que : {{ app.session.get('username') }}</li>
+          <li ><a  class = "aMenu"href="{{ path('user.logout')  }}">Se déconnecter</a></li>
         {% else %}
-          <li><a href="{{ path('user.signup')  }}">S'inscrire</a></li>
-          <li><a href="{{ path('user.login')  }}">Se connecter</a></li>
+          <li><a class = "aMenu" href="{{ path('user.signup')  }}">S'inscrire</a></li>
+          <li><a class = "aMenu" href="{{ path('user.login')  }}">Se connecter</a></li>
         {% endif %}
     </ul>
   </div>
 </div>
-

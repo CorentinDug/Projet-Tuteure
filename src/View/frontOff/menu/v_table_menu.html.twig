@@ -1,14 +1,17 @@
 {% extends "v_layout.html.twig" %}
 {% block contenu %}
-<div class="grid-x" >
-    {#<div id="accordion">#}
-
+    <div class="grid-y" style="height: 30px;">
+    </div>
+<div class="grid-x" style="margin-left: 50px; width: 90%" >
+    <div style="width: 75%; display: inline-block">
     {% for menu in data if data is not empty %}
-    <div class="large-4 columns menu-info">
-        <button class="button primary menu-toggle" type="button" style="display: block; width: 80%; height: 56px; margin-left: 5px; margin-top: 15px; border-radius: 20px">
-            <h3 style="text-decoration: none; display: inline;font-size: 20px;"> {{menu.libelle_menu}} </h3> <h4 style="text-decoration: none; display: inline;font-size: 15px; font-weight: bold;">{{ menu.prix|number_format(2, ',', '')}}€ {{ changeDate(menu.date_menu) }} </h4> <h5 style="color:red  ;text-decoration: none; display: inline;font-size: 20px; font-weight: bold;">{{menu.nbDispo}}</h5></button>
+    <div class="large-1 columns menu-info" style="width: 45%; display: inline-block">
+        <button class="menu-toggle menuBouton" type="button" >
+            <h3 style="text-decoration: none; display: inline;font-size: 20px;"> {{menu.libelle_menu}} </h3> <h5 style="color:red  ;text-decoration: none; display: inline;font-size: 20px; font-weight: bold;">{{menu.nbDispo}}</h5> <br>
+            <h4 style="text-decoration: none; display: inline;font-size: 15px; font-weight: bold;">{{ changeDate(menu.date_menu) }} {{ menu.prix|number_format(2, ',', '')}}€  </h4>
+        </button>
         <div id="{{ menu.id_menu }}" class="menu-details">
-            <div class="panel callout radius"   style="border: 4px solid #dddddd; width: 261px; margin-left: 15px; border-radius: 20px" >
+            <div class="panel callout  panneau"  >
                 <li class="fn" style="text-decoration: underline; display: inline;font-size: 17px;margin-left: 15px;border-radius: 20px">
                     Type:</li> {{menu.libelle_type}} <br/>
                 <li class="fn" style="text-decoration: underline; display: inline;font-size: 17px;">Apéritif:</li> {{menu.libelle_aperitif}} <br/>
@@ -23,15 +26,17 @@
         </div>
     </div>
         {% endfor %}
-</div>
 
-    <form method="post" action="{{ path("menu.rechercheDateMenu")}}">
-        <label for="dateMenu">Date menu </label>
-        <input type="text" id="datepicker1" name="dateMenu"/>
-        <input type="submit" name="Search" value="Search" />
+    </div>
+<div style="display: inline-block" style="margin-right: 0px">
+    <form method="post" action="{{ path("menu.rechercheDateMenu")}}" class="dateAffich ">
+        <label for="dateMenu" style="color: whitesmoke;">  Date menu </label>
+        <input type="text" id="datepicker1" name="dateMenu" style="border-radius: 20px;"/>
+        <input type="submit" name="Search" value="Search" class="button boutonPerso" />
     </form>
 
-
+</div>
+</div>
 <script>
     document.querySelectorAll('.menu-info').forEach((menu) => {
         const toggle = menu.querySelector('.menu-toggle'),

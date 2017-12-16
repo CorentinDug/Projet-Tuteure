@@ -1,10 +1,10 @@
 {% extends "v_layout.html.twig" %}
 {% block contenu %}
-
+    <div class="grid-y" style="height: 50px;">
+    </div>
     <form method="post" action="{{ path('user.signup') }}" >
         <div class="row">
             <fieldset>
-                <input type="hidden"   name="_csrf_token"   value="{{ csrf_token('token_add_client') }}">
                 <legend>Ajouter un client</legend>
                 <label>Username/Login :
                     <input name="username"  type="text"  size="18" value="{{donnees.username|default('')}}" />

@@ -1,37 +1,42 @@
 {% extends "v_layout.html.twig" %}
 {% block contenu %}
-    <div class="grid-x" >
-        {#<div id="accordion">#}
-
-        {% for menu in data if data is not empty %}
-            <div class="large-4 columns menu-info">
-                <button class="menu-toggle button" type="button" style="display: block; width: 80%; height: 56px;">
-                    <h3 style="text-decoration: none; display: inline;font-size: 20px;"> {{menu.libelle_menu}} </h3> <h4 style="text-decoration: none; display: inline;font-size: 15px; font-weight: bold;">{{ menu.prix|number_format(2, ',', '')}}€ {{ changeDate(menu.date_menu) }} </h4> <h5 style="color:red  ;text-decoration: none; display: inline;font-size: 20px; font-weight: bold;">{{menu.nbDispo}}</h5></button>
-                <div id="{{ menu.id_menu }}" class="menu-details">
-                    <div class="panel callout radius"   style="border: 4px solid #dddddd; width: 261px;" >
-                        <li class="fn" style="text-decoration: underline; display: inline;font-size: 17px;">
-                            Type:</li> {{menu.libelle_type}} <br/>
-                        <li class="fn" style="text-decoration: underline; display: inline;font-size: 17px;">Apéritif:</li> {{menu.libelle_aperitif}} <br/>
-                        <li class="fn" style="text-decoration: underline; display: inline;font-size: 17px;">Entrée:</li> {{menu.libelle_entree}} <br/>
-                        <li class="fn" style="text-decoration: underline; display: inline;font-size: 17px;"> Plat principal:</li> {{menu.libelle_plat}} <br/>
-                        <li class="fn" style="text-decoration: underline; display: inline;font-size: 17px;">Fromage:</li> {{menu.libelle_fromage}} <br/>
-                        <li class="fn" style="text-decoration: underline; display: inline;font-size: 17px;">Dessert:</li> {{menu.libelle_dessert}} <br/>
-                        <li class="fn" style="text-decoration: underline; display: inline;font-size: 17px;">Boisson:</li> {{menu.type_boisson}} <br/>
-                        <li class="fn" style="text-decoration: underline; display: inline;font-size: 17px;">Supplément:</li> {{menu.type_supplement}} <br/>
+    <div class="grid-y" style="height: 30px;">
+    </div>
+    <div class="grid-x" style="margin-left: 50px; width: 90%" >
+        <div style="width: 75%; display: inline-block">
+            {% for menu in data if data is not empty %}
+                <div class="large-1 columns menu-info" style="width: 45%; display: inline-block">
+                    <button class="menu-toggle menuBouton" type="button" >
+                        <h3 style="text-decoration: none; display: inline;font-size: 20px;"> {{menu.libelle_menu}} </h3> <h5 style="color:red  ;text-decoration: none; display: inline;font-size: 20px; font-weight: bold;">{{menu.nbDispo}}</h5> <br>
+                        <h4 style="text-decoration: none; display: inline;font-size: 15px; font-weight: bold;">{{ changeDate(menu.date_menu) }} {{ menu.prix|number_format(2, ',', '')}}€  </h4>
+                    </button>
+                    <div id="{{ menu.id_menu }}" class="menu-details">
+                        <div class="panel callout  panneau"  >
+                            <li class="fn" style="text-decoration: underline; display: inline;font-size: 17px;margin-left: 15px;border-radius: 20px">
+                                Type:</li> {{menu.libelle_type}} <br/>
+                            <li class="fn" style="text-decoration: underline; display: inline;font-size: 17px;">Apéritif:</li> {{menu.libelle_aperitif}} <br/>
+                            <li class="fn" style="text-decoration: underline; display: inline;font-size: 17px;">Entrée:</li> {{menu.libelle_entree}} <br/>
+                            <li class="fn" style="text-decoration: underline; display: inline;font-size: 17px;"> Plat principal:</li> {{menu.libelle_plat}} <br/>
+                            <li class="fn" style="text-decoration: underline; display: inline;font-size: 17px;">Fromage:</li> {{menu.libelle_fromage}} <br/>
+                            <li class="fn" style="text-decoration: underline; display: inline;font-size: 17px;">Dessert:</li> {{menu.libelle_dessert}} <br/>
+                            <li class="fn" style="text-decoration: underline; display: inline;font-size: 17px;">Boisson:</li> {{menu.type_boisson}} <br/>
+                            <li class="fn" style="text-decoration: underline; display: inline;font-size: 17px;">Supplément:</li> {{menu.type_supplement}} <br/>
+                            <li class="fn" style=" display: inline;font-size: 17px;"><a href="{{ path('reservation.reserver', {menu: menu}) }}">Reserver</a></li>
+                        </div>
                     </div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+
+        </div>
+        <div style="display: inline-block" style="margin-right: 0px">
+            <form method="post" action="{{ path("menu.rechercheDateMenu")}}" class="dateAffich ">
+                <label for="dateMenu" style="color: whitesmoke;">  Date menu </label>
+                <input type="text" id="datepicker1" name="dateMenu" style="border-radius: 20px;"/>
+                <input type="submit" name="Search" value="Search" class="button boutonPerso" />
+            </form>
+
+        </div>
     </div>
-
-    <form method="post" action="{{ path("menu.rechercheDateMenu")}}">
-        <label for="dateMenu">Date menu </label>
-        <input type="text" id="datepicker1" name="dateMenu"/>
-        <input type="submit" name="Search" value="Search" />
-    </form>
-
-
-
     <script>
         document.querySelectorAll('.menu-info').forEach((menu) => {
             const toggle = menu.querySelector('.menu-toggle'),
