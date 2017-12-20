@@ -61,4 +61,10 @@ class HelperDate{
         );
         return implode("-",$newChaine);
     }
+    public static function convertFRtoUS($date)
+    {
+        $date = explode("-", $date);
+        $newsdate = $date[2] . '-' . $date[1] . '-' . $date[0];
+        return $newsdate;
+    }
 }

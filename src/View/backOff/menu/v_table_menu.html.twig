@@ -1,6 +1,11 @@
 {% extends "v_layout.html.twig" %}
 {% block contenu %}
-  <div class="row">
+    <div class="grid-y" style="height: 10px;">
+    </div>
+    <div class=" grid-y" style="height: 500px;">
+    <div class="cell small-6 medium-4 large-10">
+    <div class="grid-x grid-margin-x ">
+    <div class="small-10 large-offset-1 cell">
     {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
       <a href="{{ path('menu.add') }}"> Ajouter un menu </a>
     {% endif %}
@@ -22,11 +27,15 @@
             <td>{{menu.libelle_fromage}}</td><td>{{menu.libelle_dessert}}</td><td>{{menu.type_boisson}}</td><td>{{menu.type_supplement}}</td><td>
             {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
                 <a href="{{ path('menu.update', {id: menu.id_menu}) }}">Modifier</a>
-                -
                 <a href="{{ path('menu.delete',{id: menu.id_menu}) }}">Supprimer</a>
             {% endif %}
         </tr>
       {% endfor %}
     </tbody>
   </table>
+    </div>
+    </div>
+    </div>
+    </div>
+
 {% endblock %}

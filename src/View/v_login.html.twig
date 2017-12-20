@@ -1,24 +1,32 @@
 
 {% extends "v_layout.html.twig" %}
 {% block contenu %}
-    <form method="post" action="{{ path('user.validFormlogin') }}">
-
-        <div class="row">
-
-            <fieldset>
-                <legend>Se connecter :</legend>
-                <label>Login :
-                    <input name="login"  type="text"  size="18" value="" />
+    <div class="grid-y" style="height: 50px;">
+    </div>
+    <form method="post" action="{{ path('user.validFormlogin') }}" >
+    <div class=" grid-y" style="height: 500px; " >
+        <div class="cell small-6 medium-4 large-10">
+        <div class="grid-x" >
+            <div class="small-4 large-offset-3 cell" >
+            <div class="card" style ="color:whitesmoke; padding: 20px; border-radius: 50px; ">
+            <fieldset >
+                <legend style="color:whitesmoke; ">Se connecter :</legend>
+                <label style =" color:whitesmoke;">Login :
+                    <input name="login"  type="text"  size="18" value="" style="border-radius: 50px" />
                 </label>
 
-                <label>Password :
-                    <input name="password"  type="text"  size="18" value="" />
+                <label style =" color:whitesmoke;">Password :
+                    <input name="password"  type="text"  size="18" value="" style="border-radius: 50px" />
                 </label>
                 {% if app.session.get('erreur') is not empty %}
                     <small class="error">{{ app.session.get('erreur') }}</small>
                 {% endif %}
-                <input type="submit" name="seConnecter" value="Se connecter" />
+                <input  class = "boutonPerso button" type="submit" name="seConnecter" value="Se connecter" />
             </fieldset>
+            </div>
+            </div>
         </div>
+        </div>
+    </div
     </form>
 {% endblock %}

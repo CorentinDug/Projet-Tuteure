@@ -4,7 +4,7 @@
 
 
 #pour creer la meme base de données que moi :
-#create database if not exists projet_tut;
+create database if not exists projet_tut;
 
 drop table if exists sert;
 drop table if exists RESERVATION;

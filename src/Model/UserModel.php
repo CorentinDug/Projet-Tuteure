@@ -1,6 +1,7 @@
 <?php
 namespace App\Model;
 
+use Doctrine\DBAL\Query\QueryBuilder;
 use Silex\Application;
 
 class UserModel {
@@ -18,5 +19,36 @@ class UserModel {
             return $res->fetch();
         else
             return false;
+    }
+
+    public function getAllUser()
+    {
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder
+            ->select ('id','username','email')
+            ->from('users')
+            ->where('roles = "ROLE_CLIENT"');
+
+        return $queryBuilder->execute()->fetchAll();
+    }
+
+    public function addUser($donnees)
+    {
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder
+            ->insert('users')
+            ->values([
+                'username'=>'?',
+                'email'=>'?' ,
+                'motdepasse'=>'?',
+                'roles'=>'?'
+            ])
+
+            ->where('id= ?')
+            ->setParameter(0, $donnees['username'])
+            ->setParameter(1, $donnees['email'])
+            ->setParameter(2, $donnees['motdepasse'])
+            ->setParameter(3, 'ROLE_CLIENT');
+        return $queryBuilder->execute();
     }
 }

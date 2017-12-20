@@ -1,6 +1,11 @@
 {% extends "v_layout.html.twig" %}
 {% block contenu %}
-    <div class="row">
+    <div class="grid-y" style="height: 10px;">
+    </div>
+    <div class=" grid-y" style="height: 500px;">
+    <div class="cell small-6 medium-4 large-10">
+    <div class="grid-x grid-margin-x ">
+    <div class="small-6 large-offset-3 cell">
     {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
     {% endif %}
     <a href="{{ path('boisson.add') }}"> Ajouter une boisson </a>
@@ -8,7 +13,7 @@
     <table>
         <caption>Recapitulatifs des boissons</caption>
         <tbody>
-        <tr><th>Id Boisson</th><th>nom boisson</th>
+        <tr><th>Id Boisson</th> <th>nom boisson</th>
 
             {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
                 <th>operation</th>
@@ -157,4 +162,8 @@
         {% endfor %}
         </tbody>
     </table>
+    </div>
+    </div>
+    </div>
+    </div>
 {% endblock %}
