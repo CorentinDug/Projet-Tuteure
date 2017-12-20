@@ -6,7 +6,12 @@
         <div style="width: 75%; display: inline-block">
             {% for menu in data if data is not empty and menu|length > 2 %}
                 <div class="large-1 columns menu-info" style="width: 45%; display: inline-block">
-                    <button class="menu-toggle menuBouton" type="button" >
+                    {% if menu.libelle_type == "Dejeuner" %}
+                    <button class="menu-toggle menuBoutonMidi" type="button" >
+                        {% endif %}
+                        {% if  menu.libelle_type == "Diner" %}
+                        <button class="menu-toggle menuBoutonSoir" type="button" >
+                            {% endif %}
                         <h3 style="text-decoration: none; display: inline;font-size: 20px;"> {{menu.libelle_menu}} </h3> <h5 style="color:red  ;text-decoration: none; display: inline;font-size: 20px; font-weight: bold;">{{menu.nbDispo}}</h5> <br>
                         <h4 style="text-decoration: none; display: inline;font-size: 15px; font-weight: bold;">{{ changeDate(menu.date_menu) }} {{ menu.prix|number_format(2, ',', '')}}€  </h4>
                     </button>
@@ -32,7 +37,8 @@
             {% endfor %}
 
         </div>
-        <div style="display: inline-block" style="margin-right: 0px">
+        <div style="display: inline-block;margin-right: 0px">
+            <a class='boutonPerso button' href="{{ path('menu.show') }}">Menus</a>
             <form method="post" action="{{ path("menu.rechercheDateMenu")}}" class="dateAffich ">
                 <label for="dateMenu" style="color: whitesmoke;">  Date menu </label>
                 <input type="text" id="datepicker1" name="dateMenu" style="border-radius: 20px;"/>

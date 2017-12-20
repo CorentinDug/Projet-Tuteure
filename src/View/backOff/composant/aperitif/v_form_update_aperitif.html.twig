@@ -1,19 +1,29 @@
 {% extends "v_layout.html.twig" %}
 {% block contenu %}
+    <div class="grid-y" style="height: 50px;">
+    </div>
     <form method="post" action="{{ path("aperitif.validFormEditAperitif") }} ">
-        <div class="row">
-            Modification de l'aperitif: {{ donnees.libelle_aperitif }}
-            <fieldset>
-                <input type="hidden" name="_method" id="_method" value="put"/>
-                <input type="hidden" name="id_aperitif" value="{{ donnees.id_aperitif }}"/>
-                <label>Nom du dessert
-                    <input name="libelle_aperitif"  type="text"  size="18" value="{{ donnees.libelle_aperitif | default('') }}"/>
-                    {% if erreurs.libelle_aperitif is defined %}
-                        <small class="error">{{erreurs.libelle_aperitif}}</small>
-                    {% endif %}
-                </label>
-                <input type="submit" name="modifierAperitif" value="modifier" >
-            </fieldset>
+        <div class=" grid-y" style="height: 500px; " >
+            <div class="cell small-6 medium-4 large-10">
+                <div class="grid-x" >
+                    <div class="small-4 large-offset-3 cell" >
+                        <div class="card" style ="color:whitesmoke; padding: 20px; border-radius: 50px; ">
+                            <fieldset>
+                                <legend style =" color:whitesmoke;">Modification de l'aperitif: {{ donnees.libelle_aperitif }}</legend>
+                                <input type="hidden" name="_method" id="_method" value="put"/>
+                                <input type="hidden" name="id_aperitif" value="{{ donnees.id_aperitif }}"/>
+                                <label style =" color:whitesmoke;">Nom du dessert
+                                    <input name="libelle_aperitif"  type="text"  size="18" value="{{ donnees.libelle_aperitif | default('') }}"/>
+                                    {% if erreurs.libelle_aperitif is defined %}
+                                        <small class="error">{{erreurs.libelle_aperitif}}</small>
+                                    {% endif %}
+                                </label>
+                                <input type="submit" class = "boutonPerso button" name="modifierAperitif" value="Modifier" >
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </form>
 {% endblock %}
