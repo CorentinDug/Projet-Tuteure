@@ -36,6 +36,15 @@ class PlatModel
         return $tab;
     }
 
+    public function insertPlat($donnees)
+    {
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->insert('PLAT')
+            ->values(['libelle_plat' => '?'])
+            ->setParameter(0, $donnees['libelle_plat']);
+        return $queryBuilder->execute();
+    }
+
     public function getLibelle($id){
         $queryBuilder = new QueryBuilder($this->db);
         $queryBuilder

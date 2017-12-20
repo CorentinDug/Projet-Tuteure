@@ -30,7 +30,7 @@ class platController implements ControllerProviderInterface{
     public function showPlat(Application $app) {
         $this->platModel = new PlatModel($app);
         $plats = $this->platModel->getAllPlat();
-        return $app["twig"]->render('backOff/composant/plats/v_table_menu.html.twig',['data'=>$plats]);
+        return $app["twig"]->render('backOff/composant/v_table_composant_menu.html.twig',['data'=>$plats]);
     }
     public function home(Application $app){
         return $app["twig"]->render('plats/v_admin.html.twig');
@@ -67,49 +67,25 @@ class platController implements ControllerProviderInterface{
 
     public function validFormAddPlat(Application $app ) {
         //var_dump($app['request']->attributes);
-        $this->helperDate = new HelperDate();
-        if (isset($_POST['_csrf_token'])) {
-            $token = $_POST['_csrf_token'];
-            $csrf_token = new CsrfToken('token_add_plat', $token);
-            $csrf_token_ok = $app['csrf.token_manager']->isTokenValid($csrf_token);
-            if(!$csrf_token_ok)
-            {
-                $erreurs["csrf"] = "Erreur : token : ".$token ;
-                return $app["twig"]->render("v_error_csrf.html.twig",['erreurs' => $erreurs]);
-            }
-        }
-        else
-            return $app->redirect($app["url_generator"]->generate("index.errorCsrf"));
 
         if (1==1){
             $donnees = [
-                'nom' => htmlspecialchars($_POST['nom']),                    // echapper les entrées
-                'typePlat' => htmlspecialchars($_POST['idTypePlat']),
-                'prix' => htmlspecialchars($_POST['prix']),
-                'dureePreparation' => htmlspecialchars($_POST['dureePreparation']),
-                'dateCreation' => htmlspecialchars($_POST['dateCreation']),
-                'description' => htmlspecialchars($_POST['description']),
+                'libelle_plat' => htmlspecialchars($_POST['libelle_plat']),                    // echapper les entrées
 
             ];
 
 
-            if ((! preg_match("/^[A-Za-z ]{2,}/",$donnees['nom']))) $erreurs['nom']='nom composé de 2 lettres minimum';
-            if((!is_numeric($donnees['prix'])))$erreurs['prix']='saisir une valeur numérique';
-            if(!$this->helperDate->verifDate($donnees['dateCreation'])) $erreurs['dateCreation']='Saisir date au format JJ-MM-AAAA';
-            if(! is_numeric($donnees['dureePreparation']))$erreurs['dureePreparation']='saisir une valeur numérique';
-            $donnees['dateCreation'] = $this->helperDate->changeFormat($donnees['dateCreation']);
+            if ((! preg_match("/^[A-Za-z ]{2,}/",$donnees['libelle_plat']))) $erreurs['libelle_plat']='libelle composé de 2 lettres minimum';
 
             if(! empty($erreurs))
             {
-                $this->typePlatModel = new TypePlatModel($app);
-                $typePlat = $this->typePlatModel->getAllTypePlat();
-                return $app["twig"]->render('plats/v_form_create_menu.html.twig',['donnees'=>$donnees,'erreurs'=>$erreurs,'typePlat'=>$typePlat]);
+                return $app["twig"]->render('plats/v_form_create_plats.html.twig',['donnees'=>$donnees,'erreurs'=>$erreurs]);
             }
             else
             {
                 $this->platModel = new PlatModel($app);
                 $this->platModel->insertPlat($donnees);
-                return $app->redirect($app["url_generator"]->generate("plats.index"));
+                return $app->redirect($app["url_generator"]->generate("composant.index"));
             }
         }
         else {

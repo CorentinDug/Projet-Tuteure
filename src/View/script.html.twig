@@ -2,8 +2,6 @@
 
     //AutoComplete Plat
     var tabPlat = [];
-    var test;
-    var nomPlat;
     $(document).ready(function(){
 
         /* Appelle le php qui contient le tableau php encodée en json */
@@ -23,7 +21,7 @@
             source: tabPlat,
             response: function(event, ui) {
                 if (ui.content.length === 0) {
-                    $("#sansPlat").html('<a name="plat" href="" ">ajouter plat</a>');
+                    $("#sansPlat").html('<a name="plat" href=" {{ path('plats.add') }}" ">ajouter plat</a>');
                 } else {
                     $("#sansPlat").empty();
                 }

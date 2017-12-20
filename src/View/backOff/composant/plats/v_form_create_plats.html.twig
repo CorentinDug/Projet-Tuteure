@@ -3,14 +3,13 @@
     <form method="post" action="{{ path("plats.validFormAdd") }} ">
         <div class="row">
             <fieldset>
-                <legend>Creer un plats (twig)</legend>
+                <legend>Creer un plats</legend>
                 <label>Nom du plat:
-                    <input name="nom"  type="text"  size="18" value="{{donnees.nom|default("")}}" />
-                    {% if erreurs.nom is defined %}
-                        <small class="error">{{erreurs.nom}}</small>
+                    <input name="libelle_plat"  type="text"  size="18" value="{{donnees.libelle_plat|default("")}}" />
+                    {% if erreurs.libelle_plat is defined %}
+                        <small class="error">{{erreurs.libelle_plat}}</small>
                     {% endif %}
                 </label>
-                <input type="hidden"   name="_csrf_token"   value="{{ csrf_token('token_add_plat') }}">
                 <input type="submit" name="creerPlat" value="créer" />
             </fieldset>
         </div>
