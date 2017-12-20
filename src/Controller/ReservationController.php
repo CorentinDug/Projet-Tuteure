@@ -37,7 +37,6 @@ class ReservationController implements ControllerProviderInterface
         ];
         if (!preg_match("/[A-Za-z0-9]{2,}.(@).[A-Za-z0-9]{2,}.(fr|com|de)/", $donnees['email'])) $erreurs['email'] = 'mail faux (exemple.exemple@exemple.fr ou com)';
         if (empty($erreurs)){
-            var_dump($donnees['nbDispo']);
             $this->helperMail = new HelperMail();
             $this->reservationModel = new ReservationModel($app);
             $this->reservationModel->createReservation($donnees);

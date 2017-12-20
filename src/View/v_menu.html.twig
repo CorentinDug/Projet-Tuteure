@@ -5,7 +5,7 @@
       <li > <a href="{{ path('index.index') }}" class = "aMenu">Accueil</a></li>
         {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
       <li>
-          <li><a href="{{ path('menu.show') }}" class = "aMenu" >Gestion des menus</a></li>
+          <li   ><a href="{{ path('menu.show') }}" class = "aMenu" >Gestion des menus</a></li>
       </li>
         <a href="{{ path('composant.show') }}" class = "aMenu">Gestion des mets</a>
             <li>

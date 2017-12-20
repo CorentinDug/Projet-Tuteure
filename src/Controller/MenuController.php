@@ -271,6 +271,8 @@ class menuController implements ControllerProviderInterface{
         $datenull = $_POST['dateMenu'];
         $date = $this->helperDate->convertFRtoUS($datenull);
         $menu = $this->menuModel->rechercheMenuDate($date);
+        $menu['role'] = $app['session']->get('roles');
+        var_dump($menu);
         return $app["twig"]->render("frontOff/menu/v_table_menuDate.html.twig",['data'=>$menu]);
 
     }
