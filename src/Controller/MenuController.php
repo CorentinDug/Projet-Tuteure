@@ -44,7 +44,6 @@ class menuController implements ControllerProviderInterface{
             return $app["twig"]->render("frontOff/menu/v_table_menu.html.twig", ['data' => $menu]);
         }else {
             $menu['role'] = $app['session']->get('roles');
-            var_dump($menu);
             return $app["twig"]->render("frontOff/menu/v_table_menu.html.twig", ['data' => $menu]);
         }
     }
