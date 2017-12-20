@@ -21,7 +21,7 @@
             source: tabPlat,
             response: function(event, ui) {
                 if (ui.content.length === 0) {
-                    $("#sansPlat").html('<a name="plat" href=" {{ path('plats.add') }}" ">ajouter plat</a>');
+                    $("#sansPlat").html('<a style="color: whitesmoke " name="plat" href=" {{ path('plats.add') }}" ">ajouter plat</a>');
                 } else {
                     $("#sansPlat").empty();
                 }

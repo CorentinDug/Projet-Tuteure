@@ -4,7 +4,7 @@
     </div>
 <div class="grid-x" style="margin-left: 50px; width: 90%" >
     <div style="width: 75%; display: inline-block">
-    {% for menu in data if data is not empty and menu|length > 1 %}
+    {% for menu in data if data is not empty and menu|length > 2 %}
     <div class="large-1 columns menu-info" style="width: 45%; display: inline-block">
         <button class="menu-toggle menuBouton" type="button" >
             <h3 style="text-decoration: none; display: inline;font-size: 20px;"> {{menu.libelle_menu}} </h3> <h5 style="color:red  ;text-decoration: none; display: inline;font-size: 20px; font-weight: bold;">{{menu.nbDispo}}</h5> <br>
