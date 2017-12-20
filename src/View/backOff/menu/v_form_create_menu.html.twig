@@ -2,107 +2,117 @@
 {% block contenu %}
 <body>
 {% include "script.html.twig" %}
+<div class="grid-y" style="height: 50px;">
+</div>
 
 <form method="post" action="{{ path("menu.getIds") }} ">
-    <div class="row" >
-        <fieldset>
-            <legend>Creer un menu</legend>
-            <label>Nom menu :
-                <input name="libelle_menu"  type="text"  size="18" value="{{donnees.libelle_menu|default("")}}" />
-                {% if erreurs.libelle_menu is defined %}
-                    <small class="error">{{erreurs.libelle_menu}}</small>
-                {% endif %}
-            </label>
-            <label>places disponible :
-                <input name="nbDispo"  type="text"  size="18" value="{{donnees.nbDispo|default("")}}" />
-                {% if erreurs.nbDispo is defined %}
-                    <small class="error">{{erreurs.nbDispo}}</small>
-                {% endif %}
-            </label>
+    <div class=" grid-y" style="height: 500px; " >
+        <div class="cell small-6 medium-4 large-10">
+            <div class="grid-x" >
+                <div class="medium-8 large-offset-2 cell" >
+                    <div class="card" style ="color:whitesmoke; padding: 20px; border-radius: 50px; ">
+                        <fieldset>
+                            <legend style =" color:whitesmoke; text-decoration: underline">Créer un menu</legend>
+                            <label style =" color:whitesmoke;">Nom menu :
+                                <input name="libelle_menu"  type="text"  size="18" value="{{donnees.libelle_menu|default("")}}" />
+                                {% if erreurs.libelle_menu is defined %}
+                                    <small class="error">{{erreurs.libelle_menu}}</small>
+                                {% endif %}
+                            </label>
+                            <label style =" color:whitesmoke;">Places disponibles :
+                                <input name="nbDispo"  type="text"  size="18" value="{{donnees.nbDispo|default("")}}" />
+                                {% if erreurs.nbDispo is defined %}
+                                    <small class="error">{{erreurs.nbDispo}}</small>
+                                {% endif %}
+                            </label>
 
-            <label>Prix :
-                <input name="prix"  type="text"  size="18"  value="{{donnees.prix|default("")}}"/>
-                {% if erreurs.prix is defined %}
-                    <small class="error">{{erreurs.prix}}</small>
-                {% endif %}
-            </label>
+                            <label style =" color:whitesmoke;">Prix :
+                                <input name="prix"  type="text"  size="18"  value="{{donnees.prix|default("")}}"/>
+                                {% if erreurs.prix is defined %}
+                                    <small class="error">{{erreurs.prix}}</small>
+                                {% endif %}
+                            </label>
 
-            <label>Date menu :
-                <input type="text" name="date_menu" size="18" value="{{ changeDate(donnees.date_menu|default(""))}}">
-                {% if erreurs.date_menu is defined %}
-                    <small class="error">{{erreurs.date_menu}}</small>
-                {% endif %}
-            </label>
+                            <label style =" color:whitesmoke;">Date menu :
+                                <input type="text" name="date_menu" size="18" value="{{ changeDate(donnees.date_menu|default(""))}}">
+                                {% if erreurs.date_menu is defined %}
+                                    <small class="error">{{erreurs.date_menu}}</small>
+                                {% endif %}
+                            </label>
 
-            <label>Type :
-                <select name="id_type">
-                    {% if type.id_type is not defined or donnees.id_type is empty   %}
-                        <option value="">Veuillez sélectionner un type</option>
-                    {% endif %}
-                    {% for type in type %}
-                        <option value="{{ type.id_type }}"
-                                {% if donnees.id_type is defined and type.id_type == donnees.id_type    %}selected{% endif %}>
-                            {{ type.libelle_type }}
-                        </option>
-                    {% endfor %}
-                </select>
-                {% if erreurs.type is defined %}
-                    <small class="error">{{erreurs.type}}</small>
-                {% endif %}
-            </label>
+                            <label style =" color:whitesmoke;">Type :
+                                <select name="id_type">
+                                    {% if type.id_type is not defined or donnees.id_type is empty   %}
+                                        <option value="">Veuillez sélectionner un type</option>
+                                    {% endif %}
+                                    {% for type in type %}
+                                        <option value="{{ type.id_type }}"
+                                                {% if donnees.id_type is defined and type.id_type == donnees.id_type    %}selected{% endif %}>
+                                            {{ type.libelle_type }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                                {% if erreurs.type is defined %}
+                                    <small class="error">{{erreurs.type}}</small>
+                                {% endif %}
+                            </label>
 
-            <label for="aperitif">Aperitif :
-                <input type="text" id="aperitif" name="aperitif" value="{{donnees.libelle_aperitif|default("")}}" >
-                {% if erreurs.aperitif is defined %}
-                    <small class="error">{{erreurs.aperitif}}</small>
-                {% endif %}
-            </label>
+                            <label for="aperitif" style =" color:whitesmoke;">Aperitif :
+                                <input type="text" id="aperitif" name="aperitif" value="{{donnees.libelle_aperitif|default("")}}" >
+                                {% if erreurs.aperitif is defined %}
+                                    <small class="error">{{erreurs.aperitif}}</small>
+                                {% endif %}
+                            </label>
 
-            <label for="entree">Entree :
-                <input type="text" id="entree" name="entree" value="{{donnees.libelle_entree|default("")}}">
-                {% if erreurs.entree is defined %}
-                    <small class="error">{{erreurs.entree}}</small>
-                {% endif %}
-            </label>
+                            <label for="entree" style =" color:whitesmoke;">Entree :
+                                <input type="text" id="entree" name="entree" value="{{donnees.libelle_entree|default("")}}">
+                                {% if erreurs.entree is defined %}
+                                    <small class="error">{{erreurs.entree}}</small>
+                                {% endif %}
+                            </label>
 
-            <label for="plat">Plat :
-                <input type="text" id="plat" name="plat" value="{{donnees.libelle_plat|default("")}}">
-                {% if erreurs.plat is defined %}
-                    <small class="error">{{erreurs.plat}}</small>
-                {% endif %}
-                <p id="sansPlat"></p>
-            </label>
+                            <label for="plat" style =" color:whitesmoke;">Plat :
+                                <input type="text" id="plat" name="plat" value="{{donnees.libelle_plat|default("")}}">
+                                {% if erreurs.plat is defined %}
+                                    <small class="error">{{erreurs.plat}}</small>
+                                {% endif %}
+                                <p id="sansPlat"></p>
+                            </label>
 
-            <label for="fromage">Fromage :
-                <input type="text" id="fromage" name="fromage" value="{{donnees.libelle_fromage|default("")}}">
-                {% if erreurs.fromage is defined %}
-                    <small class="error">{{erreurs.fromage}}</small>
-                {% endif %}
-            </label>
+                            <label for="fromage" style =" color:whitesmoke;">Fromage :
+                                <input type="text" id="fromage" name="fromage" value="{{donnees.libelle_fromage|default("")}}">
+                                {% if erreurs.fromage is defined %}
+                                    <small class="error">{{erreurs.fromage}}</small>
+                                {% endif %}
+                            </label>
 
-            <label for="dessert">Dessert :
-                <input type="text" id="dessert" name="dessert" value="{{donnees.libelle_dessert|default("")}}">
-                {% if erreurs.dessert is defined %}
-                    <small class="error">{{erreurs.dessert}}</small>
-                {% endif %}
-            </label>
+                            <label for="dessert" style =" color:whitesmoke;">Dessert :
+                                <input type="text" id="dessert" name="dessert" value="{{donnees.libelle_dessert|default("")}}">
+                                {% if erreurs.dessert is defined %}
+                                    <small class="error">{{erreurs.dessert}}</small>
+                                {% endif %}
+                            </label>
 
-            <label for="boisson">Boisson :
-                <input type="text" id="boisson" name="boisson" value="{{donnees.libelle_boisson|default("")}}">
-                {% if erreurs.boisson is defined %}
-                    <small class="error">{{erreurs.boisson}}</small>
-                {% endif %}
-            </label>
+                            <label for="boisson" style =" color:whitesmoke;">Boisson :
+                                <input type="text" id="boisson" name="boisson" value="{{donnees.libelle_boisson|default("")}}">
+                                {% if erreurs.boisson is defined %}
+                                    <small class="error">{{erreurs.boisson}}</small>
+                                {% endif %}
+                            </label>
 
-            <label for="supplement">Supplement :
-                <input type="text" id="supplement" name="supplement" value="{{donnees.libelle_supplement|default("")}}">
-                {% if erreurs.supplement is defined %}
-                    <small class="error">{{erreurs.supplement}}</small>
-                {% endif %}
-            </label>
+                            <label for="supplement" style =" color:whitesmoke;">Supplement :
+                                <input type="text" id="supplement" name="supplement" value="{{donnees.libelle_supplement|default("")}}">
+                                {% if erreurs.supplement is defined %}
+                                    <small class="error">{{erreurs.supplement}}</small>
+                                {% endif %}
+                            </label>
 
-            <input type="submit" name="creerPlat" value="créer" />
-        </fieldset>
+                            <input type="submit" class = "boutonPerso button" name="creerPlat" value="Créer" />
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </form>
 </body>
