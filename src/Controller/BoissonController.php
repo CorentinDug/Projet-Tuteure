@@ -63,7 +63,7 @@ class BoissonController implements ControllerProviderInterface
         if (1 == 1) {
             $donnees = [
                 'type_boisson' => htmlspecialchars($_POST['type_boisson']),                    // echapper les entrées
-
+                'boisson' => htmlspecialchars($_POST['boisson'])
             ];
 
 
@@ -75,7 +75,9 @@ class BoissonController implements ControllerProviderInterface
             } else {
                 $this->BoissonModel = new BoissonModel($app);
                 $this->BoissonModel->insertboisson($donnees);
-                return $app->redirect($app["url_generator"]->generate("composant.index"));
+                if (isset($donnees['boisson'])) {
+                    return $app->redirect($app["url_generator"]->generate("menu.add"));
+                }else return $app->redirect($app["url_generator"]->generate("composant.index"));
             }
         } else {
             return "probleme";

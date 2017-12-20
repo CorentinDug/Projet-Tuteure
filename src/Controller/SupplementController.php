@@ -58,7 +58,7 @@ class SupplementController implements ControllerProviderInterface
         if (1 == 1) {
             $donnees = [
                 'type_supplement' => htmlspecialchars($_POST['type_supplement']),                    // echapper les entrées
-
+                'supplement' => htmlspecialchars($_POST['supplement']),
             ];
 
 
@@ -70,8 +70,9 @@ class SupplementController implements ControllerProviderInterface
             } else {
                 $this->SupplementModel = new SupplementModel($app);
                 $this->SupplementModel->insertsupplement($donnees);
-                return $app->redirect($app["url_generator"]->generate("composant.index"));
-            }
+                if (isset($donnees['supplement'])) {
+                    return $app->redirect($app["url_generator"]->generate("menu.add"));
+                }else return $app->redirect($app["url_generator"]->generate("composant.index"));            }
         } else {
             return "probleme";
         }

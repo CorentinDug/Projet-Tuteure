@@ -71,7 +71,7 @@ class platController implements ControllerProviderInterface{
         if (1==1){
             $donnees = [
                 'libelle_plat' => htmlspecialchars($_POST['libelle_plat']),                    // echapper les entrées
-
+                'plat' => htmlspecialchars($_POST['plat']),
             ];
 
 
@@ -85,8 +85,9 @@ class platController implements ControllerProviderInterface{
             {
                 $this->platModel = new PlatModel($app);
                 $this->platModel->insertPlat($donnees);
-                return $app->redirect($app["url_generator"]->generate("composant.index"));
-            }
+                if (isset($donnees['plat'])) {
+                    return $app->redirect($app["url_generator"]->generate("menu.add"));
+                }else return $app->redirect($app["url_generator"]->generate("composant.index"));            }
         }
         else {
             return "probleme";

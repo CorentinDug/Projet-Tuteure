@@ -50,7 +50,7 @@ class AperitifController implements ControllerProviderInterface
         if (1 == 1) {
             $donnees = [
                 'libelle_aperitif' => htmlspecialchars($_POST['libelle_aperitif']),                    // echapper les entrées
-
+                'aperitif' => htmlspecialchars($_POST['aperitif']),
             ];
 
 
@@ -62,7 +62,9 @@ class AperitifController implements ControllerProviderInterface
             } else {
                 $this->aperitifModel = new AperitifModel($app);
                 $this->aperitifModel->insertAperitif($donnees);
-                return $app->redirect($app["url_generator"]->generate("composant.index"));
+                if (isset($donnees['aperitif'])) {
+                    return $app->redirect($app["url_generator"]->generate("menu.add"));
+                }else return $app->redirect($app["url_generator"]->generate("composant.index"));
             }
         } else {
             return "probleme";

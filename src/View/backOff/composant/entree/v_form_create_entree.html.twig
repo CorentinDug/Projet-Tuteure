@@ -1,6 +1,6 @@
 {% extends "v_layout.html.twig" %}
 {% block contenu %}
-    <form method="post" action="{{ path("entree.validFormAddEntree") }} ">
+    <form method="post" action="{% if entree is defined %} {{ path("entree.validFormAddEntree",{entree: entree}) }} {% else %} {{ path("entree.validFormAddEntree") }} {% endif %} ">
         <div class="row">
             Ajout d'une entrée
             <fieldset>

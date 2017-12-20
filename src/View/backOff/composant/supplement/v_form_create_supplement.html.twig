@@ -1,6 +1,6 @@
 {% extends "v_layout.html.twig" %}
 {% block contenu %}
-    <form method="post" action="{{ path("supplement.validFormAddSupplement") }} ">
+    <form method="post" action="{% if supplement is defined %} {{ path("supplement.validFormAddSupplement",{supplement: supplement}) }} {% else %} {{ path("supplement.validFormAddSupplement") }} {% endif %} ">
         <div class="row">
             Ajout d'un supplement
             <fieldset>

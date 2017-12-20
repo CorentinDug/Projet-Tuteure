@@ -67,10 +67,8 @@ class DessertController implements ControllerProviderInterface
         if (1 == 1) {
             $donnees = [
                 'libelle_dessert' => htmlspecialchars($_POST['libelle_dessert']),                    // echapper les entrées
-
+                'dessert' => htmlspecialchars($_POST['dessert']),
             ];
-
-
             if ((!preg_match("/^[A-Za-z ]{2,}/", $donnees['libelle_dessert']))) $erreurs['libelle_dessert'] = 'libelle composé de 2 lettres minimum';
             if (!empty($erreurs)) {
                 $this->DessertModel = new DessertModel($app);
@@ -79,7 +77,10 @@ class DessertController implements ControllerProviderInterface
             } else {
                 $this->DessertModel = new DessertModel($app);
                 $this->DessertModel->insertdessert($donnees);
-                return $app->redirect($app["url_generator"]->generate("composant.index"));
+                if (isset($donnees['dessert'])) {
+                    return $app->redirect($app["url_generator"]->generate("menu.add"));
+            }else return $app->redirect($app["url_generator"]->generate("composant.index"));
+
             }
         } else {
             return "probleme";

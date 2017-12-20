@@ -29,6 +29,7 @@
         });
     });
 
+
     {#function nomFonctionJS(){
 
         var inputValeur = $("#plat").val();
@@ -58,7 +59,14 @@
 
         });
         $( "#aperitif" ).autocomplete({
-            source: tabAperitif
+            source: tabAperitif,
+            response: function(event, ui) {
+                if (ui.content.length === 0) {
+                    $("#sansAperitif").html('<a style="color: whitesmoke " name="aperitif" href=" {{ path('aperitif.add',{aperitif: 1}) }}" ">ajouter aperitif</a>');
+                } else {
+                    $("#sansAperitif").empty();
+                }
+            }
         });
     });
 
@@ -80,7 +88,14 @@
 
         });
         $( "#entree" ).autocomplete({
-            source: tabEntree
+            source: tabEntree,
+            response: function(event, ui) {
+                if (ui.content.length === 0) {
+                    $("#sansEntree").html('<a style="color: whitesmoke " name="entree" href=" {{ path('entree.add',{entree: 1}) }}" ">ajouter entree</a>');
+                } else {
+                    $("#sansEntree").empty();
+                }
+            }
         });
     });
 
@@ -102,7 +117,14 @@
 
         });
         $( "#fromage" ).autocomplete({
-            source: tabFromage
+            source: tabFromage,
+            response: function(event, ui) {
+                if (ui.content.length === 0) {
+                    $("#sansFromage").html('<a style="color: whitesmoke " name="fromage" href=" {{ path('fromage.add',{fromage: 1}) }}" ">ajouter fromage</a>');
+                } else {
+                    $("#sansFromage").empty();
+                }
+            }
         });
     });
 
@@ -124,7 +146,14 @@
 
         });
         $( "#dessert" ).autocomplete({
-            source: tabDessert
+            source: tabDessert,
+            response: function(event, ui) {
+                if (ui.content.length === 0) {
+                    $("#sansDessert").html('<a style="color: whitesmoke " name="dessert" href=" {{ path('dessert.addDessert',{dessert: 1}) }}" ">ajouter dessert</a>');
+                } else {
+                    $("#sansDessert").empty();
+                }
+            }
         });
     });
 
@@ -146,7 +175,14 @@
 
         });
         $( "#boisson" ).autocomplete({
-            source: tabBoisson
+            source: tabBoisson,
+            response: function(event, ui) {
+                if (ui.content.length === 0) {
+                    $("#sansBoisson").html('<a style="color: whitesmoke " name="boisson" href=" {{ path('boisson.add',{boisson: 1}) }}" ">ajouter boisson</a>');
+                } else {
+                    $("#sansBoisson").empty();
+                }
+            }
         });
     });
 
@@ -168,7 +204,14 @@
 
         });
         $( "#supplement" ).autocomplete({
-            source: tabSupplement
+            source: tabSupplement,
+            response: function(event, ui) {
+                if (ui.content.length === 0) {
+                    $("#sansSupplement").html('<a style="color: whitesmoke " name="supplement" href=" {{ path('supplement.add',{supplement: 1}) }}" ">ajouter supplement</a>');
+                } else {
+                    $("#sansSupplement").empty();
+                }
+            }
         });
     });
 </script>

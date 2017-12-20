@@ -1,6 +1,6 @@
 {% extends "v_layout.html.twig" %}
 {% block contenu %}
-    <form method="post" action="{{ path("aperitif.validFormAddAperitif") }} ">
+    <form method="post" action="{% if aperitif is defined %} {{ path("aperitif.validFormAddAperitif",{aperitif: aperitif}) }} {% else %} {{ path("aperitif.validFormAddAperitif") }} {% endif %} ">
         <div class="row">
             Ajout d'un apéritif
             <fieldset>

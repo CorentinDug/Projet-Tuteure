@@ -57,7 +57,7 @@ class EntreeController implements ControllerProviderInterface{
         if (1 == 1) {
             $donnees = [
                 'libelle_entree' => htmlspecialchars($_POST['libelle_entree']),                    // echapper les entrées
-
+                'entree' => htmlspecialchars($_POST['entree']),
             ];
 
 
@@ -69,8 +69,9 @@ class EntreeController implements ControllerProviderInterface{
             } else {
                 $this->EntreeModel = new EntreeModel($app);
                 $this->EntreeModel->insertentree($donnees);
-                return $app->redirect($app["url_generator"]->generate("composant.index"));
-            }
+                if (isset($donnees['entree'])) {
+                    return $app->redirect($app["url_generator"]->generate("menu.add"));
+                }else return $app->redirect($app["url_generator"]->generate("composant.index"));            }
         } else {
             return "probleme";
         }

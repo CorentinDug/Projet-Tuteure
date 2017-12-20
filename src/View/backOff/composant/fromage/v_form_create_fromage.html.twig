@@ -1,6 +1,6 @@
 {% extends "v_layout.html.twig" %}
 {% block contenu %}
-    <form method="post" action="{{ path("fromage.validFormAddFromage") }} ">
+    <form method="post" action="{% if fromage is defined %} {{ path("fromage.validFormAddFromage",{fromage: fromage}) }} {% else %} {{ path("fromage.validFormAddFromage") }} {% endif %} ">
         <div class="row">
             Ajout d'un fromage
             <fieldset>

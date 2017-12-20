@@ -55,7 +55,7 @@ class FromageController implements ControllerProviderInterface
         if (1 == 1) {
             $donnees = [
                 'libelle_fromage' => htmlspecialchars($_POST['libelle_fromage']),                    // echapper les entrées
-
+                'fromage' =>htmlspecialchars($_POST['fromage']),
             ];
 
 
@@ -67,7 +67,9 @@ class FromageController implements ControllerProviderInterface
             } else {
                 $this->FromageModel = new FromageModel($app);
                 $this->FromageModel->insertfromage($donnees);
-                return $app->redirect($app["url_generator"]->generate("composant.index"));
+                if (isset($donnees['fromage'])) {
+                    return $app->redirect($app["url_generator"]->generate("menu.add"));
+                }else return $app->redirect($app["url_generator"]->generate("composant.index"));
             }
         } else {
             return "probleme";

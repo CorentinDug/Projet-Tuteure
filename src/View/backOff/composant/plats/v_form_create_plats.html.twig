@@ -1,6 +1,6 @@
 {% extends "v_layout.html.twig" %}
 {% block contenu %}
-    <form method="post" action="{{ path("plats.validFormAdd") }} ">
+    <form method="post" action="{% if plat is defined %} {{ path("plats.validFormAdd",{plat: plat}) }} {% else %} {{ path("plats.validFormAdd") }} {% endif %} ">
         <div class="row">
             <fieldset>
                 <legend>Creer un plats</legend>
