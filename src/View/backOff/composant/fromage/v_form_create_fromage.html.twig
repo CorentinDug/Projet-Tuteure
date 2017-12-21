@@ -1,17 +1,27 @@
 {% extends "v_layout.html.twig" %}
 {% block contenu %}
+    <div class="grid-y" style="height: 50px;">
+    </div>
     <form method="post" action="{% if fromage is defined %} {{ path("fromage.validFormAddFromage",{fromage: fromage}) }} {% else %} {{ path("fromage.validFormAddFromage") }} {% endif %} ">
-        <div class="row">
-            Ajout d'un fromage
-            <fieldset>
-                <label>Nom du fromage
-                    <input name="libelle_fromage"  type="text"  size="18" value="{{ donnees.libelle_fromage | default('') }}"/>
-                    {% if erreurs.libelle_fromage is defined %}
-                        <small class="error">{{erreurs.libelle_fromage}}</small>
-                    {% endif %}
-                </label>
-                <input type="submit" name="creerFromage" value="creer" >
-            </fieldset>
+        <div class=" grid-y" style="height: 500px; " >
+            <div class="cell small-6 medium-4 large-10">
+                <div class="grid-x" >
+                    <div class="small-4 large-offset-3 cell" >
+                        <div class="card" style ="color:whitesmoke; padding: 20px; border-radius: 50px; ">
+                            <fieldset>
+                                <legend style =" color:whitesmoke; text-decoration: underline">Ajout d'un fromage</legend>
+                                <label style =" color:whitesmoke;">Nom du fromage
+                                    <input name="libelle_fromage"  type="text"  size="18" value="{{ donnees.libelle_fromage | default('') }}"/>
+                                    {% if erreurs.libelle_fromage is defined %}
+                                        <small class="error">{{erreurs.libelle_fromage}}</small>
+                                    {% endif %}
+                                </label>
+                                <input type="submit" class="button boutonPerso" name="creerFromage" value="creer" >
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </form>
 {% endblock %}

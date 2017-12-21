@@ -4,7 +4,7 @@
     </div>
     <div class="grid-x" style="margin-left: 50px; width: 90%" >
         <div style="width: 75%; display: inline-block">
-            {% for menu in data if data is not empty and menu|length > 2 %}
+            {% for menu in data if data is not empty and menu|length > 2 and menu != 'ROLE_CLIENT' %}
                 <div class="large-1 columns menu-info" style="width: 45%; display: inline-block">
                     {% if menu.libelle_type == "Dejeuner" %}
                     <button class="menu-toggle menuBoutonMidi" type="button" >

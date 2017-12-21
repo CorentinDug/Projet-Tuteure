@@ -1,17 +1,27 @@
 {% extends "v_layout.html.twig" %}
 {% block contenu %}
+    <div class="grid-y" style="height: 50px;">
+    </div>
     <form method="post" action="{% if supplement is defined %} {{ path("supplement.validFormAddSupplement",{supplement: supplement}) }} {% else %} {{ path("supplement.validFormAddSupplement") }} {% endif %} ">
-        <div class="row">
-            Ajout d'un supplement
-            <fieldset>
-                <label>Nom du supplement
-                    <input name="type_supplement"  type="text"  size="18" value="{{ donnees.type_supplement | default('') }}"/>
-                    {% if erreurs.type_supplement is defined %}
-                        <small class="error">{{erreurs.type_supplement}}</small>
-                    {% endif %}
-                </label>
-                <input type="submit" name="creerSupplement" value="creer" >
-            </fieldset>
+        <div class=" grid-y" style="height: 500px; " >
+            <div class="cell small-6 medium-4 large-10">
+                <div class="grid-x" >
+                    <div class="small-4 large-offset-3 cell" >
+                        <div class="card" style ="color:whitesmoke; padding: 20px; border-radius: 50px; ">
+                            <fieldset>
+                                <legend style =" color:whitesmoke; text-decoration: underline">Ajout d'un supplement</legend>
+                                <label style =" color:whitesmoke;">Nom du supplement
+                                    <input name="type_supplement"  type="text"  size="18" value="{{ donnees.type_supplement | default('') }}"/>
+                                    {% if erreurs.type_supplement is defined %}
+                                        <small class="error">{{erreurs.type_supplement}}</small>
+                                    {% endif %}
+                                </label>
+                                <input type="submit" class="boutonPerso button" name="creerSupplement" value="creer" >
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </form>
 {% endblock %}
