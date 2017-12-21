@@ -69,9 +69,7 @@ class EntreeController implements ControllerProviderInterface{
             } else {
                 $this->EntreeModel = new EntreeModel($app);
                 $this->EntreeModel->insertentree($donnees);
-                if (isset($donnees['entree'])) {
-                    return $app->redirect($app["url_generator"]->generate("menu.add"));
-                }else return $app->redirect($app["url_generator"]->generate("composant.index"));            }
+                return $app->redirect($app["url_generator"]->generate("composant.index"));            }
         } else {
             return "probleme";
         }

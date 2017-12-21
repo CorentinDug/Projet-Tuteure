@@ -70,9 +70,7 @@ class SupplementController implements ControllerProviderInterface
             } else {
                 $this->SupplementModel = new SupplementModel($app);
                 $this->SupplementModel->insertsupplement($donnees);
-                if (isset($donnees['supplement'])) {
-                    return $app->redirect($app["url_generator"]->generate("menu.add"));
-                }else return $app->redirect($app["url_generator"]->generate("composant.index"));            }
+                return $app->redirect($app["url_generator"]->generate("composant.index"));            }
         } else {
             return "probleme";
         }

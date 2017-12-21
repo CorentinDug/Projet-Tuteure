@@ -33,15 +33,16 @@ class ReservationController implements ControllerProviderInterface
         $donnees = [
             'id_menu' => htmlspecialchars($_POST['id_menu']),
             'nbDispo' => htmlspecialchars($_POST['nbDispo']),
-            'email' => htmlspecialchars($_POST['email'])
         ];
-        if (!preg_match("/[A-Za-z0-9]{2,}.(@).[A-Za-z0-9]{2,}.(fr|com|de)/", $donnees['email'])) $erreurs['email'] = 'mail faux (exemple.exemple@exemple.fr ou com)';
         if (empty($erreurs)){
             $this->helperMail = new HelperMail();
+            $id = $app['session']->get('id');
             $this->reservationModel = new ReservationModel($app);
+            $emails = $this->reservationModel->getMail($id);
+            $email = $emails['email'];
             $this->reservationModel->createReservation($donnees);
             $this->reservationModel->mnbPlaces($donnees);
-            $this->helperMail->sendMail($_POST['email']);
+            $this->helperMail->sendMail($email);
 
             return $app->redirect($app["url_generator"]->generate('menu.index'));
         }else{

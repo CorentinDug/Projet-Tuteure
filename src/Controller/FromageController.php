@@ -67,9 +67,7 @@ class FromageController implements ControllerProviderInterface
             } else {
                 $this->FromageModel = new FromageModel($app);
                 $this->FromageModel->insertfromage($donnees);
-                if (isset($donnees['fromage'])) {
-                    return $app->redirect($app["url_generator"]->generate("menu.add"));
-                }else return $app->redirect($app["url_generator"]->generate("composant.index"));
+                return $app->redirect($app["url_generator"]->generate("composant.index"));
             }
         } else {
             return "probleme";

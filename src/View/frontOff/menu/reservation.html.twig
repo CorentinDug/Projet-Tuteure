@@ -22,12 +22,6 @@
                 </label>
                 </div>
         </div>
-                <label>Email :
-                    <input name="email"  type="text"  size="18" value="{{donnees.email|default("")}}" />
-                    {% if erreurs.email is defined %}
-                        <small class="error">{{erreurs.email}}</small>
-                    {% endif %}
-                </label>
                 <input type="hidden" name="id_menu" value="{{ menu.id_menu }}">
                 <input type="submit" name="reserver" value="Reserver" />
             </fieldset>

@@ -75,9 +75,7 @@ class BoissonController implements ControllerProviderInterface
             } else {
                 $this->BoissonModel = new BoissonModel($app);
                 $this->BoissonModel->insertboisson($donnees);
-                if (isset($donnees['boisson'])) {
-                    return $app->redirect($app["url_generator"]->generate("menu.add"));
-                }else return $app->redirect($app["url_generator"]->generate("composant.index"));
+                return $app->redirect($app["url_generator"]->generate("composant.index"));
             }
         } else {
             return "probleme";

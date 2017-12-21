@@ -40,13 +40,19 @@ class ReservationModel
        return $queryBuilder->execute()->fetchAll();
     }
 
+    public function getMail($id){
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->select('email')
+            ->from('users')
+            ->where('id='.$id);
+        return $queryBuilder->execute()->fetch();
+    }
     /*
      * Permet de decrementer le nombre de place d'un menu
      *
      */
     public function mnbPlaces($donnees)
     {
-        var_dump($donnees['nbDispo']);
         $queryBuilder = new QueryBuilder($this->db);
         $queryBuilder->update('menu')
             ->set('nbDispo',('`nbDispo` - '.$donnees['nbDispo']) )

@@ -31,11 +31,11 @@ class UserController implements ControllerProviderInterface {
 
         $this->userModel = new UserModel($app);
         $data=$this->userModel->verif_login_mdp_Utilisateur($donnees['login'],$donnees['password']);
-
         if($data != NULL)
         {
             $app['session']->set('roles', $data['roles']);  //dans twig {{ app.session.get('roles') }}
             $app['session']->set('username', $data['username']);
+            $app['session']->set('id', $data['id']);
             $app['session']->set('logged', 1);
             return $app->redirect($app["url_generator"]->generate("index.index"));
         }

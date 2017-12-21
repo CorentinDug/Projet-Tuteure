@@ -62,9 +62,7 @@ class AperitifController implements ControllerProviderInterface
             } else {
                 $this->aperitifModel = new AperitifModel($app);
                 $this->aperitifModel->insertAperitif($donnees);
-                if (isset($donnees['aperitif'])) {
-                    return $app->redirect($app["url_generator"]->generate("menu.add"));
-                }else return $app->redirect($app["url_generator"]->generate("composant.index"));
+                return $app->redirect($app["url_generator"]->generate("composant.index"));
             }
         } else {
             return "probleme";

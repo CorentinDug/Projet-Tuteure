@@ -77,9 +77,7 @@ class DessertController implements ControllerProviderInterface
             } else {
                 $this->DessertModel = new DessertModel($app);
                 $this->DessertModel->insertdessert($donnees);
-                if (isset($donnees['dessert'])) {
-                    return $app->redirect($app["url_generator"]->generate("menu.add"));
-            }else return $app->redirect($app["url_generator"]->generate("composant.index"));
+            return $app->redirect($app["url_generator"]->generate("composant.index"));
 
             }
         } else {
