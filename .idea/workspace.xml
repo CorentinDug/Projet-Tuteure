@@ -2,23 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc013022-7f25-4ede-af16-7f075b69fe8e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Projet-Tuteure.iml" afterPath="$PROJECT_DIR$/.idea/Projet-Tuteure.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/AperitifController.php" afterPath="$PROJECT_DIR$/src/Controller/AperitifController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/BoissonController.php" afterPath="$PROJECT_DIR$/src/Controller/BoissonController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/DessertController.php" afterPath="$PROJECT_DIR$/src/Controller/DessertController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/EntreeController.php" afterPath="$PROJECT_DIR$/src/Controller/EntreeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/FromageController.php" afterPath="$PROJECT_DIR$/src/Controller/FromageController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/MenuController.php" afterPath="$PROJECT_DIR$/src/Controller/MenuController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/PlatController.php" afterPath="$PROJECT_DIR$/src/Controller/PlatController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/ReservationController.php" afterPath="$PROJECT_DIR$/src/Controller/ReservationController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/SupplementController.php" afterPath="$PROJECT_DIR$/src/Controller/SupplementController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/UserController.php" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Helper/HelperMail.php" afterPath="$PROJECT_DIR$/src/Helper/HelperMail.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/ReservationModel.php" afterPath="$PROJECT_DIR$/src/Model/ReservationModel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/frontOff/menu/reservation.html.twig" afterPath="$PROJECT_DIR$/src/View/frontOff/menu/reservation.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/v_login.html.twig" afterPath="$PROJECT_DIR$/src/View/v_login.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/v_menu.html.twig" afterPath="$PROJECT_DIR$/src/View/v_menu.html.twig" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -72,7 +57,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReservationController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ReservationController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/ReservationController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="113">
@@ -82,31 +67,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AperitifController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/AperitifController.php">
+      <file leaf-file-name="php.ini" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php.ini">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="884">
-              <caret line="65" column="13" lean-forward="true" selection-start-line="65" selection-start-column="13" selection-end-line="65" selection-end-column="13" />
+            <state relative-caret-position="533">
+              <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BoissonController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/BoissonController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="839">
-              <caret line="78" column="13" lean-forward="true" selection-start-line="78" selection-start-column="13" selection-end-line="78" selection-end-column="13" />
-              <folding />
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="431">
+                <caret line="34" column="26" lean-forward="false" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IndexController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/IndexController.php">
+      <file leaf-file-name="v_menu.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/View/v_menu.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="15" column="9" lean-forward="true" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+            <state relative-caret-position="119">
+              <caret line="7" column="80" lean-forward="false" selection-start-line="7" selection-start-column="80" selection-end-line="11" selection-end-column="82" />
               <folding />
             </state>
           </provider>
@@ -250,7 +238,6 @@
         <option value="$PROJECT_DIR$/src/View/backOff/composant/supplement/v_form_create_supplement.html.twig" />
         <option value="$PROJECT_DIR$/src/View/script.html.twig" />
         <option value="$PROJECT_DIR$/src/View/backOff/composant/plats/v_form_create_plats.html.twig" />
-        <option value="$PROJECT_DIR$/src/View/v_menu.html.twig" />
         <option value="$PROJECT_DIR$/src/View/frontOff/menu/v_table_menuDate.html.twig" />
         <option value="$PROJECT_DIR$/src/View/v_login.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/MenuController.php" />
@@ -266,6 +253,7 @@
         <option value="$PROJECT_DIR$/src/Helper/HelperMail.php" />
         <option value="$PROJECT_DIR$/src/Model/ReservationModel.php" />
         <option value="$PROJECT_DIR$/src/Controller/ReservationController.php" />
+        <option value="$PROJECT_DIR$/src/View/v_menu.html.twig" />
       </list>
     </option>
   </component>
@@ -1522,11 +1510,18 @@
       <option name="project" value="LOCAL" />
       <updated>1513803414401</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Tout fonctionnel">
+      <created>1513856613116</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1513856613116</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124089000" />
+    <option name="totallyTimeSpent" value="124539000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1756,24 +1751,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="431">
-            <caret line="34" column="26" lean-forward="false" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/109e65da-2b72-4b19-a0dc-ee2c9f4cc2c4/console.sql" />
-    <entry file="file://$PROJECT_DIR$/php.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/MenuModel.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -1849,13 +1827,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/v_menu.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -2089,6 +2060,33 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="113">
           <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
+          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="431">
+            <caret line="34" column="26" lean-forward="false" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/v_menu.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="80" lean-forward="false" selection-start-line="7" selection-start-column="80" selection-end-line="11" selection-end-column="82" />
           <folding />
         </state>
       </provider>

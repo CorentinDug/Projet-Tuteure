@@ -9,7 +9,7 @@
       </li>
         <a href="{{ path('composant.show') }}" class = "aMenu">Gestion des mets</a>
             <li>
-                <a href="{{path('reservation.gestion') }}" class = "aMenu">Gestion</a>
+                <a href="{{path('reservation.gestion') }}" class = "aMenu">Gestion des reservations</a>
             </li>
         {% endif %}
         {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_CLIENT' %}
