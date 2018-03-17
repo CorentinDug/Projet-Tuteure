@@ -1,0 +1,62 @@
+{% extends "v_layout.html.twig" %}
+{% block contenu %}
+
+<!-- Accueil -->
+
+<div class="grid">
+    <div class="grid-noGutter" data-push-left="off-3">
+        <div class="col">
+            <div class="paragrapheBienvenue">
+                Bienvenue sur le site de réservation du restaurant d'application Kabuki. </br>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="grid">
+    <div class="grid-noGutter" data-push-left="off-3">
+        <div class="col">
+            <div id ="image" style="display: block" class="imageDeco" onmouseover="cacheImageAfficheMap(this)" onmouseleave="cacheMapAfficheImage(this)">
+            </div>
+            <div id="map"></div>
+            <script>
+                function initMap() {
+                    var uluru = {lat: -25.363, lng: 131.044};
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 4,
+                        center: uluru
+                    });
+                    var marker = new google.maps.Marker({
+                        position: uluru,
+                        map: map
+                    });
+                }
+            </script>
+
+            <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=
+AIzaSyArYdvlfyiNtL2UdWCf9gpLsqI70sV6NFA
+&callback=initMap">
+            </script>
+
+        </div>
+
+        <div class="col">
+            <div class="blocGoMenu">
+                dzddz
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="grid">
+    <div class="grid-noGutter" data-push-left="off-3">
+        <div class="col">
+            <div class="paragraphePresentation">
+                Bienvenue sur le site de réservation du restaurant d'application Kabuki. </br>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

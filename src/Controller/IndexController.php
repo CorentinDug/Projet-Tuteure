@@ -14,7 +14,8 @@ class IndexController implements ControllerProviderInterface
         if(isset($app['session']) and $app['session']->get('roles') == 'ROLE_ADMIN' ){
             return $app["twig"]->render("v_admin.html.twig");
         }
-        return $app->redirect($app["url_generator"]->generate("menu.index"));
+        return $app["twig"]->render("frontOff/menu/accueil.html.twig");
+        //return $app->redirect($app["url_generator"]->generate("menu.index"));
 
     }
 

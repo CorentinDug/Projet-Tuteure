@@ -1,50 +1,88 @@
 {% extends "v_layout.html.twig" %}
 {% block contenu %}
-    <div class="grid-y" style="height: 30px;">
-    </div>
-    <div class="grid-x" style="margin-left: 50px; width: 90%" >
-        <div style="width: 75%; display: inline-block">
-            {% for menu in data if data is not empty and menu|length > 2 and menu != 'ROLE_CLIENT' %}
-                <div class="large-1 columns menu-info" style="width: 45%; display: inline-block">
-                    {% if menu.libelle_type == "Dejeuner" %}
-                    <button class="menu-toggle menuBoutonMidi" type="button" >
+    {#<div class="grid-y" style="height: 30px;">#}
+    {#</div>#}
+    {#<div class="grid-x" style="margin-left: 50px; width: 90%" >#}
+        {#<div style="width: 75%; display: inline-block">#}
+            {#{% for menu in data if data is not empty and menu|length > 2 and menu != 'ROLE_CLIENT' %}#}
+                {#<div class="large-1 columns menu-info" style="width: 45%; display: inline-block">#}
+                    {#{% if menu.libelle_type == "Dejeuner" %}#}
+                    {#<button class="menu-toggle menuBoutonMidi" type="button" >#}
+                        {#{% endif %}#}
+                        {#{% if  menu.libelle_type == "Diner" %}#}
+                        {#<button class="menu-toggle menuBoutonSoir" type="button" >#}
+                            {#{% endif %}#}
+                        {#<h3 style="text-decoration: none; display: inline;font-size: 20px;"> {{menu.libelle_menu}} </h3> <h5 style="color:red  ;text-decoration: none; display: inline;font-size: 20px; font-weight: bold;">{{menu.nbDispo}}</h5> <br>#}
+                        {#<h4 style="text-decoration: none; display: inline;font-size: 15px; font-weight: bold;">{{ changeDate(menu.date_menu) }} {{ menu.prix|number_format(2, ',', '')}}€  </h4>#}
+                    {#</button>#}
+                    {#<div id="{{ menu.id_menu }}" class="menu-details">#}
+                        {#<div class="panel callout  panneau"  >#}
+                            {#<li class="fn" style="text-decoration: underline; display: inline;font-size: 17px;margin-left: 15px;border-radius: 20px">#}
+                                {#Type:</li> {{menu.libelle_type}} <br/>#}
+                            {#<li class="fn" style="text-decoration: underline; display: inline;font-size: 17px;">Apéritif:</li> {{menu.libelle_aperitif}} <br/>#}
+                            {#<li class="fn" style="text-decoration: underline; display: inline;font-size: 17px;">Entrée:</li> {{menu.libelle_entree}} <br/>#}
+                            {#<li class="fn" style="text-decoration: underline; display: inline;font-size: 17px;"> Plat principal:</li> {{menu.libelle_plat}} <br/>#}
+                            {#<li class="fn" style="text-decoration: underline; display: inline;font-size: 17px;">Fromage:</li> {{menu.libelle_fromage}} <br/>#}
+                            {#<li class="fn" style="text-decoration: underline; display: inline;font-size: 17px;">Dessert:</li> {{menu.libelle_dessert}} <br/>#}
+                            {#<li class="fn" style="text-decoration: underline; display: inline;font-size: 17px;">Boisson:</li> {{menu.type_boisson}} <br/>#}
+                            {#<li class="fn" style="text-decoration: underline; display: inline;font-size: 17px;">Supplément:</li> {{menu.type_supplement}} <br/>#}
+                            {#{% if data.role is empty %}#}
+                                {#<li class="fn" style=" display: inline;font-size: 17px;"><a href="{{ path('user.login') }}">Reserver</a></li>#}
+                            {#{% else %}#}
+                                {#<li class="fn" style=" display: inline;font-size: 17px;"><a href="{{ path('reservation.reserver', {menu: menu}) }}">Reserver</a></li>#}
+                            {#{% endif %}#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+            {#{% endfor %}#}
+
+        {#</div>#}
+        {#<div style="display: inline-block;margin-right: 0px">#}
+            {#<a class='boutonPerso button' href="{{ path('menu.show') }}">Menus</a>#}
+            {#<form method="post" action="{{ path("menu.rechercheDateMenu")}}" class="dateAffich ">#}
+                {#<label for="dateMenu" style="color: whitesmoke;">  Date menu </label>#}
+                {#<input type="text" id="datepicker1" name="dateMenu" style="border-radius: 20px;"/>#}
+                {#<input type="submit" name="Search" value="Search" class="button boutonPerso" />#}
+            {#</form>#}
+
+        {#</div>#}
+    {#</div>#}
+
+    <div class="grid">
+        <div class="col-9 grid">
+            {% for menu in data if data is not empty and menu|length > 2 %}
+                <div class="col-5">
+                    <div class="menu-blockDispo" id="{{ menu.id_menu }}">
+                        <h1 class="menuTitre">{{menu.libelle_menu}} {{menu.nbDispo}} </br> {{ changeDate(menu.date_menu) }} {{ menu.prix|number_format(2, ',', '')}}€  </h1>
+                        <span class="partieMenu"> Type: </span> <span class="partieMenuContenu">{{menu.libelle_type}} </span> <br>
+                        <span class="partieMenu"> Apéritif: </span> <span class="partieMenuContenu">{{menu.libelle_aperitif}} </span> <br>
+                        <span class="partieMenu">Entrée: </span> <span class="partieMenuContenu">{{menu.libelle_entree}} </span> <br>
+                        <span class="partieMenu">Plat Principal: </span> <span class="partieMenuContenu">{{menu.libelle_plat}} </span><br>
+                        <span class="partieMenu"> Fromage: </span> <span class="partieMenuContenu">{{menu.libelle_fromage}}</span> <br>
+                        <span class="partieMenu"> Dessert: </span> <span class="partieMenuContenu">{{menu.libelle_dessert}} </span> <br>
+                        <span class="partieMenu"> Boisson: </span> <span class="partieMenuContenu">{{menu.type_boisson}} </span> <br>
+                        <span class="partieMenu"> Supplément: </span> <span class="partieMenuContenu">{{menu.type_supplement}} </span> <br>
+                        {% if data.role is empty %}
+                            <a href="{{ path('user.login') }}">
+                                <button class="boutonReserver">Réserver</button>
+                            </a>
+                        {% else %}
+                            <a href="{{ path('reservation.reserver', {menu: menu}) }}">
+                                <button  class="boutonReserver">Réserver</button>
+                            </a>
                         {% endif %}
-                        {% if  menu.libelle_type == "Diner" %}
-                        <button class="menu-toggle menuBoutonSoir" type="button" >
-                            {% endif %}
-                        <h3 style="text-decoration: none; display: inline;font-size: 20px;"> {{menu.libelle_menu}} </h3> <h5 style="color:red  ;text-decoration: none; display: inline;font-size: 20px; font-weight: bold;">{{menu.nbDispo}}</h5> <br>
-                        <h4 style="text-decoration: none; display: inline;font-size: 15px; font-weight: bold;">{{ changeDate(menu.date_menu) }} {{ menu.prix|number_format(2, ',', '')}}€  </h4>
-                    </button>
-                    <div id="{{ menu.id_menu }}" class="menu-details">
-                        <div class="panel callout  panneau"  >
-                            <li class="fn" style="text-decoration: underline; display: inline;font-size: 17px;margin-left: 15px;border-radius: 20px">
-                                Type:</li> {{menu.libelle_type}} <br/>
-                            <li class="fn" style="text-decoration: underline; display: inline;font-size: 17px;">Apéritif:</li> {{menu.libelle_aperitif}} <br/>
-                            <li class="fn" style="text-decoration: underline; display: inline;font-size: 17px;">Entrée:</li> {{menu.libelle_entree}} <br/>
-                            <li class="fn" style="text-decoration: underline; display: inline;font-size: 17px;"> Plat principal:</li> {{menu.libelle_plat}} <br/>
-                            <li class="fn" style="text-decoration: underline; display: inline;font-size: 17px;">Fromage:</li> {{menu.libelle_fromage}} <br/>
-                            <li class="fn" style="text-decoration: underline; display: inline;font-size: 17px;">Dessert:</li> {{menu.libelle_dessert}} <br/>
-                            <li class="fn" style="text-decoration: underline; display: inline;font-size: 17px;">Boisson:</li> {{menu.type_boisson}} <br/>
-                            <li class="fn" style="text-decoration: underline; display: inline;font-size: 17px;">Supplément:</li> {{menu.type_supplement}} <br/>
-                            {% if data.role is empty %}
-                                <li class="fn" style=" display: inline;font-size: 17px;"><a href="{{ path('user.login') }}">Reserver</a></li>
-                            {% else %}
-                                <li class="fn" style=" display: inline;font-size: 17px;"><a href="{{ path('reservation.reserver', {menu: menu}) }}">Reserver</a></li>
-                            {% endif %}
-                        </div>
                     </div>
                 </div>
             {% endfor %}
-
         </div>
-        <div style="display: inline-block;margin-right: 0px">
-            <a class='boutonPerso button' href="{{ path('menu.show') }}">Menus</a>
-            <form method="post" action="{{ path("menu.rechercheDateMenu")}}" class="dateAffich ">
-                <label for="dateMenu" style="color: whitesmoke;">  Date menu </label>
-                <input type="text" id="datepicker1" name="dateMenu" style="border-radius: 20px;"/>
-                <input type="submit" name="Search" value="Search" class="button boutonPerso" />
-            </form>
-
+        <div class="col-1">
+            <div class="calendrier">
+                <form method="post" action="{{ path("menu.rechercheDateMenu")}}" class="dateAffich ">
+                    <label class="calendrierLabel" for="datepicker1">  Date menu </label> <br>
+                    <input class="calendrierInput" type="text" id="datepicker1" name="dateMenu" />
+                    <input  type="submit" name="Search" value="Search" class="button calendrierSearch" />
+                </form>
+            </div>
         </div>
     </div>
     <script>
