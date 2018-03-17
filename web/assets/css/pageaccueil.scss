@@ -1,0 +1,56 @@
+@import "font";
+
+.paragrapheBienvenue{
+  margin-top: 35px ;
+  // padding: 5px;
+  @extend %fontNormal;
+  // background: linear-gradient(to right, #bdbdbd,#bdbdbd ,#9e9e9e);
+  //background-color: #bdbdbd ;
+  //border-radius: 2px;
+  //box-shadow: 0 4px 8px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2); ;
+  background: #eeeeee;
+  border-radius: 5px;
+  border-top: 5px solid #1565c0;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2); ;
+  width: 804px;
+  height: 100px;
+}
+
+
+.imageDeco{
+  margin-top: 5px ;
+  background-image: url("../../assets/img/boo.jpg");
+  border-radius: 5px;
+  height: 400px;
+  width: 397px;
+  background-size: 400px 398px;
+  margin-right: 4px;
+}
+
+
+.blocGoMenu{
+  margin-top: 5px ;
+  margin-left: 4px;
+  @extend %fontNormal;
+  background: #eeeeee;
+  border-radius: 5px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2); ;
+  width: 397px;
+  height: 400px;
+}
+
+.paragraphePresentation{
+  // padding: 5px;
+  margin-top: 5px;
+  @extend %fontNormal;
+  // background: linear-gradient(to right, #bdbdbd,#bdbdbd ,#9e9e9e);
+  //background-color: #bdbdbd ;
+  //border-radius: 2px;
+  //box-shadow: 0 4px 8px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2); ;
+  background: #eeeeee;
+  border-radius: 5px;
+  border-bottom: 5px solid #1565c0;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2); ;
+  width: 804px;
+  height: 100px;
+}

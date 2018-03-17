@@ -1,0 +1,66 @@
+//@include font-face("Roboto", font("ressources/fonts/RobotoCondensed-Bold.ttf", "ressources/fonts/RobotoCondensed-BoldItalic.ttf", "ressources/fonts/RobotoCondensed-Italic.ttf", "ressources/fonts/RobotoCondensed-Light.ttf", "ressources/fonts/RobotoCondensed-LightItalic.ttf", "ressources/fonts/RobotoCondensed-Regular.ttf" ));
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400i,700');
+%fontButton{
+  color: #bdbdbd;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  line-height: 60px;
+  transition: background 300ms;
+  &:hover{
+    font-weight: bold ;
+  }
+}
+
+%fontLogin{
+  color: #bdbdbd;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  line-height: 40px;
+  transition: background 300ms;
+  &:hover{
+    font-weight: bold ;
+  }
+}
+
+%fontConnect{
+  color: #bdbdbd;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  line-height: 60px;
+  transition: background 300ms;
+  &:hover{
+    font-weight: bold ;
+  }
+}
+
+%fontConnecte{
+  color: #bdbdbd;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 15px;
+  text-align: center;
+  line-height: 60px;
+  transition: background 300ms;
+  &:hover{
+    font-weight: bold ;
+  }
+}
+
+%fontNormal{
+  color: #303f9f ;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 16px;
+  text-align: left;
+  transition: background 300ms;
+}
+
+
+%fontNormalNoir{
+  color: #212121 ;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 20px;
+  text-align: left;
+  transition: background 300ms;
+}

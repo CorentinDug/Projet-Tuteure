@@ -1,39 +1,168 @@
 
-<div class="top-bar degrade" >
-  <div class="top-bar-left" style="background: transparent;" >
-    <ul class="dropdown menu" data-dropdown-menu style="background: transparent;">
-      <li > <a href="{{ path('index.index') }}" class = "aMenu">Accueil</a></li>
+{#<div class="top-bar degrade" >#}
+  {#<div class="top-bar-left" style="background: transparent;" >#}
+    {#<ul class="dropdown menu" data-dropdown-menu style="background: transparent;">#}
+      {#<li > <a href="{{ path('index.index') }}" class = "aMenu">Accueil</a></li>#}
+        {#{% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}#}
+      {#<li>#}
+          {#<li   ><a href="{{ path('menu.show') }}" class = "aMenu" >Gestion des menus</a></li>#}
+      {#</li>#}
+        {#<a href="{{ path('composant.show') }}" class = "aMenu">Gestion des mets</a>#}
+            {#<li>#}
+                {#<a href="{{path('reservation.gestion') }}" class = "aMenu">Gestion des reservations</a>#}
+            {#</li>#}
+        {#{% endif %}#}
+        {#{% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_CLIENT' %}#}
+      {#<li >#}
+        {#<a href="#" class = "aMenu">Menus</a>#}
+        {#<ul class="menu vertical">#}
+          {#<li class="degrade"><a href="{{ path('menu.show') }}" class = "aMenu">Afficher</a></li>#}
+        {#</ul>#}
+      {#</li>#}
+        {#{% endif %}#}
+    {#</ul>#}
+
+
+
+  {#</div>#}
+  {#<div class="top-bar-right" style="background: transparent;" >#}
+    {#<ul  class="menu " style="background: transparent;">#}
+        {#{% if   app.session.get('logged') is defined and  app.session.get('logged') == 1 %}#}
+          {#<li class = "aMenu">Connecté en tant que : {{ app.session.get('username') }}</li>#}
+          {#<li ><a  class = "aMenu"href="{{ path('user.logout')  }}">Se déconnecter</a></li>#}
+        {#{% else %}#}
+          {#<li><a class = "aMenu" href="{{ path('user.signup')  }}">S'inscrire</a></li>#}
+          {#<li><a class = "aMenu" href="{{ path('user.login')  }}">Se connecter</a></li>#}
+        {#{% endif %}#}
+    {#</ul>#}
+  {#</div>#}
+{#</div>#}
+<!-- Début de la barre nav -->
+<nav>
+    <div class="grid">
+        <div class="col-1_xs-5" style="height: 60px;">
+            <img class= "logo" src="../../web/assets/img/logo.png">
+        </div>
+
+        <!-- Admin co-->
         {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
-      <li>
-          <li   ><a href="{{ path('menu.show') }}" class = "aMenu" >Gestion des menus</a></li>
-      </li>
-        <a href="{{ path('composant.show') }}" class = "aMenu">Gestion des mets</a>
-            <li>
-                <a href="{{path('reservation.gestion') }}" class = "aMenu">Gestion des reservations</a>
-            </li>
+        <div class="col-4 grid" >
+            <div class="col" >
+                <a href="{{ path('index.index') }}">
+                    <div class="navButton">
+                        Accueil
+                    </div>
+                </a>
+            </div>
+
+            <div class="col" >
+                <a href="{{ path('menu.show') }}">
+                    <div class="navButton">
+                        Gestion Menus
+                    </div>
+                </a>
+            </div>
+            <div class="col" >
+                <a href="{{ path('composant.show') }}">
+                    <div class="navButton">
+                        Gestion des mets
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col grid-noGutter" data-push-left="off-6" >
+            <div class="col-1">
+                <a href="{{ path('user.logout')  }}">
+                    <div >
+                        <img class="logout" src="../../web/assets/img/login/logout.png">
+                    </div>
+                </a>
+            </div>
+        </div>
         {% endif %}
+
+        <!-- Cleint co-->
+
         {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_CLIENT' %}
-      <li >
-        <a href="#" class = "aMenu">Menus</a>
-        <ul class="menu vertical">
-          <li class="degrade"><a href="{{ path('menu.show') }}" class = "aMenu">Afficher</a></li>
-        </ul>
-      </li>
+            <div class="col-2 grid" >
+                <div class="col" >
+                    <a href="{{ path('index.index') }}">
+                        <div class="navButton">
+                            Accueil
+                        </div>
+                    </a>
+                </div>
+                <div class="col" >
+                    <a href="{{ path('menu.show') }}">
+                        <div class="navButton">
+                            Menus
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-2 grid-noGutter" data-push-left="off-6" >
+                    <div class="col" >
+                        <div class="profilePic">
+                            <img class="imageProfil" src="../../web/assets/img/boo.jpg">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <a href="profile.html">
+                            <div class="sessionConnecte">
+                                {{ app.session.get('username') }}
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="{{ path('user.logout')  }}">
+                            <div >
+                            <img class="logout" src="../../web/assets/img/login/logout.png">
+                            </div>
+                        </a>
+                    </div>
+            </div>
+
+
         {% endif %}
-    </ul>
 
+        {% if app.session.get('roles') is defined and app.session.get('roles') == '' %}
+        <div class="col-3 grid">
+            <div class="col" >
+                <a href="{{ path('index.index') }}">
+                    <div class="navButton">
+                        Accueil
+                    </div>
+                </a>
+            </div>
+        </div>
+            <div class="col-1 grid-noGutter" data-push-left="off-6" >
+                {% if   app.session.get('logged') is defined and  app.session.get('logged') == 1 %}
+                    <div class="col" >
+                        <div class="profilePic">
+                            {#<img class="imageProfil" src="ressources/img/pp.jpg">#}
+                        </div>
+                    </div>
+                    <div class="col">
+                        <a href="profile.html">
+                            <div class="sessionConnecte">
+                                {{ app.session.get('username') }}
+                            </div>
+                            <a href="{{ path('user.logout')  }}"> log out</a>
+                        </a>
+                    </div>
+                {% else %}
+                    <div class="col">
+                        <a href="{{ path('user.login')  }}">
+                            <div class="sessionConnexion">
+                                Connexion
+                            </div>
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
 
-
-  </div>
-  <div class="top-bar-right" style="background: transparent;" >
-    <ul  class="menu " style="background: transparent;">
-        {% if   app.session.get('logged') is defined and  app.session.get('logged') == 1 %}
-          <li class = "aMenu">Connecté en tant que : {{ app.session.get('username') }}</li>
-          <li ><a  class = "aMenu"href="{{ path('user.logout')  }}">Se déconnecter</a></li>
-        {% else %}
-          <li><a class = "aMenu" href="{{ path('user.signup')  }}">S'inscrire</a></li>
-          <li><a class = "aMenu" href="{{ path('user.login')  }}">Se connecter</a></li>
         {% endif %}
-    </ul>
-  </div>
-</div>
+
+    </div>
+</nav>
+<!-- fin de la barre nav -->
