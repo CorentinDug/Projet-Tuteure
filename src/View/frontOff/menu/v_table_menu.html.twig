@@ -7,11 +7,11 @@
                     <div
 
                             {% if menu.libelle_type == "Dejeuner" %}
-                                class="menu-blockDispo"
+                                class="menu-blockMidi"
                             {% endif %}
 
                             {% if  menu.libelle_type == "Diner" %}
-                                class="menu-blockVide"
+                                class="menu-blockSoir"
                             {% endif %}
 
                             id="{{ menu.id_menu }}">
@@ -26,11 +26,30 @@
                         <span class="partieMenu"> Supplément: </span> <span class="partieMenuContenu">{{menu.type_supplement}} </span> <br>
                         {% if data.role is empty %}
                             <a href="{{ path('user.login') }}">
-                                <button class="boutonReserver">Réserver</button>
+                                <button
+                                        {% if menu.nbDispo > 10  %}
+                                            class="boutonReserverFull"
+                                        {% endif %}
+                                        {% if menu.nbDispo < 10  %}
+                                            class="boutonReserverMoyen"
+                                        {% endif %}
+                                        {% if menu.nbDispo == 0  %}
+                                            class="boutonReserverVide"
+                                        {% endif %}
+                                >Réserver </button>
                             </a>
                         {% else %}
                                 <a href="{{ path('reservation.reserver', {menu: menu}) }}">
-                                <button  class="boutonReserver">Réserver</button>
+                                <button  {% if menu.nbDispo > 10  %}
+                                    class="boutonReserverFull"
+                                {% endif %}
+                                        {% if menu.nbDispo < 10  %}
+                                            class="boutonReserverMoyen"
+                                        {% endif %}
+                                        {% if menu.nbDispo == 0  %}
+                                    class="boutonReserverVide"
+                                        {% endif %}
+                                >Réserver</button>
                             </a>
                         {% endif %}
                     </div>
@@ -40,13 +59,24 @@
         <div class="col-1">
             <div class="calendrier">
                 <form method="post" action="{{ path("menu.rechercheDateMenu")}}" class="dateAffich ">
-                    <label class="calendrierLabel" for="datepicker1">  Date menu </label> <br>
+                    <label class="calendrierLabel" for="dateMenu">  Date menu </label> <br>
                     <input class="calendrierInput" type="text" id="datepicker1" name="dateMenu" />
                     <input  type="submit" name="Search" value="Search" class="button calendrierSearch" />
                 </form>
             </div>
         </div>
     </div>
+
+    <script>
+        document.querySelectorAll('.menu-info').forEach((menu) => {
+            const toggle = menu.querySelector('.menu-toggle'),
+                details = menu.querySelector('.menu-details')
+
+            toggle.addEventListener('click', () => {
+                details.classList.toggle('open')
+            })
+        })
+    </script>
 
 
 {% endblock %}

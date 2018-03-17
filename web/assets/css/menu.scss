@@ -1,50 +1,35 @@
 @import 'font';
 
-.menu-blockDispo {
-  width: 320px;
-  padding: 20px;
-  background: #eeeeee;
-  border-radius: 5px;
-  border-top: 10px solid #388e3c;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2); ;
-
-margin-left: 20px;
-  margin-top: 80px;
-
-}
-
-.menu-blockMoyen {
-  width: 320px;
-  padding: 20px;
-  background: #eeeeee;
-  border-radius: 5px;
-  border-top: 10px solid #ffb300;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2); ;
-
-  margin-left: 20px;
-  margin-top: 80px;
-
-}
-
-.menu-blockVide {
-  width: 320px;
-  padding: 20px;
-  background: #eeeeee;
-  border-radius: 5px;
-  border-top: 10px solid #616161;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2); ;
-
-  margin-left: 20px;
-  margin-top: 80px;
-
-}
-
 .menu-blockEval {
+   width: 320px;
+   padding: 20px;
+   background: #eeeeee;
+   border-radius: 5px;
+   border-top: 10px solid #c62828;
+   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2); ;
+   margin-left: 20px;
+   margin-top: 80px;
+
+ }
+
+.menu-blockMidi {
   width: 320px;
   padding: 20px;
   background: #eeeeee;
   border-radius: 5px;
-  border-top: 10px solid #c62828;
+  border-top: 10px solid #ffc107;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2); ;
+  margin-left: 20px;
+  margin-top: 80px;
+
+}
+
+.menu-blockSoir {
+  width: 320px;
+  padding: 20px;
+  background: #eeeeee;
+  border-radius: 5px;
+  border-top: 10px solid #1a237e;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2); ;
   margin-left: 20px;
   margin-top: 80px;
@@ -59,6 +44,50 @@ margin-left: 20px;
   box-sizing: border-box;
   border-radius: 5px;
   border: 1px solid #1565c0;
+  line-height: 40px;
+  color: #fff;
+  @extend %fontLogin;
+  outline: none;
+  cursor: pointer;
+}
+.boutonReserverFull {
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  background: linear-gradient(to right, #388e3c, #2e7d32,#1b5e20);
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid  #2e7d32;
+  line-height: 40px;
+  color: #fff;
+  @extend %fontLogin;
+  outline: none;
+  cursor: pointer;
+}
+
+.boutonReserverMoyen {
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  background: linear-gradient(to right, #ffb300, #ffa000,#ff8f00);
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid #ffa000;
+  line-height: 40px;
+  color: #fff;
+  @extend %fontLogin;
+  outline: none;
+  cursor: pointer;
+}
+
+.boutonReserverVide {
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  background: linear-gradient(to right, #757575, #616161,#424242);
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid #616161;
   line-height: 40px;
   color: #fff;
   @extend %fontLogin;
