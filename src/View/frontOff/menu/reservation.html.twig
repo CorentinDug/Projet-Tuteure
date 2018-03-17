@@ -1,31 +1,29 @@
 {% extends "v_layout.html.twig" %}
 {% block contenu %}
-    <div class="grid-container">
-
-    <form method="post" action="{{ path('reservation.validFormReserv') }}">
-            <fieldset>
-                <div class="grid-x grid-margin-x">
-                <div class="shrink cell">
-                <legend>Reserver</legend>
-                <label>Combien de places ? :
-                    <select name="nbDispo">
-                        {% for i in 1..menu.nbDispo %}
-                            <option value="{{ i }}"
-                                    {% if donnees.nbDispo is defined and menu.nbDispo == donnees.nbDispo    %}selected{% endif %}>
-                                {{ i }}
-                            </option>
-                        {% endfor %}
-                    </select>
-                    {% if erreurs.type is defined %}
-                        <small class="error">{{erreurs.type}}</small>
-                    {% endif %}
-                </label>
+        <div class="grid">
+            <div class="grid-noGutter" data-push-left="off-4">
+                <div class="col">
+                    <form method="post" action="{{ path('reservation.validFormReserv') }}">
+                        <div class="login-block">
+                            <h1>Réserver</h1>
+                            <label class="calendrierLabel">Combien de places ? :
+                                <select name="nbDispo">
+                                    {% for i in 1..menu.nbDispo %}
+                                        <option value="{{ i }}"
+                                                {% if donnees.nbDispo is defined and menu.nbDispo == donnees.nbDispo    %}selected{% endif %}>
+                                            {{ i }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                                {% if erreurs.type is defined %}
+                                    <small class="error">{{erreurs.type}}</small>
+                                {% endif %}
+                            </label>
+                            <input type="hidden" name="id_menu" value="{{ menu.id_menu }}">
+                            <input  type="submit" name="Search" value="Search" class="button calendrierSearch" />
+                        </div>
+                    </form>
                 </div>
+            </div>
         </div>
-                <input type="hidden" name="id_menu" value="{{ menu.id_menu }}">
-                <input type="submit" name="reserver" value="Reserver" />
-            </fieldset>
-        </form>
-
-    </div>
 {% endblock %}
