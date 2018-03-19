@@ -50,25 +50,23 @@ class platController implements ControllerProviderInterface{
         $this->platModel = new PlatModel($app);
 
         $platModel = $this->platModel->getPlat($id);
-        return $app["twig"]->render('backOff/composant/plats/v_form_delete_menu.html.twig',['donnees'=>$platModel]);
+        $libelle = $this->platModel->getLibelle($id);
+
+        return $app["twig"]->render('backOff/composant/plats/v_form_delete_plats.html.twig',['donnees'=>$platModel,'libelle' => $libelle]);
     }
 
     public function editPlat(Application $app,$id) {
         $this->platModel = new PlatModel($app);
         $donnees = $this->platModel->getPlat($id);
-        //var_dump($donnees);
 
-        $this->typePlatModel = new TypePlatModel($app);
-        $typePlat = $this->typePlatModel->getAllTypePlat();
-        //var_dump($typePlat);
 
-        return $app["twig"]->render('backOff/composant/plats/v_form_update_menu.html.twig',['donnees'=>$donnees, 'typePlat'=>$typePlat]);
+
+        return $app["twig"]->render('backOff/composant/plats/v_form_update_plats.html.twig',['donnees'=>$donnees]);
     }
 
     public function validFormAddPlat(Application $app ) {
         //var_dump($app['request']->attributes);
 
-        if (1==1){
             $donnees = [
                 'libelle_plat' => htmlspecialchars($_POST['libelle_plat']),                    // echapper les entrées
             ];
@@ -85,80 +83,41 @@ class platController implements ControllerProviderInterface{
                 $this->platModel->insertPlat($donnees);
                 return $app->redirect($app["url_generator"]->generate("composant.index"));
             }
-        }
-        else {
-            return "probleme";
-        }
+
     }
 
     public function validFormDeletePlat(Application $app,Request $req)
     {
-        //var_dump($app['request']->attributes);
-        if (isset($_POST['_csrf_token'])) {
-            $token = $_POST['_csrf_token'];
-            $csrf_token = new CsrfToken('token_delete_plat', $token);
-            $csrf_token_ok = $app['csrf.token_manager']->isTokenValid($csrf_token);
-            if(!$csrf_token_ok)
-            {
-                $erreurs["csrf"] = "Erreur : token : ".$token ;
-                return $app["twig"]->render("v_error_csrf.html.twig",['erreurs' => $erreurs]);
-            }
-        }
-        else
-            return $app->redirect($app["url_generator"]->generate("index.errorCsrf"));
 
         $donnees = [
-            'id' => $app->escape($req->get('id')),
+            'id_plat' => $app->escape($req->get('id')),
         ];
 
         $this->platModel = new PlatModel($app);
         $this->platModel->deletePlat($donnees);
-        return $app->redirect($app["url_generator"]->generate("plats.index"));
+        return $app->redirect($app["url_generator"]->generate("composant.index"));
     }
 
-    public function validFormEditPlat(Application $app,Request $req){
-        $this->helperDate = new HelperDate();
-        if (isset($_POST['_csrf_token'])) {
-            $token = $_POST['_csrf_token'];
-            $csrf_token = new CsrfToken('token_edit_plat', $token);
-            $csrf_token_ok = $app['csrf.token_manager']->isTokenValid($csrf_token);
-            if(!$csrf_token_ok)
-            {
-                $erreurs["csrf"] = "Erreur : token : ".$token ;
-                return $app["twig"]->render("v_error_csrf.html.twig",['erreurs' => $erreurs]);
-            }
-        }
-        else
-            return $app->redirect($app["url_generator"]->generate("index.errorCsrf"));
-
+    public function validFormEditPlat(Application $app){
         $donnees = [
             'id_plat' => htmlspecialchars($_POST['id']),
-            'nom' => htmlspecialchars($_POST['nom']),                    // echapper les entrées
-            'typePlat_id' => htmlspecialchars($_POST['idTypePlat']),
-            'prixPlat' => htmlspecialchars($_POST['prix']),
-            'dureePreparation' => htmlspecialchars($_POST['dureePreparation']),
-            'dateCreation' => htmlspecialchars($_POST['dateCreation']),
-            'description' => htmlspecialchars($_POST['description']),
+            'libelle_plat' => htmlspecialchars($_POST['libelle_plat']),
+
 
         ];
 
-        if ((! preg_match("/^[A-Za-z ]{2,}/",$donnees['nom']))) $erreurs['nom']='nom composé de 2 lettres minimum';
-        if((!is_numeric($donnees['prixPlat'])))$erreurs['prixPlat']='saisir une valeur numérique';
-        if(!$this->helperDate->verifDate($donnees['dateCreation'])) $erreurs['dateCreation']='Saisir date au format JJ-MM-AAAA';
-        if(! is_numeric($donnees['dureePreparation']))$erreurs['dureePreparation']='saisir une valeur numérique';
-        if($donnees['typePlat_id']==0)$erreurs['typePlat']='choisir un type';
-        $donnees['dateCreation'] = $this->helperDate->changeFormat($donnees['dateCreation']);
+        if ((! preg_match("/^[A-Za-z ]{2,}/",$donnees['libelle_plat']))) $erreurs['nom']='nom composé de 2 lettres minimum';
         if(! empty($erreurs))
         {
-            $this->typePlatModel = new TypePlatModel($app);
-            $typePlat = $this->typePlatModel->getAllTypePlat();
-            return $app["twig"]->render('backOff/composant/plats/v_form_update_menu.html.twig',['donnees'=>$donnees,'erreurs'=>$erreurs,'typePlat'=>$typePlat]);
+            $this->platModel= new PlatModel($app);
+            $plat = $this->platModel->getAllPlat();
+            return $app["twig"]->render('backOff/composant/plats/v_form_update_plats.html.twig',['donnees'=>$donnees,'erreurs'=>$erreurs,'plat'=>$plat]);
         }
         else
         {
             $this->platModel = new PlatModel($app);
             $this->platModel->updatePlat($donnees);
-            return $app->redirect($app["url_generator"]->generate("plats.index"));
+            return $app->redirect($app["url_generator"]->generate("composant.index"));
         }
     }
     public function autoCompletePlat(Application $app){

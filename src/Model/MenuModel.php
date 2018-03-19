@@ -111,7 +111,7 @@ class menuModel{
         ;
         return $queryBuilder->execute();
     }
-    public function deleteTypeMenu($donnees){
+    public function deleteMenu($donnees){
         $queryBuilder = new QueryBuilder($this->db);
         $queryBuilder
             ->delete('menu')

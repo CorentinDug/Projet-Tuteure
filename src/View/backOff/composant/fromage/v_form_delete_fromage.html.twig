@@ -10,7 +10,6 @@
                     <h4>Le {{ libelle.libelle_menu }} sera également supprimer</h4>
                 {% endfor %}
                 <input name="id"  type="hidden" value="{{donnees.id_fromage}}" />
-                <input type="hidden"   name="_csrf_token"   value="{{ csrf_token('token_delete_fromage') }}">
                 <input type="submit" name="suprimerFromage" value="Suprimer" />
             </fieldset>
         </div>

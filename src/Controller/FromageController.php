@@ -37,7 +37,8 @@ class FromageController implements ControllerProviderInterface
         $this->FromageModel = new FromageModel($app);
 
         $FromageModel = $this->FromageModel->getfromage($id);
-        return $app["twig"]->render('backOff/composant/fromage/v_form_delete_fromage.html.twig', ['donnees' => $FromageModel]);
+        $libelle = $this->FromageModel->getLibelle($id);
+        return $app["twig"]->render('backOff/composant/fromage/v_form_delete_fromage.html.twig', ['donnees' => $FromageModel,'libelle' => $libelle]);
     }
 
     public function editFromage(Application $app, $id)
@@ -55,7 +56,6 @@ class FromageController implements ControllerProviderInterface
         if (1 == 1) {
             $donnees = [
                 'libelle_fromage' => htmlspecialchars($_POST['libelle_fromage']),                    // echapper les entrées
-                'fromage' =>htmlspecialchars($_POST['fromage']),
             ];
 
 

@@ -62,7 +62,7 @@ class BoissonModel
             ->select('m.libelle_menu')
             ->from('menu','m')
             ->innerJoin('m','boisson','b','b.id_boisson = m.id_boisson')
-            ->where('d.id_boisson='.$id);
+            ->where('b.id_boisson='.$id);
         return $queryBuilder->execute()->fetchAll();
     }
 

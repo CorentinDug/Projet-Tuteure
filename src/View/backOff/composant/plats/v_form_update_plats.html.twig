@@ -12,55 +12,12 @@
                                 <legend style =" color:whitesmoke; text-decoration: underline">Modifier un plats</legend>
                                 <input type="hidden" name="_method" id="_method" value="put"/>
                                 <input name="id"  type="hidden" value="{{donnees.id_plat}}" />
-                                <label style =" color:whitesmoke;">Nom :
-                                    <input name="nom"  type="text"  size="18" value="{{donnees.nom}}" />
+                                <label style =" color:whitesmoke;">Libelle :
+                                    <input name="libelle_plat"  type="text"  size="18" value="{{donnees.libelle_plat}}" />
                                     {% if erreurs.nom is defined %}
                                         <small class="error">{{erreurs.nom}}</small>
                                     {% endif %}
                                 </label>
-
-                                <label style =" color:whitesmoke;">Type :
-                                    <select name="idTypePlat">
-                                        {% if typePlat.idTypePlat is not defined or donnees.typePlat_id is empty   %}
-                                            <option value="">Veuillez sélectionner un produit</option>
-                                        {% endif %}
-                                        {% for typePlat in typePlat %}
-                                            <option value="{{ typePlat.idTypePlat }}"
-                                                    {% if donnees.typePlat_id is defined and typePlat.idTypePlat == donnees.typePlat_id    %}selected{% endif %}>
-                                                {{ typePlat.libelle }}
-                                            </option>
-                                        {% endfor %}
-                                    </select>
-                                    {% if erreurs.idTypePlat is defined %}
-                                        <small class="error">{{erreurs.idTypePlat}}</small>
-                                    {% endif %}
-                                </label>
-
-                                <label style =" color:whitesmoke;">Prix
-                                    <input name="prix"  type="text"  size="18"  value="{{donnees.prixPlat}}"/>
-                                    {% if erreurs.prix is defined %}
-                                        <small class="error">{{erreurs.prix}}</small>
-                                    {% endif %}
-                                </label>
-                                <label>dureePreparation
-                                    <input name="dureePreparation"  type="text"  size="18" value="{{donnees.dureePreparation}}"/>
-                                    {% if erreurs.dureePreparation is defined %}
-                                        <small class="error">{{erreurs.dureePreparation}}</small>
-                                    {% endif %}
-                                </label>
-                                <label style =" color:whitesmoke;">Date creation
-                                    <input name="dateCreation"  type="text"  size="18" value="{{changeDate(donnees.dateCreation)|default(donnees.dateCreation)}}"/>
-                                    {% if erreurs.dateCreation is defined %}
-                                        <small class="error">{{erreurs.dateCreation}}</small>
-                                    {% endif %}
-                                </label>
-                                <label style =" color:whitesmoke;">description
-                                    <input name="description"  type="text"  size="18" value="{{donnees.description}}"/>
-                                    {% if erreurs.description is defined %}
-                                        <small class="error">{{erreurs.description}}</small>
-                                    {% endif %}
-                                </label>
-                                <input type="hidden"   name="_csrf_token"   value="{{ csrf_token('token_edit_plat') }}">
                                 <input type="submit" class = "boutonPerso button" name="updatePlat" value="modifier" />
                             </fieldset>
                         </div>

@@ -13,7 +13,7 @@ class TypePlatModel {
         $queryBuilder = new QueryBuilder($this->db);
         $queryBuilder
             ->select('t.idTypePlat', 't.libelle')
-            ->from('typePlats', 't')
+            ->from('type', 't')
             ->addOrderBy('t.idTypePlat', 'ASC');
         return $queryBuilder->execute()->fetchAll();
     }
@@ -21,14 +21,14 @@ class TypePlatModel {
         $queryBuilder = new QueryBuilder($this->db);
         $queryBuilder
             ->select('t.idTypePlat', 't.libelle')
-            ->from('typePlats', 't')
+            ->from('type', 't')
             ->where('t.idTypePlat='.$id);
         return $queryBuilder->execute()->fetch();
 
     }
     public function insertType($donnees){
         $queryBuilder = new QueryBuilder($this->db);
-        $queryBuilder->insert('typePlats')
+        $queryBuilder->insert('type')
             ->values(['libelle' => '?'])
             ->setParameter(0,$donnees['libelle']);
         return $queryBuilder->execute();

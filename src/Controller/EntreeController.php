@@ -39,7 +39,9 @@ class EntreeController implements ControllerProviderInterface{
         $this->EntreeModel = new EntreeModel($app);
 
         $EntreeModel = $this->EntreeModel->getentree($id);
-        return $app["twig"]->render('backOff/composant/entree/v_form_delete_entree.html.twig', ['donnees' => $EntreeModel]);
+        $libelle = $this->EntreeModel->getLibelle($id);
+
+        return $app["twig"]->render('backOff/composant/entree/v_form_delete_entree.html.twig', ['donnees' => $EntreeModel,'libelle' => $libelle]);
     }
 
     public function editEntree(Application $app, $id)
@@ -57,7 +59,6 @@ class EntreeController implements ControllerProviderInterface{
         if (1 == 1) {
             $donnees = [
                 'libelle_entree' => htmlspecialchars($_POST['libelle_entree']),                    // echapper les entrées
-                'entree' => htmlspecialchars($_POST['entree']),
             ];
 
 

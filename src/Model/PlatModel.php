@@ -27,6 +27,38 @@ class PlatModel
         return $queryBuilder->execute()->fetchAll();
     }
 
+    public function getPlat($id){
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder
+            ->select('p.id_plat', 'p.libelle_plat')
+            ->from('plat', 'p')
+            ->where('p.id_plat='.$id);
+        return $queryBuilder->execute()->fetch();
+
+    }
+
+
+    public function deletePlat($donnees){
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder
+            ->delete('plat')
+            ->where('id_plat='.$donnees['id_plat']);
+        return $queryBuilder->execute();
+    }
+
+    public function updatePlat($donnees)
+    {
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->update('Plat')
+            ->set('libelle_plat' , '?')
+            ->where("id_plat = ".$donnees['id_plat'])
+            ->setParameter(0, $donnees['libelle_plat'])
+
+        ;
+        return $queryBuilder->execute();
+    }
+
+
     public function autoCompletePlat(){
         $queryBuilder = new QueryBuilder($this->db);
         $queryBuilder->select('libelle_plat')
@@ -51,7 +83,7 @@ class PlatModel
             ->select('m.libelle_menu')
             ->from('menu','m')
             ->innerJoin('m','plat','p','p.id_plat = m.id_plat')
-            ->where('d.id_plat='.$id);
+            ->where('p.id_plat='.$id);
         return $queryBuilder->execute()->fetchAll();
     }
 

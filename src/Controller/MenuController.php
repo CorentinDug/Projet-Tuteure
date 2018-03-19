@@ -105,7 +105,7 @@ class menuController implements ControllerProviderInterface{
         $this->helperDate = new HelperDate();
 
         $donnees += [
-            'libelle_menu' => htmlspecialchars($_POST['libelle_menu']),                    // echapper les entrées
+            'libelle_menu' => htmlspecialchars($_POST['libelle_menu']),
             'nbDispo' => htmlspecialchars($_POST['nbDispo']),
             'prix' => htmlspecialchars($_POST['prix']),
             'date_menu' => htmlspecialchars($_POST['date_menu']),
@@ -245,7 +245,7 @@ class menuController implements ControllerProviderInterface{
 
         $this->menuModel = new MenuModel($app);
         $donnees = $this->menuModel->getMenu($id);
-        return $app["twig"]->render('menu/v_form_delete_menu.html.twig',['donnees'=>$donnees]);
+        return $app["twig"]->render('backOff/menu/v_form_delete_menu.html.twig',['donnees'=>$donnees]);
     }
 
     public function validFormDelete(Application $app, Request $req) {
@@ -296,8 +296,8 @@ class menuController implements ControllerProviderInterface{
         $controllers->get('/update{id}', 'App\Controller\MenuController::updateMenu')->bind('menu.update');
         $controllers->put('/update', 'App\Controller\MenuController::validFormUpdate')->bind('menu.validFormUpdate');
 
-        $controllers->get('/edit{id}', 'App\Controller\MenuController::deleteMenu')->bind('menu.delete');
-        $controllers->delete('/edit', 'App\Controller\MenuController::validFormDelete')->bind('menu.validFormDelete');
+        $controllers->get('/delete{id}', 'App\Controller\MenuController::deleteMenu')->bind('menu.delete');
+        $controllers->delete('/delte', 'App\Controller\MenuController::validFormDelete')->bind('menu.validFormDelete');
 
         $controllers->get('/auto','App\Controller\MenuController::autoComplete')->bind('menu.autoComplete');
         $controllers->post('/getIds','App\Controller\MenuController::getIds')->bind('menu.getIds');

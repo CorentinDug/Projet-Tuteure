@@ -58,7 +58,6 @@ class SupplementController implements ControllerProviderInterface
         if (1 == 1) {
             $donnees = [
                 'type_supplement' => htmlspecialchars($_POST['type_supplement']),                    // echapper les entrées
-                'supplement' => htmlspecialchars($_POST['supplement']),
             ];
 
 

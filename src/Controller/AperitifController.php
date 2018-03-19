@@ -31,8 +31,9 @@ class AperitifController implements ControllerProviderInterface
         $this->aperitifModel = new AperitifModel($app);
 
         $aperitifModel = $this->aperitifModel->getAperitif($id);
+        $libelle = $this->aperitifModel->getLibelle($id);
 
-        return $app["twig"]->render('backOff/composant/aperitif/v_form_delete_aperitif.html.twig', ['donnees' => $aperitifModel]);
+        return $app["twig"]->render('backOff/composant/aperitif/v_form_delete_aperitif.html.twig', ['donnees' => $aperitifModel,'libelle' => $libelle]);
     }
 
     public function editAperitif(Application $app, $id)
@@ -50,7 +51,6 @@ class AperitifController implements ControllerProviderInterface
         if (1 == 1) {
             $donnees = [
                 'libelle_aperitif' => htmlspecialchars($_POST['libelle_aperitif']),                    // echapper les entrées
-                'aperitif' => htmlspecialchars($_POST['aperitif']),
             ];
 
 

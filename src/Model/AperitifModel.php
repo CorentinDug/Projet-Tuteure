@@ -69,7 +69,7 @@ class AperitifModel
             ->select('m.libelle_menu')
             ->from('menu','m')
             ->innerJoin('m','aperitif','a','a.id_aperitif = m.id_aperitif')
-            ->where('d.id_aperitif='.$id);
+            ->where('a.id_aperitif='.$id);
         return $queryBuilder->execute()->fetchAll();
     }
 

@@ -55,7 +55,6 @@ class DessertModel
     }
     public function updateDessert($donnees)
     {
-        var_dump($donnees);
         $queryBuilder = new QueryBuilder($this->db);
         $queryBuilder->update('DESSERT')
             ->set('libelle_dessert' , '?')

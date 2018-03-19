@@ -120,26 +120,28 @@
     </table>
 
     <a href="{{ path('plats.add') }}"> Ajouter un plat </a>
-    <table>
-        <caption>Recapitulatifs des plats</caption>
-        <tbody>
-        <tr><th>Id plat</th><th>nom plat</th>
+        <table>
+            <caption>Recapitulatifs des plats</caption>
+            <tbody>
+            <tr><th>Id plat</th><th>nom plat</th>
 
-            {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
-                <th>operation</th>
-            {% endif %}
-        </tr>
-        {% for plat in plat if plat is not empty %}
-            <tr>
-                <td>{{plat.id_plat}}</td><td>{{plat.libelle_plat}}</td>{% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
-                <td>  <a href="{{ path('plats.edit', {id: plat.id_plat}) }}">Modifier</a>
-                    -
-                    <a href="{{ path('plats.edit', {id: plat.id_plat}) }}">Supprimer</a></td>
+                {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
+                    <th>operation</th>
                 {% endif %}
             </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            {% for plat in plat if plat is not empty %}
+                <tr>
+                    <td>{{plat.id_plat}}</td><td>{{plat.libelle_plat}}</td>{% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
+                    <td>  <a href="{{ path('plats.edit', {id: plat.id_plat}) }}">Modifier</a>
+                        -
+                        <a href="{{ path('plats.delete', {id: plat.id_plat}) }}">Supprimer</a></td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+
 
     <a href="{{ path('supplement.add') }}"> Ajouter une supplément </a>
     <table>
@@ -162,6 +164,8 @@
         {% endfor %}
         </tbody>
     </table>
+
+
     </div>
     </div>
     </div>

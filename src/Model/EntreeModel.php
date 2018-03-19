@@ -72,7 +72,7 @@ class EntreeModel
             ->select('m.libelle_menu')
             ->from('menu','m')
             ->innerJoin('m','entree','e','e.id_entree = m.id_entree')
-            ->where('d.id_entree='.$id);
+            ->where('e.id_entree='.$id);
         return $queryBuilder->execute()->fetchAll();
     }
 

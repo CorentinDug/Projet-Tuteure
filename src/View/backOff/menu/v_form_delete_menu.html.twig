@@ -5,9 +5,8 @@
             <fieldset>
                     <input type="hidden" name="_method" id="_method" value="delete"/>
                 <legend>Voulez-vous suprimer ce menu ? (twig)</legend>
-                <h3 id="blue">{{ donnees.libelle_meny }}</h3>
+                <h3 id="blue">{{ donnees.libelle_menu }}</h3>
                 <input name="id"  type="hidden" value="{{donnees.id_menu}}" />
-                <input type="hidden"   name="_csrf_token"   value="{{ csrf_token('token_delete_menu') }}">
                 <input type="submit" name="suprimerProduit" value="Suprimer" />
             </fieldset>
         </div>

@@ -41,7 +41,7 @@
 <nav>
     <div class="grid">
         <div class="col-1_xs-5" style="height: 60px;">
-            <img class= "logo" src="../../web/assets/img/logo.png">
+            <img class= "logo" src="{{ asset("assets/img/logo.png") }}">
         </div>
 
         <!-- Admin co-->
@@ -74,7 +74,7 @@
             <div class="col-1">
                 <a href="{{ path('user.logout')  }}">
                     <div >
-                        <img class="logout" src="../../web/assets/img/login/logout.png">
+                        <img class="logout" src="{{ asset("assets/img/login/logout.png") }}" >
                     </div>
                 </a>
             </div>
@@ -103,7 +103,7 @@
             <div class="col-2 grid-noGutter" data-push-left="off-6" >
                     <div class="col" >
                         <div class="profilePic">
-                            <img class="imageProfil" src="../../web/assets/img/boo.jpg">
+                            <img class="imageProfil" src="{{ asset("assets/img/boo.jpg") }}">
                         </div>
                     </div>
                     <div class="col">
@@ -116,7 +116,7 @@
                     <div class="col">
                         <a href="{{ path('user.logout')  }}">
                             <div >
-                            <img class="logout" src="../../web/assets/img/login/logout.png">
+                            <img class="logout" src="{{ asset("assets/img/login/logout.png") }}">
                             </div>
                         </a>
                     </div>

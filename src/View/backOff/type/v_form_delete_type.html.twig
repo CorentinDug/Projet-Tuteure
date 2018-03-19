@@ -7,7 +7,6 @@
                 <legend>Voulez-vous suprimer ce typePlat ? (twig)</legend>
                 <h3 id="blue">{{ donnees.libelle }}</h3>
                 <input name="id"  type="hidden" value="{{donnees.idTypePlat}}" />
-                <input type="hidden"   name="_csrf_token"   value="{{ csrf_token('token_delete_type') }}">
                 <input type="submit" name="suprimerTypePlat" value="Suprimer" />
             </fieldset>
         </div>

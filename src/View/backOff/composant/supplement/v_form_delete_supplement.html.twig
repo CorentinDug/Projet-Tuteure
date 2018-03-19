@@ -7,7 +7,6 @@
                 <legend>Voulez-vous suprimer ce supplement ? (twig)</legend>
                 <h3 id="blue">{{ donnees.type_supplement }}</h3>
                 <input name="id"  type="hidden" value="{{donnees.id_supplement}}" />
-                <input type="hidden"   name="_csrf_token"   value="{{ csrf_token('token_delete_supplement') }}">
                 <input type="submit" name="suprimerSupplement" value="Suprimer" />
             </fieldset>
         </div>

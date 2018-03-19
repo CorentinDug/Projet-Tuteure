@@ -45,7 +45,9 @@ class BoissonController implements ControllerProviderInterface
         $this->BoissonModel = new BoissonModel($app);
 
         $boissonModel = $this->BoissonModel->getBoisson($id);
-        return $app["twig"]->render('backOff/composant/boisson/v_form_delete_boisson.html.twig', ['donnees' => $boissonModel]);
+        $libelle = $this->BoissonModel->getLibelle($id);
+
+        return $app["twig"]->render('backOff/composant/boisson/v_form_delete_boisson.html.twig', ['donnees' => $boissonModel,'libelle' => $libelle]);
     }
 
     public function editBoisson(Application $app, $id)
@@ -63,7 +65,6 @@ class BoissonController implements ControllerProviderInterface
         if (1 == 1) {
             $donnees = [
                 'type_boisson' => htmlspecialchars($_POST['type_boisson']),                    // echapper les entrées
-                'boisson' => htmlspecialchars($_POST['boisson'])
             ];
 
 
