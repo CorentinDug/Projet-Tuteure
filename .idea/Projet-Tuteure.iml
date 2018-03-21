@@ -71,5 +71,143 @@
     <orderEntry type="library" name="jquery-1.12.4" level="application" />
     <orderEntry type="library" name="jquery" level="application" />
     <orderEntry type="library" name="foundation" level="application" />
+    <orderEntry type="module-library">
+      <library name="PHP" type="php">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/composer" />
+          <root url="file://$MODULE_DIR$/vendor/dflydev/doctrine-orm-service-provider" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/annotations" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/cache" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/collections" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/common" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/dbal" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/inflector" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/instantiator" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/lexer" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/orm" />
+          <root url="file://$MODULE_DIR$/vendor/friendsofsymfony/jsrouting-bundle" />
+          <root url="file://$MODULE_DIR$/vendor/gregwar/captcha" />
+          <root url="file://$MODULE_DIR$/vendor/paragonie/random_compat" />
+          <root url="file://$MODULE_DIR$/vendor/phpmailer/phpmailer" />
+          <root url="file://$MODULE_DIR$/vendor/pimple/pimple" />
+          <root url="file://$MODULE_DIR$/vendor/psr/cache" />
+          <root url="file://$MODULE_DIR$/vendor/psr/container" />
+          <root url="file://$MODULE_DIR$/vendor/psr/log" />
+          <root url="file://$MODULE_DIR$/vendor/psr/simple-cache" />
+          <root url="file://$MODULE_DIR$/vendor/silex/silex" />
+          <root url="file://$MODULE_DIR$/vendor/silex/web-profiler" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/asset" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/cache" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/class-loader" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/config" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/console" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/debug" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/dependency-injection" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/event-dispatcher" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/filesystem" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/finder" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/form" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/framework-bundle" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/http-foundation" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/http-kernel" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/inflector" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/intl" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/options-resolver" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-apcu" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-icu" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-php56" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-php70" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-util" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/property-access" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/routing" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/security" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/serializer" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/stopwatch" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/translation" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/twig-bridge" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/validator" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/var-dumper" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/web-profiler-bundle" />
+          <root url="file://$MODULE_DIR$/vendor/twig/extensions" />
+          <root url="file://$MODULE_DIR$/vendor/twig/twig" />
+          <root url="file://$MODULE_DIR$/vendor/willdurand/jsonp-callback-validator" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/composer" />
+          <root url="file://$MODULE_DIR$/vendor/dflydev/doctrine-orm-service-provider" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/annotations" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/cache" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/collections" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/common" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/dbal" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/inflector" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/instantiator" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/lexer" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/orm" />
+          <root url="file://$MODULE_DIR$/vendor/friendsofsymfony/jsrouting-bundle" />
+          <root url="file://$MODULE_DIR$/vendor/gregwar/captcha" />
+          <root url="file://$MODULE_DIR$/vendor/paragonie/random_compat" />
+          <root url="file://$MODULE_DIR$/vendor/phpmailer/phpmailer" />
+          <root url="file://$MODULE_DIR$/vendor/pimple/pimple" />
+          <root url="file://$MODULE_DIR$/vendor/psr/cache" />
+          <root url="file://$MODULE_DIR$/vendor/psr/container" />
+          <root url="file://$MODULE_DIR$/vendor/psr/log" />
+          <root url="file://$MODULE_DIR$/vendor/psr/simple-cache" />
+          <root url="file://$MODULE_DIR$/vendor/silex/silex" />
+          <root url="file://$MODULE_DIR$/vendor/silex/web-profiler" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/asset" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/cache" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/class-loader" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/config" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/console" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/debug" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/dependency-injection" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/event-dispatcher" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/filesystem" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/finder" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/form" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/framework-bundle" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/http-foundation" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/http-kernel" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/inflector" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/intl" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/options-resolver" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-apcu" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-icu" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-php56" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-php70" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-util" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/property-access" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/routing" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/security" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/serializer" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/stopwatch" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/translation" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/twig-bridge" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/validator" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/var-dumper" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/web-profiler-bundle" />
+          <root url="file://$MODULE_DIR$/vendor/twig/extensions" />
+          <root url="file://$MODULE_DIR$/vendor/twig/twig" />
+          <root url="file://$MODULE_DIR$/vendor/willdurand/jsonp-callback-validator" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="PHARS">
+        <CLASSES>
+          <root url="phar://$MODULE_DIR$/composer.phar/" />
+          <root url="phar://$MODULE_DIR$/vendor/symfony/dependency-injection/Tests/Fixtures/includes/ProjectWithXsdExtensionInPhar.phar/" />
+          <root url="phar://$MODULE_DIR$/vendor/twig/twig/test/Twig/Tests/Loader/Fixtures/phar/phar-sample.phar/" />
+        </CLASSES>
+        <SOURCES>
+          <root url="phar://$MODULE_DIR$/composer.phar/" />
+          <root url="phar://$MODULE_DIR$/vendor/symfony/dependency-injection/Tests/Fixtures/includes/ProjectWithXsdExtensionInPhar.phar/" />
+          <root url="phar://$MODULE_DIR$/vendor/twig/twig/test/Twig/Tests/Loader/Fixtures/phar/phar-sample.phar/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>

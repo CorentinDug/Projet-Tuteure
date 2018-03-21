@@ -12,3 +12,4 @@ $app->mount("/fromage", new App\Controller\FromageController($app));
 $app->mount("/dessert", new App\Controller\DessertController($app));
 $app->mount("/supplement", new App\Controller\SupplementController($app));
 $app->mount("/reservation", new App\Controller\ReservationController($app));
+$app->mount("/profil", new App\Controller\ProfilController($app));

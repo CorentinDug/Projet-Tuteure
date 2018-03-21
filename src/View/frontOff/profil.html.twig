@@ -1,0 +1,16 @@
+{% extends "v_layout.html.twig" %}
+{% block contenu %}
+
+    <div class="grid">
+        <div class="grid-noGutter" data-push-left="off-4">
+            <div class="col">
+                <div class="profilInfo">
+                    <h1>Profil</h1> </br>
+                    <span class="profilCateInfo"> Username </span><span class="profilContenuInfo"> {{ data.username }}  </span> </br>
+                    <span class="profilCateInfo"> Email </span><span class="profilContenuInfo"> {{ data.email }} </span></br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
