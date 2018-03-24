@@ -71,6 +71,7 @@ rapport de projet tut est un rapport général
 # Possible ajout :
 
 -Annuler ses réservations.
+
 -Editer son profil(nom, email, MDP)
 
 -
