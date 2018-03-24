@@ -1,0 +1,31 @@
+@import 'font';
+
+
+table {
+  border: 3px solid #0d47a1;
+  border-collapse: collapse;
+  width: 80%;
+}
+th {
+  @extend %fontTHead;
+  border: 2px solid #1A237E;
+  width: 50%;
+  padding: 5px;
+  background-color: #1E88E5;
+}
+td {
+  @extend %fontTCell;
+  border: 3px solid #1A237E;
+  padding: 2px;
+  text-align: center;
+  background-color: #e0e0e0;
+  white-space:nowrap;
+
+}
+caption {
+  @extend %fontCaption;
+}
+
+.tda{
+  @extend %fontTCellA;
+}

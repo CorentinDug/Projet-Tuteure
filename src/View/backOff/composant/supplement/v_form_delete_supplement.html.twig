@@ -1,14 +1,18 @@
 {% extends "v_layout.html.twig" %}
 {% block contenu %}
-    <form method="post" action="{{path('supplement.validFormDeleteSupplement')}}">
-        <div class="row">
-            <fieldset>
-                <input type="hidden" name="_method" id="_method" value="delete"/>
-                <legend>Voulez-vous suprimer ce supplement ? (twig)</legend>
-                <h3 id="blue">{{ donnees.type_supplement }}</h3>
-                <input name="id"  type="hidden" value="{{donnees.id_supplement}}" />
-                <input type="submit" name="suprimerSupplement" value="Suprimer" />
-            </fieldset>
+    <div class ="grid">
+        <div class="grid-noGutter" data-push-left="off-4">
+            <div class="col-4">
+            <form method="post" action="{{path('supplement.validFormDeleteSupplement')}}">
+                <div class="login-block">
+                        <input type="hidden" name="_method" id="_method" value="delete"/>
+                        <h1>Voulez-vous suprimer ce supplement ? (twig)</h1>
+                        <h2 id="blue">{{ donnees.type_supplement }}</h2>
+                        <input name="id"  type="hidden" value="{{donnees.id_supplement}}" />
+                        <input type="submit" class="button" name="suprimerSupplement" value="Suprimer" />
+                </div>
+            </form>
+            </div>
         </div>
-    </form>
+    </div>
 {% endblock %}

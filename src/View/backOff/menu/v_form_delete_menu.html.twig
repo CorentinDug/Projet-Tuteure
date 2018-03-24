@@ -1,14 +1,18 @@
 {% extends "v_layout.html.twig" %}
 {% block contenu %}
-    <form method="post" action="{{path('menu.validFormDelete')}}">
-        <div class="row">
-            <fieldset>
-                    <input type="hidden" name="_method" id="_method" value="delete"/>
-                <legend>Voulez-vous suprimer ce menu ? (twig)</legend>
-                <h3 id="blue">{{ donnees.libelle_menu }}</h3>
-                <input name="id"  type="hidden" value="{{donnees.id_menu}}" />
-                <input type="submit" name="suprimerProduit" value="Suprimer" />
-            </fieldset>
+    <div class ="grid">
+        <div class="grid-noGutter" data-push-left="off-4">
+            <div class="col-4">
+                <form method="post" action="{{path('menu.validFormDelete')}}">
+                    <div class="login-block">
+                        <input type="hidden" name="_method" id="_method" value="delete"/>
+                        <h1>Suppression du menu?</h1>
+                        <h2 id="blue">{{ donnees.libelle_menu }}</h2>
+                        <input name="id"  type="hidden" value="{{donnees.id_menu}}" />
+                        <input type="submit" class="button" name="suprimerProduit" value="Supprimer" />
+                    </div>
+                </form>
+            </div>
         </div>
-    </form>
+    </div>
 {% endblock %}

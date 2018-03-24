@@ -1,41 +1,42 @@
 {% extends "v_layout.html.twig" %}
 {% block contenu %}
-    <div class="grid-y" style="height: 10px;">
+    <div class ="grid">
+        <div class="grid-noGutter" data-push-left="off-2">
+            <div class="col-4">
+                {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
+                    <a class="tda" href="{{ path('menu.add') }}"> Ajouter un menu </a>
+                {% endif %}
+                <table>
+                    <caption>Recapitulatifs des menu</caption>
+                    <tbody>
+                    <tr><th> Nom Menu</th> <th>nb Dispo</th> <th>Prix</th><th>Date Menu</th><th>Type</th> <th>Apéritif</th><th>Entrée</th><th>Plat</th><th>Fromage</th><th>Dessert</th><th>Boisson</th>
+                        <th>Supplément</th>
+                        {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
+                            <th>operation</th>
+                        {% endif %}
+                    </tr>
+                    {% for menu in data if data is not empty %}
+                        <tr>
+                            <td>{{menu.libelle_menu}}</td><td>{{menu.nbDispo}}</td><td>{{ menu.prix|number_format(2, ',', '')}}€</td><td>{{ changeDate(menu.date_menu) }}</td>
+                            <td>{{menu.libelle_type}}</td><td>{{menu.libelle_aperitif}}</td><td>{{menu.libelle_entree}}</td><td>{{menu.libelle_plat}}</td>
+                            <td>{{menu.libelle_fromage}}</td><td>{{menu.libelle_dessert}}</td><td>{{menu.type_boisson}}</td><td>{{menu.type_supplement}}</td><td>
+                                {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
+                                    <a class="tda" href="{{ path('menu.update', {id: menu.id_menu}) }}">Modifier</a>
+                                    <a class="tda" href="{{ path('menu.delete',{id: menu.id_menu}) }}">Supprimer</a>
+                                {% endif %}
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-    <div class=" grid-y" style="height: 500px;">
-    <div class="cell small-6 medium-4 large-10">
-    <div class="grid-x grid-margin-x ">
-    <div class="small-10 large-offset-1 cell">
-    {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
-      <a href="{{ path('menu.add') }}"> Ajouter un menu </a>
-    {% endif %}
-  <table>
-    <caption>Recapitulatifs des menu</caption>
-    <tbody>
-    <tr><th>Nom Menu</th><th>nb Dispo</th><th>prix</th><th>Date Menu</th><th>type</th>
-        <th>aperitif</th><th>entree</th><th>plat</th><th>fromage</th><th>dessert</th><th>boisson</th>
-      <th>supplement</th>
 
-        {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
-          <th>operation</th>
-        {% endif %}
-    </tr>
-      {% for menu in data if data is not empty %}
-        <tr>
-          <td>{{menu.libelle_menu}}</td><td>{{menu.nbDispo}}</td><td>{{ menu.prix|number_format(2, ',', '')}}€</td><td>{{ changeDate(menu.date_menu) }}</td>
-            <td>{{menu.libelle_type}}</td><td>{{menu.libelle_aperitif}}</td><td>{{menu.libelle_entree}}</td><td>{{menu.libelle_plat}}</td>
-            <td>{{menu.libelle_fromage}}</td><td>{{menu.libelle_dessert}}</td><td>{{menu.type_boisson}}</td><td>{{menu.type_supplement}}</td><td>
-            {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
-                <a href="{{ path('menu.update', {id: menu.id_menu}) }}">Modifier</a>
-                <a href="{{ path('menu.delete',{id: menu.id_menu}) }}">Supprimer</a>
-            {% endif %}
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-    </div>
-    </div>
-    </div>
-    </div>
+
+  <table>
+    <caption></caption>
+    <tbody>
+
+
 
 {% endblock %}

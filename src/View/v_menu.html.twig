@@ -46,7 +46,7 @@
 
         <!-- Admin co-->
         {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
-        <div class="col-4 grid" >
+        <div class="col-5 grid" >
             <div class="col" >
                 <a href="{{ path('index.index') }}">
                     <div class="navButton">
@@ -77,7 +77,7 @@
                 </a>
             </div>
         </div>
-        <div class="col grid-noGutter" data-push-left="off-6" >
+        <div class="col grid-noGutter" data-push-left="off-5" >
             <div class="col-1">
                 <a href="{{ path('user.logout')  }}">
                     <div >

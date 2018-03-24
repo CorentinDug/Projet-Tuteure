@@ -1,29 +1,22 @@
 {% extends "v_layout.html.twig" %}
 {% block contenu %}
-    <div class="grid-y" style="height: 50px;">
-    </div>
-    <form method="post" action="{{ path("dessert.validFormEditDessert") }} ">
-        <div class=" grid-y" style="height: 500px; " >
-            <div class="cell small-6 medium-4 large-10">
-                <div class="grid-x" >
-                    <div class="small-4 large-offset-3 cell" >
-                        <div class="card" style ="color:whitesmoke; padding: 20px; border-radius: 50px; ">
-                            <fieldset>
-                                <legend style =" color:whitesmoke;">Modification du dessert: {{ donnees.libelle_dessert }}</legend>
-                                <input type="hidden" name="_method" id="_method" value="put"/>
-                                <input type="hidden" name="id_dessert" value="{{ donnees.id_dessert }}"/>
-                                <label style =" color:whitesmoke;">Nom du dessert
-                                    <input name="libelle_dessert"  type="text"  size="18" value="{{ donnees.libelle_dessert | default('') }}"/>
-                                    {% if erreurs.libelle_dessert is defined %}
-                                        <small class="error">{{erreurs.libelle_dessert}}</small>
-                                    {% endif %}
-                                </label>
-                                <input type="submit" class = "boutonPerso button" name="modifierDessert" value="modifier" >
-                            </fieldset>
-                        </div>
+    <div class ="grid">
+        <div class="grid-noGutter" data-push-left="off-2">
+             <div class="col-4">
+                <form method="post" action="{{ path("dessert.validFormEditDessert") }} ">
+                    <div class="login-block">
+                        <h1>Modification du dessert: {{ donnees.libelle_dessert }}</h1>
+                        <input type="hidden" name="_method" id="_method" value="put"/>
+                        <input type="hidden" name="id_dessert" value="{{ donnees.id_dessert }}"/>
+                        <label style =" color:whitesmoke;">Nom du dessert</label>
+                        <input  class="inputLoginBlock" name="libelle_dessert"  type="text"  size="18" value="{{ donnees.libelle_dessert | default('') }}"/>
+                        {% if erreurs.libelle_dessert is defined %}
+                            <small class="error">{{erreurs.libelle_dessert}}</small>
+                        {% endif %}
+                        <input type="submit" class = "boutonPerso button" name="modifierDessert" value="modifier" >
                     </div>
-                </div>
-            </div>
+                </form>
+             </div>
         </div>
-    </form>
+    </div>
 {% endblock %}

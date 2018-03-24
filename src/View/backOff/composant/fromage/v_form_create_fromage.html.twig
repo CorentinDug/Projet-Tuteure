@@ -1,27 +1,20 @@
 {% extends "v_layout.html.twig" %}
 {% block contenu %}
-    <div class="grid-y" style="height: 50px;">
-    </div>
-    <form method="post" action="{% if fromage is defined %} {{ path("fromage.validFormAddFromage",{fromage: fromage}) }} {% else %} {{ path("fromage.validFormAddFromage") }} {% endif %} ">
-        <div class=" grid-y" style="height: 500px; " >
-            <div class="cell small-6 medium-4 large-10">
-                <div class="grid-x" >
-                    <div class="small-4 large-offset-3 cell" >
-                        <div class="card" style ="color:whitesmoke; padding: 20px; border-radius: 50px; ">
-                            <fieldset>
-                                <legend style =" color:whitesmoke; text-decoration: underline">Ajout d'un fromage</legend>
-                                <label style =" color:whitesmoke;">Nom du fromage
-                                    <input name="libelle_fromage"  type="text"  size="18" value="{{ donnees.libelle_fromage | default('') }}"/>
-                                    {% if erreurs.libelle_fromage is defined %}
-                                        <small class="error">{{erreurs.libelle_fromage}}</small>
-                                    {% endif %}
-                                </label>
-                                <input type="submit" class="button boutonPerso" name="creerFromage" value="creer" >
-                            </fieldset>
-                        </div>
-                    </div>
+<div class ="grid">
+    <div class="grid-noGutter" data-push-left="off-2">
+        <div class="col-4">
+            <form method="post" action="{% if fromage is defined %} {{ path("fromage.validFormAddFromage",{fromage: fromage}) }} {% else %} {{ path("fromage.validFormAddFromage") }} {% endif %} ">
+                <div class="login-block">
+                    <h1>Ajout d'un fromage</h1>
+                    <label>Nom du fromage</label>
+                    <input class="inputLoginBlock" name="libelle_fromage"  type="text"  size="18" value="{{ donnees.libelle_fromage | default('') }}"/>
+                    {% if erreurs.libelle_fromage is defined %}
+                        <small class="error">{{erreurs.libelle_fromage}}</small>
+                    {% endif %}
+                    <input type="submit" class="button boutonPerso" name="creerFromage" value="creer" >
                 </div>
-            </div>
+            </form>
         </div>
-    </form>
+    </div>
+</div>
 {% endblock %}

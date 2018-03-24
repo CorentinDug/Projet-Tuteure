@@ -64,3 +64,41 @@
   text-align: left;
   transition: background 300ms;
 }
+
+%fontCaption{
+  color: #424242;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  line-height: 60px;
+  font-weight: bold;
+  transition: background 300ms;
+}
+
+%fontTHead{
+  color: #bdbdbd;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 24px;
+  text-align: center;
+  transition: background 300ms;
+  font-weight: bold ;
+}
+%fontTCell{
+  color: #424242;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 18px;
+  text-align: center;
+  transition: background 300ms;
+  font-weight: bold ;
+}
+
+%fontTCellA{
+  color: #303f9f;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 18px;
+  text-align: center;
+  transition: background 300ms;
+  &:hover{
+    font-weight: bold ;
+  }
+}

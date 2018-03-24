@@ -6,6 +6,7 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400i,700");
 @import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400i,700");
 @import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400i,700");
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400i,700");
 [class~="grid"],
 [class*="grid-"],
 [class*="grid_"] {
@@ -1304,24 +1305,24 @@
 @media (max-width: 36em) {
   [class*="xs-hidden"] {
     display: none; } }
-.login-block input, .calendrierInput, a, .navButton {
+.inputLoginBlock, .calendrierInput, a, .navButton {
   color: #bdbdbd;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 20px;
   text-align: center;
   line-height: 60px;
   transition: background 300ms; }
-  .login-block input:hover, .calendrierInput:hover, a:hover, .navButton:hover {
+  .inputLoginBlock:hover, .calendrierInput:hover, a:hover, .navButton:hover {
     font-weight: bold; }
 
-.login-block button, .boutonReserver, .boutonReserverFull, .boutonReserverMoyen, .boutonReserverVide, .calendrierSearch {
+.login-block button, .button, .boutonReserver, .boutonReserverFull, .boutonReserverMoyen, .boutonReserverVide, .calendrierSearch {
   color: #bdbdbd;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 20px;
   text-align: center;
   line-height: 40px;
   transition: background 300ms; }
-  .login-block button:hover, .boutonReserver:hover, .boutonReserverFull:hover, .boutonReserverMoyen:hover, .boutonReserverVide:hover, .calendrierSearch:hover {
+  .login-block button:hover, .button:hover, .boutonReserver:hover, .boutonReserverFull:hover, .boutonReserverMoyen:hover, .boutonReserverVide:hover, .calendrierSearch:hover {
     font-weight: bold; }
 
 .sessionConnexion, .sessionConnecte {
@@ -1348,24 +1349,58 @@
   text-align: left;
   transition: background 300ms; }
 
-.login-block input, .calendrierInput, a, .navButton {
+caption {
+  color: #424242;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  line-height: 60px;
+  font-weight: bold;
+  transition: background 300ms; }
+
+th {
+  color: #bdbdbd;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 24px;
+  text-align: center;
+  transition: background 300ms;
+  font-weight: bold; }
+
+td {
+  color: #424242;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 18px;
+  text-align: center;
+  transition: background 300ms;
+  font-weight: bold; }
+
+.tda {
+  color: #303f9f;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 18px;
+  text-align: center;
+  transition: background 300ms; }
+  .tda:hover {
+    font-weight: bold; }
+
+.inputLoginBlock, .calendrierInput, a, .navButton {
   color: #bdbdbd;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 20px;
   text-align: center;
   line-height: 60px;
   transition: background 300ms; }
-  .login-block input:hover, .calendrierInput:hover, a:hover, .navButton:hover {
+  .inputLoginBlock:hover, .calendrierInput:hover, a:hover, .navButton:hover {
     font-weight: bold; }
 
-.login-block button, .boutonReserver, .boutonReserverFull, .boutonReserverMoyen, .boutonReserverVide, .calendrierSearch {
+.login-block button, .button, .boutonReserver, .boutonReserverFull, .boutonReserverMoyen, .boutonReserverVide, .calendrierSearch {
   color: #bdbdbd;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 20px;
   text-align: center;
   line-height: 40px;
   transition: background 300ms; }
-  .login-block button:hover, .boutonReserver:hover, .boutonReserverFull:hover, .boutonReserverMoyen:hover, .boutonReserverVide:hover, .calendrierSearch:hover {
+  .login-block button:hover, .button:hover, .boutonReserver:hover, .boutonReserverFull:hover, .boutonReserverMoyen:hover, .boutonReserverVide:hover, .calendrierSearch:hover {
     font-weight: bold; }
 
 .sessionConnexion, .sessionConnecte {
@@ -1391,6 +1426,40 @@
   font-size: 20px;
   text-align: left;
   transition: background 300ms; }
+
+caption {
+  color: #424242;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  line-height: 60px;
+  font-weight: bold;
+  transition: background 300ms; }
+
+th {
+  color: #bdbdbd;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 24px;
+  text-align: center;
+  transition: background 300ms;
+  font-weight: bold; }
+
+td {
+  color: #424242;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 18px;
+  text-align: center;
+  transition: background 300ms;
+  font-weight: bold; }
+
+.tda {
+  color: #303f9f;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 18px;
+  text-align: center;
+  transition: background 300ms; }
+  .tda:hover {
+    font-weight: bold; }
 
 .login-block {
   width: 320px;
@@ -1410,7 +1479,24 @@
   margin-bottom: 20px;
   font-family: 'Roboto Condensed', sans-serif; }
 
-.login-block input {
+.login-block h2 {
+  text-align: center;
+  color: #303f9f;
+  font-size: 17px;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-family: 'Roboto Condensed', sans-serif; }
+
+.login-block h3 {
+  text-align: center;
+  color: #303f9f;
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-family: 'Roboto Condensed', sans-serif; }
+
+.inputLoginBlock {
   width: 100%;
   height: 42px;
   box-sizing: border-box;
@@ -1453,24 +1539,47 @@
   outline: none;
   cursor: pointer; }
 
-.login-block input, .calendrierInput, a, .navButton {
+.button {
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  background: linear-gradient(to right, #1976d2, #1565c0, #0d47a1);
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid #1565c0;
+  line-height: 40px;
+  color: #fff;
+  outline: none;
+  cursor: pointer; }
+
+.login-block label {
+  text-align: center;
+  color: #303f9f;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 2px;
+  font-family: 'Roboto Condensed', sans-serif; }
+
+.inputLoginBlock, .calendrierInput, a, .navButton {
   color: #bdbdbd;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 20px;
   text-align: center;
   line-height: 60px;
   transition: background 300ms; }
-  .login-block input:hover, .calendrierInput:hover, a:hover, .navButton:hover {
+  .inputLoginBlock:hover, .calendrierInput:hover, a:hover, .navButton:hover {
     font-weight: bold; }
 
-.login-block button, .boutonReserver, .boutonReserverFull, .boutonReserverMoyen, .boutonReserverVide, .calendrierSearch {
+.login-block button, .button, .boutonReserver, .boutonReserverFull, .boutonReserverMoyen, .boutonReserverVide, .calendrierSearch {
   color: #bdbdbd;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 20px;
   text-align: center;
   line-height: 40px;
   transition: background 300ms; }
-  .login-block button:hover, .boutonReserver:hover, .boutonReserverFull:hover, .boutonReserverMoyen:hover, .boutonReserverVide:hover, .calendrierSearch:hover {
+  .login-block button:hover, .button:hover, .boutonReserver:hover, .boutonReserverFull:hover, .boutonReserverMoyen:hover, .boutonReserverVide:hover, .calendrierSearch:hover {
     font-weight: bold; }
 
 .sessionConnexion, .sessionConnecte {
@@ -1496,6 +1605,40 @@
   font-size: 20px;
   text-align: left;
   transition: background 300ms; }
+
+caption {
+  color: #424242;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  line-height: 60px;
+  font-weight: bold;
+  transition: background 300ms; }
+
+th {
+  color: #bdbdbd;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 24px;
+  text-align: center;
+  transition: background 300ms;
+  font-weight: bold; }
+
+td {
+  color: #424242;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 18px;
+  text-align: center;
+  transition: background 300ms;
+  font-weight: bold; }
+
+.tda {
+  color: #303f9f;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 18px;
+  text-align: center;
+  transition: background 300ms; }
+  .tda:hover {
+    font-weight: bold; }
 
 .paragrapheBienvenue {
   margin-top: 35px;
@@ -1533,24 +1676,24 @@
   width: 804px;
   height: 100px; }
 
-.login-block input, .calendrierInput, a, .navButton {
+.inputLoginBlock, .calendrierInput, a, .navButton {
   color: #bdbdbd;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 20px;
   text-align: center;
   line-height: 60px;
   transition: background 300ms; }
-  .login-block input:hover, .calendrierInput:hover, a:hover, .navButton:hover {
+  .inputLoginBlock:hover, .calendrierInput:hover, a:hover, .navButton:hover {
     font-weight: bold; }
 
-.login-block button, .boutonReserver, .boutonReserverFull, .boutonReserverMoyen, .boutonReserverVide, .calendrierSearch {
+.login-block button, .button, .boutonReserver, .boutonReserverFull, .boutonReserverMoyen, .boutonReserverVide, .calendrierSearch {
   color: #bdbdbd;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 20px;
   text-align: center;
   line-height: 40px;
   transition: background 300ms; }
-  .login-block button:hover, .boutonReserver:hover, .boutonReserverFull:hover, .boutonReserverMoyen:hover, .boutonReserverVide:hover, .calendrierSearch:hover {
+  .login-block button:hover, .button:hover, .boutonReserver:hover, .boutonReserverFull:hover, .boutonReserverMoyen:hover, .boutonReserverVide:hover, .calendrierSearch:hover {
     font-weight: bold; }
 
 .sessionConnexion, .sessionConnecte {
@@ -1576,6 +1719,40 @@
   font-size: 20px;
   text-align: left;
   transition: background 300ms; }
+
+caption {
+  color: #424242;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  line-height: 60px;
+  font-weight: bold;
+  transition: background 300ms; }
+
+th {
+  color: #bdbdbd;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 24px;
+  text-align: center;
+  transition: background 300ms;
+  font-weight: bold; }
+
+td {
+  color: #424242;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 18px;
+  text-align: center;
+  transition: background 300ms;
+  font-weight: bold; }
+
+.tda {
+  color: #303f9f;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 18px;
+  text-align: center;
+  transition: background 300ms; }
+  .tda:hover {
+    font-weight: bold; }
 
 .menu-blockEval {
   width: 320px;
@@ -1753,6 +1930,102 @@
   padding: 20px;
   display: inline-block;
   box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); }
+
+.inputLoginBlock, .calendrierInput, a, .navButton {
+  color: #bdbdbd;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  line-height: 60px;
+  transition: background 300ms; }
+  .inputLoginBlock:hover, .calendrierInput:hover, a:hover, .navButton:hover {
+    font-weight: bold; }
+
+.login-block button, .button, .boutonReserver, .boutonReserverFull, .boutonReserverMoyen, .boutonReserverVide, .calendrierSearch {
+  color: #bdbdbd;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  line-height: 40px;
+  transition: background 300ms; }
+  .login-block button:hover, .button:hover, .boutonReserver:hover, .boutonReserverFull:hover, .boutonReserverMoyen:hover, .boutonReserverVide:hover, .calendrierSearch:hover {
+    font-weight: bold; }
+
+.sessionConnexion, .sessionConnecte {
+  color: #bdbdbd;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  line-height: 60px;
+  transition: background 300ms; }
+  .sessionConnexion:hover, .sessionConnecte:hover {
+    font-weight: bold; }
+
+.paragrapheBienvenue, .blocGoMenu, .paragraphePresentation, .partieMenu, .profilInfo, .connection {
+  color: #303f9f;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 16px;
+  text-align: left;
+  transition: background 300ms; }
+
+.partieMenuContenu {
+  color: #212121;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 20px;
+  text-align: left;
+  transition: background 300ms; }
+
+caption {
+  color: #424242;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  line-height: 60px;
+  font-weight: bold;
+  transition: background 300ms; }
+
+th {
+  color: #bdbdbd;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 24px;
+  text-align: center;
+  transition: background 300ms;
+  font-weight: bold; }
+
+td {
+  color: #424242;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 18px;
+  text-align: center;
+  transition: background 300ms;
+  font-weight: bold; }
+
+.tda {
+  color: #303f9f;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 18px;
+  text-align: center;
+  transition: background 300ms; }
+  .tda:hover {
+    font-weight: bold; }
+
+table {
+  border: 3px solid #0d47a1;
+  border-collapse: collapse;
+  width: 80%; }
+
+th {
+  border: 2px solid #1A237E;
+  width: 50%;
+  padding: 5px;
+  background-color: #1E88E5; }
+
+td {
+  border: 3px solid #1A237E;
+  padding: 2px;
+  text-align: center;
+  background-color: #e0e0e0;
+  white-space: nowrap; }
 
 body {
   margin: 0;

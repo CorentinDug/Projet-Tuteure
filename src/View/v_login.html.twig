@@ -37,9 +37,9 @@
                 <form method="post" action="{{ path('user.validFormlogin') }}" >
                 <div class="login-block">
                     <h1>Connexion</h1>
-                    <input type="text" name="login" value="" placeholder="Username" id="username" />
-                    <input type="password" name="password" value="" placeholder="Mot de passe" id="password" />
-                    <a  href="{{ path('user.signup') }}">Inscrit toi ici</a>
+                    <input class="inputLoginBlock" type="text" name="login" value="" placeholder="Username" id="username" />
+                    <input class="inputLoginBlock" type="password" name="password" value="" placeholder="Mot de passe" id="password" />
+                    <a style="color: #1A237E"  href="{{ path('user.signup') }}">Inscrit toi ici</a>
                     {% if app.session.get('erreur') is not empty %}
                         <small class="error">{{ app.session.get('erreur') }}</small>
                     {% endif %}

@@ -1,17 +1,21 @@
 {% extends "v_layout.html.twig" %}
 {% block contenu %}
-    <form method="post" action="{% if plat is defined %} {{ path("plats.validFormAdd",{plat: plat}) }} {% else %} {{ path("plats.validFormAdd") }} {% endif %} ">
-        <div class="row">
-            <fieldset>
-                <legend>Creer un plats</legend>
-                <label>Nom du plat:
-                    <input name="libelle_plat"  type="text"  size="18" value="{{donnees.libelle_plat|default("")}}" />
+<div class ="grid">
+    <div class="grid-noGutter" data-push-left="off-2">
+        <div class="col-4">
+            <form method="post" action="{% if plat is defined %} {{ path("plats.validFormAdd",{plat: plat}) }} {% else %} {{ path("plats.validFormAdd") }} {% endif %} ">
+                <div class="login-block">
+                    <h1>Creer un plats</h1>
+                    <label>Nom du plat:
+                    <input class="inputLoginBlock" name="libelle_plat"  type="text"  size="18" value="{{donnees.libelle_plat|default("")}}" />
                     {% if erreurs.libelle_plat is defined %}
                         <small class="error">{{erreurs.libelle_plat}}</small>
                     {% endif %}
                 </label>
-                <input type="submit" name="creerPlat" value="créer" />
-            </fieldset>
+                <input class="button" type="submit" name="creerPlat" value="Créer" />
+            </div>
+        </form>
         </div>
-    </form>
+    </div>
+</div>
 {% endblock %}

@@ -1,26 +1,20 @@
 {% extends "v_layout.html.twig" %}
 {% block contenu %}
-    <form method="post" action="{% if dessert is defined %} {{ path("dessert.validFormAddDessert",{dessert: dessert}) }} {% else %} {{ path("dessert.validFormAddDessert") }} {% endif %} ">
-        <div class=" grid-y" style="height: 500px; " >
-            <div class="cell small-6 medium-4 large-10">
-                <div class="grid-x" >
-                    <div class="small-4 large-offset-3 cell" >
-                        <div class="card" style ="color:whitesmoke; padding: 20px; border-radius: 50px; ">
-                            <fieldset>
-                                <legend style =" color:whitesmoke; text-decoration: underline"> Ajout d'un dessert</legend>
-                                <label style =" color:whitesmoke;">Nom du dessert
-                                <input name="libelle_dessert"  type="text"  size="18" value="{{ donnees.libelle_dessert | default('') }}"/>
-                                    {% if erreurs.libelle_dessert is defined %}
-                                         <small class="error">{{erreurs.libelle_dessert}}</small>
-                                    {% endif %}
-                                </label>
-                                <input type="submit" class="boutonPerso button" name="creerDessert" value="Créer" >
-                            </fieldset>
-                        </div>
+    <div class ="grid">
+        <div class="grid-noGutter" data-push-left="off-2">
+            <div class="col-4">
+                <form method="post" action="{% if dessert is defined %} {{ path("dessert.validFormAddDessert",{dessert: dessert}) }} {% else %} {{ path("dessert.validFormAddDessert") }} {% endif %} ">
+                    <div class="login-block">
+                        <h1> Ajout d'un dessert</h1>
+                        <label>Nom du dessert </label>
+                        <input class="inputLoginBlock" name="libelle_dessert"  type="text"  size="18" value="{{ donnees.libelle_dessert | default('') }}"/>
+                        {% if erreurs.libelle_dessert is defined %}
+                            <small class="error">{{erreurs.libelle_dessert}}</small>
+                        {% endif %}
+                        <input type="submit" class="button" name="creerDessert" value="Créer" >
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
-</form>
 {% endblock %}

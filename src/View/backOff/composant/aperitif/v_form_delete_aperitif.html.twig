@@ -1,17 +1,21 @@
 {% extends "v_layout.html.twig" %}
 {% block contenu %}
-    <form method="post" action="{{path('aperitif.validFormDeleteAperitif')}}">
-        <div class="row">
-            <fieldset>
-                <input type="hidden" name="_method" id="_method" value="delete"/>
-                <legend>Voulez-vous suprimer cette apéritif ? (twig)</legend>
-                <h3>{{ donnees.libelle_aperitif }}</h3>
-                {%  for libelle in libelle %}
-                    <h4>Le {{ libelle.libelle_menu }} sera également supprimer</h4>
-                {% endfor %}
-                <input name="id"  type="hidden" value="{{donnees.id_aperitif}}" />
-                <input type="submit" name="suprimerAperitif" value="Suprimer" />
-            </fieldset>
+    <div class ="grid">
+        <div class="grid-noGutter" data-push-left="off-4">
+            <div class="col-4">
+            <form method="post" action="{{path('aperitif.validFormDeleteAperitif')}}">
+                <div class="login-block">
+                        <input type="hidden" name="_method" id="_method" value="delete"/>
+                        <h1>Voulez-vous suprimer cette apéritif ? (twig)</h1>
+                        <h2>{{ donnees.libelle_aperitif }}</h2>
+                        {%  for libelle in libelle %}
+                            <h3>Le {{ libelle.libelle_menu }} sera également supprimer</h3>
+                        {% endfor %}
+                        <input name="id"  type="hidden" value="{{donnees.id_aperitif}}" />
+                        <input type="submit" class="button" name="suprimerAperitif" value="Suprimer" />
+                </div>
+            </form>
+            </div>
         </div>
-    </form>
+    </div>
 {% endblock %}

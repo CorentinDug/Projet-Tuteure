@@ -1,173 +1,168 @@
 {% extends "v_layout.html.twig" %}
 {% block contenu %}
-    <div class="grid-y" style="height: 10px;">
-    </div>
-    <div class=" grid-y" style="height: 500px;">
-    <div class="cell small-6 medium-4 large-10">
-    <div class="grid-x grid-margin-x ">
-    <div class="small-6 large-offset-3 cell">
-    {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
-    {% endif %}
-    <a href="{{ path('boisson.add') }}"> Ajouter une boisson </a>
 
-    <table>
-        <caption>Recapitulatifs des boissons</caption>
-        <tbody>
-        <tr><th>Id Boisson</th> <th>nom boisson</th>
-
-            {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
-                <th>operation</th>
-            {% endif %}
-        </tr>
-        {% for boisson in boisson if boisson is not empty %}
-            <tr>
-                <td>{{boisson.id_boisson}}</td><td>{{boisson.type_boisson}}</td>{% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
-                <td>  <a href="{{ path('boisson.edit', {id: boisson.id_boisson}) }}">Modifier</a>
-                    -
-                    <a href="{{ path('boisson.delete',{id: boisson.id_boisson}) }}">Supprimer</a></td>
-                {% endif %}
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('aperitif.add') }}"> Ajouter une apéritif </a>
-    <table>
-        <caption>Recapitulatifs des apéritifs</caption>
-        <tbody>
-        <tr><th>Id apéritif</th><th>nom apéritif</th>
-
-            {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
-                <th>operation</th>
-            {% endif %}
-        </tr>
-        {% for aperitif in aperitif if aperitif is not empty %}
-            <tr>
-                <td>{{aperitif.id_aperitif}}</td><td>{{aperitif.libelle_aperitif}}</td>{% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
-                <td>  <a href="{{ path('aperitif.edit', {id: aperitif.id_aperitif}) }}">Modifier</a>
-                    -
-                    <a href="{{ path('aperitif.delete',{id: aperitif.id_aperitif}) }}">Supprimer</a></td>
-                {% endif %}
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('dessert.addDessert') }}"> Ajouter un dessert </a>
-    <table>
-        <caption>Recapitulatifs des desserts</caption>
-        <tbody>
-        <tr><th>Id dessert</th><th>nom dessert</th>
-
-            {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
-                <th>operation</th>
-            {% endif %}
-        </tr>
-        {% for dessert in dessert if dessert is not empty %}
-            <tr>
-                <td>{{dessert.id_dessert}}</td><td>{{dessert.libelle_dessert}}</td>{% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
-                <td>  <a href="{{ path('dessert.edit', {id: dessert.id_dessert}) }}">Modifier</a>
-                    -
-                    <a href="{{ path('dessert.delete', {id: dessert.id_dessert}) }}">Supprimer</a></td>
-                {% endif %}
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('entree.add') }}"> Ajouter une entrée </a>
-    <table>
-        <caption>Recapitulatifs des entrée</caption>
-        <tbody>
-        <tr><th>Id entrée</th><th>nom entrée</th>
-
-            {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
-                <th>operation</th>
-            {% endif %}
-        </tr>
-        {% for entree in entree if entree is not empty %}
-            <tr>
-                <td>{{entree.id_entree}}</td><td>{{entree.libelle_entree}}</td>{% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
-                <td>  <a href="{{ path('entree.edit', {id: entree.id_entree}) }}">Modifier</a>
-                    -
-                    <a href="{{ path('entree.delete', {id: entree.id_entree}) }}">Supprimer</a></td>
-                {% endif %}
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('fromage.add') }}"> Ajouter un fromage </a>
-    <table>
-        <caption>Recapitulatifs des fromages</caption>
-        <tbody>
-        <tr><th>Id fromage</th><th>nom fromage</th>
-
-            {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
-                <th>operation</th>
-            {% endif %}
-        </tr>
-        {% for fromage in fromage if fromage is not empty %}
-            <tr>
-                <td>{{fromage.id_fromage}}</td><td>{{fromage.libelle_fromage}}</td>{% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
-                <td>  <a href="{{ path('fromage.edit', {id: fromage.id_fromage}) }}">Modifier</a>
-                    -
-                    <a href="{{ path('fromage.delete', {id: fromage.id_fromage}) }}">Supprimer</a></td>
-                {% endif %}
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('plats.add') }}"> Ajouter un plat </a>
-        <table>
-            <caption>Recapitulatifs des plats</caption>
-            <tbody>
-            <tr><th>Id plat</th><th>nom plat</th>
-
+    <div class ="grid">
+        <div class="grid-noGutter" data-push-left="off-2">
+            <div class="col" style="width: 1000px">
                 {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
-                    <th>operation</th>
                 {% endif %}
-            </tr>
-            {% for plat in plat if plat is not empty %}
-                <tr>
-                    <td>{{plat.id_plat}}</td><td>{{plat.libelle_plat}}</td>{% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
-                    <td>  <a href="{{ path('plats.edit', {id: plat.id_plat}) }}">Modifier</a>
-                        -
-                        <a href="{{ path('plats.delete', {id: plat.id_plat}) }}">Supprimer</a></td>
-                    {% endif %}
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+                <a class="tda" href="{{ path('boisson.add') }}"> Ajouter une boisson </a>
+
+                <table>
+                    <caption>Recapitulatifs des boissons</caption>
+                    <tbody>
+                    <tr><th>Id Boisson</th> <th>nom boisson</th>
+
+                        {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
+                            <th>operation</th>
+                        {% endif %}
+                    </tr>
+                    {% for boisson in boisson if boisson is not empty %}
+                        <tr>
+                            <td>{{boisson.id_boisson}}</td><td>{{boisson.type_boisson}}</td>{% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
+                            <td>  <a class="tda" href="{{ path('boisson.edit', {id: boisson.id_boisson}) }}">Modifier</a>
+
+                                <a class="tda" href="{{ path('boisson.delete',{id: boisson.id_boisson}) }}">Supprimer</a></td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+                <a  class="tda" href="{{ path('aperitif.add') }}"> Ajouter une apéritif </a>
+                <table>
+                    <caption>Recapitulatifs des apéritifs</caption>
+                    <tbody>
+                    <tr><th>Id apéritif</th><th>nom apéritif</th>
+
+                        {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
+                            <th>operation</th>
+                        {% endif %}
+                    </tr>
+                    {% for aperitif in aperitif if aperitif is not empty %}
+                        <tr>
+                            <td>{{aperitif.id_aperitif}}</td><td>{{aperitif.libelle_aperitif}}</td>{% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
+                            <td>  <a class="tda" href="{{ path('aperitif.edit', {id: aperitif.id_aperitif}) }}">Modifier</a>
+                                <a class="tda" href="{{ path('aperitif.delete',{id: aperitif.id_aperitif}) }}">Supprimer</a></td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+                <a  class="tda" href="{{ path('dessert.addDessert') }}"> Ajouter un dessert </a>
+                <table>
+                    <caption>Recapitulatifs des desserts</caption>
+                    <tbody>
+                    <tr><th>Id dessert</th><th>nom dessert</th>
+
+                        {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
+                            <th>operation</th>
+                        {% endif %}
+                    </tr>
+                    {% for dessert in dessert if dessert is not empty %}
+                        <tr>
+                            <td>{{dessert.id_dessert}}</td><td>{{dessert.libelle_dessert}}</td>{% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
+                            <td>  <a class="tda" href="{{ path('dessert.edit', {id: dessert.id_dessert}) }}">Modifier</a>
+
+                                <a class="tda" href="{{ path('dessert.delete', {id: dessert.id_dessert}) }}">Supprimer</a></td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+                <a class="tda" href="{{ path('entree.add') }}"> Ajouter une entrée </a>
+                <table>
+                    <caption>Recapitulatifs des entrée</caption>
+                    <tbody>
+                    <tr><th>Id entrée</th><th>nom entrée</th>
+
+                        {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
+                            <th>operation</th>
+                        {% endif %}
+                    </tr>
+                    {% for entree in entree if entree is not empty %}
+                        <tr>
+                            <td>{{entree.id_entree}}</td><td>{{entree.libelle_entree}}</td>{% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
+                            <td>  <a class="tda" href="{{ path('entree.edit', {id: entree.id_entree}) }}">Modifier</a>
+                                -
+                                <a class="tda" href="{{ path('entree.delete', {id: entree.id_entree}) }}">Supprimer</a></td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+                <a  class="tda" href="{{ path('fromage.add') }}"> Ajouter un fromage </a>
+                <table>
+                    <caption>Recapitulatifs des fromages</caption>
+                    <tbody>
+                    <tr><th>Id fromage</th><th>nom fromage</th>
+
+                        {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
+                            <th>operation</th>
+                        {% endif %}
+                    </tr>
+                    {% for fromage in fromage if fromage is not empty %}
+                        <tr>
+                            <td>{{fromage.id_fromage}}</td><td>{{fromage.libelle_fromage}}</td>{% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
+                            <td>  <a  class="tda" href="{{ path('fromage.edit', {id: fromage.id_fromage}) }}">Modifier</a>
+                                <a class="tda" href="{{ path('fromage.delete', {id: fromage.id_fromage}) }}">Supprimer</a></td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+                <a class="tda" href="{{ path('plats.add') }}"> Ajouter un plat </a>
+                    <table>
+                        <caption>Recapitulatifs des plats</caption>
+                        <tbody>
+                        <tr><th>Id plat</th><th>nom plat</th>
+
+                            {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
+                                <th>operation</th>
+                            {% endif %}
+                        </tr>
+                        {% for plat in plat if plat is not empty %}
+                            <tr>
+                                <td>{{plat.id_plat}}</td><td>{{plat.libelle_plat}}</td>{% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
+                                <td>  <a class="tda" href="{{ path('plats.edit', {id: plat.id_plat}) }}">Modifier</a>
+                                    <a  class="tda" href="{{ path('plats.delete', {id: plat.id_plat}) }}">Supprimer</a></td>
+                                {% endif %}
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
 
 
 
-    <a href="{{ path('supplement.add') }}"> Ajouter une supplément </a>
-    <table>
-        <caption>Recapitulatifs des suppléments</caption>
-        <tbody>
-        <tr><th>Id supplément</th><th>nom supplément</th>
+                <a class="tda" href="{{ path('supplement.add') }}"> Ajouter une supplément </a>
+                <table>
+                    <caption>Recapitulatifs des suppléments</caption>
+                    <tbody>
+                    <tr><th>Id supplément</th><th>nom supplément</th>
 
-            {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
-                <th>operation</th>
-            {% endif %}
-        </tr>
-        {% for supplement in supplement if supplement is not empty %}
-            <tr>
-                <td>{{supplement.id_supplement}}</td><td>{{supplement.type_supplement}}</td>{% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
-                <td>  <a href="{{ path('supplement.edit', {id: supplement.id_supplement}) }}">Modifier</a>
-                    -
-                    <a href="{{ path('supplement.delete', {id: supplement.id_supplement}) }}">Supprimer</a></td>
-                {% endif %}
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-
+                        {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
+                            <th>operation</th>
+                        {% endif %}
+                    </tr>
+                    {% for supplement in supplement if supplement is not empty %}
+                        <tr>
+                            <td>{{supplement.id_supplement}}</td>
+                            <td>{{supplement.type_supplement}}</td>
+                            {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
+                                <td>  <a  class="tda" href="{{ path('supplement.edit', {id: supplement.id_supplement}) }}">Modifier</a>
+                                    <a class="tda" href="{{ path('supplement.delete', {id: supplement.id_supplement}) }}">Supprimer</a>
+                                </td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-    </div>
-    </div>
-    </div>
+
 {% endblock %}
