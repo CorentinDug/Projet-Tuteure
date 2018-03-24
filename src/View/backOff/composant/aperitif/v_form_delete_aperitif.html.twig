@@ -7,7 +7,7 @@
                 <legend>Voulez-vous suprimer cette apéritif ? (twig)</legend>
                 <h3>{{ donnees.libelle_aperitif }}</h3>
                 {%  for libelle in libelle %}
-                    <h4>Le {{ donnees.libelle_menu }} sera également supprimer</h4>
+                    <h4>Le {{ libelle.libelle_menu }} sera également supprimer</h4>
                 {% endfor %}
                 <input name="id"  type="hidden" value="{{donnees.id_aperitif}}" />
                 <input type="submit" name="suprimerAperitif" value="Suprimer" />
