@@ -1,25 +1,22 @@
 {% extends "v_layout.html.twig" %}
 {% block contenu %}
-    <div class="grid-y" style="height: 10px;">
+    <div class ="grid">
+        <div class="grid-noGutter" data-push-left="off-2">
+            <div class="col" style="width: 1000px">
+                <table>
+                    <caption>Recapitulatifs des reservations</caption>
+                    <tbody>
+                    <tr><th>Id reservation</th><th>nb places</th><th>id client</th><th>id menu</th>
+                    </tr>
+                    {% for reservation in reserv if reserv is not empty %}
+                        <tr>
+                            <td>{{reservation.id_reservation}}</td><td>{{reservation.nbplaces}}</td><td>{{reservation.id_client}}</td><td>{{reservation.libelle_menu}}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-    <div class=" grid-y" style="height: 500px;">
-    <div class="cell small-6 medium-4 large-10">
-    <div class="grid-x grid-margin-x ">
-    <div class="small-4 large-offset-1 cell">
-    <table>
-        <caption>Recapitulatifs des reservations</caption>
-        <tbody>
-        <tr><th>Id reservation</th><th>nb places</th><th>id client</th><th>id menu</th>
-        </tr>
-        {% for reservation in reserv if reserv is not empty %}
-            <tr>
-                <td>{{reservation.id_reservation}}</td><td>{{reservation.nbplaces}}</td><td>{{reservation.id_client}}</td><td>{{reservation.libelle_menu}}</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    </div>
-    </div>
-    </div>
-    </div>
+
 {% endblock %}
