@@ -46,7 +46,7 @@
 
         <!-- Admin co-->
         {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
-        <div class="col-5 grid" >
+        <div class="col-7 grid" >
             <div class="col" >
                 <a href="{{ path('index.index') }}">
                     <div class="navButton">
@@ -72,12 +72,19 @@
             <div class="col" >
                 <a href="{{ path('reservation.gestion') }}">
                     <div class="navButton">
-                       Reservations
+                       Réservations
+                    </div>
+                </a>
+            </div>
+            <div class="col" >
+                <a href="{{ path('etudiant.index') }}">
+                    <div class="navButton">
+                        Liste des étudiants
                     </div>
                 </a>
             </div>
         </div>
-        <div class="col grid-noGutter" data-push-left="off-5" >
+        <div class="col grid-noGutter" data-push-left="off-3" >
             <div class="col-1">
                 <a href="{{ path('user.logout')  }}">
                     <div >
@@ -131,6 +138,7 @@
 
 
         {% endif %}
+
 
         {% if app.session.get('roles') is defined and app.session.get('roles') == '' %}
         <div class="col-3 grid">

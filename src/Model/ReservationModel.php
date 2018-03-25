@@ -24,20 +24,35 @@ class ReservationModel
             ->values([
                 'nbplaces' => '?',
                 'id_menu' => '?',
+                'id_client' => '?',
             ])
             ->setParameter(0,$donnees['nbDispo'])
-            ->setParameter(1,$donnees['id_menu']);
+            ->setParameter(1,$donnees['id_menu'])
+            ->setParameter(2,$donnees['id_client']);
         return $queryBuilder->execute();
     }
 
     public function getAllReserv()
     {
         $queryBuilder = new QueryBuilder($this->db);
-        $queryBuilder->select('r.id_reservation,r.nbplaces,r.id_client,r.id_menu,m.libelle_menu')
+        $queryBuilder->select('r.id_reservation,r.nbplaces,r.id_client,r.id_menu,m.libelle_menu,u.username')
             ->from('reservation','r')
             ->innerJoin('r','menu','m','m.id_menu = r.id_menu')
+            ->innerJoin('r','users','u','u.id = r.id_client')
             ->orderBy('id_reservation');
        return $queryBuilder->execute()->fetchAll();
+    }
+
+    public function getAllReservClient($id_Client)
+    {
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->select('r.id_reservation,r.nbplaces,r.id_client,r.id_menu,m.libelle_menu,u.username')
+            ->from('reservation','r')
+            ->innerJoin('r','menu','m','m.id_menu = r.id_menu')
+            ->innerJoin('r','users','u','u.id = r.id_client')
+            ->where('r.id_client = '.$id_Client)
+            ->orderBy('id_reservation');
+        return $queryBuilder->execute()->fetchAll();
     }
 
     public function getMail($id){

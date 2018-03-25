@@ -1,0 +1,27 @@
+{% extends "v_layout.html.twig" %}
+{% block contenu %}
+
+    <div class ="grid">
+        <div class="grid-noGutter" data-push-left="off-2">
+            <div class="col" style="width: 1000px">
+                <a class="tda" href="{{ path('etudiant.creerEtu') }}"> Ajouter un Etudiant </a>
+                <table>
+                    <caption>Liste des etudiants</caption>
+                    <tbody>
+                    <tr><th>Nom</th><th>Prenom</th><th>Operation</th>
+                    </tr>
+                    {% for etu in data if data is not empty %}
+                        <tr>
+                            <td>{{etu.nom_etu}}</td><td>{{etu.prenom_etu}}</td>{% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
+                            <td>  <a class="tda" href="{{ path('etudiant.updateEtu', {id: etu.id_etu}) }}">Modifier</a>
+                                <a class="tda" href="{{ path('etudiant.deleteEtu',{id: etu.id_etu}) }}">Supprimer</a></td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

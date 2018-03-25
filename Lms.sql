@@ -7,6 +7,7 @@
 create database if not exists projet_tut;
 
 drop table if exists sert;
+drop table if exists commentaires;
 drop table if exists RESERVATION;
 drop table if exists MENU;
 drop table if exists TYPE;
@@ -110,7 +111,6 @@ CREATE TABLE Etudiant(
         id_etu       int (11) Auto_increment  NOT NULL ,
         nom_etu      Text ,
         prenom_etu   Text ,
-        fonction_etu Text ,
         PRIMARY KEY (id_etu )
 )ENGINE=InnoDB;
 
@@ -182,6 +182,16 @@ CREATE TABLE sert(
 
 DROP TABLE IF EXISTS users;
 
+
+create table commentaires
+(
+        id_client int not null,
+        id_reservation int not null,
+        Commentaire text null,
+        primary key (id_reservation, id_client)
+)ENGINE =InnoDB;
+
+
 # <http://silex.sensiolabs.org/doc/2.0/providers/security.html#defining-a-custom-user-provider>
 # Contenu de la table `utilisateur`
 
@@ -201,11 +211,9 @@ CREATE TABLE users (
 # mot de passe crypté avec security.encoder.bcrypt
 
 INSERT INTO users (id,username,password,motdepasse,email,roles) VALUES
-        (1, 'admin', '$2y$13$mJK5hyDNAY9rcDuEBofjJ.h3d7xBwlApfMoknBDO0AvXLr1AaJM02', 'admin', 'admin@gmail.com','ROLE_ADMIN'),
-        (2, 'invite', '$2y$13$j5rdj5QL3fd.IZlA5JNbc.kTRaa1YbJK/G7h2mB51ySzaDdgEbo8W', 'invite', 'admin@gmail.com','ROLE_INVITE'),
-        (3, 'vendeur', '$2y$13$/gwC0Iv6ssewrr9JeUDDuOcRTWD.uIEjJpH1HUWPAxe.5EwY98OEO','vendeur', 'vendeur@gmail.com','ROLE_VENDEUR'),
-        (4, 'client', '$2y$13$bhuMlUWdfc5mAhVumuKUG.etahlJ399DEwuQPhbdXjiCdKIeX2nii', 'client', 'client@gmail.com','ROLE_CLIENT'),
-        (5, 'client2', '$2y$13$SYEM3Tk/5G.C85pIAm0cSOd8BFrFTEnLHBSWsW96Q3k9gCdFXRmvm','client2', 'client2@gmail.com','ROLE_CLIENT');
+        (1, 'admin', 'd05cc09587a5589671f59966bea4fb12', 'admin', 'admin@gmail.com','ROLE_ADMIN'),
+        (2, 'client', '2f9dab7127378d55a4121d855266074c', 'client', 'client@gmail.com','ROLE_CLIENT'),
+        (3, 'client2', '2b49abae6e13396373d67063c6473efb','client2', 'client2@gmail.com','ROLE_CLIENT');
 
 ALTER TABLE RESERVATION ADD CONSTRAINT FK_RESERVATION_id_client FOREIGN KEY (id_client) REFERENCES CLIENT(id_client) ON DELETE CASCADE;
 ALTER TABLE RESERVATION ADD CONSTRAINT FK_RESERVATION_ FOREIGN KEY (id_menu) REFERENCES MENU(id_menu) ON DELETE CASCADE;
@@ -219,7 +227,8 @@ ALTER TABLE MENU ADD CONSTRAINT FK_MENU_id_boisson FOREIGN KEY (id_boisson) REFE
 ALTER TABLE MENU ADD CONSTRAINT FK_MENU_id_supplement FOREIGN KEY (id_supplement) REFERENCES SUPPLEMENT(id_supplement) ON DELETE CASCADE;
 ALTER TABLE sert ADD CONSTRAINT FK_sert_id_reservation FOREIGN KEY (id_reservation) REFERENCES RESERVATION(id_reservation) ON DELETE CASCADE;
 ALTER TABLE sert ADD CONSTRAINT FK_sert_id_etu FOREIGN KEY (id_etu) REFERENCES Etudiant(id_etu) ON DELETE CASCADE;
-
+ALTER TABLE commentaires ADD CONSTRAINT FK_commentaire_id_reservation FOREIGN KEY (id_reservation) REFERENCES RESERVATION(id_reservation) ON DELETE CASCADE;
+ALTER TABLE commentaires ADD CONSTRAINT FK_commentaire_id_client FOREIGN KEY (id_client) REFERENCES CLIENT(id_client) ON DELETE CASCADE;
 
 /*
 
@@ -357,9 +366,9 @@ insert into  RESERVATION values (null,4,2,2);
 
 */
 
-insert into ETUDIANT values(null,"TRUC","machin","serveur");
-insert into ETUDIANT values(null,"TRUC2","machin2","cuisinier");
-insert into ETUDIANT values(null,"TRUC3","machin3","serveur");
+insert into ETUDIANT values(null,"TRUC","machin");
+insert into ETUDIANT values(null,"TRUC2","machin2");
+insert into ETUDIANT values(null,"TRUC3","machin3");
 
 
 

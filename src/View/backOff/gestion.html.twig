@@ -10,7 +10,7 @@
                     </tr>
                     {% for reservation in reserv if reserv is not empty %}
                         <tr>
-                            <td>{{reservation.id_reservation}}</td><td>{{reservation.nbplaces}}</td><td>{{reservation.id_client}}</td><td>{{reservation.libelle_menu}}</td>
+                            <td>{{reservation.id_reservation}}</td><td>{{reservation.nbplaces}}</td><td>{{reservation.username}}</td><td>{{reservation.libelle_menu}}</td>
                         </tr>
                     {% endfor %}
                     </tbody>

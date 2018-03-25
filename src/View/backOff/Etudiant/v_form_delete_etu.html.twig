@@ -1,0 +1,18 @@
+{% extends "v_layout.html.twig" %}
+{% block contenu %}
+    <div class ="grid">
+        <div class="grid-noGutter" data-push-left="off-4">
+            <div class="col-4">
+                <form method="post" action="{{path('etudiant.validFormDeleteEtu')}}">
+                    <div class="login-block">
+                            <input type="hidden" name="_method" id="_method" value="delete"/>
+                            <h1>Voulez-vous suprimer cet etudiant ?</h1>
+                            <h2 id="blue">{{ donnees.nom_etu }} {{ donnees.prenom_etu }}</h2>
+                            <input name="id"  type="hidden" value="{{donnees.id_etu}}" />
+                            <input type="submit" class="button" name="supprimerEtu" value="Suprimer" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

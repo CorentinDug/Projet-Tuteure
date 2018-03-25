@@ -1,0 +1,34 @@
+{% extends "v_layout.html.twig" %}
+{% block contenu %}
+    <div class ="grid">
+        <div class="grid-noGutter" data-push-left="off-2">
+            <div class="col-4">
+                <form method="post" action="{{ path("profil.validFormChangeMDP") }} ">
+                    <div class="login-block">
+                        <h1>Modifier un plats</h1>
+                        <input type="hidden" name="_method" id="_method" value="put"/>
+                        <label >Ancien mot de passe :
+                            <input class="inputLoginBlock" name="Amotdepasse"  type="text"  size="18" value="" />
+                            {% if erreurs.nom is defined %}
+                                <small class="error">{{erreurs.Amotdepasse}}</small>
+                            {% endif %}
+                        </label>
+                        <label >Nouveau mot de passe :
+                            <input class="inputLoginBlock" name="Nmotdepasse"  type="text"  size="18" value="" />
+                            {% if erreurs.nom is defined %}
+                                <small class="error">{{erreurs.Nmotdepasse}}</small>
+                            {% endif %}
+                        </label>
+                        <label >Confirmer nouveau mot de passe :
+                            <input class="inputLoginBlock" name="Cmotdepasse"  type="text"  size="18" value="" />
+                            {% if erreurs.nom is defined %}
+                                <small class="error">{{erreurs.Cmotdepasse}}</small>
+                            {% endif %}
+                        </label>
+                        <input type="submit" class = " button" name="updateMDP" value="modifier" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

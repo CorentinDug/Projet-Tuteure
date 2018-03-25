@@ -16,14 +16,14 @@
 <div class="grid">
     <div class="grid-noGutter" data-push-left="off-3">
         <div class="col">
-            <div id ="image" style="display: block" class="imageDeco" onmouseover="cacheImageAfficheMap(this)" onmouseleave="cacheMapAfficheImage(this)">
+            <div style="display:block" class="imageDeco">
+                <div id="map"></div>
             </div>
-            <div id="map"></div>
             <script>
                 function initMap() {
-                    var uluru = {lat: -25.363, lng: 131.044};
+                    var uluru = {lat: 47.484634, lng: 6.851590};
                     var map = new google.maps.Map(document.getElementById('map'), {
-                        zoom: 4,
+                        zoom: 15,
                         center: uluru
                     });
                     var marker = new google.maps.Marker({

@@ -40,6 +40,7 @@ class ReservationController implements ControllerProviderInterface
             $this->reservationModel = new ReservationModel($app);
             $emails = $this->reservationModel->getMail($id);
             $email = $emails['email'];
+            $donnees['id_client'] = $id;
             $this->reservationModel->createReservation($donnees);
             $this->reservationModel->mnbPlaces($donnees);
             $this->helperMail->sendMail($email);
@@ -57,7 +58,6 @@ class ReservationController implements ControllerProviderInterface
 
 
     }
-
 
 
 

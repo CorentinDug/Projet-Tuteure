@@ -1,6 +1,7 @@
 {% extends "v_layout.html.twig" %}
 {% block contenu %}
 
+
     <div class="grid">
         <div class="grid-noGutter" data-push-left="off-4">
             <div class="col">
@@ -8,6 +9,20 @@
                     <h1>Profil</h1> </br>
                     <span class="profilCateInfo"> Username </span><span class="profilContenuInfo"> {{ data.username }}  </span> </br>
                     <span class="profilCateInfo"> Email </span><span class="profilContenuInfo"> {{ data.email }} </span></br>
+                    {% if reservation is not empty %}
+                    <table>
+                        <h2>Reservations</h2>
+                        <tr><th>Menu</th><th>Nombre places</th><th>operation</th></tr>
+                        {% for reservation in reservation if reservation is not empty %}
+                        <tr>
+                            <td>{{reservation.libelle_menu}}</td><td>{{reservation.nbplaces}}</td>
+                            <td>
+                                <a href="{{ path('comment.addComment',{id: reservation.id_reservation}) }}" class="tda">Ajouter Commentaire</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    {% endif %}
                 </div>
             </div>
         </div>

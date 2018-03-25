@@ -13,3 +13,5 @@ $app->mount("/dessert", new App\Controller\DessertController($app));
 $app->mount("/supplement", new App\Controller\SupplementController($app));
 $app->mount("/reservation", new App\Controller\ReservationController($app));
 $app->mount("/profil", new App\Controller\ProfilController($app));
+$app->mount("/etudiant", new App\Controller\EtudiantController($app));
+$app->mount("/comment", new App\Controller\CommentController($app));

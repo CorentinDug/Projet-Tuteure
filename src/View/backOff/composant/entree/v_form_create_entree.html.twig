@@ -1,20 +1,20 @@
 {% extends "v_layout.html.twig" %}
 {% block contenu %}
-    <div class ="grid">
-        <div class="grid-noGutter" data-push-left="off-2">
-            <div class="col-4">
-                <form method="post" action="{% if entree is defined %} {{ path("entree.validFormAddEntree",{entree: entree}) }} {% else %} {{ path("entree.validFormAddEntree") }} {% endif %} ">
-                    <div class="card" style ="color:whitesmoke; padding: 20px; border-radius: 50px; ">
-                        <h1> Ajout d'une entrée</h1>
-                        <label style =" color:whitesmoke;">Nom de l'entrée</label>
+<div class ="grid">
+    <div class="grid-noGutter" data-push-left="off-2">
+        <div class="col-4">
+            <form method="post" action="{% if entree is defined %} {{ path("entree.validFormAddEntree",{entree: entree}) }} {% else %} {{ path("entree.validFormAddEntree") }} {% endif %} ">
+                <div class="login-block">
+                    <h1> Ajout d'une entrée</h1>
+                    <label>Nom de l'entrée</label>
                         <input class="inputLoginBlock" name="libelle_entree"  type="text"  size="18" value="{{ donnees.libelle_entree | default('') }}"/>
-                        {% if erreurs.libelle_entree is defined %}
-                            <small class="error">{{erreurs.libelle_entree}}</small>
-                        {% endif %}
-                        <input type="submit" class="button" name="creerEntree" value="Créer" >
-                    </div>
-                </form>
-            </div>
+                    {% if erreurs.libelle_entree is defined %}
+                        <small class="error">{{erreurs.libelle_entree}}</small>
+                    {% endif %}
+                    <input type="submit" class="button" name="creerEntree" value="Créer" >
+                </div>
+            </form>
         </div>
     </div>
+</div>
 {% endblock %}

@@ -1,0 +1,30 @@
+{% extends "v_layout.html.twig" %}
+{% block contenu %}
+    <div class ="grid">
+        <div class="grid-noGutter" data-push-left="off-4">
+            <div class="col-4">
+                <form method="post" action="{{ path("etudiant.validFormUpdateEtu") }} ">
+                    <div class="login-block">
+                        <h1>Modification de l'etudiant: </h1>
+                        <input type="hidden" name="_method" id="_method" value="put"/>
+                        <input type="hidden" name="id_etu" value="{{ donnees.id_etu }}"/>
+                        <label>Nom :
+                            <input  class="inputLoginBlock" name="nom_etu"  type="text"  size="18" value="{{ donnees.nom_etu | default('') }}"/>
+                        {% if erreurs.nom_etu is defined %}
+                            <small class="error">{{erreurs.nom_etu}}</small><br/>
+                        {% endif %}
+                        </label>
+                        <label>Prenom :
+                            <input  class="inputLoginBlock" name="prenom_etu"  type="text"  size="18" value="{{ donnees.prenom_etu | default('') }}"/>
+
+                        {% if erreurs.prenom_etu is defined %}
+                            <small class="error">{{erreurs.prenom_etu}}</small>
+                        {% endif %}
+                        </label>
+                        <input type="submit" class = "boutonPerso button" name="modifierEtu" value="modifier" >
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

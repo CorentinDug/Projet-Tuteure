@@ -1,0 +1,29 @@
+{% extends "v_layout.html.twig" %}
+{% block contenu %}
+<div class ="grid">
+    <div class="grid-noGutter" data-push-left="off-4">
+        <div class="col-4">
+            <form method="post" action="{{ path('etudiant.validFormAddEtu') }}" >
+                <div class="login-block">
+                    <h1>Inscription etudiant:</h1>
+                    <label>Nom :
+                        <input class="inputLoginBlock" name="nom"  type="text"  size="18" value="{{donnees.nom|default('')}}" />
+                        {% if erreurs.nom is defined %}
+                            <small class="error">{{erreurs.nom}}</small>
+                        {% endif %}
+                    </label>
+
+                    <label>Prénom :
+                        <input class="inputLoginBlock" name="prenom"  type="text"  size="18" value="{{donnees.prenom|default('')}}" />
+                        {% if erreurs.prenom is defined %}
+                            <small class="error">{{erreurs.prenom}}</small>
+                        {% endif %}
+                    </label>
+
+                    <input class = "boutonPerso button" type="submit" name="ajouterEtu" value="S'INSCRIRE" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

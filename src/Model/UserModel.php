@@ -13,8 +13,17 @@ class UserModel {
     }
 
     public function verif_login_mdp_Utilisateur($login,$mdp){
-        $sql = "SELECT id,username,motdepasse,roles FROM users WHERE username = ? AND motdepasse = ?";
+        $sql = "SELECT id,username,password,roles FROM users WHERE username = ? AND password = ?";
         $res=$this->db->executeQuery($sql,[$login,$mdp]);   //md5($mdp);
+        if($res->rowCount()==1)
+            return $res->fetch();
+        else
+            return false;
+    }
+
+    public function verif_mdp_Utilisateur($mdp){
+        $sql = "SELECT password FROM users WHERE password = ?";
+        $res=$this->db->executeQuery($sql,[$mdp]);   //md5($mdp);
         if($res->rowCount()==1)
             return $res->fetch();
         else
@@ -40,6 +49,8 @@ class UserModel {
             ->values([
                 'username'=>'?',
                 'email'=>'?' ,
+                'password'=>'?' ,
+
                 'motdepasse'=>'?',
                 'roles'=>'?'
             ])
@@ -47,8 +58,13 @@ class UserModel {
             ->where('id= ?')
             ->setParameter(0, $donnees['username'])
             ->setParameter(1, $donnees['email'])
-            ->setParameter(2, $donnees['motdepasse'])
-            ->setParameter(3, 'ROLE_CLIENT');
+            ->setParameter(2, $donnees['password'])
+            ->setParameter(3, $donnees['motdepasse'])
+            ->setParameter(4, 'ROLE_CLIENT');
         return $queryBuilder->execute();
     }
+
+
+
 }
+
