@@ -18,11 +18,18 @@ class CommentController implements ControllerProviderInterface
 
     private $commentModel;
 
+    public function afficherComment(Application $app){
+         $this->commentModel = new CommentModel($app);
+        $id_reservation = $_GET['id_reservation'];
+        $comment = $this->commentModel->getCommentClient($app['session']->get('id'),$id_reservation);
+        return $app['twig']->render("frontOff/Commentaire/v_table_comment.html.twig",['comment' => $comment,'id_reservation' => $id_reservation]);
+
+    }
+
     public function ajouterComment(Application $app)
     {
-        $id = $_GET['id'];
-        var_dump($id);
-        return $app["twig"]->render("frontOff/Commentaire/v_form_add_comment.html.twig", ['id' => $id]);
+        $id = $_GET['id_reservation'];
+        return $app["twig"]->render("frontOff/Commentaire/v_form_add_comment.html.twig", ['id_reservation' => $id]);
 
     }
 
@@ -35,20 +42,18 @@ class CommentController implements ControllerProviderInterface
                 'id_reservation' => htmlspecialchars($_POST['id_reservation'])
             ];
 
-            $dateMenu = getDate($donnees['id_reservation']);
-            $datejour = date('d-m-Y');
+            $dateMenu = $this->commentModel->getDate($donnees['id_reservation']);
+            $datejour = date('d/m/Y');
 
-            var_dump($dateMenu);
-            $dmenu = explode("-", $dateMenu);
+            $dmenu = explode("-", $dateMenu[0]['date_menu']);
 
-            $djour = explode("-", $datejour);
-            $finab = $dmenu[2] . $dmenu[1] . $dmenu[0];
+            $djour = explode("/", $datejour);
+            $finab = $dmenu[0] . $dmenu[1] . $dmenu[2];
             $auj = $djour[2] . $djour[1] . $djour[0];
-
 
             if ($auj < $finab) {
 
-                $erreur['date'] = 'Erreur';
+                $erreur['date'] = 'Vous n\'avez pas assisté au repas';
 
             }
 
@@ -57,7 +62,7 @@ class CommentController implements ControllerProviderInterface
 
             if (!empty($erreur)) {
 
-                return $app["twig"]->render("frontOff/Commentaire/v_form_add_comment.html.twig", ['erreur' => $erreur]);
+                return $app["twig"]->render("frontOff/Commentaire/v_form_add_comment.html.twig", ['erreur' => $erreur, 'comment' => $donnees['comment'], 'id_reservation' =>$donnees['id_reservation']]);
 
 
             } else {
@@ -86,7 +91,7 @@ class CommentController implements ControllerProviderInterface
         $controllers = $app['controllers_factory'];
 
 
-
+        $controllers->get('/affiche','App\Controller\CommentController::afficherComment')->bind('comment.afficherComment');
         $controllers->get('/add', 'App\Controller\CommentController::ajouterComment')->bind('comment.addComment');
         $controllers->post('/add', 'App\Controller\CommentController::validFormAddComment')->bind('comment.validFormAddComment');
 

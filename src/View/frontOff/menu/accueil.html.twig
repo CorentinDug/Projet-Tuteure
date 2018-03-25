@@ -7,7 +7,7 @@
     <div class="grid-noGutter" data-push-left="off-3">
         <div class="col">
             <div class="paragrapheBienvenue">
-                Bienvenue sur le site de réservation du restaurant d'application Kabuki. </br>
+                Bienvenue sur le site de réservation du restaurant d'application du lycée Nelson Mandela. </br>
             </div>
         </div>
     </div>
@@ -39,21 +39,40 @@ AIzaSyArYdvlfyiNtL2UdWCf9gpLsqI70sV6NFA
 &callback=initMap">
             </script>
 
-        </div>
+        </div >
+            <div class="col5" >
+                {% if menu is not empty %}
+                <div  style=" height: 350px; width: 358px; margin-top:5px; margin-left: 5px;"
+                        {% if menu.libelle_type == "Dejeuner" %}
+                            class="menu-blockMidi"
+                        {% endif %}
 
-        <div class="col">
-            <div class="blocGoMenu">
-                dzddz
+                        {% if  menu.libelle_type == "Diner" %}
+                            class="menu-blockSoir"
+                        {% endif %}
+
+                        id="{{ menu.id_menu }}" >
+                    <h1 class="menuTitre">{{menu.libelle_menu}} {{menu.nbDispo}} </br> {{ changeDate(menu.date_menu) }} {{ menu.prix|number_format(2, ',', '')}}€  </h1>
+                    <span class="partieMenu"> Type: </span> <span class="partieMenuContenu">{{menu.libelle_type}} </span> <br>
+                    <span class="partieMenu"> Apéritif: </span> <span class="partieMenuContenu">{{menu.libelle_aperitif}} </span> <br>
+                    <span class="partieMenu">Entrée: </span> <span class="partieMenuContenu">{{menu.libelle_entree}} </span> <br>
+                    <span class="partieMenu">Plat Principal: </span> <span class="partieMenuContenu">{{menu.libelle_plat}} </span><br>
+                    <span class="partieMenu"> Fromage: </span> <span class="partieMenuContenu">{{menu.libelle_fromage}}</span> <br>
+                    <span class="partieMenu"> Dessert: </span> <span class="partieMenuContenu">{{menu.libelle_dessert}} </span> <br>
+                    <span class="partieMenu"> Boisson: </span> <span class="partieMenuContenu">{{menu.type_boisson}} </span> <br>
+                    <span class="partieMenu"> Supplément: </span> <span class="partieMenuContenu">{{menu.type_supplement}} </span> <br>
+
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>
-</div>
 
 <div class="grid">
     <div class="grid-noGutter" data-push-left="off-3">
         <div class="col">
             <div class="paragraphePresentation">
-                Bienvenue sur le site de réservation du restaurant d'application Kabuki. </br>
+                Ce site ne sert qu'à la réservation de places pour les séances d'entrainements des élèves, pour tout autre demande contacter le 03 89 00 00 00. </br>
             </div>
         </div>
     </div>

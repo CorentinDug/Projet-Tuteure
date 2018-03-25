@@ -50,7 +50,8 @@
 
     <div class="grid">
         <div class="col-9 grid">
-            {% for menu in data if data is not empty and menu|length > 2 != 'ROLE_CLIENT'%}
+
+            {% for menu in data if data is not empty and menu|length > 2%}
                 <div class="col-5">
                     <div  {% if menu.libelle_type == "Dejeuner" %}
                         class="menu-blockMidi"
@@ -68,31 +69,18 @@
                         <span class="partieMenu"> Dessert: </span> <span class="partieMenuContenu">{{menu.libelle_dessert}} </span> <br>
                         <span class="partieMenu"> Boisson: </span> <span class="partieMenuContenu">{{menu.type_boisson}} </span> <br>
                         <span class="partieMenu"> Supplément: </span> <span class="partieMenuContenu">{{menu.type_supplement}} </span> <br>
-                        {% if data.role is empty %}
-                            <a href="{{ path('user.login') }}">
-                                <button  {% if menu.nbDispo > 10  %}
-                                    class="boutonReserverFull"
-                                {% endif %}
-                                        {% if menu.nbDispo < 10  %}
-                                            class="boutonReserverMoyen"
-                                        {% endif %}
-                                        {% if menu.nbDispo == 0  %}
-                                    class="boutonReserverVide"
-                                        {% endif %}>Réserver</button>
-                            </a>
-                        {% else %}
-                            <a href="{{ path('reservation.reserver', {menu: menu}) }}">
-                                <button  {% if menu.nbDispo > 10  %}
-                                    class="boutonReserverFull"
-                                {% endif %}
-                                        {% if menu.nbDispo < 10  %}
-                                            class="boutonReserverMoyen"
-                                        {% endif %}
-                                        {% if menu.nbDispo == 0  %}
-                                    class="boutonReserverVide"
-                                        {% endif %}>Réserver</button>
-                            </a>
-                        {% endif %}
+
+                        <a href="{{ path('reservation.reserver', {menu: menu}) }}">
+                            <button  {% if menu.nbDispo >= 10  %}
+                                class="boutonReserverFull"
+                            {% endif %}
+                                    {% if menu.nbDispo < 10  %}
+                                        class="boutonReserverMoyen"
+                                    {% endif %}
+                                    {% if menu.nbDispo == 0  %}
+                                class="boutonReserverVide"
+                                    {% endif %}>Réserver</button>
+                        </a>
                     </div>
                 </div>
             {% endfor %}

@@ -44,6 +44,7 @@ class menuController implements ControllerProviderInterface{
             return $app["twig"]->render("frontOff/menu/v_table_menu.html.twig", ['data' => $menu]);
         }else {
             $menu['role'] = $app['session']->get('roles');
+
             return $app["twig"]->render("frontOff/menu/v_table_menu.html.twig", ['data' => $menu]);
         }
     }
@@ -271,7 +272,6 @@ class menuController implements ControllerProviderInterface{
         $datenull = $_POST['dateMenu'];
         $date = $this->helperDate->convertFRtoUS($datenull);
         $menu = $this->menuModel->rechercheMenuDate($date);
-        $menu['role'] = $app['session']->get('roles');
         return $app["twig"]->render("frontOff/menu/v_table_menuDate.html.twig",['data'=>$menu]);
 
     }

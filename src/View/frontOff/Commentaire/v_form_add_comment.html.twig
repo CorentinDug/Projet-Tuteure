@@ -5,10 +5,10 @@
             <div class="col-4">
                 <form method="post" id="comment" action="{{ path("comment.validFormAddComment") }}">
                     <div class="login-block">
-                        <input type="hidden" name="id_reservation" value="{{ id }}" >
+                        <input type="hidden" name="id_reservation" value="{{ id_reservation }}" >
                         <h1> Ajout d'un commentaire</h1>
-                        <textarea style="margin-left: 30px; margin-bottom: 20px;"  name="comment" id="" form="comment" cols="30" rows="10"> </textarea>
-                        {% if erreur is defined %}
+                        <textarea style="margin-left: 30px; margin-bottom: 20px;"  name="comment" id="" form="comment" cols="30" rows="10">{% if comment is defined %}{{ comment }}{% endif %} </textarea>
+                        {% if erreur.comment is defined %}
                             <small class="error">{{erreur.comment}}</small>
                         {% endif %}
                         {% if erreur.date is defined %}

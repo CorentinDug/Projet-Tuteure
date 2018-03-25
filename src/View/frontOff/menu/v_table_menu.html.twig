@@ -27,7 +27,7 @@
                         {% if data.role is empty %}
                             <a href="{{ path('user.login') }}">
                                 <button
-                                        {% if menu.nbDispo > 10  %}
+                                        {% if menu.nbDispo >= 10  %}
                                             class="boutonReserverFull"
                                         {% endif %}
                                         {% if menu.nbDispo < 10  %}
@@ -40,7 +40,8 @@
                             </a>
                         {% else %}
                                 <a href="{{ path('reservation.reserver', {menu: menu}) }}">
-                                <button  {% if menu.nbDispo > 10  %}
+                                <button
+                                        {% if menu.nbDispo >= 10  %}
                                     class="boutonReserverFull"
                                 {% endif %}
                                         {% if menu.nbDispo < 10  %}

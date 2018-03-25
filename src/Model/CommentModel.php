@@ -32,6 +32,16 @@ class CommentModel
         return $queryBuilder->execute();
     }
 
+    public function getCommentClient($id_client,$id_reservation){
+
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->select('Commentaire')
+            ->from('commentaires')
+            ->where('id_client='.$id_client,'id_reservation='.$id_reservation);
+        return $queryBuilder->execute()->fetchAll();
+
+    }
+
     public function getDate($id_reserv){
 
         $queryBuilder = new QueryBuilder($this->db);

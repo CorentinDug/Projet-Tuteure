@@ -1,0 +1,27 @@
+{% extends "v_layout.html.twig" %}
+{% block contenu %}
+    <div class ="grid">
+        <div class="grid-noGutter" data-push-left="off-4">
+            <div class="col">
+                {% if comment is empty %}
+                    <a class="tda" href="{{ path('comment.addComment',{id_reservation: id_reservation}) }}"> Ajouter un commentaire</a>
+                {% else %}
+                <table>
+                    <caption>Commentaires</caption>
+                    <tbody>
+                    <tr><th>Commentaire</th>
+                    </tr>
+                    {% for comment in comment if comment is not empty %}
+                        <tr>
+                            <td>{{comment.Commentaire}}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

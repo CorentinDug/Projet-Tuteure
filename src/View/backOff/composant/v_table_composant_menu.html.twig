@@ -4,8 +4,7 @@
     <div class ="grid">
         <div class="grid-noGutter" data-push-left="off-2">
             <div class="col" style="width: 1000px">
-                {% if app.session.get('roles') is defined and app.session.get('roles') == 'ROLE_ADMIN' %}
-                {% endif %}
+
                 <a class="tda" href="{{ path('boisson.add') }}"> Ajouter une boisson </a>
 
                 <table>

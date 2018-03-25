@@ -228,7 +228,7 @@ ALTER TABLE MENU ADD CONSTRAINT FK_MENU_id_supplement FOREIGN KEY (id_supplement
 ALTER TABLE sert ADD CONSTRAINT FK_sert_id_reservation FOREIGN KEY (id_reservation) REFERENCES RESERVATION(id_reservation) ON DELETE CASCADE;
 ALTER TABLE sert ADD CONSTRAINT FK_sert_id_etu FOREIGN KEY (id_etu) REFERENCES Etudiant(id_etu) ON DELETE CASCADE;
 ALTER TABLE commentaires ADD CONSTRAINT FK_commentaire_id_reservation FOREIGN KEY (id_reservation) REFERENCES RESERVATION(id_reservation) ON DELETE CASCADE;
-ALTER TABLE commentaires ADD CONSTRAINT FK_commentaire_id_client FOREIGN KEY (id_client) REFERENCES CLIENT(id_client) ON DELETE CASCADE;
+ALTER TABLE commentaires ADD CONSTRAINT FK_commentaire_id_client FOREIGN KEY (id_client) REFERENCES users(id) ON DELETE CASCADE;
 
 /*
 
@@ -385,4 +385,6 @@ insert into sert values(1,1);
 insert into sert values(2,2);
 
 
-
+INSERT INTO projet_tut.users (username, password, motdepasse, roles, email, isEnabled) VALUES ('admin', 'd05cc09587a5589671f59966bea4fb12', 'admin', 'ROLE_ADMIN', 'admin@gmail.com', 1);
+INSERT INTO projet_tut.users (username, password, motdepasse, roles, email, isEnabled) VALUES ('client', '2f9dab7127378d55a4121d855266074c', 'client', 'ROLE_CLIENT', 'client@gmail.com', 1);
+INSERT INTO projet_tut.users (username, password, motdepasse, roles, email, isEnabled) VALUES ('client2', '2b49abae6e13396373d67063c6473efb', 'client2', 'ROLE_CLIENT', 'client2@gmail.com', 1);
