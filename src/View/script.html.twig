@@ -21,7 +21,7 @@
             source: tabPlat,
             response: function(event, ui) {
                 if (ui.content.length === 0) {
-                    $("#sansPlat").html('<a style="color: whitesmoke " name="plat" href=" {{ path('plats.add') }}" ">ajouter plat</a>');
+                    $("#sansPlat").html('<a class="button" name="plat" href=" {{ path('plats.add') }}" ">ajouter plat</a>');
                 } else {
                     $("#sansPlat").empty();
                 }
@@ -62,7 +62,7 @@
             source: tabAperitif,
             response: function(event, ui) {
                 if (ui.content.length === 0) {
-                    $("#sansAperitif").html('<a style="color: whitesmoke " name="aperitif" href=" {{ path('aperitif.add',{aperitif: 1}) }}" ">ajouter aperitif</a>');
+                    $("#sansAperitif").html('<a class="autoComp" name="aperitif" href=" {{ path('aperitif.add',{aperitif: 1}) }}" ">ajouter aperitif</a>');
                 } else {
                     $("#sansAperitif").empty();
                 }
@@ -91,7 +91,7 @@
             source: tabEntree,
             response: function(event, ui) {
                 if (ui.content.length === 0) {
-                    $("#sansEntree").html('<a style="color: whitesmoke " name="entree" href=" {{ path('entree.add',{entree: 1}) }}" ">ajouter entree</a>');
+                    $("#sansEntree").html('<a class="autoComp" name="entree" href=" {{ path('entree.add',{entree: 1}) }}" ">ajouter entree</a>');
                 } else {
                     $("#sansEntree").empty();
                 }
@@ -120,7 +120,7 @@
             source: tabFromage,
             response: function(event, ui) {
                 if (ui.content.length === 0) {
-                    $("#sansFromage").html('<a style="color: whitesmoke " name="fromage" href=" {{ path('fromage.add',{fromage: 1}) }}" ">ajouter fromage</a>');
+                    $("#sansFromage").html('<a class="autoComp" name="fromage" href=" {{ path('fromage.add',{fromage: 1}) }}" ">ajouter fromage</a>');
                 } else {
                     $("#sansFromage").empty();
                 }
@@ -149,7 +149,7 @@
             source: tabDessert,
             response: function(event, ui) {
                 if (ui.content.length === 0) {
-                    $("#sansDessert").html('<a style="color: whitesmoke " name="dessert" href=" {{ path('dessert.addDessert',{dessert: 1}) }}" ">ajouter dessert</a>');
+                    $("#sansDessert").html('<a class="autoComp" name="dessert" href=" {{ path('dessert.addDessert',{dessert: 1}) }}" ">ajouter dessert</a>');
                 } else {
                     $("#sansDessert").empty();
                 }
@@ -178,7 +178,7 @@
             source: tabBoisson,
             response: function(event, ui) {
                 if (ui.content.length === 0) {
-                    $("#sansBoisson").html('<a style="color: whitesmoke " name="boisson" href=" {{ path('boisson.add',{boisson: 1}) }}" ">ajouter boisson</a>');
+                    $("#sansBoisson").html('<a class="autoComp" name="boisson" href=" {{ path('boisson.add',{boisson: 1}) }}" ">ajouter boisson</a>');
                 } else {
                     $("#sansBoisson").empty();
                 }
@@ -207,7 +207,7 @@
             source: tabSupplement,
             response: function(event, ui) {
                 if (ui.content.length === 0) {
-                    $("#sansSupplement").html('<a style="color: whitesmoke " name="supplement" href=" {{ path('supplement.add',{supplement: 1}) }}" ">ajouter supplement</a>');
+                    $("#sansSupplement").html('<a class="autoComp" name="supplement" href=" {{ path('supplement.add',{supplement: 1}) }}" ">ajouter supplement</a>');
                 } else {
                     $("#sansSupplement").empty();
                 }

@@ -1,12 +1,19 @@
 function cacheImageAfficheMap(image) {
-    document.getElementById("image").style.display = "none";
+    image.style.display = "none";
     document.getElementById("map").style.display = "block";
+
+    console.log(image)
+    console.log(document.getElementById("map"))
+
 
 }
 
 
-function cacheMapAfficheImage() {
+function cacheMapAfficheImage(image) {
+    image.style.display = "block";
     document.getElementById("map").style.display = "none";
-    document.getElementById("image").style.display = "block";
+
+    console.log(image)
+    console.log(document.getElementById("map"))
 
 }
