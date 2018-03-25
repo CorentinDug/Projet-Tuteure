@@ -9,9 +9,9 @@
                     <h1>Profil</h1> </br>
                     <span class="profilCateInfo"> Username </span><span class="profilContenuInfo"> {{ data.username }}  </span> </br>
                     <span class="profilCateInfo"> Email </span><span class="profilContenuInfo"> {{ data.email }} </span></br>
-                    <a href="" class="tda">Modifier profil</a>
+                    <a href="{{ path('user.update', {id: data.id}) }}" class="tda">Modifier profil</a>
                     {% if reservation is not empty %}
-                    <table>
+                        <table>
                         <h2>Reservations</h2>
                         <tr><th>Menu</th><th>Nombre places</th><th>operation</th></tr>
                         {% for reservation in reservation if reservation is not empty %}

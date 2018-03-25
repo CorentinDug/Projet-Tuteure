@@ -163,11 +163,48 @@ class UserController implements ControllerProviderInterface {
             return $app->abort(404, 'error Pb data form Add');
     }
 
-    public function updateProfil(Application $app){
+    public function updateProfil(Application $app,$id){
 
-
+        return $app["twig"]->render('frontOff/v_updateProfil.html.twig',['id' => $id]);
 
     }
+
+    public function validFormUpdateProfil(Application $app,Request $req){
+        $this->userModel = new userModel($app);
+        if (isset($_POST['username']) && isset($_POST['email'])){
+            $donnees = [
+                'username' => htmlspecialchars($req->get('username')),
+                'email' => htmlspecialchars($req->get('email')),
+            ];
+
+            $data = $this->userModel->getAllUser();
+
+            if (!(preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $donnees['email']))) $erreurs['email']='E-Mail : xCaracteres@yCaracteres.zCaracteres';
+            if (strlen($donnees['username']) < 4) $erreurs['username']='Le pseudo doit être composé de 4 caracteres minimum';
+            foreach ($data as $value){
+                if($donnees['username'] == $value['username']){
+                    $erreurs['username']='Cette username est déjà utilisé, veuillez en prendre un autre';
+                    break;
+                }
+            }
+
+            if(! empty($erreurs))
+            {
+                return $app["twig"]->render('frontOff/v_updateProfil.html.twig',['donnees'=>$donnees,'erreurs'=>$erreurs]);
+            }
+            else
+            {
+
+                $donnees['id'] = $app['session']->get('id');
+                $this->userModel->updateUser($donnees);
+                return $app->redirect($app["url_generator"]->generate('index.index'));
+
+            }
+
+        }
+
+    }
+
 
 
 
@@ -182,6 +219,9 @@ class UserController implements ControllerProviderInterface {
         $controllers->post('/signupEtu', 'App\Controller\UserController::validFormInscriptionEtu')->bind('user.validFormInscriptionEtu');
         $controllers->get('/logout', 'App\Controller\UserController::deconnexionSession')->bind('user.logout');
         $controllers->get('/affiche', 'App\Controller\UserController::afficherEtu')->bind('user.afficheEtu');
+        $controllers->get('/update{id}', 'App\Controller\UserController::updateProfil')->bind('user.update');
+        $controllers->put('/update', 'App\Controller\UserController::validFormUpdateProfil')->bind('user.validFormUpdateProfil');
+
 
         return $controllers;
     }

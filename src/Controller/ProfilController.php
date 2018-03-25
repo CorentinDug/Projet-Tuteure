@@ -22,7 +22,6 @@ use Symfony\Component\Security\Csrf\CsrfToken;
 class ProfilController implements ControllerProviderInterface
 {
     private $profilModel;
-    private $userModel;
     private $reservationModel;
 
 
@@ -39,43 +38,7 @@ class ProfilController implements ControllerProviderInterface
         return $app["twig"]->render('frontOff/profil.html.twig',['data'=>$profil,'reservation'=>$reservation]);
     }
 
-    public function changeMDP(Application $app){
 
-        return $app["twig"]->render('frontOff/v_change_mdp.html.twig');
-    }
-
-    public function validFormChangeMDP(Application $app){
-        $donnees = [
-            'Amotdepasse' => htmlspecialchars($_POST['Amotdepasse']),
-            'Nmotdepasse' => htmlspecialchars($_POST['Nmotdepasse']),
-            'Cmotdepasse' => htmlspecialchars($_POST['Cmotdepasse']),
-
-        ];
-        $this->userModel = new UserModel($app);
-        $grainDeSel = "gsjkstzzeadsfùzrafsdf!sq!fezlkfes";
-        $hash = md5($donnees['password'].$grainDeSel);
-        var_dump(md5("client".$grainDeSel));
-        $donnees['password'] = $hash;
-        $data = $this->userModel->verif_mdp_Utilisateur($donnees['password']);
-        if($data != null){
-            if (strlen($donnees['Nmotdepasse']) < 4) $erreurs['Nmotdepasse']='le mot de passe doit contenir quatre caracteres minimum';
-            if($donnees['Nmotdepasse'] != $donnees['Cmotdepasse']) $erreurs['Cmotdepasse'] = 'Les mot de passes sont différents';
-            if(! empty($erreurs))
-            {
-                $this->platModel= new PlatModel($app);
-                $plat = $this->platModel->getAllPlat();
-                return $app["twig"]->render('backOff/composant/plats/v_form_update_plats.html.twig',['donnees'=>$donnees,'erreurs'=>$erreurs,'plat'=>$plat]);
-            }
-            else
-            {
-                $this->platModel = new PlatModel($app);
-                $this->platModel->updatePlat($donnees);
-                return $app->redirect($app["url_generator"]->generate("composant.index"));
-            }
-
-        }
-
-    }
 
 
     /**

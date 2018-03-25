@@ -64,7 +64,18 @@ class UserModel {
         return $queryBuilder->execute();
     }
 
-
+    public function updateUser($donnees)
+    {
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->update('users')
+            ->set('username' , '?')
+            ->set('email' , '?')
+            ->where("id = ".$donnees['id'])
+            ->setParameter(0, $donnees['username'])
+            ->setParameter(1, $donnees['email'])
+        ;
+        return $queryBuilder->execute();
+    }
 
 }
 

@@ -45,7 +45,7 @@ class menuModel{
             ->innerJoin('m', 'supplement', 's', 's.id_supplement=m.id_supplement')
             ->innerJoin('m', 'type', 't', 't.id_type=m.id_type')
             ->addOrderBy('m.date_menu', 'ASC')
-            ->where('m.date_menu>curdate()');
+            ->where('m.date_menu>curdate()','m.nbDispo > 0');
         return $queryBuilder->execute()->fetch();
     }
 

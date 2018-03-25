@@ -41,7 +41,7 @@ AIzaSyArYdvlfyiNtL2UdWCf9gpLsqI70sV6NFA
 
         </div >
             <div class="col5" >
-                {% if menu is not empty %}
+                {% if menu is not empty and menu.nbDispo > 0 %}
                 <div  style=" height: 350px; width: 358px; margin-top:5px; margin-left: 5px;"
                         {% if menu.libelle_type == "Dejeuner" %}
                             class="menu-blockMidi"

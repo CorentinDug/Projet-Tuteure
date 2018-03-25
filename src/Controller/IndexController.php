@@ -12,10 +12,6 @@ class IndexController implements ControllerProviderInterface
     private $menuModel;
     public function index(Application $app)
     {
-
-        if(isset($app['session']) and $app['session']->get('roles') == 'ROLE_ADMIN' ){
-            return $app["twig"]->render("v_admin.html.twig");
-        }
         $this->menuModel = new menuModel($app);
         $donnees = $this->menuModel->getMenuProche();
         return $app["twig"]->render("frontOff/menu/accueil.html.twig",['menu' => $donnees]);

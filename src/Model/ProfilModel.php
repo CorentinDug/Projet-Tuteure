@@ -21,7 +21,7 @@ class ProfilModel
     public function getProfil($id){
         $queryBuilder = new QueryBuilder($this->db);
         $queryBuilder
-            ->select('u.username,u.email')
+            ->select('u.username,u.email,u.id')
             ->from('users','u')
             ->where('u.id='.$id);
         return $queryBuilder->execute()->fetch();

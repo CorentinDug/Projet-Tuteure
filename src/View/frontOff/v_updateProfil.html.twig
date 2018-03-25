@@ -1,0 +1,28 @@
+{% extends "v_layout.html.twig" %}
+{% block contenu %}
+    <div class ="grid">
+        <div class="grid-noGutter" data-push-left="off-2">
+            <div class="col-4">
+                <form method="post" action="{{ path("user.validFormUpdateProfil") }} ">
+                    <div class="login-block">
+                        <h1>Modifier profil</h1>
+                        <input type="hidden" name="_method" id="_method" value="put"/>
+                        <label >Username :
+                            <input class="inputLoginBlock" name="username"  type="text"  size="18" value="" />
+                            {% if erreurs.username is defined %}
+                                <small class="error">{{erreurs.username}}</small>
+                            {% endif %}
+                        </label>
+                        <label >Email :
+                            <input class="inputLoginBlock" name="email"  type="text"  size="18" value="" />
+                            {% if erreurs.email is defined %}
+                                <small class="error">{{erreurs.email}}</small>
+                            {% endif %}
+                        </label>
+                        <input type="submit" class = "button" name="updateProfil" value="modifier" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
