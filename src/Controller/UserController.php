@@ -163,6 +163,12 @@ class UserController implements ControllerProviderInterface {
             return $app->abort(404, 'error Pb data form Add');
     }
 
+    public function updateProfil(Application $app){
+
+
+
+    }
+
 
 
     public function connect(Application $app) {
