@@ -28,4 +28,13 @@ class ProfilModel
 
     }
 
+    public function deleteReserv($id){
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder
+            ->delete('reservation')
+            ->where('id_reservation='.$id);
+        return $queryBuilder->execute();
+    }
+
+
 }

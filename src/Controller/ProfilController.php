@@ -38,6 +38,15 @@ class ProfilController implements ControllerProviderInterface
         return $app["twig"]->render('frontOff/profil.html.twig',['data'=>$profil,'reservation'=>$reservation]);
     }
 
+    public function deleteReservation(Application $app,$id){
+
+        $this->profilModel = new ProfilModel($app);
+        $this->profilModel->deleteReserv($id);
+        return $app->redirect($app["url_generator"]->generate("profil.index"));
+
+
+    }
+
 
 
 
@@ -55,6 +64,7 @@ class ProfilController implements ControllerProviderInterface
         $controllers->get('/', 'App\Controller\ProfilController::index')->bind('profil.index');
         $controllers->get('/show', 'App\Controller\ProfilController::showProfil')->bind('profil.show');
         $controllers->get('/change', 'App\Controller\ProfilController::changeMDP')->bind('profil.changeMDP');
+        $controllers->get('/delete{id}', 'App\Controller\ProfilController::deleteReservation')->bind('profil.deleteReserv');
 
 
 

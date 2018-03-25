@@ -18,6 +18,7 @@
                         <tr>
                             <td>{{reservation.libelle_menu}}</td><td>{{reservation.nbplaces}}</td>
                             <td>
+                                <a href="{{ path('profil.deleteReserv',{id: reservation.id_reservation}) }}" class="tda">Supprimer la reservation</a>/
                                 <a href="{{ path('comment.afficherComment',{id_reservation: reservation.id_reservation}) }}" class="tda">Voir commentaire</a>
                             </td>
                         </tr>

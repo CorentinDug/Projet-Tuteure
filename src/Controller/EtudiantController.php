@@ -64,7 +64,7 @@ class EtudiantController implements ControllerProviderInterface{
 
                 $this->EtudiantModel->addEtu($donnees);
                 if ($app['session']->get('roles') != 'ROLE_ADMIN' || !($app['session']->get('logged') != 1)){
-                    return $app->redirect($app["url_generator"]->generate('index.index'));
+                    return $app->redirect($app["url_generator"]->generate('etudiant.index'));
                 }
             }
 
