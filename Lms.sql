@@ -348,6 +348,11 @@ INSERT INTO MENU values (null,'Menu2',5,4,'2017-10-02',2,2,2,2,2,2,2,2);
 INSERT INTO MENU values (null,'Menu3',4,3,'2017-10-03',1,3,3,3,3,3,3,3);
 INSERT INTO MENU values (null,'Menu4',3,2,'2017-10-04',2,4,4,4,4,4,4,4);
 
+
+INSERT INTO projet_tut.users (username, password, motdepasse, roles, email, isEnabled) VALUES ('admin', 'd05cc09587a5589671f59966bea4fb12', 'admin', 'ROLE_ADMIN', 'admin@gmail.com', 1);
+INSERT INTO projet_tut.users (username, password, motdepasse, roles, email, isEnabled) VALUES ('client', '2f9dab7127378d55a4121d855266074c', 'client', 'ROLE_CLIENT', 'client@gmail.com', 1);
+INSERT INTO projet_tut.users (username, password, motdepasse, roles, email, isEnabled) VALUES ('client2', '2b49abae6e13396373d67063c6473efb', 'client2', 'ROLE_CLIENT', 'client2@gmail.com', 1);
+
 /*
 
         INSERTION RESERVATION
@@ -385,6 +390,3 @@ insert into sert values(1,1);
 insert into sert values(2,2);
 
 
-INSERT INTO projet_tut.users (username, password, motdepasse, roles, email, isEnabled) VALUES ('admin', 'd05cc09587a5589671f59966bea4fb12', 'admin', 'ROLE_ADMIN', 'admin@gmail.com', 1);
-INSERT INTO projet_tut.users (username, password, motdepasse, roles, email, isEnabled) VALUES ('client', '2f9dab7127378d55a4121d855266074c', 'client', 'ROLE_CLIENT', 'client@gmail.com', 1);
-INSERT INTO projet_tut.users (username, password, motdepasse, roles, email, isEnabled) VALUES ('client2', '2b49abae6e13396373d67063c6473efb', 'client2', 'ROLE_CLIENT', 'client2@gmail.com', 1);

@@ -113,6 +113,7 @@ class UserController implements ControllerProviderInterface {
         return $app["twig"]->render('v_inscription.html.twig', ['phrase' => $phrase, 'image' => $builder -> inline()]);
     }
 
+
     public function validFormInscription(Application $app,Request $req){
         $this->userModel = new userModel($app);
         if (isset($_POST['username']) && isset($_POST['motdepasse']) and isset($_POST['email']) and isset($_POST['maPhrase']) and isset ($_POST['verificationmotdepasse'])){
