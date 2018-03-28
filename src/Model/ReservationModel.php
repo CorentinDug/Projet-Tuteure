@@ -82,7 +82,7 @@ class ReservationModel
         $queryBuilder = new QueryBuilder($this->db);
         $queryBuilder->select('*')
             ->from('commentaires')
-            ->where('id_reservation = 3 ');
+            ->where('id_reservation ='.$id);
         return $queryBuilder->execute()->fetchAll();
     }
 }
