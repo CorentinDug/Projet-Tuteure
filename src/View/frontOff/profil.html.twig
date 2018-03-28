@@ -13,7 +13,7 @@
                     {% if reservation is not empty %}
                         <table>
                         <h2>Reservations</h2>
-                        <tr><th>Menu</th><th>Nombre places</th><th>operation</th></tr>
+                        <tr><th>Menu</th><th>Nombre places</th><th>operations</th></tr>
                         {% for reservation in reservation if reservation is not empty %}
                         <tr>
                             <td>{{reservation.libelle_menu}}</td><td>{{reservation.nbplaces}}</td>
