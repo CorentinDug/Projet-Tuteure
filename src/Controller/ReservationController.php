@@ -61,6 +61,7 @@ class ReservationController implements ControllerProviderInterface
 
         $this->reservationModel = new ReservationModel($app);
         $donnees = $this->reservationModel->getCommentaire($id);
+        var_dump($donnees);
         return $app['twig']->render('backOff/v_table_Comment.html.twig',['donnees' => $donnees]);
     }
 
