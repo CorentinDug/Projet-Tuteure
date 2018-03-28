@@ -6,7 +6,7 @@
             <form method="post" action="{{path('supplement.validFormDeleteSupplement')}}">
                 <div class="login-block">
                         <input type="hidden" name="_method" id="_method" value="delete"/>
-                        <h1>Voulez-vous suprimer ce supplement ? (twig)</h1>
+                        <h1>Voulez-vous suprimer ce supplement ?</h1>
                         <h2 id="blue">{{ donnees.type_supplement }}</h2>
                         <input name="id"  type="hidden" value="{{donnees.id_supplement}}" />
                         <input type="submit" class="button" name="suprimerSupplement" value="Suprimer" />

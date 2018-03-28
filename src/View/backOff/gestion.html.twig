@@ -6,11 +6,14 @@
                 <table>
                     <caption>Recapitulatifs des reservations</caption>
                     <tbody>
-                    <tr><th>Id reservation</th><th>nb places</th><th>id client</th><th>id menu</th>
+                    <tr><th>Id reservation</th><th>nb places</th><th>id client</th><th>id menu</th><th>Operation</th>
                     </tr>
                     {% for reservation in reserv if reserv is not empty %}
                         <tr>
                             <td>{{reservation.id_reservation}}</td><td>{{reservation.nbplaces}}</td><td>{{reservation.username}}</td><td>{{reservation.libelle_menu}}</td>
+                            <td>
+                                <a href="{{ path('reservation.getComment',{id: reservation.id_reservation}) }}" class="tda">Afficher les commentaires</a>
+                            </td>
                         </tr>
                     {% endfor %}
                     </tbody>

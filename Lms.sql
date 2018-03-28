@@ -175,6 +175,7 @@ create table commentaires
   id_client int not null,
   id_reservation int not null,
   Commentaire text null,
+  date DATE,
   primary key (id_reservation, id_client)
 )ENGINE =InnoDB;
 
@@ -317,10 +318,10 @@ insert into TYPE values(2,"Diner");
         INSERTION MENU
 
 */
-INSERT INTO MENU values (null,'Menu1',6,5,'2017-10-01',1,1,1,1,1,1,1,1);
-INSERT INTO MENU values (null,'Menu2',5,4,'2017-10-02',2,2,2,2,2,2,2,2);
-INSERT INTO MENU values (null,'Menu3',4,3,'2017-10-03',1,3,3,3,3,3,3,3);
-INSERT INTO MENU values (null,'Menu4',3,2,'2017-10-04',2,4,4,4,4,4,4,4);
+INSERT INTO MENU values (null,'Menu1',6,5,'2018-10-01',1,1,1,1,1,1,1,1);
+INSERT INTO MENU values (null,'Menu2',5,4,'2018-10-02',2,2,2,2,2,2,2,2);
+INSERT INTO MENU values (null,'Menu3',4,3,'2018-10-03',1,3,3,3,3,3,3,3);
+INSERT INTO MENU values (null,'Menu4',3,2,'2018-10-04',2,4,4,4,4,4,4,4);
 
 
 INSERT INTO projet_tut.users (username, password, motdepasse, roles, email, isEnabled) VALUES ('admin', 'd05cc09587a5589671f59966bea4fb12', 'admin', 'ROLE_ADMIN', 'admin@gmail.com', 1);

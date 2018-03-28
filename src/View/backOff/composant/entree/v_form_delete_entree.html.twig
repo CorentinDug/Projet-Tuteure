@@ -1,18 +1,23 @@
 {% extends "v_layout.html.twig" %}
 {% block contenu %}
-
+    <div class ="grid">
+    <div class="grid-noGutter" data-push-left="off-4">
+    <div class="col-4">
     <form method="post" action="{{path('entree.validFormDeleteEntree')}}">
         <div class="row">
-            <fieldset>
+            <div class="login-block">
                 <input type="hidden" name="_method" id="_method" value="delete"/>
-                <legend>Voulez-vous suprimer ce entree ? (twig)</legend>
-                <h3 id="blue">{{ donnees.libelle_entree }}</h3>
+                <h1>Voulez-vous suprimer ce entree ?</h1>
+                <h2 id="blue">{{ donnees.libelle_entree }}</h2>
                 {%  for libelle in libelle %}
-                    <h4>Le {{ libelle.libelle_menu }} sera également supprimer</h4>
+                    <h3>Le {{ libelle.libelle_menu }} sera également supprimer</h3>
                 {% endfor %}
                 <input name="id"  type="hidden" value="{{donnees.id_entree}}" />
                 <input type="submit" name="suprimerEntree" value="Suprimer" />
-            </fieldset>
+            </div>
         </div>
     </form>
+    </div>
+    </div>
+    </div>
 {% endblock %}

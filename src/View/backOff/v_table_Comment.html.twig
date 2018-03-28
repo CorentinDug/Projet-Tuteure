@@ -1,0 +1,30 @@
+{% extends "v_layout.html.twig" %}
+{% block contenu %}
+    <div class ="grid">
+        <div class="grid-noGutter" data-push-left="off-2">
+            <div class="col-4">
+                <table>
+                    <caption>Recapitulatifs des commentaires</caption>
+                    <tbody>
+                    <tr><th>Commentaires</th>
+
+                    </tr>
+                    {% for donnees in donnees if donnees is not empty %}
+                        <tr>
+                            <td>{{donnees.Commentaire}}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <table>
+        <caption></caption>
+        <tbody>
+
+
+
+{% endblock %}

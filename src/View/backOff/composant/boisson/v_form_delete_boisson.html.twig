@@ -5,16 +5,14 @@
             <div class="col-4">
                 <form method="post" action="{{path('boisson.validFormDeleteBoisson')}}">
                     <div class="login-block">
-                        <fieldset>
                             <input type="hidden" name="_method" id="_method" value="delete"/>
-                            <h1>Voulez-vous suprimer ce boisson ? (twig)</h1>
+                            <h1>Voulez-vous suprimer cette boisson ?</h1>
                             <h2 id="blue">{{ donnees.type_boisson }}</h2>
                             <input name="id"  type="hidden" value="{{donnees.id_boisson}}" />
                             {%  for libelle in libelle %}
                                 <h3>Le {{ libelle.libelle_menu }} sera également supprimer</h3>
                             {% endfor %}
                             <input class="button" type="submit" name="suprimerBoisson" value="Suprimer" />
-                        </fieldset>
                     </div>
                 </form>
             </div>

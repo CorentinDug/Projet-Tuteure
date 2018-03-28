@@ -4,7 +4,7 @@
         <div class="grid-noGutter" data-push-left="off-2">
             <div class="col-4">
                 <form method="post" action="{{ path("fromage.validFormEditFromage") }} ">
-                    <div class="card" style ="color:whitesmoke; padding: 20px; border-radius: 50px; ">
+                    <div class="login-block" >
                         <h1>Modification du fromage: {{ donnees.libelle_fromage }}</h1>
                         <input type="hidden" name="_method" id="_method" value="put"/>
                         <input type="hidden" name="id_fromage" value="{{ donnees.id_fromage }}"/>

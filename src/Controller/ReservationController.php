@@ -55,10 +55,14 @@ class ReservationController implements ControllerProviderInterface
         $this->reservationModel = new ReservationModel($app);
         $reservation = $this->reservationModel->getAllReserv();
         return $app['twig']->render('backOff/gestion.html.twig',['reserv' => $reservation]);
-
-
     }
 
+    public function showComment(Application $app,$id){
+
+        $this->reservationModel = new ReservationModel($app);
+        $donnees = $this->reservationModel->getCommentaire($id);
+        return $app['twig']->render('backOff/v_table_Comment.html.twig',['donnees' => $donnees]);
+    }
 
 
 
@@ -79,6 +83,7 @@ class ReservationController implements ControllerProviderInterface
         $controllers->get('/reserver', 'App\Controller\ReservationController::reserver')->bind('reservation.reserver');
         $controllers->post('/reserver', 'App\Controller\ReservationController::validFormReserv')->bind('reservation.validFormReserv');
         $controllers->get('/gestion', 'App\Controller\ReservatioNController::gestionReservation')->bind('reservation.gestion');
+        $controllers->get('/comment{id}', 'App\Controller\ReservatioNController::showComment')->bind('reservation.getComment');
         return $controllers;
 
     }

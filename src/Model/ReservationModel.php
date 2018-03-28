@@ -75,4 +75,14 @@ class ReservationModel
         return $queryBuilder->execute();
 
     }
+
+    public function getCommentaire($id)
+    {
+
+        $queryBuilder = new QueryBuilder($this->db);
+        $queryBuilder->select('*')
+            ->from('commentaires')
+            ->where('id_reservation='.$id);
+        $queryBuilder->execute()->fetchAll();
+    }
 }

@@ -6,7 +6,7 @@
             <form method="post" action="{% if boisson is defined %} {{ path("boisson.validFormAddBoisson",{boisson: boisson}) }} {% else %} {{ path("boisson.validFormAddBoisson") }} {% endif %} ">
                 <div class="login-block">
                     <h1> Créer une boisson</h1>
-                    <label >Nom du boisson     </label>
+                    <label >Nom de la boisson     </label>
                     <input class="inputLoginBlock" name="type_boisson"  type="text"  size="18" value="{{ donnees.type_boisson | default('') }}"/>
                     {% if erreurs.type_boisson is defined %}
                         <small class="error">{{erreurs.type_boisson}}</small>

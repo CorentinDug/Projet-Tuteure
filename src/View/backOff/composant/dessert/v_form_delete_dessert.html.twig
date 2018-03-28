@@ -6,7 +6,7 @@
                 <form method="post" action="{{path('dessert.validFormDeleteDessert')}}">
                     <div class="login-block">
                             <input type="hidden" name="_method" id="_method" value="delete"/>
-                            <h1>Voulez-vous suprimer ce dessert ? (twig)</h1>
+                            <h1>Voulez-vous suprimer ce dessert ?</h1>
                             <h2 id="blue">{{ donnees.libelle_dessert }}</h2>
                             {%  for libelle in libelle %}
                                 <h3>Le {{ libelle.libelle_menu }} sera également supprimer</h3>
